@@ -20,10 +20,14 @@ GrimoireGearData["MONK"] = {
     consumables = {
       flask = { itemId = 241320, name = "Flask of Thalassian Resistance" },
       combatPotion = { itemId = 241308, name = "Light's Potential" },
-      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
       weaponBuff = { itemId = 243734, name = "Thalassian Phoenix Oil" },
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
       food = { itemId = 255845, name = "Silvermoon Parade" },
+      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
+      healthPotion_5512 = { itemId = 5512, name = "Healthstone" },
+      food_255846 = { itemId = 255846, name = "Harandar Celebration" },
+      food_242275 = { itemId = 242275, name = "Royal Roast" },
+      invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },
     },
     trinkets = {
       { itemId = 270164, tier = "S", contexts = { "raid" } },
@@ -108,9 +112,12 @@ GrimoireGearData["MONK"] = {
     consumables = {
       flask = { itemId = 241324, name = "Flask of the Blood Knights" },
       combatPotion = { itemId = 241288, name = "Potion of Recklessness" },
-      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
       weaponBuff = { itemId = 243734, name = "Thalassian Phoenix Oil" },
       food = { itemId = 242747, name = "Hearty Royal Roast" },
+      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
+      invisibilityPotion = { itemId = 241302, name = "Void-Shrouded Tincture" },
+      food_266996 = { itemId = 266996, name = "Hearty Harandar Celebration" },
+      invisibilityPotion_241303 = { itemId = 241303, name = "Void-Shrouded Tincture" },
     },
     trinkets = {
       { itemId = 270162, tier = "S", contexts = { "raid" }, source = "Nek'zali the Soulcoiler" },
@@ -179,10 +186,13 @@ GrimoireGearData["MONK"] = {
     consumables = {
       flask = { itemId = 241324, name = "Flask of the Blood Knights" },
       combatPotion = { itemId = 241288, name = "Potion of Recklessness" },
-      healthPotion = { itemId = 271883, name = "Concentrated Silvermoon Health Potion" },
       weaponBuff = { itemId = 243734, name = "Thalassian Phoenix Oil" },
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
       food = { itemId = 255846, name = "Harandar Celebration" },
+      healthPotion = { itemId = 271883, name = "Concentrated Silvermoon Health Potion" },
+      food_255845 = { itemId = 255845, name = "Silvermoon Parade" },
+      healthPotion_271884 = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
+      invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },
     },
     trinkets = {
       { itemId = 270173, tier = "S", contexts = { "raid" }, source = "The Coiled Altar" },

@@ -1,0 +1,50 @@
+name: Auto Release
+
+# Laeuft bei jedem Push auf main/master. Liest die Versionsnummer direkt aus
+# der .toc (dieselbe, die scraper/run_all.py automatisiert pflegt) und
+# erstellt/aktualisiert einen GitHub Release mit genau diesem Tag + einem
+# gezippten Addon-Ordner als Anhang. WowUp erkennt neue Releases automatisch.
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo auschecken
+        uses: actions/checkout@v4
+
+      - name: Version aus .toc lesen
+        id: version
+        run: |
+          TOC_FILE=$(ls *.toc | head -n 1)
+          VERSION=$(grep -oP '(?<=## Version:).*' "$TOC_FILE" | tr -d '\r' | xargs)
+          echo "Gefundene Version: $VERSION"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+      - name: Addon zippen
+        run: |
+          mkdir -p build/Grimoire
+          rsync -a --exclude='.git' --exclude='.github' --exclude='build' ./ build/Grimoire/
+          cd build
+          zip -r "Grimoire-v${{ steps.version.outputs.version }}.zip" Grimoire
+
+      - name: Release erstellen/aktualisieren
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.version.outputs.version }}
+          name: v${{ steps.version.outputs.version }}
+          files: build/Grimoire-v${{ steps.version.outputs.version }}.zip
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

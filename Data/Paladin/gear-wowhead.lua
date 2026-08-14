@@ -19,11 +19,15 @@ GrimoireGearData["PALADIN"] = {
     },
     consumables = {
       flask = { itemId = 241322, name = "Flask of the Magisters" },
-      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
       weaponBuff = { itemId = 243734, name = "Thalassian Phoenix Oil" },
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
       food = { itemId = 242747, name = "Hearty Royal Roast" },
       combatPotion = { itemId = 241288, name = "Potion of Recklessness" },
+      extra_mana_potion = { itemId = 241300, name = "Lightfused Mana Potion" },
+      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
+      food_266985 = { itemId = 266985, name = "Hearty Silvermoon Parade" },
+      food_242299 = { itemId = 242299, name = "Sanguithorn Tea" },
+      invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },
     },
     trinkets = {
       { itemId = 270162, tier = "S", contexts = { "crafting", "delves", "dungeon", "raid" }, source = "Nek'zali the Soulcoiler" },
@@ -86,10 +90,13 @@ GrimoireGearData["PALADIN"] = {
     consumables = {
       flask = { itemId = 241324, name = "Flask of the Blood Knights" },
       combatPotion = { itemId = 241292, name = "Draught of Rampant Abandon" },
-      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
       weaponBuff = { itemId = 243734, name = "Thalassian Phoenix Oil" },
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
       food = { itemId = 255845, name = "Silvermoon Parade" },
+      combatPotion_241308 = { itemId = 241308, name = "Light's Potential" },
+      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
+      food_255846 = { itemId = 255846, name = "Harandar Celebration" },
+      invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },
     },
     trinkets = {
       { itemId = 270164, tier = "S", contexts = { "raid" } },
@@ -155,10 +162,13 @@ GrimoireGearData["PALADIN"] = {
     consumables = {
       flask = { itemId = 241322, name = "Flask of the Magisters" },
       combatPotion = { itemId = 241288, name = "Potion of Recklessness" },
-      healthPotion = { itemId = 271883, name = "Concentrated Silvermoon Health Potion" },
       weaponBuff = { itemId = 243734, name = "Thalassian Phoenix Oil" },
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
       food = { itemId = 242275, name = "Royal Roast" },
+      healthPotion = { itemId = 271883, name = "Concentrated Silvermoon Health Potion" },
+      food_255846 = { itemId = 255846, name = "Harandar Celebration" },
+      healthPotion_271884 = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
+      invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },
     },
     trinkets = {
       { itemId = 270173, tier = "S", contexts = { "raid" }, source = "The Coiled Altar" },

@@ -2,7 +2,7 @@
 ## Title: Grimoire
 ## Notes: Ausrüstungs-, Werteprioritäts- und Omnium-Folio-Empfehlungen pro Spec.
 ## Author: Ravyniel
-## Version: 0.1.0
+## Version: 3.0.0
 ## SavedVariables: GrimoireDB
 ## SavedVariablesPerCharacter: GrimoireCharDB
 ## IconTexture: Interface\AddOns\Grimoire\icon

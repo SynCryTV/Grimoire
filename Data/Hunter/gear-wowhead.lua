@@ -24,10 +24,13 @@ GrimoireGearData["HUNTER"] = {
     consumables = {
       flask = { itemId = 241322, name = "Flask of the Magisters" },
       combatPotion = { itemId = 241308, name = "Light's Potential" },
-      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
       weaponBuff = { itemId = 243734, name = "Thalassian Phoenix Oil" },
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
       food = { itemId = 275266, name = "Feast of Knowledge" },
+      combatPotion_241288 = { itemId = 241288, name = "Potion of Recklessness" },
+      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
+      food_275258 = { itemId = 275258, name = "Venom-Spiced Cutlets" },
+      invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },
     },
     trinkets = {
       { itemId = 270164, tier = "S", contexts = { "raid" }, source = "The Lost Explorers" },
@@ -99,10 +102,13 @@ GrimoireGearData["HUNTER"] = {
     consumables = {
       flask = { itemId = 241326, name = "Flask of the Shattered Sun" },
       combatPotion = { itemId = 241288, name = "Potion of Recklessness" },
-      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
       weaponBuff = { itemId = 243734, name = "Thalassian Phoenix Oil" },
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
       food = { itemId = 242747, name = "Hearty Royal Roast" },
+      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
+      extra_food_feast = { itemId = 255846, name = "Harandar Celebration" },
+      extra_food_feast_255845 = { itemId = 255845, name = "Silvermoon Parade" },
+      invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },
     },
     trinkets = {
       { itemId = 270164, tier = "S", contexts = { "raid" } },
@@ -161,10 +167,11 @@ GrimoireGearData["HUNTER"] = {
     consumables = {
       flask = { itemId = 245933, name = "Fleeting Flask of the Magisters" },
       combatPotion = { itemId = 241288, name = "Potion of Recklessness" },
-      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
       weaponBuff = { itemId = 243734, name = "Thalassian Phoenix Oil" },
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
       food = { itemId = 275265, name = "Loa's Gathering" },
+      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
+      invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },
     },
     trinkets = {
       { itemId = 270173, tier = "S", contexts = { "crafting", "delves", "dungeon", "raid" }, source = "The Coiled Altar" },

@@ -20,10 +20,13 @@ GrimoireGearData["SHAMAN"] = {
     consumables = {
       flask = { itemId = 241322, name = "Flask of the Magisters" },
       combatPotion = { itemId = 241308, name = "Light's Potential" },
-      healthPotion = { itemId = 271883, name = "Concentrated Silvermoon Health Potion" },
       weaponBuff = { itemId = 243734, name = "Thalassian Phoenix Oil" },
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
       food = { itemId = 255846, name = "Harandar Celebration" },
+      flask_241326 = { itemId = 241326, name = "Flask of the Shattered Sun" },
+      healthPotion = { itemId = 271883, name = "Concentrated Silvermoon Health Potion" },
+      healthPotion_271884 = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
+      invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },
     },
     trinkets = {
       { itemId = 250215, tier = "S", contexts = { "dungeon" } },
@@ -84,9 +87,11 @@ GrimoireGearData["SHAMAN"] = {
     consumables = {
       flask = { itemId = 241324, name = "Flask of the Blood Knights" },
       combatPotion = { itemId = 241288, name = "Potion of Recklessness" },
-      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
       food = { itemId = 255845, name = "Silvermoon Parade" },
+      healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
+      food_242275 = { itemId = 242275, name = "Royal Roast" },
+      invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },
     },
     trinkets = {
       { itemId = 270164, tier = "S", contexts = { "raid" } },
@@ -162,9 +167,14 @@ GrimoireGearData["SHAMAN"] = {
     consumables = {
       flask = { itemId = 241326, name = "Flask of the Shattered Sun" },
       combatPotion = { itemId = 241300, name = "Lightfused Mana Potion" },
-      healthPotion = { itemId = 271883, name = "Concentrated Silvermoon Health Potion" },
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
       food = { itemId = 255845, name = "Silvermoon Parade" },
+      combatPotion_241288 = { itemId = 241288, name = "Potion of Recklessness" },
+      healthPotion = { itemId = 271883, name = "Concentrated Silvermoon Health Potion" },
+      food_242275 = { itemId = 242275, name = "Royal Roast" },
+      food_242299 = { itemId = 242299, name = "Sanguithorn Tea" },
+      healthPotion_271884 = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
+      invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },
     },
     trinkets = {
       { itemId = 270162, tier = "S", contexts = { "dungeon", "raid" }, source = "Nek'zali the Soulcoiler (Raid)" },

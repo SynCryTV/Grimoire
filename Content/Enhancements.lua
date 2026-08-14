@@ -107,8 +107,13 @@ copyTitle:SetPoint("TOPLEFT", copyPopup, "TOPLEFT", 10, -8)
 copyTitle:SetText("Itemname kopieren")
 
 local copyHint = copyPopup:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
-copyHint:SetPoint("TOPRIGHT", copyPopup, "TOPRIGHT", -10, -8)
+copyHint:SetPoint("TOPRIGHT", copyPopup, "TOPRIGHT", -32, -8)
 copyHint:SetText("Strg+C")
+
+-- Schließen-Button, falls das Fenster versehentlich geöffnet wurde.
+local copyCloseButton = CreateFrame("Button", nil, copyPopup, "UIPanelCloseButton")
+copyCloseButton:SetSize(22, 22)
+copyCloseButton:SetPoint("TOPRIGHT", copyPopup, "TOPRIGHT", 1, 1)
 
 local copyEdit = CreateFrame("EditBox", nil, copyPopup, "InputBoxTemplate")
 copyEdit:SetPoint("TOPLEFT", copyPopup, "TOPLEFT", 10, -27)
@@ -120,8 +125,9 @@ copyEdit:SetJustifyH("LEFT")
 copyEdit:SetMaxLetters(300)
 
 local copyGeneration = 0
+local CloseCopyPopup
 
-local function CloseCopyPopup(copied)
+CloseCopyPopup = function(copied)
     copyGeneration = copyGeneration + 1
     copyEdit:ClearFocus()
     copyPopup:Hide()
@@ -130,6 +136,10 @@ local function CloseCopyPopup(copied)
         ShowToast("Name kopiert")
     end
 end
+
+copyCloseButton:SetScript("OnClick", function()
+    CloseCopyPopup(false)
+end)
 
 local function ShowCopyPopup(itemID, fallbackName)
     if not itemID then return end

@@ -283,6 +283,55 @@ local FIXED_CONSUMABLES = {
     },
 }
 
+local function NormalizeDynamicConsumableLabel(label, key)
+    local raw = label or key or ""
+    raw = tostring(raw)
+
+    -- Interne Scraper-Schlüssel niemals direkt anzeigen.
+    raw = raw:gsub("^extra_", "")
+    raw = raw:gsub("_", " ")
+
+    -- Der Scraper hängt bei Alternativen teilweise die itemId an:
+    -- z.B. "food_242747" -> "food"
+    raw = raw:gsub("%s+%d+$", "")
+    raw = raw:gsub("^%s+", ""):gsub("%s+$", "")
+
+    local lower = raw:lower()
+
+    local aliases = {
+        ["flask"] = "Fläschchen",
+        ["phial"] = "Fläschchen",
+        ["combat potion"] = "Kampftrank",
+        ["health potion"] = "Heiltrank",
+        ["healing potion"] = "Heiltrank",
+        ["invisibility potion"] = "Unsichtbarkeitstrank",
+        ["invisiblity potion"] = "Unsichtbarkeitstrank",
+        ["weapon buff"] = "Waffenverstärkung",
+        ["weapon oil"] = "Waffenverstärkung",
+        ["augment rune"] = "Verstärkungsrune",
+        ["food"] = "Essen",
+        ["group feast"] = "Essen",
+    }
+
+    if aliases[lower] then
+        return aliases[lower]
+    end
+
+    -- Falls der Scraper schon ein ordentliches sichtbares Label mitliefert,
+    -- dieses beibehalten.
+    if label and label ~= "" and not tostring(label):match("^extra_") then
+        local clean = tostring(label):gsub("%s+%d+$", "")
+        return NormalizeSlotLabel(clean)
+    end
+
+    -- Letzter Fallback: lesbar machen, aber nie technische IDs anzeigen.
+    if raw == "" then
+        return "Verbrauchsgut"
+    end
+
+    return raw:gsub("^%l", string.upper)
+end
+
 local function CollectConsumableEntries(specData)
     local out = {}
     if not specData then return out end
@@ -319,15 +368,8 @@ local function CollectConsumableEntries(specData)
 
     for _, key in ipairs(extraKeys) do
         local item = c[key]
-        local label = item.label
-
-        if not label or label == "" then
-            label = key
-                :gsub("^extra_", "")
-                :gsub("_", " ")
-        end
-
-        AddConsumable(out, NormalizeSlotLabel(label), item)
+        local label = NormalizeDynamicConsumableLabel(item.label, key)
+        AddConsumable(out, label, item)
     end
 
     -- Fallback für ältere Scraper-Ausgaben, die Consumables unter "enchants" ablegen.

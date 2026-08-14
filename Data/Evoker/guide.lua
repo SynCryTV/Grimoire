@@ -1,5 +1,6 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
--- talents/rotation bewusst als Platzhalter -- siehe Projektnotizen
+-- Wowhead-Operatoren werden originalgetreu gespeichert
+-- talents/rotation bewusst als Platzhalter
 GrimoireData = GrimoireData or {}
 GrimoireData["EVOKER"] = {
   ["augmentation"] = {
@@ -8,20 +9,40 @@ GrimoireData["EVOKER"] = {
       {
         heroTalent = "Chronowarden", context = "General",
         stats = {
+          { "Intellect" },
           { "Mastery" },
           { "Critical Strike" },
           { "Haste" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Mastery" },
+          { "Critical Strike" },
+          { "Haste" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
       {
         heroTalent = "Scalecommander", context = "General",
         stats = {
+          { "Intellect" },
           { "Mastery" },
           { "Critical Strike" },
           { "Haste" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Mastery" },
+          { "Critical Strike" },
+          { "Haste" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -33,20 +54,40 @@ GrimoireData["EVOKER"] = {
       {
         heroTalent = "Flameshaper", context = "General",
         stats = {
+          { "Intellect" },
           { "Critical Strike" },
           { "Mastery" },
           { "Haste" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Critical Strike" },
+          { "Mastery" },
+          { "Haste" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
       {
         heroTalent = "Scalecommander", context = "General",
         stats = {
+          { "Intellect" },
           { "Critical Strike" },
           { "Mastery" },
           { "Haste" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Critical Strike" },
+          { "Mastery" },
+          { "Haste" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -58,26 +99,39 @@ GrimoireData["EVOKER"] = {
       {
         context = "General",
         stats = {
+          { "Intellect" },
           { "Mastery" },
-          { "Crit" },
+          { "Critical Strike" },
           { "Haste" },
           { "Versatility" },
         },
-      },
-      {
-        context = "General",
-        stats = {
-          { "Crit" },
-          { "Haste" },
-          { "Mastery" },
-          { "Versatility" },
-        },
+        operators = { ">", ">", ">", ">" },
         previousStats = {
           { "Mastery" },
           { "Crit" },
           { "Haste" },
           { "Versatility" },
         },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
+      },
+      {
+        context = "General",
+        stats = {
+          { "Intellect" },
+          { "Critical Strike" },
+          { "Haste" },
+          { "Mastery" },
+          { "Versatility" },
+        },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Mastery" },
+          { "Crit" },
+          { "Haste" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
         changedDate = "2026-08-14",
       },
     },

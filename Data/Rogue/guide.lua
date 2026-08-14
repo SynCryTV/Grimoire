@@ -1,5 +1,6 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
--- talents/rotation bewusst als Platzhalter -- siehe Projektnotizen
+-- Wowhead-Operatoren werden originalgetreu gespeichert
+-- talents/rotation bewusst als Platzhalter
 GrimoireData = GrimoireData or {}
 GrimoireData["ROGUE"] = {
   ["assassination"] = {
@@ -8,20 +9,40 @@ GrimoireData["ROGUE"] = {
       {
         heroTalent = "Fatebound", context = "General",
         stats = {
+          { "Agility" },
           { "Critical Strike" },
           { "Haste" },
           { "Mastery" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Critical Strike" },
+          { "Haste" },
+          { "Mastery" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
       {
         heroTalent = "Deathstalker", context = "General",
         stats = {
+          { "Agility" },
           { "Critical Strike" },
           { "Haste" },
           { "Mastery" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Critical Strike" },
+          { "Haste" },
+          { "Mastery" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -33,20 +54,40 @@ GrimoireData["ROGUE"] = {
       {
         heroTalent = "Trickster", context = "General",
         stats = {
+          { "Agility" },
           { "Haste" },
           { "Critical Strike" },
           { "Versatility" },
           { "Mastery" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Haste" },
+          { "Critical Strike" },
+          { "Versatility" },
+          { "Mastery" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
       {
         heroTalent = "Fatebound", context = "General",
         stats = {
+          { "Agility" },
           { "Haste" },
           { "Critical Strike" },
           { "Versatility" },
           { "Mastery" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Haste" },
+          { "Critical Strike" },
+          { "Versatility" },
+          { "Mastery" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -58,20 +99,40 @@ GrimoireData["ROGUE"] = {
       {
         heroTalent = "Deathstalker", context = "General",
         stats = {
+          { "Agility" },
           { "Mastery" },
           { "Haste" },
           { "Critical Strike" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Mastery" },
+          { "Haste" },
+          { "Critical Strike" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
       {
         heroTalent = "Trickster", context = "General",
         stats = {
+          { "Agility" },
           { "Mastery" },
           { "Haste" },
           { "Critical Strike" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Mastery" },
+          { "Haste" },
+          { "Critical Strike" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},

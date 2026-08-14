@@ -1,5 +1,6 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
--- talents/rotation bewusst als Platzhalter -- siehe Projektnotizen
+-- Wowhead-Operatoren werden originalgetreu gespeichert
+-- talents/rotation bewusst als Platzhalter
 GrimoireData = GrimoireData or {}
 GrimoireData["PALADIN"] = {
   ["holy"] = {
@@ -8,18 +9,30 @@ GrimoireData["PALADIN"] = {
       {
         heroTalent = "Herald of the Sun", context = "General",
         stats = {
+          { "Haste", "Critical Strike" },
+        },
+        operators = {  },
+        previousStats = {
           { "Mastery" },
           { "Haste", "Crit" },
           { "Versatility" },
         },
+        previousOperators = { ">", ">" },
+        changedDate = "2026-08-14",
       },
       {
         heroTalent = "Lightsmith", context = "General",
         stats = {
+          { "Haste", "Critical Strike" },
+        },
+        operators = {  },
+        previousStats = {
           { "Mastery" },
           { "Haste", "Crit" },
           { "Versatility" },
         },
+        previousOperators = { ">", ">" },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -31,26 +44,39 @@ GrimoireData["PALADIN"] = {
       {
         context = "General",
         stats = {
+          { "Strength" },
           { "Haste" },
           { "Mastery" },
           { "Critical Strike" },
           { "Versatility" },
         },
-      },
-      {
-        context = "General",
-        stats = {
-          { "Haste" },
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Versatility" },
-        },
+        operators = { ">", ">", ">", ">" },
         previousStats = {
           { "Haste" },
           { "Mastery" },
           { "Critical Strike" },
           { "Versatility" },
         },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
+      },
+      {
+        context = "General",
+        stats = {
+          { "Strength" },
+          { "Haste" },
+          { "Critical Strike" },
+          { "Mastery" },
+          { "Versatility" },
+        },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Haste" },
+          { "Mastery" },
+          { "Critical Strike" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
         changedDate = "2026-08-14",
       },
     },
@@ -63,20 +89,40 @@ GrimoireData["PALADIN"] = {
       {
         heroTalent = "Templar", context = "General",
         stats = {
+          { "Strength" },
           { "Mastery" },
           { "Haste" },
           { "Critical Strike" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Mastery" },
+          { "Haste" },
+          { "Critical Strike" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
       {
         heroTalent = "Herald of the Sun", context = "General",
         stats = {
+          { "Strength" },
           { "Mastery" },
           { "Haste" },
           { "Critical Strike" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Mastery" },
+          { "Haste" },
+          { "Critical Strike" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},

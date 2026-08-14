@@ -1,5 +1,6 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
--- talents/rotation bewusst als Platzhalter -- siehe Projektnotizen
+-- Wowhead-Operatoren werden originalgetreu gespeichert
+-- talents/rotation bewusst als Platzhalter
 GrimoireData = GrimoireData or {}
 GrimoireData["WARRIOR"] = {
   ["arms"] = {
@@ -8,20 +9,40 @@ GrimoireData["WARRIOR"] = {
       {
         heroTalent = "Colossus", context = "General",
         stats = {
+          { "Strength" },
           { "Critical Strike" },
           { "Haste" },
           { "Mastery" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Critical Strike" },
+          { "Haste" },
+          { "Mastery" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
       {
         heroTalent = "Slayer", context = "General",
         stats = {
+          { "Strength" },
           { "Critical Strike" },
           { "Haste" },
           { "Mastery" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Critical Strike" },
+          { "Haste" },
+          { "Mastery" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -33,20 +54,40 @@ GrimoireData["WARRIOR"] = {
       {
         heroTalent = "Mountain Thane", context = "General",
         stats = {
+          { "Strength" },
           { "Haste" },
           { "Mastery" },
           { "Critical Strike" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Haste" },
+          { "Mastery" },
+          { "Critical Strike" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
       {
         heroTalent = "Slayer", context = "General",
         stats = {
+          { "Strength" },
           { "Haste" },
           { "Mastery" },
           { "Critical Strike" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Haste" },
+          { "Mastery" },
+          { "Critical Strike" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -58,11 +99,21 @@ GrimoireData["WARRIOR"] = {
       {
         context = "General",
         stats = {
+          { "Strength" },
           { "Haste" },
           { "Critical Strike" },
           { "Versatility" },
           { "Mastery" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Haste" },
+          { "Critical Strike" },
+          { "Versatility" },
+          { "Mastery" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},

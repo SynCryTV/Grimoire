@@ -21,6 +21,25 @@ local DB_DEFAULTS = {
     showStatPriorityInTooltips = true,
     showTrinketTiersInTooltips = true,
     trinketTiersAllClasses = false,
+    trinketTierFilters = {
+        S = true,
+        A = true,
+        B = true,
+        C = true,
+        D = true,
+    },
+
+    -- BiS-Drop-Warnung:
+    -- Standardmäßig aktiv auf Wowhead -> Overall.
+    bisDropAlert = {
+        enabled = true,
+        sourceKey = "wowhead",
+        context = "Overall",
+        ownDrops = true,
+        otherDrops = false,
+        sound = "pvpqueue",
+    },
+
     sectionVisibility = {
         statTargets = true,
         statPriority = true,

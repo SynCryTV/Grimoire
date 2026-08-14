@@ -74,15 +74,42 @@ local function AppendRankToLine(fontString, statKey, rank)
     local color = G.RANK_COLORS[rank] or G.RANK_COLORS[5]
     local hexColor = string.format("%02x%02x%02x", color[1] * 255, color[2] * 255, color[3] * 255)
 
+    local segment = text:sub(wordPos, cutPos - 1)
+    if segment:find("|cff%x%x%x%x%x%x#%d+|r") then return end
+
     local before = text:sub(1, cutPos - 1)
     local after = text:sub(cutPos)
     fontString:SetText(before .. " |cff" .. hexColor .. "#" .. rank .. "|r" .. after)
 end
 
+local function GetDisplayedItemLink(tooltip)
+    -- Moderne Tooltip-API: funktioniert auch mit ShoppingTooltip/Comparison-Tooltips.
+    if TooltipUtil and TooltipUtil.GetDisplayedItem then
+        local _, itemLink = TooltipUtil.GetDisplayedItem(tooltip)
+        if itemLink then return itemLink end
+    end
+
+    -- Fallback fuer Tooltip-Typen/Clients, die GetItem noch anbieten.
+    if tooltip.GetItem then
+        local _, itemLink = tooltip:GetItem()
+        if itemLink then return itemLink end
+    end
+
+    -- Weiterer Fallback ueber die TooltipData-Struktur.
+    if tooltip.GetTooltipData then
+        local data = tooltip:GetTooltipData()
+        if data and data.hyperlink then
+            return data.hyperlink
+        end
+    end
+
+    return nil
+end
+
 local function OnTooltipSetItem(tooltip)
     if not G.db or not G.db.showStatPriorityInTooltips then return end
 
-    local _, itemLink = tooltip:GetItem()
+    local itemLink = GetDisplayedItemLink(tooltip)
     if not itemLink then return end
 
     local itemStats = C_Item.GetItemStats(itemLink)
@@ -111,8 +138,11 @@ local function OnTooltipSetItem(tooltip)
     end
     if not next(relevantRanks) then return end
 
+    local tooltipName = tooltip.GetName and tooltip:GetName()
+    if not tooltipName then return end
+
     for i = 2, tooltip:NumLines() do
-        local fs = _G["GameTooltipTextLeft" .. i]
+        local fs = _G[tooltipName .. "TextLeft" .. i]
         if fs then
             for statKey, rank in pairs(relevantRanks) do
                 AppendRankToLine(fs, statKey, rank)

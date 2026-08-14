@@ -8,6 +8,7 @@
 ## IconTexture: Interface\AddOns\Grimoire\icon
 
 Core\Init.lua
+Core\Animations.lua
 Core\SpecKeys.lua
 Core\Frame.lua
 Core\Tabs.lua
@@ -98,4 +99,8 @@ Data\Warrior\omnium-folio.lua
 Content\Guide.lua
 Content\StatTargets.lua
 Content\StatPriority.lua
-Content\TooltipStats.lua
+Content\TooltipStats.lua 
+Content\OmniumFolio.lua
+Content\BisGear.lua
+Content\Trinkets.lua
+Content\Enhancements.lua

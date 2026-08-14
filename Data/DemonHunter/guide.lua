@@ -1,5 +1,6 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
--- talents/rotation bewusst als Platzhalter -- siehe Projektnotizen
+-- Wowhead-Operatoren werden originalgetreu gespeichert
+-- talents/rotation bewusst als Platzhalter
 GrimoireData = GrimoireData or {}
 GrimoireData["DEMONHUNTER"] = {
   ["devourer"] = {
@@ -8,21 +9,42 @@ GrimoireData["DEMONHUNTER"] = {
       {
         heroTalent = "Annihilator", context = "General",
         stats = {
+          { "Intellect" },
           { "Haste" },
           { "Mastery" },
           { "Critical Strike" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Haste" },
+          { "Mastery" },
+          { "Critical Strike" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
       {
         heroTalent = "Void-Scarred", context = "General",
         stats = {
-          { "Haste" },
+          { "Intellect" },
+          { "Haste (bis 800)" },
           { "Critical Strike" },
           { "Mastery" },
           { "Versatility" },
-          { "Haste." },
+          { "Haste (ab 800)" },
         },
+        operators = { ">", ">", ">", ">", ">" },
+        previousStats = {
+          { "Haste (bis 800)" },
+          { "Critical Strike" },
+          { "Mastery" },
+          { "Versatility" },
+          { "Haste (ab 800)" },
+        },
+        previousOperators = { ">", ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -34,20 +56,40 @@ GrimoireData["DEMONHUNTER"] = {
       {
         heroTalent = "Fel-Scarred", context = "General",
         stats = {
+          { "Agility" },
           { "Critical Strike" },
           { "Mastery" },
           { "Haste" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Critical Strike" },
+          { "Mastery" },
+          { "Haste" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
       {
         heroTalent = "Aldrachi Reaver", context = "General",
         stats = {
+          { "Agility" },
           { "Critical Strike" },
           { "Mastery" },
           { "Haste" },
           { "Versatility" },
         },
+        operators = { ">", ">", ">", ">" },
+        previousStats = {
+          { "Critical Strike" },
+          { "Mastery" },
+          { "Haste" },
+          { "Versatility" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -60,19 +102,37 @@ GrimoireData["DEMONHUNTER"] = {
         heroTalent = "Aldrachi Reaver", context = "General",
         stats = {
           { "Haste" },
-          { "Crit" },
+          { "Critical Strike" },
           { "Versatility" },
           { "Mastery" },
         },
-      },
-      {
-        heroTalent = "Annihilator", context = "General",
-        stats = {
+        operators = { ">", ">", ">" },
+        previousStats = {
           { "Haste" },
           { "Crit" },
           { "Versatility" },
           { "Mastery" },
         },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
+      },
+      {
+        heroTalent = "Annihilator", context = "General",
+        stats = {
+          { "Haste" },
+          { "Critical Strike" },
+          { "Versatility" },
+          { "Mastery" },
+        },
+        operators = { ">", ">", ">" },
+        previousStats = {
+          { "Haste" },
+          { "Crit" },
+          { "Versatility" },
+          { "Mastery" },
+        },
+        previousOperators = { ">", ">", ">" },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},

@@ -2,15 +2,15 @@
 GrimoireArchonStats = GrimoireArchonStats or {}
 GrimoireArchonStats["PALADIN"] = {
   ["holy"] = {
-    ["Mythic+"] = { targets = { mastery = 998, haste = 944, crit = 393, versatility = 266 } },
-    ["Raid"] = { targets = { mastery = 1309, haste = 836, crit = 413, versatility = 94 } },
+    ["Mythic+"] = { targets = { haste = 854, mastery = 820, crit = 460, versatility = 204 } },
+    ["Raid"] = { targets = { mastery = 1353, haste = 868, crit = 409, versatility = 95 } },
   },
   ["protection"] = {
-    ["Mythic+"] = { targets = { haste = 981, crit = 817, mastery = 574, versatility = 193 } },
-    ["Raid"] = { targets = { haste = 999, crit = 698, mastery = 610, versatility = 191 } },
+    ["Mythic+"] = { targets = { haste = 925, crit = 666, mastery = 453, versatility = 234 } },
+    ["Raid"] = { targets = { haste = 1013, crit = 664, mastery = 634, versatility = 187 } },
   },
   ["retribution"] = {
-    ["Mythic+"] = { targets = { mastery = 1052, crit = 955, haste = 615, versatility = 60 } },
-    ["Raid"] = { targets = { mastery = 1098, crit = 865, haste = 662, versatility = 57 } },
+    ["Mythic+"] = { targets = { mastery = 961, crit = 811, haste = 650, versatility = 126 } },
+    ["Raid"] = { targets = { mastery = 1092, crit = 852, haste = 663, versatility = 59 } },
   },
 }

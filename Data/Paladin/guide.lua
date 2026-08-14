@@ -7,32 +7,18 @@ GrimoireData["PALADIN"] = {
     label = "Holy Paladin",
     priorities = {
       {
-        heroTalent = "Herald of the Sun", context = "General",
+        heroTalent = "Herald of the Sun", heroTalentIcon = "wow-hero-talent-herald-of-the-sun", context = "General",
         stats = {
           { "Haste", "Critical Strike" },
         },
         operators = {  },
-        previousStats = {
-          { "Mastery" },
-          { "Haste", "Crit" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Lightsmith", context = "General",
+        heroTalent = "Lightsmith", heroTalentIcon = "wow-hero-talent-lightsmith", context = "General",
         stats = {
           { "Haste", "Critical Strike" },
         },
         operators = {  },
-        previousStats = {
-          { "Mastery" },
-          { "Haste", "Crit" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -51,14 +37,6 @@ GrimoireData["PALADIN"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
         context = "General",
@@ -71,12 +49,13 @@ GrimoireData["PALADIN"] = {
         },
         operators = { ">", ">", ">", ">" },
         previousStats = {
+          { "Strength" },
           { "Haste" },
           { "Mastery" },
           { "Critical Strike" },
           { "Versatility" },
         },
-        previousOperators = { ">", ">", ">" },
+        previousOperators = { ">", ">", ">", ">" },
         changedDate = "2026-08-14",
       },
     },
@@ -87,7 +66,7 @@ GrimoireData["PALADIN"] = {
     label = "Retribution Paladin",
     priorities = {
       {
-        heroTalent = "Templar", context = "General",
+        heroTalent = "Templar", heroTalentIcon = "wow-hero-talent-templar", context = "General",
         stats = {
           { "Strength" },
           { "Mastery" },
@@ -96,17 +75,9 @@ GrimoireData["PALADIN"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Herald of the Sun", context = "General",
+        heroTalent = "Herald of the Sun", heroTalentIcon = "wow-hero-talent-herald-of-the-sun", context = "General",
         stats = {
           { "Strength" },
           { "Mastery" },
@@ -115,14 +86,6 @@ GrimoireData["PALADIN"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},

@@ -2,15 +2,15 @@
 GrimoireArchonStats = GrimoireArchonStats or {}
 GrimoireArchonStats["MONK"] = {
   ["brewmaster"] = {
-    ["Mythic+"] = { targets = { crit = 1104, versatility = 683, mastery = 622, haste = 210 } },
-    ["Raid"] = { targets = { crit = 1255, mastery = 620, versatility = 511, haste = 248 } },
+    ["Mythic+"] = { targets = { crit = 1009, versatility = 594, mastery = 516, haste = 341 } },
+    ["Raid"] = { targets = { crit = 1287, mastery = 607, versatility = 524, haste = 250 } },
   },
   ["mistweaver"] = {
-    ["Mythic+"] = { targets = { haste = 1110, crit = 870, versatility = 517, mastery = 145 } },
-    ["Raid"] = { targets = { haste = 1348, crit = 881, mastery = 284, versatility = 95 } },
+    ["Mythic+"] = { targets = { haste = 1101, crit = 800, versatility = 345, mastery = 220 } },
+    ["Raid"] = { targets = { haste = 1365, crit = 889, mastery = 274, versatility = 104 } },
   },
   ["windwalker"] = {
-    ["Mythic+"] = { targets = { haste = 932, mastery = 846, crit = 767, versatility = 142 } },
-    ["Raid"] = { targets = { haste = 948, mastery = 893, crit = 754, versatility = 107 } },
+    ["Mythic+"] = { targets = { haste = 890, crit = 739, mastery = 593, versatility = 185 } },
+    ["Raid"] = { targets = { haste = 930, mastery = 918, crit = 776, versatility = 87 } },
   },
 }

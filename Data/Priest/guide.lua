@@ -7,7 +7,7 @@ GrimoireData["PRIEST"] = {
     label = "Discipline Priest",
     priorities = {
       {
-        heroTalent = "Oracle", context = "Raid",
+        heroTalent = "Oracle", heroTalentIcon = "wow-hero-talent-oracle", context = "Raid",
         stats = {
           { "Intellect" },
           { "Haste" },
@@ -16,17 +16,9 @@ GrimoireData["PRIEST"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Voidweaver", context = "Raid",
+        heroTalent = "Voidweaver", heroTalentIcon = "wow-hero-talent-voidweaver", context = "Raid",
         stats = {
           { "Haste" },
           { "Intellect" },
@@ -35,17 +27,9 @@ GrimoireData["PRIEST"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Oracle", context = "Dungeons",
+        heroTalent = "Oracle", heroTalentIcon = "wow-hero-talent-oracle", context = "Dungeons",
         stats = {
           { "Intellect" },
           { "Haste" },
@@ -54,17 +38,9 @@ GrimoireData["PRIEST"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Voidweaver", context = "Dungeons",
+        heroTalent = "Voidweaver", heroTalentIcon = "wow-hero-talent-voidweaver", context = "Dungeons",
         stats = {
           { "Intellect" },
           { "Haste" },
@@ -73,14 +49,6 @@ GrimoireData["PRIEST"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -90,35 +58,21 @@ GrimoireData["PRIEST"] = {
     label = "Holy Priest",
     priorities = {
       {
-        heroTalent = "Archon", context = "Raid",
+        heroTalent = "Archon", heroTalentIcon = "wow-hero-talent-archon", context = "Raid",
         stats = {
           { "Versatility", "Mastery" },
         },
         operators = {  },
-        previousStats = {
-          { "Crit" },
-          { "Versatility", "Mastery" },
-          { "Haste" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Oracle", context = "Raid",
+        heroTalent = "Oracle", heroTalentIcon = "wow-hero-talent-oracle", context = "Raid",
         stats = {
           { "Versatility", "Mastery" },
         },
         operators = {  },
-        previousStats = {
-          { "Crit" },
-          { "Versatility", "Mastery" },
-          { "Haste" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Archon", context = "Dungeons\/Mythic+",
+        heroTalent = "Archon", heroTalentIcon = "wow-hero-talent-archon", context = "Dungeons\/Mythic+",
         stats = {
           { "Intellect" },
           { "Versatility" },
@@ -127,17 +81,9 @@ GrimoireData["PRIEST"] = {
           { "Mastery" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Versatility" },
-          { "Critical Strike" },
-          { "Haste" },
-          { "Mastery" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Oracle", context = "Dungeons\/Mythic+",
+        heroTalent = "Oracle", heroTalentIcon = "wow-hero-talent-oracle", context = "Dungeons\/Mythic+",
         stats = {
           { "Intellect" },
           { "Versatility" },
@@ -146,14 +92,6 @@ GrimoireData["PRIEST"] = {
           { "Mastery" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Versatility" },
-          { "Critical Strike" },
-          { "Haste" },
-          { "Mastery" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -163,7 +101,7 @@ GrimoireData["PRIEST"] = {
     label = "Shadow Priest",
     priorities = {
       {
-        heroTalent = "Archon", context = "General",
+        heroTalent = "Archon", heroTalentIcon = "wow-hero-talent-archon", context = "General",
         stats = {
           { "Intellect" },
           { "Haste" },
@@ -172,17 +110,9 @@ GrimoireData["PRIEST"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Voidweaver", context = "General",
+        heroTalent = "Voidweaver", heroTalentIcon = "wow-hero-talent-totemic", context = "General",
         stats = {
           { "Intellect" },
           { "Haste" },
@@ -191,14 +121,6 @@ GrimoireData["PRIEST"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},

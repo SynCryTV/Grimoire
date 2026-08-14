@@ -7,22 +7,16 @@ GrimoireData["DEATHKNIGHT"] = {
     label = "Blood Death Knight",
     priorities = {
       {
-        heroTalent = "San'layn", context = "General",
+        heroTalent = "San'layn", heroTalentIcon = "wow-hero-talent-sanlayn", context = "General",
         stats = {
           { "Strength" },
           { "Haste" },
           { "Mastery", "Critical Strike", "Versatility" },
         },
         operators = { ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery", "Critical Strike", "Versatility" },
-        },
-        previousOperators = { ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Deathbringer", context = "General",
+        heroTalent = "Deathbringer", heroTalentIcon = "wow-hero-talent-deathbringer", context = "General",
         stats = {
           { "Strength" },
           { "Critical Strike" },
@@ -30,13 +24,6 @@ GrimoireData["DEATHKNIGHT"] = {
           { "Haste" },
         },
         operators = { ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Mastery", "Versatility" },
-          { "Haste" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -46,7 +33,7 @@ GrimoireData["DEATHKNIGHT"] = {
     label = "Frost Death Knight",
     priorities = {
       {
-        heroTalent = "Deathbringer", context = "General",
+        heroTalent = "Deathbringer", heroTalentIcon = "wow-hero-talent-deathbringer", context = "General",
         stats = {
           { "Strength" },
           { "Critical Strike" },
@@ -55,17 +42,9 @@ GrimoireData["DEATHKNIGHT"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Rider of the Apocalypse", context = "General",
+        heroTalent = "Rider of the Apocalypse", heroTalentIcon = "wow-hero-talent-rider-of-the-apocalypse", context = "General",
         stats = {
           { "Strength" },
           { "Critical Strike" },
@@ -74,14 +53,6 @@ GrimoireData["DEATHKNIGHT"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -91,7 +62,7 @@ GrimoireData["DEATHKNIGHT"] = {
     label = "Unholy Death Knight",
     priorities = {
       {
-        heroTalent = "San'layn", context = "General",
+        heroTalent = "San'layn", heroTalentIcon = "wow-hero-talent-sanlayn", context = "General",
         stats = {
           { "Strength" },
           { "Mastery" },
@@ -100,17 +71,9 @@ GrimoireData["DEATHKNIGHT"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Crit" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Rider of the Apocalypse", context = "General",
+        heroTalent = "Rider of the Apocalypse", heroTalentIcon = "wow-hero-talent-rider-of-the-apocalypse", context = "General",
         stats = {
           { "Strength" },
           { "Mastery" },
@@ -119,14 +82,6 @@ GrimoireData["DEATHKNIGHT"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Crit" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},

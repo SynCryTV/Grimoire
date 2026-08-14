@@ -88,7 +88,10 @@ local CONSUMABLE_SLOT_NAMES = {
     ["flask"] = true,
     ["combat potion"] = true,
     ["health potion"] = true,
+    ["invisibility potion"] = true,
+    ["invisiblity potion"] = true, -- aktuelle Wowhead-Schreibweise
     ["weapon buff"] = true,
+    ["weapon oil"] = true,
     ["augment rune"] = true,
     ["food"] = true,
 }
@@ -99,18 +102,27 @@ local SLOT_LABELS = {
     shoulders = "Schultern",
     shoulder = "Schultern",
     chest = "Brust",
+    wrist = "Handgelenke",
+    bracer = "Handgelenke",
+    bracers = "Handgelenke",
     legs = "Beine",
     feet = "Füße",
     boots = "Füße",
     ring = "Ring",
     weapon = "Waffe",
+    ["weapon (2h)"] = "Waffe",
+    ["weapons (1h)"] = "Waffe",
+    ["weapons (2h & dual-wield)"] = "Waffe",
     ["main hand"] = "Waffe",
     ["off hand"] = "Nebenhand",
 
     flask = "Fläschchen",
     ["combat potion"] = "Kampftrank",
     ["health potion"] = "Heiltrank",
+    ["invisibility potion"] = "Unsichtbarkeitstrank",
+    ["invisiblity potion"] = "Unsichtbarkeitstrank",
     ["weapon buff"] = "Waffenverstärkung",
+    ["weapon oil"] = "Waffenverstärkung",
     ["augment rune"] = "Verstärkungsrune",
     food = "Essen",
 }
@@ -144,17 +156,56 @@ local function GetSpecData()
     return classData and specKey and classData[specKey]
 end
 
+local function NormalizeSlotKey(slot)
+    if not slot then return "" end
+
+    local key = slot:lower()
+    key = key:gsub("^%s+", ""):gsub("%s+$", "")
+
+    -- Unterschiedliche Schreibweisen aus den Scraper-Dateien vereinheitlichen.
+    local aliases = {
+        ["shoulder"] = "shoulders",
+        ["shoulders"] = "shoulders",
+        ["boot"] = "feet",
+        ["boots"] = "feet",
+        ["feet"] = "feet",
+        ["helm"] = "head",
+        ["head"] = "head",
+        ["bracer"] = "wrist",
+        ["bracers"] = "wrist",
+        ["wrist"] = "wrist",
+        ["weapon (2h & dual-wield)"] = "weapon",
+        ["weapon (2h)"] = "weapon",
+        ["weapons (1h)"] = "weapon",
+        ["main hand"] = "weapon",
+    }
+
+    return aliases[key] or key
+end
+
 local function CollectEnchantEntries(specData)
     local out = {}
+    local seen = {}
     if not specData then return out end
 
     for _, entry in ipairs(specData.enchants or {}) do
-        local slotLower = entry.slot and entry.slot:lower()
+        local rawSlot = entry.slot or ""
+        local slotLower = rawSlot:lower()
+
         if not CONSUMABLE_SLOT_NAMES[slotLower] and entry.best and entry.best.itemId then
-            out[#out + 1] = {
-                label = NormalizeSlotLabel(entry.slot),
-                item = entry.best,
-            }
+            local slotKey = NormalizeSlotKey(rawSlot)
+            local uniqueKey = slotKey .. ":" .. tostring(entry.best.itemId)
+
+            -- Der Scraper kann identische Verzauberungen doppelt liefern.
+            -- Nur echte Duplikate entfernen; verschiedene Ring-/Waffenoptionen
+            -- bleiben erhalten.
+            if not seen[uniqueKey] then
+                seen[uniqueKey] = true
+                out[#out + 1] = {
+                    label = NormalizeSlotLabel(slotKey),
+                    item = entry.best,
+                }
+            end
         end
     end
 
@@ -222,6 +273,14 @@ local FIXED_CONSUMABLES = {
             name = "Concentrated Silvermoon Health Potion",
         },
     },
+    {
+        label = "Unsichtbarkeitstrank",
+        item = {
+            -- Midnight Utility-Trank. Der WoW-Client lokalisiert Name/Icon/Tooltip.
+            itemId = 241303,
+            name = "Void-Shrouded Tincture",
+        },
+    },
 }
 
 local function CollectConsumableEntries(specData)
@@ -229,25 +288,62 @@ local function CollectConsumableEntries(specData)
     if not specData then return out end
 
     local c = specData.consumables or {}
+    local handledKeys = {}
 
-    -- Feste, versionsspezifische Verbrauchsgüter zuerst ergänzen.
-    for _, fixed in ipairs(FIXED_CONSUMABLES) do
-        AddConsumable(out, fixed.label, fixed.item)
+    local function AddFromKey(key, label)
+        local item = c[key]
+        if item and item.itemId then
+            AddConsumable(out, label, item)
+            handledKeys[key] = true
+        end
     end
 
-    AddConsumable(out, "Fläschchen", c.flask)
-    AddConsumable(out, "Kampftrank", c.combatPotion)
-    AddConsumable(out, "Heiltrank", c.healthPotion)
-    AddConsumable(out, "Waffenverstärkung", c.weaponBuff)
-    AddConsumable(out, "Verstärkungsrune", c.augmentRune)
-    AddConsumable(out, "Essen", c.food)
+    -- Bekannte Kategorien zuerst in stabiler Reihenfolge.
+    AddFromKey("flask", "Fläschchen")
+    AddFromKey("combatPotion", "Kampftrank")
+    AddFromKey("healthPotion", "Heiltrank")
+    AddFromKey("invisibilityPotion", "Unsichtbarkeitstrank")
+    AddFromKey("weaponBuff", "Waffenverstärkung")
+    AddFromKey("augmentRune", "Verstärkungsrune")
+    AddFromKey("food", "Essen")
 
-    -- Fallback für Scraper-Ausgaben, die Consumables unter "enchants" ablegen.
+    -- Neue/zusätzliche Wowhead-Verbrauchsgüter dynamisch übernehmen.
+    -- Dadurch müssen zukünftige Utility-Items nicht im Addon hardcodiert werden.
+    local extraKeys = {}
+    for key, item in pairs(c) do
+        if not handledKeys[key] and type(item) == "table" and item.itemId then
+            extraKeys[#extraKeys + 1] = key
+        end
+    end
+    table.sort(extraKeys)
+
+    for _, key in ipairs(extraKeys) do
+        local item = c[key]
+        local label = item.label
+
+        if not label or label == "" then
+            label = key
+                :gsub("^extra_", "")
+                :gsub("_", " ")
+        end
+
+        AddConsumable(out, NormalizeSlotLabel(label), item)
+    end
+
+    -- Fallback für ältere Scraper-Ausgaben, die Consumables unter "enchants" ablegen.
     for _, entry in ipairs(specData.enchants or {}) do
         local slotLower = entry.slot and entry.slot:lower()
         if CONSUMABLE_SLOT_NAMES[slotLower] and entry.best and entry.best.itemId then
             AddConsumable(out, NormalizeSlotLabel(entry.slot), entry.best)
         end
+    end
+
+    -- Permanente Grimoire-Regeln ZULETZT.
+    -- AddConsumable dedupliziert anhand der itemId. Wenn Wowhead/Scraper
+    -- Heil- oder Unsichtbarkeitstrank bereits geliefert haben, werden sie
+    -- deshalb hier NICHT ein zweites Mal angezeigt.
+    for _, fixed in ipairs(FIXED_CONSUMABLES) do
+        AddConsumable(out, fixed.label, fixed.item)
     end
 
     return out

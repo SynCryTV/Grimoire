@@ -7,7 +7,7 @@ GrimoireData["MAGE"] = {
     label = "Arcane Mage",
     priorities = {
       {
-        heroTalent = "Spellslinger", context = "General",
+        heroTalent = "Spellslinger", heroTalentIcon = "wow-hero-talent-spellslinger", context = "General",
         stats = {
           { "Intellect" },
           { "Haste" },
@@ -16,17 +16,9 @@ GrimoireData["MAGE"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Sunfury", context = "General",
+        heroTalent = "Sunfury", heroTalentIcon = "wow-hero-talent-sunfury", context = "General",
         stats = {
           { "Intellect" },
           { "Haste" },
@@ -35,14 +27,6 @@ GrimoireData["MAGE"] = {
           { "Mastery" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Versatility" },
-          { "Critical Strike" },
-          { "Mastery" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -52,7 +36,7 @@ GrimoireData["MAGE"] = {
     label = "Fire Mage",
     priorities = {
       {
-        heroTalent = "Sunfury", context = "General",
+        heroTalent = "Sunfury", heroTalentIcon = "wow-hero-talent-sunfury", context = "General",
         stats = {
           { "Intellect" },
           { "Haste" },
@@ -61,17 +45,9 @@ GrimoireData["MAGE"] = {
           { "Critical Strike" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Versatility" },
-          { "Critical Strike" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Frostfire", context = "General",
+        heroTalent = "Frostfire", heroTalentIcon = "wow-hero-talent-frostfire", context = "General",
         stats = {
           { "Intellect" },
           { "Haste" },
@@ -80,14 +56,6 @@ GrimoireData["MAGE"] = {
           { "Critical Strike" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Versatility" },
-          { "Critical Strike" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -97,7 +65,7 @@ GrimoireData["MAGE"] = {
     label = "Frost Mage",
     priorities = {
       {
-        heroTalent = "Frostfire", context = "General",
+        heroTalent = "Frostfire", heroTalentIcon = "wow-hero-talent-frostfire", context = "General",
         stats = {
           { "Intellect" },
           { "Mastery" },
@@ -106,17 +74,9 @@ GrimoireData["MAGE"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Spellslinger", context = "General",
+        heroTalent = "Spellslinger", heroTalentIcon = "wow-hero-talent-spellslinger", context = "General",
         stats = {
           { "Intellect" },
           { "Mastery" },
@@ -125,14 +85,6 @@ GrimoireData["MAGE"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},

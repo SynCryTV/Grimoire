@@ -52,14 +52,8 @@ local heroManuallySelected = false
 
 local RANK_COLORS = G.RANK_COLORS
 
--- ============================================================
--- Hero-Talent Anzeige
--- ============================================================
--- Namen bleiben deutsch, Icons werden NICHT geraten.
--- Wenn der Scraper heroTalentIcon mitspeichert, wird genau dieses Symbol
--- verwendet. Alte guide.lua-Dateien ohne heroTalentIcon funktionieren
--- weiterhin, nur eben ohne Icon.
-
+-- Deutsche Fallback-Namen. Für die aktuell gespielte Spec haben Blizzards
+-- lokalisierte Trait-Daten weiterhin Vorrang.
 local HERO_TALENT_DE = {
     ["Deathbringer"] = "Todesbringer",
     ["Rider of the Apocalypse"] = "Reiter der Apokalypse",
@@ -116,29 +110,8 @@ local HERO_TALENT_DE = {
     ["Slayer"] = "Schlächter",
 }
 
-local function LocalizeHeroName(heroKey)
-    return HERO_TALENT_DE[heroKey] or heroKey or ""
-end
-
-local function FindHeroIconInPriorities(priorities, heroKey)
-    for _, entry in ipairs(priorities or {}) do
-        if entry.heroTalent == heroKey and entry.heroTalentIcon then
-            return entry.heroTalentIcon
-        end
-    end
-    return nil
-end
-
-local function HeroDisplayText(priorities, heroKey)
-    local name = LocalizeHeroName(heroKey)
-    local icon = FindHeroIconInPriorities(priorities, heroKey)
-
-    if icon and icon ~= "" then
-        -- Wowhead [symbol=wow-hero-talent-*] entspricht einem Blizzard-Atlas.
-        return string.format("|A:%s:18:18|a %s", icon, name)
-    end
-
-    return name
+local function HeroFallbackName(key)
+    return HERO_TALENT_DE[key] or key
 end
 
 -- ============================================================
@@ -289,6 +262,91 @@ local function GetHeroOptions(priorities)
     return options
 end
 
+local function GetScrapedHeroIcon(priorities, heroKey)
+    for _, entry in ipairs(priorities or {}) do
+        if entry.heroTalent == heroKey and entry.heroTalentIcon then
+            return entry.heroTalentIcon
+        end
+    end
+    return nil
+end
+
+local function GetOwnSelectedSpecMatches(classToken, specKey)
+    local _, ownClassToken = UnitClass("player")
+    if ownClassToken ~= classToken then return false end
+
+    local ownSpecKey = G.GetOwnSpecKey and G.GetOwnSpecKey()
+    return ownSpecKey == specKey
+end
+
+local function GetHeroSubTreeData(classToken, specKey, heroOptions)
+    local result = {}
+
+    if not C_ClassTalents
+        or not C_ClassTalents.GetHeroTalentSpecsForClassSpec
+        or not C_Traits
+        or not C_Traits.GetSubTreeInfo
+    then
+        for i, key in ipairs(heroOptions) do
+            result[i] = { key = key, displayName = HeroFallbackName(key) }
+        end
+        return result
+    end
+
+    local specID = G.SPEC_IDS
+        and G.SPEC_IDS[classToken]
+        and G.SPEC_IDS[classToken][specKey]
+
+    if not specID then
+        for i, key in ipairs(heroOptions) do
+            result[i] = { key = key, displayName = HeroFallbackName(key) }
+        end
+        return result
+    end
+
+    local subTreeIDs = C_ClassTalents.GetHeroTalentSpecsForClassSpec(nil, specID)
+    local configID = C_ClassTalents.GetActiveConfigID
+        and C_ClassTalents.GetActiveConfigID()
+
+    -- Wowhead liefert pro Spec dieselben zwei Hero-Bäume in seiner
+    -- Hero-Talent-Reihenfolge. Wir koppeln diese Reihenfolge an Blizzards
+    -- SubTree-Reihenfolge. Falls Blizzard für eine fremde Spec keine
+    -- SubTreeInfo liefert, bleibt der englische Scrapername als Fallback.
+    for i, key in ipairs(heroOptions) do
+        local data = {
+            key = key,
+            displayName = HeroFallbackName(key),
+            subTreeID = subTreeIDs and subTreeIDs[i] or nil,
+        }
+
+        if configID and data.subTreeID then
+            local info = C_Traits.GetSubTreeInfo(configID, data.subTreeID)
+            if info then
+                data.displayName = info.name or HeroFallbackName(key)
+                data.iconAtlas = info.iconElementID
+                data.isActive = info.isActive
+            end
+        end
+
+        result[i] = data
+    end
+
+    return result
+end
+
+local function HeroDisplayText(data)
+    if not data then return "" end
+
+    if data.iconAtlas and data.iconAtlas ~= "" then
+        return string.format(
+            "|A:%s:18:18|a %s",
+            data.iconAtlas,
+            data.displayName or data.key or ""
+        )
+    end
+
+    return data.displayName or data.key or ""
+end
 
 local function FindHeroDataByKey(heroData, key)
     for _, data in ipairs(heroData or {}) do
@@ -393,11 +451,35 @@ local function Refresh()
     end
 
     local heroOptions = GetHeroOptions(priorities)
+    local heroData = GetHeroSubTreeData(classToken, specKey, heroOptions)
+
+    -- Eigene/aktive Spec: iconElementID aus Blizzards Trait-Daten.
+    -- Fremde Specs: optional nur einen vom Scraper gelieferten Atlas benutzen,
+    -- wenn dieser im Client tatsächlich existiert.
+    for _, data in ipairs(heroData or {}) do
+        if not data.iconAtlas then
+            local scraped = GetScrapedHeroIcon(priorities, data.key)
+            if scraped and C_Texture and C_Texture.GetAtlasInfo then
+                local ok, atlasInfo = pcall(C_Texture.GetAtlasInfo, scraped)
+                if ok and atlasInfo then
+                    data.iconAtlas = scraped
+                end
+            end
+        end
+        if not data.displayName or data.displayName == data.key then
+            data.displayName = HeroFallbackName(data.key)
+        end
+    end
+
     local yOffset = 0
 
     if #heroOptions > 0 then
         -- Beim ersten Öffnen der eigenen Spec automatisch den aktuell
         -- tatsächlich gespielten Hero-Baum wählen.
+        if not selectedHero then
+            SelectActiveHeroIfPossible(classToken, specKey, heroData)
+        end
+
         local found = false
         for _, h in ipairs(heroOptions) do
             if h == selectedHero then
@@ -410,19 +492,18 @@ local function Refresh()
             selectedHero = heroOptions[1]
         end
 
-        heroDropdown:SetText(
-            HeroDisplayText(priorities, selectedHero)
-        )
+        local selectedData = FindHeroDataByKey(heroData, selectedHero)
+        heroDropdown:SetText(HeroDisplayText(selectedData))
 
         heroDropdown:SetupMenu(function(_, rootDescription)
-            for _, h in ipairs(heroOptions) do
+            for _, data in ipairs(heroData) do
                 rootDescription:CreateRadio(
-                    HeroDisplayText(priorities, h),
+                    HeroDisplayText(data),
                     function()
-                        return selectedHero == h
+                        return selectedHero == data.key
                     end,
                     function()
-                        selectedHero = h
+                        selectedHero = data.key
                         heroManuallySelected = true
                         selectedContext = nil
                         Refresh()

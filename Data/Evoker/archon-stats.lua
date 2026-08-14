@@ -1,16 +1,16 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 GrimoireArchonStats = GrimoireArchonStats or {}
 GrimoireArchonStats["EVOKER"] = {
-  ["augmentation"] = {
-    ["Mythic+"] = { targets = { crit = 1159, haste = 1131, mastery = 204, versatility = 55 } },
-    ["Raid"] = { targets = { crit = 1189, haste = 895, mastery = 294, versatility = 61 } },
-  },
   ["devastation"] = {
-    ["Mythic+"] = { targets = { crit = 1096, haste = 886, mastery = 535, versatility = 62 } },
-    ["Raid"] = { targets = { crit = 1101, haste = 888, mastery = 446, versatility = 74 } },
+    ["Mythic+"] = { targets = { crit = 1047, haste = 805, mastery = 461, versatility = 133 } },
+    ["Raid"] = { targets = { crit = 1105, haste = 915, mastery = 444, versatility = 83 } },
+  },
+  ["augmentation"] = {
+    ["Mythic+"] = { targets = { crit = 1171, haste = 1010, mastery = 253, versatility = 108 } },
+    ["Raid"] = { targets = { crit = 1191, haste = 940, mastery = 274, versatility = 66 } },
   },
   ["preservation"] = {
-    ["Mythic+"] = { targets = { haste = 909, mastery = 759, crit = 619, versatility = 240 } },
-    ["Raid"] = { targets = { crit = 656, haste = 603, mastery = 381, versatility = 67 } },
+    ["Mythic+"] = { targets = { mastery = 713, haste = 686, crit = 635, versatility = 180 } },
+    ["Raid"] = { targets = { mastery = 1325, crit = 681, haste = 615, versatility = 69 } },
   },
 }

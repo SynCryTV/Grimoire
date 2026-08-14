@@ -7,21 +7,14 @@ GrimoireData["DRUID"] = {
     label = "Balance Druid",
     priorities = {
       {
-        heroTalent = "Keeper of the Grove", context = "General",
+        heroTalent = "Keeper of the Grove", heroTalentIcon = "wow-hero-talent-keeper-of-the-grove", context = "General",
         stats = {
           { "Haste", "Critical Strike" },
         },
         operators = {  },
-        previousStats = {
-          { "Mastery" },
-          { "Haste", "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Elune's Chosen", context = "General",
+        heroTalent = "Elune's Chosen", heroTalentIcon = "wow-hero-talent-elunes-chosen", context = "General",
         stats = {
           { "Intellect" },
           { "Mastery" },
@@ -30,14 +23,6 @@ GrimoireData["DRUID"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -47,7 +32,7 @@ GrimoireData["DRUID"] = {
     label = "Feral Druid",
     priorities = {
       {
-        heroTalent = "Druid of the Claw", context = "General",
+        heroTalent = "Druid of the Claw", heroTalentIcon = "wow-hero-talent-druid-of-the-claw", context = "General",
         stats = {
           { "Agility" },
           { "Mastery" },
@@ -56,17 +41,9 @@ GrimoireData["DRUID"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Wildstalker", context = "General",
+        heroTalent = "Wildstalker", heroTalentIcon = "wow-hero-talent-Wildstalker", context = "General",
         stats = {
           { "Agility" },
           { "Mastery" },
@@ -75,14 +52,6 @@ GrimoireData["DRUID"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -101,14 +70,6 @@ GrimoireData["DRUID"] = {
           { "Mastery" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Versatility" },
-          { "Critical Strike" },
-          { "Mastery" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -118,7 +79,7 @@ GrimoireData["DRUID"] = {
     label = "Restoration Druid",
     priorities = {
       {
-        heroTalent = "Keeper of the Grove", context = "General",
+        heroTalent = "Keeper of the Grove", heroTalentIcon = "wow-hero-talent-keeper-of-the-grove", context = "General",
         stats = {
           { "Intellect" },
           { "Haste" },
@@ -127,17 +88,9 @@ GrimoireData["DRUID"] = {
           { "Critical Strike" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Versatility" },
-          { "Critical Strike" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Wildstalker", context = "General",
+        heroTalent = "Wildstalker", heroTalentIcon = "wow-hero-talent-wildstalker", context = "General",
         stats = {
           { "Intellect" },
           { "Haste" },
@@ -146,14 +99,6 @@ GrimoireData["DRUID"] = {
           { "Critical Strike" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Versatility" },
-          { "Critical Strike" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},

@@ -6,9 +6,13 @@ local STAT_LABELS = {
 }
 local STAT_COMBAT_RATING = {
     mastery = CR_MASTERY,
-    haste = CR_HASTE_MELEE, -- Melee/Ranged/Spell-Haste sind auf demselben Rating-Wert gebündelt
+    haste = CR_HASTE_MELEE, -- Melee/Ranged/Spell-Haste nutzen denselben Rating-Wert
     crit = CR_CRIT_MELEE,   -- ebenso für Crit
-    versatility = CR_VERSATILITY,
+
+    -- In Retail/Midnight gibt es keinen zuverlässigen allgemeinen
+    -- CR_VERSATILITY-Wert. Für den sichtbaren Versatility-Ratingwert
+    -- verwenden wir den Damage-Done-Ratingtyp.
+    versatility = CR_VERSATILITY_DAMAGE_DONE or CR_VERSATILITY,
 }
 
 local body = CreateFrame("Frame", nil, G.GuideSections.statTargets.content)
@@ -76,8 +80,16 @@ local currentContext -- "Mythic+" oder "Raid"
 
 local function GetLivePlayerStatRating(statKey)
     local ratingIndex = STAT_COMBAT_RATING[statKey]
-    if not ratingIndex then return 0 end
-    return GetCombatRating(ratingIndex) or 0
+    if not ratingIndex then
+        return nil
+    end
+
+    local value = GetCombatRating(ratingIndex)
+    if value == nil then
+        return nil
+    end
+
+    return math.floor(value + 0.5)
 end
 
 local function ClassifyDelta(current, target)
@@ -111,6 +123,13 @@ local function RenderRows(snapshot, yOffset)
             visibleCount = visibleCount + 1
             local row = rows[visibleCount]
             local current = GetLivePlayerStatRating(statKey)
+
+            -- Falls Blizzard für einen Ratingtyp temporär noch keinen Wert
+            -- liefert, nicht fälschlich "0" anzeigen.
+            if current == nil then
+                current = 0
+            end
+
             local kind = ClassifyDelta(current, target)
             local color = DELTA_COLORS[kind]
 
@@ -230,8 +249,29 @@ G.RegisterOnSelectionChanged(function() Refresh() end)
 local combatWatcher = CreateFrame("Frame")
 combatWatcher:RegisterEvent("PLAYER_REGEN_ENABLED")
 combatWatcher:RegisterEvent("COMBAT_RATING_UPDATE")
-combatWatcher:SetScript("OnEvent", function()
-    if G.panel:IsShown() and G.GetActiveTab() == "guide" then
-        Refresh()
+combatWatcher:RegisterEvent("PLAYER_EQUIPMENT_CHANGED")
+combatWatcher:RegisterEvent("UNIT_STATS")
+combatWatcher:RegisterEvent("PLAYER_ENTERING_WORLD")
+
+local refreshPending = false
+
+local function QueueLiveRefresh()
+    if refreshPending then return end
+    refreshPending = true
+
+    C_Timer.After(0.05, function()
+        refreshPending = false
+
+        if G.panel:IsShown() and G.GetActiveTab() == "guide" then
+            Refresh()
+        end
+    end)
+end
+
+combatWatcher:SetScript("OnEvent", function(_, event, unit)
+    if event == "UNIT_STATS" and unit and unit ~= "player" then
+        return
     end
+
+    QueueLiveRefresh()
 end)

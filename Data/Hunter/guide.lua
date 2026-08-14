@@ -7,7 +7,7 @@ GrimoireData["HUNTER"] = {
     label = "Beast Mastery Hunter",
     priorities = {
       {
-        heroTalent = "Pack Leader", context = "General",
+        heroTalent = "Pack Leader", heroTalentIcon = "wow-hero-talent-pack-leader", context = "General",
         stats = {
           { "Weapon Damage" },
           { "Agility" },
@@ -17,18 +17,9 @@ GrimoireData["HUNTER"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">", ">" },
-        previousStats = {
-          { "Weapon Damage" },
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Dark Ranger", context = "General",
+        heroTalent = "Dark Ranger", heroTalentIcon = "wow-hero-talent-dark-ranger", context = "General",
         stats = {
           { "Weapon Damage" },
           { "Agility" },
@@ -38,15 +29,6 @@ GrimoireData["HUNTER"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">", ">" },
-        previousStats = {
-          { "Weapon Damage" },
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -56,7 +38,7 @@ GrimoireData["HUNTER"] = {
     label = "Marksmanship Hunter",
     priorities = {
       {
-        heroTalent = "Sentinel", context = "General",
+        heroTalent = "Sentinel", heroTalentIcon = "wow-hero-talent-sentinel", context = "General",
         stats = {
           { "Agility" },
           { "Critical Strike" },
@@ -65,17 +47,9 @@ GrimoireData["HUNTER"] = {
           { "Haste" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Versatility" },
-          { "Haste" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Dark Ranger", context = "General",
+        heroTalent = "Dark Ranger", heroTalentIcon = "wow-hero-talent-dark-ranger", context = "General",
         stats = {
           { "Agility" },
           { "Critical Strike" },
@@ -84,14 +58,6 @@ GrimoireData["HUNTER"] = {
           { "Haste" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Versatility" },
-          { "Haste" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -101,7 +67,7 @@ GrimoireData["HUNTER"] = {
     label = "Survival Hunter",
     priorities = {
       {
-        heroTalent = "Pack Leader", context = "General",
+        heroTalent = "Pack Leader", heroTalentIcon = "wow-hero-talent-pack-leader", context = "General",
         stats = {
           { "Agility" },
           { "Mastery" },
@@ -109,16 +75,9 @@ GrimoireData["HUNTER"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Critical Strike and Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Sentinel", context = "General",
+        heroTalent = "Sentinel", heroTalentIcon = "wow-hero-talent-sentinel", context = "General",
         stats = {
           { "Agility" },
           { "Mastery" },
@@ -127,14 +86,6 @@ GrimoireData["HUNTER"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},

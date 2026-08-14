@@ -7,58 +7,32 @@ GrimoireData["MONK"] = {
     label = "Brewmaster Monk",
     priorities = {
       {
-        heroTalent = "Shado-Pan", context = "Defensive",
+        heroTalent = "Shado-Pan", heroTalentIcon = "wow-hero-talent-shado-pan", context = "Defensive",
         stats = {
           { "Versatility", "Critical Strike", "Mastery" },
         },
         operators = {  },
-        previousStats = {
-          { "Versatility", "Critical Strike", "Mastery" },
-          { "Haste" },
-        },
-        previousOperators = { ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Master of Harmony", context = "Defensive",
+        heroTalent = "Master of Harmony", heroTalentIcon = "wow-hero-talent-master-of-harmony", context = "Defensive",
         stats = {
           { "Versatility", "Critical Strike", "Mastery" },
         },
         operators = {  },
-        previousStats = {
-          { "Versatility", "Critical Strike", "Mastery" },
-          { "Haste" },
-        },
-        previousOperators = { ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Shado-Pan", context = "Offensive",
+        heroTalent = "Shado-Pan", heroTalentIcon = "wow-hero-talent-shado-pan", context = "Offensive",
         stats = {
           { "Versatility", "Mastery" },
         },
         operators = {  },
-        previousStats = {
-          { "Critical Strike" },
-          { "Versatility", "Mastery" },
-          { "Haste" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Master of Harmony", context = "Offensive",
+        heroTalent = "Master of Harmony", heroTalentIcon = "wow-hero-talent-master-of-harmony", context = "Offensive",
         stats = {
           { "Versatility", "Mastery" },
         },
         operators = {  },
-        previousStats = {
-          { "Critical Strike" },
-          { "Versatility", "Mastery" },
-          { "Haste" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -77,14 +51,6 @@ GrimoireData["MONK"] = {
           { "Mastery" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-          { "Mastery" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
         context = "General",
@@ -97,12 +63,13 @@ GrimoireData["MONK"] = {
         },
         operators = { ">", ">", ">", ">" },
         previousStats = {
+          { "Intellect" },
           { "Haste" },
           { "Critical Strike" },
           { "Versatility" },
           { "Mastery" },
         },
-        previousOperators = { ">", ">", ">" },
+        previousOperators = { ">", ">", ">", ">" },
         changedDate = "2026-08-14",
       },
     },
@@ -113,7 +80,7 @@ GrimoireData["MONK"] = {
     label = "Windwalker Monk",
     priorities = {
       {
-        heroTalent = "Shado-pan", context = "General",
+        heroTalent = "Shado-pan", heroTalentIcon = "wow-hero-talent-shado-pan", context = "General",
         stats = {
           { "Agility" },
           { "Haste" },
@@ -122,17 +89,9 @@ GrimoireData["MONK"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Conduit of the Celestials", context = "General",
+        heroTalent = "Conduit of the Celestials", heroTalentIcon = "wow-hero-talent-conduit-of-the-celestials", context = "General",
         stats = {
           { "Agility" },
           { "Haste" },
@@ -141,14 +100,6 @@ GrimoireData["MONK"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},

@@ -7,7 +7,7 @@ GrimoireData["WARRIOR"] = {
     label = "Arms Warrior",
     priorities = {
       {
-        heroTalent = "Colossus", context = "General",
+        heroTalent = "Colossus", heroTalentIcon = "wow-hero-talent-colossus", context = "General",
         stats = {
           { "Strength" },
           { "Critical Strike" },
@@ -16,17 +16,9 @@ GrimoireData["WARRIOR"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Haste" },
-          { "Mastery" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Slayer", context = "General",
+        heroTalent = "Slayer", heroTalentIcon = "wow-hero-talent-slayer", context = "General",
         stats = {
           { "Strength" },
           { "Critical Strike" },
@@ -35,14 +27,6 @@ GrimoireData["WARRIOR"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Haste" },
-          { "Mastery" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -52,7 +36,7 @@ GrimoireData["WARRIOR"] = {
     label = "Fury Warrior",
     priorities = {
       {
-        heroTalent = "Mountain Thane", context = "General",
+        heroTalent = "Mountain Thane", heroTalentIcon = "wow-hero-talent-mountain-thane", context = "General",
         stats = {
           { "Strength" },
           { "Haste" },
@@ -61,17 +45,9 @@ GrimoireData["WARRIOR"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Slayer", context = "General",
+        heroTalent = "Slayer", heroTalentIcon = "wow-hero-talent-slayer", context = "General",
         stats = {
           { "Strength" },
           { "Haste" },
@@ -80,14 +56,6 @@ GrimoireData["WARRIOR"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -106,14 +74,6 @@ GrimoireData["WARRIOR"] = {
           { "Mastery" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-          { "Mastery" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},

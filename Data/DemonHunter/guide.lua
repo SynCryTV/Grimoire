@@ -7,7 +7,7 @@ GrimoireData["DEMONHUNTER"] = {
     label = "Devourer Demon Hunter",
     priorities = {
       {
-        heroTalent = "Annihilator", context = "General",
+        heroTalent = "Annihilator", heroTalentIcon = "wow-hero-talent-annihilator", context = "General",
         stats = {
           { "Intellect" },
           { "Haste" },
@@ -16,17 +16,9 @@ GrimoireData["DEMONHUNTER"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Void-Scarred", context = "General",
+        heroTalent = "Void-Scarred", heroTalentIcon = "wow-hero-talent-void-scarred", context = "General",
         stats = {
           { "Intellect" },
           { "Haste (bis 800)" },
@@ -36,15 +28,6 @@ GrimoireData["DEMONHUNTER"] = {
           { "Haste (ab 800)" },
         },
         operators = { ">", ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste (bis 800)" },
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Versatility" },
-          { "Haste (ab 800)" },
-        },
-        previousOperators = { ">", ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -54,7 +37,7 @@ GrimoireData["DEMONHUNTER"] = {
     label = "Havoc Demon Hunter",
     priorities = {
       {
-        heroTalent = "Fel-Scarred", context = "General",
+        heroTalent = "Fel-Scarred", heroTalentIcon = "wow-hero-talent-fel-scarred", context = "General",
         stats = {
           { "Agility" },
           { "Critical Strike" },
@@ -63,17 +46,9 @@ GrimoireData["DEMONHUNTER"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Aldrachi Reaver", context = "General",
+        heroTalent = "Aldrachi Reaver", heroTalentIcon = "wow-hero-talent-aldrachi-reaver", context = "General",
         stats = {
           { "Agility" },
           { "Critical Strike" },
@@ -82,14 +57,6 @@ GrimoireData["DEMONHUNTER"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -99,7 +66,7 @@ GrimoireData["DEMONHUNTER"] = {
     label = "Vengeance Demon Hunter",
     priorities = {
       {
-        heroTalent = "Aldrachi Reaver", context = "General",
+        heroTalent = "Aldrachi Reaver", heroTalentIcon = "wow-hero-talent-aldrachi-reaver", context = "General",
         stats = {
           { "Haste" },
           { "Critical Strike" },
@@ -107,17 +74,9 @@ GrimoireData["DEMONHUNTER"] = {
           { "Mastery" },
         },
         operators = { ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Crit" },
-          { "Versatility" },
-          { "Mastery" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Annihilator", context = "General",
+        heroTalent = "Annihilator", heroTalentIcon = "wow-hero-talent-annihilator", context = "General",
         stats = {
           { "Haste" },
           { "Critical Strike" },
@@ -125,14 +84,6 @@ GrimoireData["DEMONHUNTER"] = {
           { "Mastery" },
         },
         operators = { ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Crit" },
-          { "Versatility" },
-          { "Mastery" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},

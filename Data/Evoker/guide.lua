@@ -7,7 +7,7 @@ GrimoireData["EVOKER"] = {
     label = "Augmentation Evoker",
     priorities = {
       {
-        heroTalent = "Chronowarden", context = "General",
+        heroTalent = "Chronowarden", heroTalentIcon = "wow-hero-talent-chronowarden", context = "General",
         stats = {
           { "Intellect" },
           { "Mastery" },
@@ -16,17 +16,9 @@ GrimoireData["EVOKER"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Scalecommander", context = "General",
+        heroTalent = "Scalecommander", heroTalentIcon = "wow-hero-talent-scalecommander", context = "General",
         stats = {
           { "Intellect" },
           { "Mastery" },
@@ -35,14 +27,6 @@ GrimoireData["EVOKER"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -52,7 +36,7 @@ GrimoireData["EVOKER"] = {
     label = "Devastation Evoker",
     priorities = {
       {
-        heroTalent = "Flameshaper", context = "General",
+        heroTalent = "Flameshaper", heroTalentIcon = "wow-hero-talent-flameshaper", context = "General",
         stats = {
           { "Intellect" },
           { "Critical Strike" },
@@ -61,17 +45,9 @@ GrimoireData["EVOKER"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Scalecommander", context = "General",
+        heroTalent = "Scalecommander", heroTalentIcon = "wow-hero-talent-scalecommander", context = "General",
         stats = {
           { "Intellect" },
           { "Critical Strike" },
@@ -80,14 +56,6 @@ GrimoireData["EVOKER"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -106,14 +74,6 @@ GrimoireData["EVOKER"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Crit" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
         context = "General",
@@ -126,12 +86,13 @@ GrimoireData["EVOKER"] = {
         },
         operators = { ">", ">", ">", ">" },
         previousStats = {
+          { "Intellect" },
           { "Mastery" },
-          { "Crit" },
+          { "Critical Strike" },
           { "Haste" },
           { "Versatility" },
         },
-        previousOperators = { ">", ">", ">" },
+        previousOperators = { ">", ">", ">", ">" },
         changedDate = "2026-08-14",
       },
     },

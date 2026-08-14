@@ -2,15 +2,15 @@
 GrimoireArchonStats = GrimoireArchonStats or {}
 GrimoireArchonStats["WARLOCK"] = {
   ["affliction"] = {
-    ["Mythic+"] = { targets = { haste = 944, crit = 934, mastery = 677, versatility = 101 } },
-    ["Raid"] = { targets = { haste = 944, crit = 877, mastery = 598, versatility = 57 } },
+    ["Mythic+"] = { targets = { crit = 880, haste = 870, mastery = 561, versatility = 161 } },
+    ["Raid"] = { targets = { haste = 960, crit = 890, mastery = 592, versatility = 59 } },
   },
   ["demonology"] = {
-    ["Mythic+"] = { targets = { crit = 1054, haste = 799, mastery = 758, versatility = 87 } },
-    ["Raid"] = { targets = { crit = 989, haste = 839, mastery = 725, versatility = 75 } },
+    ["Mythic+"] = { targets = { crit = 992, haste = 798, mastery = 582, versatility = 154 } },
+    ["Raid"] = { targets = { crit = 1009, haste = 836, mastery = 732, versatility = 72 } },
   },
   ["destruction"] = {
-    ["Mythic+"] = { targets = { crit = 972, haste = 847, mastery = 751, versatility = 81 } },
-    ["Raid"] = { targets = { crit = 926, haste = 833, mastery = 788, versatility = 72 } },
+    ["Mythic+"] = { targets = { haste = 823, crit = 797, mastery = 566, versatility = 169 } },
+    ["Raid"] = { targets = { crit = 942, haste = 805, mastery = 795, versatility = 71 } },
   },
 }

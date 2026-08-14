@@ -1,16 +1,16 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 GrimoireArchonStats = GrimoireArchonStats or {}
 GrimoireArchonStats["HUNTER"] = {
-  ["beast-mastery"] = {
-    ["Mythic+"] = { targets = { crit = 1222, mastery = 1117, haste = 302, versatility = 108 } },
-    ["Raid"] = { targets = { mastery = 1157, haste = 817, crit = 709, versatility = 75 } },
-  },
   ["marksmanship"] = {
-    ["Mythic+"] = { targets = { crit = 1266, mastery = 840, haste = 412, versatility = 148 } },
-    ["Raid"] = { targets = { crit = 1245, mastery = 690, haste = 505, versatility = 102 } },
+    ["Mythic+"] = { targets = { crit = 1131, mastery = 664, haste = 463, versatility = 171 } },
+    ["Raid"] = { targets = { crit = 1396, mastery = 1006, haste = 468, versatility = 108 } },
+  },
+  ["beast-mastery"] = {
+    ["Mythic+"] = { targets = { crit = 978, mastery = 932, haste = 482, versatility = 143 } },
+    ["Raid"] = { targets = { mastery = 1155, haste = 832, crit = 710, versatility = 80 } },
   },
   ["survival"] = {
-    ["Mythic+"] = { targets = { mastery = 1294, crit = 819, haste = 682, versatility = 85 } },
-    ["Raid"] = { targets = { mastery = 1353, crit = 753, haste = 646, versatility = 62 } },
+    ["Mythic+"] = { targets = { mastery = 1120, crit = 828, haste = 621, versatility = 123 } },
+    ["Raid"] = { targets = { mastery = 1233, crit = 798, haste = 677, versatility = 66 } },
   },
 }

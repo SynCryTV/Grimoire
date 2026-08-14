@@ -7,7 +7,7 @@ GrimoireData["WARLOCK"] = {
     label = "Affliction Warlock",
     priorities = {
       {
-        heroTalent = "Hellcaller", context = "General",
+        heroTalent = "Hellcaller", heroTalentIcon = "wow-hero-talent-hellcaller", context = "General",
         stats = {
           { "Intellect" },
           { "Haste" },
@@ -16,17 +16,9 @@ GrimoireData["WARLOCK"] = {
           { "Mastery" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-          { "Mastery" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Soul Harvester", context = "General",
+        heroTalent = "Soul Harvester", heroTalentIcon = "wow-hero-talent-soul-harvester", context = "General",
         stats = {
           { "Intellect" },
           { "Haste" },
@@ -35,14 +27,6 @@ GrimoireData["WARLOCK"] = {
           { "Mastery" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-          { "Mastery" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -52,32 +36,18 @@ GrimoireData["WARLOCK"] = {
     label = "Demonology Warlock",
     priorities = {
       {
-        heroTalent = "Diabolist", context = "General",
+        heroTalent = "Diabolist", heroTalentIcon = "wow-hero-talent-diabolist", context = "General",
         stats = {
           { "Haste", "Critical Strike" },
         },
         operators = {  },
-        previousStats = {
-          { "Haste", "Critical Strike" },
-          { "Mastery" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Soul Harvester", context = "General",
+        heroTalent = "Soul Harvester", heroTalentIcon = "wow-hero-talent-soul-harvester", context = "General",
         stats = {
           { "Haste", "Critical Strike" },
         },
         operators = {  },
-        previousStats = {
-          { "Haste", "Critical Strike" },
-          { "Mastery" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -87,34 +57,20 @@ GrimoireData["WARLOCK"] = {
     label = "Destruction Warlock",
     priorities = {
       {
-        heroTalent = "Diabolist", context = "General",
+        heroTalent = "Diabolist", heroTalentIcon = "wow-hero-talent-diabolist", context = "General",
         stats = {
           { "Mastery" },
           { "Critical Strike" },
         },
         operators = { ">=" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery>", "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Hellcaller", context = "General",
+        heroTalent = "Hellcaller", heroTalentIcon = "wow-hero-talent-hellcaller", context = "General",
         stats = {
           { "Mastery" },
           { "Critical Strike" },
         },
         operators = { ">=" },
-        previousStats = {
-          { "Haste" },
-          { "Mastery>", "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},

@@ -7,7 +7,7 @@ GrimoireData["SHAMAN"] = {
     label = "Elemental Shaman",
     priorities = {
       {
-        heroTalent = "Farseer", context = "General",
+        heroTalent = "Farseer", heroTalentIcon = "wow-hero-talent-farseer", context = "General",
         stats = {
           { "Mastery to 1200 rating" },
           { "Haste", "Critical Strike" },
@@ -15,16 +15,9 @@ GrimoireData["SHAMAN"] = {
           { "Intellect" },
         },
         operators = { ">", ">", ">" },
-        previousStats = {
-          { "Mastery to 1200 rating" },
-          { "Haste", "Crit" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Stormbringer", context = "General",
+        heroTalent = "Stormbringer", heroTalentIcon = "wow-hero-talent-stormbringer", context = "General",
         stats = {
           { "Mastery to 1200 rating" },
           { "Haste", "Critical Strike" },
@@ -32,13 +25,6 @@ GrimoireData["SHAMAN"] = {
           { "Intellect" },
         },
         operators = { ">", ">", ">" },
-        previousStats = {
-          { "Mastery to 1200 rating" },
-          { "Haste", "Crit" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -48,32 +34,18 @@ GrimoireData["SHAMAN"] = {
     label = "Enhancement Shaman",
     priorities = {
       {
-        heroTalent = "Stormbringer", context = "General",
+        heroTalent = "Stormbringer", heroTalentIcon = "wow-hero-talent-stormbringer", context = "General",
         stats = {
           { "Mastery", "Haste" },
         },
         operators = {  },
-        previousStats = {
-          { "Mastery", "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Totemic", context = "General",
+        heroTalent = "Totemic", heroTalentIcon = "wow-hero-talent-totemic", context = "General",
         stats = {
           { "Mastery", "Haste" },
         },
         operators = {  },
-        previousStats = {
-          { "Mastery", "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -83,7 +55,7 @@ GrimoireData["SHAMAN"] = {
     label = "Restoration Shaman",
     priorities = {
       {
-        heroTalent = "Farseer", context = "General",
+        heroTalent = "Farseer", heroTalentIcon = "wow-hero-talent-farseer", context = "General",
         stats = {
           { "Intellect" },
           { "Critical Strike" },
@@ -92,17 +64,9 @@ GrimoireData["SHAMAN"] = {
           { "Mastery" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Haste" },
-          { "Versatility" },
-          { "Mastery" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Totemic", context = "General",
+        heroTalent = "Totemic", heroTalentIcon = "wow-hero-talent-totemic", context = "General",
         stats = {
           { "Intellect" },
           { "Critical Strike" },
@@ -111,14 +75,6 @@ GrimoireData["SHAMAN"] = {
           { "Mastery" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Haste" },
-          { "Versatility" },
-          { "Mastery" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},

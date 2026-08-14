@@ -1,16 +1,16 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 GrimoireArchonStats = GrimoireArchonStats or {}
 GrimoireArchonStats["DEMONHUNTER"] = {
+  ["vengeance"] = {
+    ["Mythic+"] = { targets = { haste = 985, crit = 624, mastery = 445, versatility = 257 } },
+    ["Raid"] = { targets = { haste = 1158, crit = 545, mastery = 462, versatility = 224 } },
+  },
   ["devourer"] = {
-    ["Mythic+"] = { targets = { mastery = 1214, haste = 1160, crit = 320, versatility = 49 } },
-    ["Raid"] = { targets = { mastery = 1133, haste = 1035, crit = 444, versatility = 74 } },
+    ["Mythic+"] = { targets = { mastery = 1182, haste = 1067, crit = 341, versatility = 133 } },
+    ["Raid"] = { targets = { mastery = 1081, haste = 1073, crit = 440, versatility = 62 } },
   },
   ["havoc"] = {
-    ["Mythic+"] = { targets = { crit = 1260, mastery = 1135, haste = 213, versatility = 60 } },
-    ["Raid"] = { targets = { crit = 1159, mastery = 1010, haste = 280, versatility = 56 } },
-  },
-  ["vengeance"] = {
-    ["Mythic+"] = { targets = { haste = 1123, crit = 645, mastery = 491, versatility = 287 } },
-    ["Raid"] = { targets = { haste = 1082, crit = 614, mastery = 454, versatility = 93 } },
+    ["Mythic+"] = { targets = { crit = 1061, mastery = 925, haste = 385, versatility = 132 } },
+    ["Raid"] = { targets = { crit = 1224, mastery = 1037, haste = 272, versatility = 55 } },
   },
 }

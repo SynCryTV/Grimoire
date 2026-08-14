@@ -2,15 +2,15 @@
 GrimoireArchonStats = GrimoireArchonStats or {}
 GrimoireArchonStats["SHAMAN"] = {
   ["elemental"] = {
-    ["Mythic+"] = { targets = { mastery = 1164, crit = 888, haste = 504, versatility = 68 } },
-    ["Raid"] = { targets = { mastery = 1162, crit = 708, haste = 574, versatility = 75 } },
+    ["Mythic+"] = { targets = { mastery = 1007, crit = 733, haste = 552, versatility = 148 } },
+    ["Raid"] = { targets = { mastery = 1163, crit = 722, haste = 587, versatility = 80 } },
   },
   ["enhancement"] = {
-    ["Mythic+"] = { targets = { mastery = 1145, haste = 1003, crit = 441, versatility = 61 } },
-    ["Raid"] = { targets = { mastery = 1198, haste = 1039, crit = 329, versatility = 50 } },
+    ["Mythic+"] = { targets = { mastery = 1049, haste = 853, crit = 424, versatility = 144 } },
+    ["Raid"] = { targets = { mastery = 1157, haste = 1010, crit = 354, versatility = 47 } },
   },
   ["restoration"] = {
-    ["Mythic+"] = { targets = { crit = 956, versatility = 633, haste = 476, mastery = 423 } },
-    ["Raid"] = { targets = { crit = 1126, mastery = 596, haste = 393, versatility = 353 } },
+    ["Mythic+"] = { targets = { crit = 942, haste = 530, versatility = 435, mastery = 419 } },
+    ["Raid"] = { targets = { crit = 1120, mastery = 607, haste = 412, versatility = 354 } },
   },
 }

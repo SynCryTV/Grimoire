@@ -7,7 +7,7 @@ GrimoireData["ROGUE"] = {
     label = "Assassination Rogue",
     priorities = {
       {
-        heroTalent = "Fatebound", context = "General",
+        heroTalent = "Fatebound", heroTalentIcon = "wow-hero-talent-fatebound", context = "General",
         stats = {
           { "Agility" },
           { "Critical Strike" },
@@ -16,17 +16,9 @@ GrimoireData["ROGUE"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Haste" },
-          { "Mastery" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Deathstalker", context = "General",
+        heroTalent = "Deathstalker", heroTalentIcon = "wow-hero-talent-deathstalker", context = "General",
         stats = {
           { "Agility" },
           { "Critical Strike" },
@@ -35,14 +27,6 @@ GrimoireData["ROGUE"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Critical Strike" },
-          { "Haste" },
-          { "Mastery" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -52,7 +36,7 @@ GrimoireData["ROGUE"] = {
     label = "Outlaw Rogue",
     priorities = {
       {
-        heroTalent = "Trickster", context = "General",
+        heroTalent = "Trickster", heroTalentIcon = "wow-hero-talent-trickster", context = "General",
         stats = {
           { "Agility" },
           { "Haste" },
@@ -61,17 +45,9 @@ GrimoireData["ROGUE"] = {
           { "Mastery" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-          { "Mastery" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Fatebound", context = "General",
+        heroTalent = "Fatebound", heroTalentIcon = "wow-hero-talent-fatebound", context = "General",
         stats = {
           { "Agility" },
           { "Haste" },
@@ -80,14 +56,6 @@ GrimoireData["ROGUE"] = {
           { "Mastery" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-          { "Mastery" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -97,7 +65,7 @@ GrimoireData["ROGUE"] = {
     label = "Subtlety Rogue",
     priorities = {
       {
-        heroTalent = "Deathstalker", context = "General",
+        heroTalent = "Deathstalker", heroTalentIcon = "wow-hero-talent-deathstalker", context = "General",
         stats = {
           { "Agility" },
           { "Mastery" },
@@ -106,17 +74,9 @@ GrimoireData["ROGUE"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
       {
-        heroTalent = "Trickster", context = "General",
+        heroTalent = "Trickster", heroTalentIcon = "wow-hero-talent-trickster", context = "General",
         stats = {
           { "Agility" },
           { "Mastery" },
@@ -125,14 +85,6 @@ GrimoireData["ROGUE"] = {
           { "Versatility" },
         },
         operators = { ">", ">", ">", ">" },
-        previousStats = {
-          { "Mastery" },
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        previousOperators = { ">", ">", ">" },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},

@@ -2,15 +2,15 @@
 GrimoireArchonStats = GrimoireArchonStats or {}
 GrimoireArchonStats["MAGE"] = {
   ["arcane"] = {
-    ["Mythic+"] = { targets = { mastery = 974, crit = 782, haste = 616, versatility = 257 } },
-    ["Raid"] = { targets = { haste = 936, mastery = 858, crit = 737, versatility = 135 } },
+    ["Mythic+"] = { targets = { mastery = 835, haste = 664, crit = 639, versatility = 223 } },
+    ["Raid"] = { targets = { haste = 966, mastery = 851, crit = 693, versatility = 140 } },
   },
   ["fire"] = {
-    ["Mythic+"] = { targets = { haste = 1226, mastery = 1046, versatility = 132, crit = 114 } },
-    ["Raid"] = { targets = { haste = 1274, mastery = 964, crit = 135, versatility = 56 } },
+    ["Mythic+"] = { targets = { haste = 1079, mastery = 833, crit = 258, versatility = 195 } },
+    ["Raid"] = { targets = { haste = 1247, mastery = 936, crit = 170, versatility = 90 } },
   },
   ["frost"] = {
-    ["Mythic+"] = { targets = { crit = 1025, mastery = 988, haste = 625, versatility = 97 } },
-    ["Raid"] = { targets = { crit = 980, mastery = 978, haste = 629, versatility = 70 } },
+    ["Mythic+"] = { targets = { crit = 852, mastery = 850, haste = 672, versatility = 172 } },
+    ["Raid"] = { targets = { crit = 998, mastery = 982, haste = 634, versatility = 71 } },
   },
 }

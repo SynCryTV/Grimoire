@@ -2,19 +2,19 @@
 GrimoireArchonStats = GrimoireArchonStats or {}
 GrimoireArchonStats["DRUID"] = {
   ["balance"] = {
-    ["Mythic+"] = { targets = { mastery = 1061, haste = 785, crit = 743, versatility = 116 } },
-    ["Raid"] = { targets = { mastery = 1127, crit = 736, haste = 664, versatility = 69 } },
-  },
-  ["feral"] = {
-    ["Mythic+"] = { targets = { mastery = 1272, haste = 879, crit = 499, versatility = 77 } },
-    ["Raid"] = { targets = { mastery = 1400, haste = 913, crit = 483, versatility = 63 } },
+    ["Mythic+"] = { targets = { mastery = 890, haste = 733, crit = 571, versatility = 176 } },
+    ["Raid"] = { targets = { mastery = 1133, crit = 745, haste = 680, versatility = 100 } },
   },
   ["guardian"] = {
-    ["Mythic+"] = { targets = { haste = 1282, mastery = 553, versatility = 508, crit = 489 } },
-    ["Raid"] = { targets = { haste = 1190, mastery = 659, crit = 494, versatility = 213 } },
+    ["Mythic+"] = { targets = { haste = 1168, mastery = 531, versatility = 485, crit = 383 } },
+    ["Raid"] = { targets = { haste = 1184, mastery = 818, crit = 458, versatility = 274 } },
+  },
+  ["feral"] = {
+    ["Mythic+"] = { targets = { mastery = 1048, haste = 788, crit = 525, versatility = 168 } },
+    ["Raid"] = { targets = { mastery = 1472, haste = 942, crit = 544, versatility = 67 } },
   },
   ["restoration"] = {
-    ["Mythic+"] = { targets = { haste = 1175, mastery = 1095, versatility = 179, crit = 174 } },
-    ["Raid"] = { targets = { haste = 1347, mastery = 1147, crit = 157, versatility = 97 } },
+    ["Mythic+"] = { targets = { haste = 1035, mastery = 864, crit = 265, versatility = 224 } },
+    ["Raid"] = { targets = { haste = 1334, mastery = 1164, crit = 169, versatility = 97 } },
   },
 }

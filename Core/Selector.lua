@@ -1,54 +1,58 @@
 local ADDON_NAME, G = ...
 
 local selectedClassToken   -- z.B. "DEMONHUNTER"
-local selectedHeroTalent   -- z.B. "Annihilator"
-local ownClassToken, ownSpecIndex
+local selectedSpecKey      -- z.B. "devourer"
+local ownClassToken, ownSpecKey
 
-local function GetOwnClassToken()
-    local _, classToken = UnitClass("player")
-    return classToken
-end
-
--- Setzt die Auswahl zurück auf die aktuell gespielte Klasse/Spec. Die
--- konkrete Hero-Talent-Erkennung (welches der beiden Hero-Talente aktiv ist)
--- hängt von echten Talentdaten ab und wird in Phase 3 verdrahtet; hier nur
--- das Grundgerüst mit einem Platzhalter.
+-- Setzt die Auswahl zurück auf die aktuell gespielte Klasse/Spec.
 local function ResetToOwnSpec()
-    ownClassToken = GetOwnClassToken()
+    local _, classToken = UnitClass("player")
+    ownClassToken = classToken
+    ownSpecKey = G.GetOwnSpecKey()
     selectedClassToken = ownClassToken
-    selectedHeroTalent = nil -- Phase 3: aus C_ClassTalents/aktivem Loadout auslesen
+    selectedSpecKey = ownSpecKey
 end
 
 function G.GetSelectedClass()
     return selectedClassToken
 end
 
-function G.GetSelectedHeroTalent()
-    return selectedHeroTalent
+function G.GetSelectedSpec()
+    return selectedSpecKey
 end
 
 function G.IsOwnSpecSelected()
-    return selectedClassToken == ownClassToken
+    return selectedClassToken == ownClassToken and selectedSpecKey == ownSpecKey
 end
 
-function G.SetSelection(classToken, heroTalent)
+local selectionChangedCallbacks = {}
+function G.RegisterOnSelectionChanged(callback)
+    table.insert(selectionChangedCallbacks, callback)
+end
+local function FireSelectionChanged(classToken, specKey)
+    for _, callback in ipairs(selectionChangedCallbacks) do
+        callback(classToken, specKey)
+    end
+end
+
+function G.SetSelection(classToken, specKey)
     selectedClassToken = classToken
-    selectedHeroTalent = heroTalent
-    if G.OnSelectionChanged then
-        G.OnSelectionChanged(classToken, heroTalent)
+    selectedSpecKey = specKey
+    FireSelectionChanged(classToken, specKey)
+    if G.RefreshSelectorDropdowns then
+        G.RefreshSelectorDropdowns()
     end
 end
 
 function G.ResetSelectionToOwnSpec()
     ResetToOwnSpec()
-    if G.OnSelectionChanged then
-        G.OnSelectionChanged(selectedClassToken, selectedHeroTalent)
+    FireSelectionChanged(selectedClassToken, selectedSpecKey)
+    if G.RefreshSelectorDropdowns then
+        G.RefreshSelectorDropdowns()
     end
 end
 
--- Sichtbare Auswahl-Leiste oben im Guide-Tab. Die eigentlichen Dropdown-
--- Inhalte (Klassenliste, Hero-Talent-Liste je Klasse) werden befüllt,
--- sobald in Phase 3 echte Daten verfügbar sind.
+-- Sichtbare Auswahl-Leiste oben im Guide-Tab.
 local selectorBar = CreateFrame("Frame", "GrimoireSelectorBar", G.panel)
 selectorBar:SetHeight(28)
 selectorBar:SetPoint("TOPLEFT", G.panel, "TOPLEFT", 16, -16)
@@ -60,11 +64,49 @@ classDropdown:SetPoint("LEFT", 0, 0)
 classDropdown:SetWidth(140)
 G.classDropdown = classDropdown
 
-local heroDropdown = CreateFrame("DropdownButton", "GrimoireHeroDropdown", selectorBar, "WowStyle1DropdownTemplate")
-heroDropdown:SetPoint("LEFT", classDropdown, "RIGHT", 8, 0)
-heroDropdown:SetWidth(140)
-G.heroDropdown = heroDropdown
+local specDropdown = CreateFrame("DropdownButton", "GrimoireSpecDropdown", selectorBar, "WowStyle1DropdownTemplate")
+specDropdown:SetPoint("LEFT", classDropdown, "RIGHT", 8, 0)
+specDropdown:SetWidth(140)
+G.specDropdown = specDropdown
+
+-- Sortierte Klassenliste (feste Reihenfolge statt zufälliger pairs()-Reihenfolge).
+local CLASS_ORDER = {
+    "DEATHKNIGHT", "DEMONHUNTER", "DRUID", "EVOKER", "HUNTER", "MAGE", "MONK",
+    "PALADIN", "PRIEST", "ROGUE", "SHAMAN", "WARLOCK", "WARRIOR",
+}
+
+local function RefreshSelectorDropdowns()
+    classDropdown:SetText(G.CLASS_DISPLAY_NAMES[selectedClassToken] or "?")
+    specDropdown:SetText(G.GetSpecDisplayName(selectedSpecKey))
+
+    classDropdown:SetupMenu(function(_, rootDescription)
+        for _, classToken in ipairs(CLASS_ORDER) do
+            rootDescription:CreateRadio(
+                G.CLASS_DISPLAY_NAMES[classToken],
+                function() return selectedClassToken == classToken end,
+                function()
+                    -- Klassenwechsel: erste Spec dieser Klasse vorauswählen.
+                    local firstSpec = G.SPEC_KEYS[classToken] and G.SPEC_KEYS[classToken][1]
+                    G.SetSelection(classToken, firstSpec)
+                end
+            )
+        end
+    end)
+
+    specDropdown:SetupMenu(function(_, rootDescription)
+        local specs = G.SPEC_KEYS[selectedClassToken] or {}
+        for _, specKey in ipairs(specs) do
+            rootDescription:CreateRadio(
+                G.GetSpecDisplayName(specKey),
+                function() return selectedSpecKey == specKey end,
+                function() G.SetSelection(selectedClassToken, specKey) end
+            )
+        end
+    end)
+end
+G.RefreshSelectorDropdowns = RefreshSelectorDropdowns
 
 G.RegisterOnDatabaseReady(function()
     ResetToOwnSpec()
+    RefreshSelectorDropdowns()
 end)

@@ -1,0 +1,8 @@
+-- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
+ClassCodexOmniumFolio = ClassCodexOmniumFolio or {}
+ClassCodexOmniumFolio["DRUID"] = {
+  ["balance"] = { { label = "Rune 1", spellId = 1279599, name = "Rune of Unleashed Fire" }, { label = "Rune 2", spellId = 1279603, name = "Rune of Self-Mending" }, { label = "Rune 3", spellId = 1287555, name = "Rune of Lingering" }, { label = "Rune 4", spellId = 1279609, name = "Rune of Critical Power" }, { label = "Rune 5", spellId = 1279614, name = "Rune of Overload" } },
+  ["feral"] = { { label = "Rune 1", spellId = 1279599, name = "Rune of Unleashed Fire" }, { label = "Rune 2", spellId = 1279603, name = "Rune of Self-Mending" }, { label = "Rune 3", spellId = 1287555, name = "Rune of Lingering" }, { label = "Rune 4", spellId = 1279609, name = "Rune of Critical Power" }, { label = "Rune 5", spellId = 1279614, name = "Rune of Overload" } },
+  ["guardian"] = { { label = "Rune 1", spellId = 1279599, name = "Rune of Unleashed Fire" }, { label = "Rune 2", spellId = 1279603, name = "Rune of Self-Mending" }, { label = "Rune 3", spellId = 1287555, name = "Rune of Lingering" }, { label = "Rune 4", spellId = 1279609, name = "Rune of Critical Power" }, { label = "Rune 5", spellId = 1279614, name = "Rune of Overload" } },
+  ["restoration"] = { { label = "Rune Node 1", spellId = 1279599, name = "Rune of Unleashed Fire" }, { label = "Rune Node 2", spellId = 1279603, name = "Rune of Self-Mending" }, { label = "Rune Node 3", spellId = 1287555, name = "Rune of Lingering" }, { label = "Rune Node 4", spellId = 1279610, name = "Rune of Burning Haste" }, { label = "Rune Node 5", spellId = 1279614, name = "Rune of Overload" } },
+}

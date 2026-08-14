@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexArchonStats = ClassCodexArchonStats or {}
-ClassCodexArchonStats["EVOKER"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireArchonStats = GrimoireArchonStats or {}
+GrimoireArchonStats["EVOKER"] = {
   ["augmentation"] = {
     ["Mythic+"] = { targets = { crit = 1159, haste = 1131, mastery = 204, versatility = 55 } },
     ["Raid"] = { targets = { crit = 1189, haste = 895, mastery = 294, versatility = 61 } },

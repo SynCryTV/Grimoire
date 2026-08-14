@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexArchonStats = ClassCodexArchonStats or {}
-ClassCodexArchonStats["WARLOCK"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireArchonStats = GrimoireArchonStats or {}
+GrimoireArchonStats["WARLOCK"] = {
   ["affliction"] = {
     ["Mythic+"] = { targets = { haste = 944, crit = 934, mastery = 677, versatility = 101 } },
     ["Raid"] = { targets = { haste = 944, crit = 877, mastery = 598, versatility = 57 } },

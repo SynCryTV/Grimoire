@@ -5,6 +5,16 @@ G.PANEL_WIDTH_DEFAULT = 340
 G.PANEL_WIDTH_MIN = 260
 G.PANEL_WIDTH_MAX = 500
 
+-- Rang-Farben (Wertepriorität-Rangliste UND Tooltip-Rang-Zahlen nutzen
+-- dieselbe Tabelle, damit sie garantiert gleich aussehen).
+G.RANK_COLORS = {
+    { 1.00, 0.50, 0.00 }, -- 1: Orange
+    { 0.64, 0.21, 0.93 }, -- 2: Lila
+    { 1.00, 0.82, 0.00 }, -- 3: Gelb
+    { 1.00, 1.00, 1.00 }, -- 4: Weiß
+    { 0.60, 0.60, 0.60 }, -- 5: (fällt in der Praxis nie an, nur 4 Sekundärwerte)
+}
+
 local DB_DEFAULTS = {
     panelWidth = G.PANEL_WIDTH_DEFAULT,
     showLoginMessage = true,

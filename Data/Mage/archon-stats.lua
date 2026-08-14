@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexArchonStats = ClassCodexArchonStats or {}
-ClassCodexArchonStats["MAGE"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireArchonStats = GrimoireArchonStats or {}
+GrimoireArchonStats["MAGE"] = {
   ["arcane"] = {
     ["Mythic+"] = { targets = { mastery = 974, crit = 782, haste = 616, versatility = 257 } },
     ["Raid"] = { targets = { haste = 936, mastery = 858, crit = 737, versatility = 135 } },

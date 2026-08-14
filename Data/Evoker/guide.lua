@@ -72,6 +72,13 @@ GrimoireData["EVOKER"] = {
           { "Mastery" },
           { "Versatility" },
         },
+        previousStats = {
+          { "Mastery" },
+          { "Crit" },
+          { "Haste" },
+          { "Versatility" },
+        },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},

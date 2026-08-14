@@ -59,6 +59,13 @@ GrimoireData["MONK"] = {
           { "Critical Strike" },
           { "Versatility" },
         },
+        previousStats = {
+          { "Haste" },
+          { "Critical Strike" },
+          { "Versatility" },
+          { "Mastery" },
+        },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},

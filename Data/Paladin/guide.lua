@@ -45,6 +45,13 @@ GrimoireData["PALADIN"] = {
           { "Mastery" },
           { "Versatility" },
         },
+        previousStats = {
+          { "Haste" },
+          { "Mastery" },
+          { "Critical Strike" },
+          { "Versatility" },
+        },
+        changedDate = "2026-08-14",
       },
     },
     talents = {},

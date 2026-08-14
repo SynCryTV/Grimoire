@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexArchonStats = ClassCodexArchonStats or {}
-ClassCodexArchonStats["PALADIN"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireArchonStats = GrimoireArchonStats or {}
+GrimoireArchonStats["PALADIN"] = {
   ["holy"] = {
     ["Mythic+"] = { targets = { mastery = 998, haste = 944, crit = 393, versatility = 266 } },
     ["Raid"] = { targets = { mastery = 1309, haste = 836, crit = 413, versatility = 94 } },

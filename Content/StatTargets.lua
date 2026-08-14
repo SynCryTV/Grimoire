@@ -14,15 +14,20 @@ local STAT_COMBAT_RATING = {
 local body = CreateFrame("Frame", nil, G.GuideSections.statTargets.content)
 body:SetHeight(20)
 
+local CONTEXT_DD_HEIGHT = 24
+local LABEL_HEIGHT = 14
+local BAR_HEIGHT = 12
+local ROW_HEIGHT = LABEL_HEIGHT + 2 + BAR_HEIGHT
+local ROW_GAP = 10
+local MAX_ROWS = 4
+
 local contextDropdown = CreateFrame("DropdownButton", "GrimoireStatTargetContextDD", body, "WowStyle1DropdownTemplate")
 contextDropdown:SetPoint("TOPLEFT", 0, 0)
 contextDropdown:SetPoint("TOPRIGHT", 0, 0)
-contextDropdown:SetHeight(24)
+contextDropdown:SetHeight(CONTEXT_DD_HEIGHT)
 contextDropdown:Hide()
 
 local rows = {}
-local ROW_HEIGHT = 36
-local MAX_ROWS = 4
 for i = 1, MAX_ROWS do
     local row = CreateFrame("Frame", nil, body)
     row:SetHeight(ROW_HEIGHT)
@@ -36,9 +41,9 @@ for i = 1, MAX_ROWS do
     row.valueText = valueText
 
     local barBg = row:CreateTexture(nil, "BACKGROUND")
-    barBg:SetPoint("BOTTOMLEFT", 0, 0)
-    barBg:SetPoint("BOTTOMRIGHT", 0, 0)
-    barBg:SetHeight(12)
+    barBg:SetPoint("TOPLEFT", label, "BOTTOMLEFT", 0, -2)
+    barBg:SetPoint("RIGHT", 0, 0)
+    barBg:SetHeight(BAR_HEIGHT)
     barBg:SetColorTexture(0.08, 0.08, 0.08, 1)
     row.barBg = barBg
 
@@ -49,13 +54,20 @@ for i = 1, MAX_ROWS do
     bar:SetMinMaxValues(0, 1)
     row.bar = bar
 
+    -- Zielmarke: senkrechter Strich genau an der Stelle, wo das Wertziel
+    -- innerhalb des Balken-Puffers (siehe BAR_HEADROOM) sitzt. Muss auf dem
+    -- Balken selbst (nicht auf row) liegen, sonst zeichnet die Füllung des
+    -- Balken-Kindrahmens darüber.
+    local tick = bar:CreateTexture(nil, "OVERLAY")
+    tick:SetWidth(2)
+    tick:SetColorTexture(0.95, 0.86, 0.55, 0.95)
+    row.tick = tick
+
     row:Hide()
     rows[i] = row
 end
 
 local fallbackText = body:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-fallbackText:SetPoint("TOPLEFT", 0, 0)
-fallbackText:SetPoint("RIGHT", 0, 0)
 fallbackText:SetJustifyH("LEFT")
 fallbackText:SetTextColor(0.5, 0.5, 0.5)
 fallbackText:Hide()
@@ -82,7 +94,16 @@ local DELTA_COLORS = {
     below = { 0.95, 0.40, 0.40 },
 }
 
-local function RenderRows(snapshot)
+-- Der Balken zeigt nicht nur bis zum Ziel, sondern noch etwas Puffer
+-- darüber (30%), damit optisch sichtbar ist, WIE weit man über dem Ziel
+-- liegt, statt einfach nur "voll" zu sein.
+local BAR_HEADROOM = 1.3
+
+-- Rendert die Wertezeilen unterhalb von yOffset (Platz fuer die
+-- Kontext-Dropdown, falls sichtbar). Alle Positionen werden IMMER relativ
+-- zu body neu gesetzt -- kein Zwischen-Rahmen, keine Altlasten von vorherigen
+-- Refresh()-Laeufen.
+local function RenderRows(snapshot, yOffset)
     local visibleCount = 0
     for _, statKey in ipairs(STAT_ORDER) do
         local target = snapshot.targets and snapshot.targets[statKey]
@@ -96,12 +117,25 @@ local function RenderRows(snapshot)
             row.label:SetText(STAT_LABELS[statKey] or statKey)
             row.valueText:SetText(string.format("%d / %d", current, target))
             row.valueText:SetTextColor(color[1], color[2], color[3])
-            row.bar:SetMinMaxValues(0, math.max(target, current, 1))
-            row.bar:SetValue(current)
+
+            local barMax = target * BAR_HEADROOM
+            row.bar:SetMinMaxValues(0, barMax)
+            row.bar:SetValue(math.min(current, barMax))
             row.bar:SetStatusBarColor(color[1], color[2], color[3])
 
+            -- GetWidth() ist direkt nach SetPoint() unzuverlässig (WoW
+            -- berechnet die tatsächliche Breite erst im naechsten Frame).
+            -- Stattdessen die Breite aus der bekannten Panel-Breite ableiten
+            -- (Panel minus die festen Seitenabstände entlang der Kette).
+            local panelWidth = (G.db and G.db.panelWidth) or G.PANEL_WIDTH_DEFAULT
+            local barWidth = panelWidth - 32
+            local tickX = (target / barMax) * barWidth
+            row.tick:ClearAllPoints()
+            row.tick:SetPoint("TOP", row.barBg, "TOPLEFT", tickX, 0)
+            row.tick:SetPoint("BOTTOM", row.barBg, "BOTTOMLEFT", tickX, 0)
+
             row:ClearAllPoints()
-            row:SetPoint("TOPLEFT", body, "TOPLEFT", 0, -(visibleCount - 1) * ROW_HEIGHT)
+            row:SetPoint("TOPLEFT", body, "TOPLEFT", 0, -(yOffset + (visibleCount - 1) * (ROW_HEIGHT + ROW_GAP)))
             row:SetPoint("RIGHT", body, "RIGHT", 0, 0)
             row:Show()
         end
@@ -112,19 +146,26 @@ local function RenderRows(snapshot)
     return visibleCount
 end
 
-local function ShowFallback(text)
+-- Blendet alle Wertezeilen aus und zeigt stattdessen einen Hinweistext --
+-- IMMER an derselben Stelle (direkt unter der Kontext-Dropdown, falls die
+-- gerade sichtbar ist), egal welcher Zustand vorher aktiv war.
+local function ShowFallback(text, yOffset)
+    yOffset = yOffset or 0
     for i = 1, MAX_ROWS do rows[i]:Hide() end
+    fallbackText:ClearAllPoints()
+    fallbackText:SetPoint("TOPLEFT", body, "TOPLEFT", 0, -yOffset)
+    fallbackText:SetPoint("RIGHT", body, "RIGHT", 0, 0)
     fallbackText:SetText(text)
     fallbackText:Show()
-    body:SetHeight(20)
+    body:SetHeight(yOffset + (fallbackText:GetStringHeight() or 14) + 6)
 end
 
 local function Refresh()
     fallbackText:Hide()
+    contextDropdown:Hide()
 
-    if not G.IsOwnSpecSelected() then
-        contextDropdown:Hide()
-        ShowFallback("Werteziele zeigen nur deine eigenen Live-Werte — nicht verfügbar für eine andere Spec.")
+    if not G.IsOwnClassSelected() then
+        ShowFallback("Werteziele zeigen nur deine eigenen Live-Werte — nicht verfügbar für eine andere Klasse.")
         G.LayoutGuideTab()
         return
     end
@@ -133,7 +174,6 @@ local function Refresh()
     local specKey = G.GetSelectedSpec()
     local specData = GrimoireArchonStats and GrimoireArchonStats[classToken] and GrimoireArchonStats[classToken][specKey]
     if not specData then
-        contextDropdown:Hide()
         ShowFallback("Keine Werteziele für diese Spec verfügbar.")
         G.LayoutGuideTab()
         return
@@ -144,7 +184,6 @@ local function Refresh()
         if specData[ctx] then table.insert(availableContexts, ctx) end
     end
     if #availableContexts == 0 then
-        contextDropdown:Hide()
         ShowFallback("Keine Werteziele für diese Spec verfügbar.")
         G.LayoutGuideTab()
         return
@@ -167,34 +206,19 @@ local function Refresh()
             end
         end)
         contextDropdown:Show()
-        yOffset = 30
-    else
-        contextDropdown:Hide()
-    end
-
-    for i = 1, MAX_ROWS do
-        rows[i]:ClearAllPoints()
+        yOffset = CONTEXT_DD_HEIGHT + 6
     end
 
     if InCombatLockdown() then
-        ShowFallback("Werteziele können im Kampf nicht aktualisiert werden.")
-        fallbackText:ClearAllPoints()
-        fallbackText:SetPoint("TOPLEFT", body, "TOPLEFT", 0, -yOffset)
-        fallbackText:SetPoint("RIGHT", body, "RIGHT", 0, 0)
-        body:SetHeight(yOffset + 20)
+        ShowFallback("Werteziele können im Kampf nicht aktualisiert werden.", yOffset)
         G.LayoutGuideTab()
         return
     end
 
     local snapshot = specData[currentContext]
-    local offsetBody = CreateFrame("Frame", nil, body)
-    offsetBody:SetPoint("TOPLEFT", 0, -yOffset)
-    offsetBody:SetPoint("RIGHT", 0, 0)
-    for i = 1, MAX_ROWS do
-        rows[i]:SetParent(offsetBody)
-    end
-    local count = RenderRows(snapshot)
-    body:SetHeight(yOffset + count * ROW_HEIGHT)
+    local count = RenderRows(snapshot, yOffset)
+    local rowsHeight = count > 0 and (count * ROW_HEIGHT + (count - 1) * ROW_GAP) or 0
+    body:SetHeight(yOffset + rowsHeight)
     G.LayoutGuideTab()
 end
 

@@ -1,7 +1,7 @@
 local ADDON_NAME, G = ...
 
 local guideFrame = CreateFrame("Frame", "GrimoireGuideTab", G.panel)
-guideFrame:SetPoint("TOPLEFT", G.selectorBar, "BOTTOMLEFT", 0, -12)
+guideFrame:SetPoint("TOPLEFT", G.selectorBar, "BOTTOMLEFT", 0, -20)
 guideFrame:SetPoint("RIGHT", G.panel, "RIGHT", -16, 0)
 guideFrame:SetPoint("BOTTOM", G.panel, "BOTTOM", 0, 16)
 

@@ -97,3 +97,5 @@ Data\Warrior\omnium-folio.lua
 
 Content\Guide.lua
 Content\StatTargets.lua
+Content\StatPriority.lua
+Content\TooltipStats.lua

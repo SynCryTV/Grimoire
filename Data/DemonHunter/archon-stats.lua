@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexArchonStats = ClassCodexArchonStats or {}
-ClassCodexArchonStats["DEMONHUNTER"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireArchonStats = GrimoireArchonStats or {}
+GrimoireArchonStats["DEMONHUNTER"] = {
   ["devourer"] = {
     ["Mythic+"] = { targets = { mastery = 1214, haste = 1160, crit = 320, versatility = 49 } },
     ["Raid"] = { targets = { mastery = 1133, haste = 1035, crit = 444, versatility = 74 } },

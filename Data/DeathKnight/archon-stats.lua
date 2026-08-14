@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexArchonStats = ClassCodexArchonStats or {}
-ClassCodexArchonStats["DEATHKNIGHT"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireArchonStats = GrimoireArchonStats or {}
+GrimoireArchonStats["DEATHKNIGHT"] = {
   ["blood"] = {
     ["Mythic+"] = { targets = { mastery = 930, versatility = 737, crit = 505, haste = 408 } },
     ["Raid"] = { targets = { haste = 1009, crit = 696, mastery = 656, versatility = 140 } },

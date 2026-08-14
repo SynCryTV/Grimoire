@@ -25,6 +25,10 @@ function G.IsOwnSpecSelected()
     return selectedClassToken == ownClassToken and selectedSpecKey == ownSpecKey
 end
 
+function G.IsOwnClassSelected()
+    return selectedClassToken == ownClassToken
+end
+
 local selectionChangedCallbacks = {}
 function G.RegisterOnSelectionChanged(callback)
     table.insert(selectionChangedCallbacks, callback)
@@ -61,12 +65,12 @@ G.selectorBar = selectorBar
 
 local classDropdown = CreateFrame("DropdownButton", "GrimoireClassDropdown", selectorBar, "WowStyle1DropdownTemplate")
 classDropdown:SetPoint("LEFT", 0, 0)
-classDropdown:SetWidth(140)
+classDropdown:SetSize(140, 24)
 G.classDropdown = classDropdown
 
 local specDropdown = CreateFrame("DropdownButton", "GrimoireSpecDropdown", selectorBar, "WowStyle1DropdownTemplate")
 specDropdown:SetPoint("LEFT", classDropdown, "RIGHT", 8, 0)
-specDropdown:SetWidth(140)
+specDropdown:SetSize(140, 24)
 G.specDropdown = specDropdown
 
 -- Sortierte Klassenliste (feste Reihenfolge statt zufälliger pairs()-Reihenfolge).
@@ -76,13 +80,14 @@ local CLASS_ORDER = {
 }
 
 local function RefreshSelectorDropdowns()
-    classDropdown:SetText(G.CLASS_DISPLAY_NAMES[selectedClassToken] or "?")
-    specDropdown:SetText(G.GetSpecDisplayName(selectedSpecKey))
+    classDropdown:SetText(G.GetClassIconMarkup(selectedClassToken, 16) .. G.GetClassDisplayName(selectedClassToken))
+    local specName, specIcon = G.GetSpecInfo(selectedClassToken, selectedSpecKey)
+    specDropdown:SetText(G.GetSpecIconMarkup(specIcon, 16) .. (specName or ""))
 
     classDropdown:SetupMenu(function(_, rootDescription)
         for _, classToken in ipairs(CLASS_ORDER) do
             rootDescription:CreateRadio(
-                G.CLASS_DISPLAY_NAMES[classToken],
+                G.GetClassIconMarkup(classToken, 16) .. G.GetClassDisplayName(classToken),
                 function() return selectedClassToken == classToken end,
                 function()
                     -- Klassenwechsel: erste Spec dieser Klasse vorauswählen.
@@ -96,8 +101,9 @@ local function RefreshSelectorDropdowns()
     specDropdown:SetupMenu(function(_, rootDescription)
         local specs = G.SPEC_KEYS[selectedClassToken] or {}
         for _, specKey in ipairs(specs) do
+            local name, icon = G.GetSpecInfo(selectedClassToken, specKey)
             rootDescription:CreateRadio(
-                G.GetSpecDisplayName(specKey),
+                G.GetSpecIconMarkup(icon, 16) .. (name or specKey),
                 function() return selectedSpecKey == specKey end,
                 function() G.SetSelection(selectedClassToken, specKey) end
             )
@@ -109,4 +115,22 @@ G.RefreshSelectorDropdowns = RefreshSelectorDropdowns
 G.RegisterOnDatabaseReady(function()
     ResetToOwnSpec()
     RefreshSelectorDropdowns()
+end)
+
+-- GetSpecialization() liefert beim frühen ADDON_LOADED oft noch falsche/leere
+-- Werte, weil die Spec-Daten dann noch nicht vom Server synchronisiert sind.
+-- Deshalb hier nochmal bei zuverlässigeren Zeitpunkten neu auflösen -- aber
+-- nur, solange der Spieler noch nicht manuell eine andere Klasse/Spec zum
+-- Durchstöbern gewählt hat.
+local specWatcher = CreateFrame("Frame")
+specWatcher:RegisterEvent("PLAYER_ENTERING_WORLD")
+specWatcher:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED")
+specWatcher:SetScript("OnEvent", function(_, event, unit)
+    if event == "PLAYER_SPECIALIZATION_CHANGED" and unit ~= "player" then return end
+    if not G.db then return end -- SavedVariables evtl. noch nicht geladen
+    if G.IsOwnSpecSelected() or selectedClassToken == nil then
+        ResetToOwnSpec()
+        RefreshSelectorDropdowns()
+        FireSelectionChanged(selectedClassToken, selectedSpecKey)
+    end
 end)

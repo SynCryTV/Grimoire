@@ -85,11 +85,25 @@ end
 -- Einzelnen Itemnamen fürs Auktionshaus kopieren
 -- ============================================================
 
+local copyClickCatcher = CreateFrame("Button", nil, UIParent)
+copyClickCatcher:SetAllPoints(UIParent)
+copyClickCatcher:SetFrameStrata("DIALOG")
+copyClickCatcher:SetFrameLevel(9998)
+copyClickCatcher:EnableMouse(true)
+
+-- Klick soll das Copy-Fenster schließen, aber den darunterliegenden
+-- WoW-Button nach Möglichkeit trotzdem normal erreichen.
+if copyClickCatcher.SetPropagateMouseClicks then
+    copyClickCatcher:SetPropagateMouseClicks(true)
+end
+
+copyClickCatcher:Hide()
+
 local copyPopup = CreateFrame("Frame", nil, G.panel, "BackdropTemplate")
 copyPopup:SetSize(330, 72)
 copyPopup:SetPoint("CENTER", G.panel, "CENTER", 0, 0)
 copyPopup:SetFrameStrata("DIALOG")
-copyPopup:SetFrameLevel(G.panel:GetFrameLevel() + 40)
+copyPopup:SetFrameLevel(9999)
 copyPopup:SetBackdrop({
     bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
     edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
@@ -100,6 +114,7 @@ copyPopup:SetBackdrop({
 })
 copyPopup:SetBackdropColor(0.035, 0.035, 0.035, 0.97)
 copyPopup:SetBackdropBorderColor(0.42, 0.42, 0.42, 1)
+copyPopup:EnableMouse(true)
 copyPopup:Hide()
 
 local copyTitle = copyPopup:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
@@ -131,6 +146,7 @@ CloseCopyPopup = function(copied)
     copyGeneration = copyGeneration + 1
     copyEdit:ClearFocus()
     copyPopup:Hide()
+    copyClickCatcher:Hide()
 
     if copied then
         ShowToast("Name kopiert")
@@ -138,6 +154,10 @@ CloseCopyPopup = function(copied)
 end
 
 copyCloseButton:SetScript("OnClick", function()
+    CloseCopyPopup(false)
+end)
+
+copyClickCatcher:SetScript("OnClick", function()
     CloseCopyPopup(false)
 end)
 
@@ -153,6 +173,7 @@ local function ShowCopyPopup(itemID, fallbackName)
         name = name or fallbackName or ("Item " .. tostring(itemID))
 
         copyEdit:SetText(name)
+        copyClickCatcher:Show()
         copyPopup:Show()
         copyEdit:SetFocus()
         copyEdit:HighlightText()

@@ -80,6 +80,124 @@ local function ShowToast(message, kind)
     end)
 end
 
+
+-- ============================================================
+-- Einzelnen Itemnamen fürs Auktionshaus kopieren
+-- ============================================================
+
+local copyPopup = CreateFrame("Frame", nil, G.panel, "BackdropTemplate")
+copyPopup:SetSize(330, 72)
+copyPopup:SetPoint("CENTER", G.panel, "CENTER", 0, 0)
+copyPopup:SetFrameStrata("DIALOG")
+copyPopup:SetFrameLevel(G.panel:GetFrameLevel() + 40)
+copyPopup:SetBackdrop({
+    bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
+    edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+    tile = true,
+    tileSize = 16,
+    edgeSize = 12,
+    insets = { left = 4, right = 4, top = 4, bottom = 4 },
+})
+copyPopup:SetBackdropColor(0.035, 0.035, 0.035, 0.97)
+copyPopup:SetBackdropBorderColor(0.42, 0.42, 0.42, 1)
+copyPopup:Hide()
+
+local copyTitle = copyPopup:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+copyTitle:SetPoint("TOPLEFT", copyPopup, "TOPLEFT", 10, -8)
+copyTitle:SetText("Itemname kopieren")
+
+local copyHint = copyPopup:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
+copyHint:SetPoint("TOPRIGHT", copyPopup, "TOPRIGHT", -10, -8)
+copyHint:SetText("Strg+C")
+
+local copyEdit = CreateFrame("EditBox", nil, copyPopup, "InputBoxTemplate")
+copyEdit:SetPoint("TOPLEFT", copyPopup, "TOPLEFT", 10, -27)
+copyEdit:SetPoint("RIGHT", copyPopup, "RIGHT", -10, 0)
+copyEdit:SetHeight(26)
+copyEdit:SetAutoFocus(false)
+copyEdit:SetFontObject("GameFontHighlight")
+copyEdit:SetJustifyH("LEFT")
+copyEdit:SetMaxLetters(300)
+
+local copyGeneration = 0
+
+local function CloseCopyPopup(copied)
+    copyGeneration = copyGeneration + 1
+    copyEdit:ClearFocus()
+    copyPopup:Hide()
+
+    if copied then
+        ShowToast("Name kopiert")
+    end
+end
+
+local function ShowCopyPopup(itemID, fallbackName)
+    if not itemID then return end
+
+    copyGeneration = copyGeneration + 1
+    local generation = copyGeneration
+
+    local function ShowName(name)
+        if generation ~= copyGeneration then return end
+
+        name = name or fallbackName or ("Item " .. tostring(itemID))
+
+        copyEdit:SetText(name)
+        copyPopup:Show()
+        copyEdit:SetFocus()
+        copyEdit:HighlightText()
+
+        if G.SoftShow then
+            copyPopup:SetAlpha(0)
+            G.SoftShow(copyPopup, 0.12)
+        else
+            copyPopup:SetAlpha(1)
+        end
+    end
+
+    local item = Item:CreateFromItemID(itemID)
+    item:ContinueOnItemLoad(function()
+        ShowName(item:GetItemName())
+    end)
+
+    -- Falls das Item bereits geladen ist bzw. der Callback verzögert kommt,
+    -- steht sofort ein brauchbarer Fallback bereit.
+    if fallbackName and fallbackName ~= "" then
+        ShowName(fallbackName)
+    end
+end
+
+copyEdit:SetScript("OnEscapePressed", function()
+    CloseCopyPopup(false)
+end)
+
+copyEdit:SetScript("OnEditFocusGained", function(self)
+    self:HighlightText()
+end)
+
+copyEdit:SetScript("OnMouseUp", function(self)
+    -- Ein Klick ins Feld soll nicht versehentlich nur einen Teil markieren.
+    C_Timer.After(0, function()
+        if self:HasFocus() then
+            self:HighlightText()
+        end
+    end)
+end)
+
+copyEdit:SetScript("OnKeyDown", function(self, key)
+    if key == "C" and IsControlKeyDown() then
+        -- Das Standard-EditBox-Verhalten führt Strg+C aus.
+        -- Erst einen Moment später schließen, damit der Clipboard-Vorgang
+        -- garantiert abgeschlossen ist.
+        local generation = copyGeneration
+        C_Timer.After(0.08, function()
+            if generation == copyGeneration and copyPopup:IsShown() then
+                CloseCopyPopup(true)
+            end
+        end)
+    end
+end)
+
 local SECTION_GAP = 6
 local ROW_HEIGHT = 28
 local ICON_SIZE = 20
@@ -681,6 +799,38 @@ local function CreateRow(parent)
     nameText:SetWordWrap(false)
     row.nameText = nameText
 
+    -- Klickfläche für den einzelnen Itemnamen.
+    -- Das Icon behält weiterhin seinen normalen Tooltip.
+    local copyButton = CreateFrame("Button", nil, row)
+    copyButton:SetPoint("LEFT", iconButton, "RIGHT", 2, 0)
+    copyButton:SetPoint("RIGHT", row, "RIGHT", -2, 0)
+    copyButton:SetPoint("TOP", row, "TOP", 0, 0)
+    copyButton:SetPoint("BOTTOM", row, "BOTTOM", 0, 0)
+    copyButton:RegisterForClicks("LeftButtonUp")
+
+    copyButton:SetScript("OnEnter", function(self)
+        if not self.itemId then return end
+        GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+        GameTooltip:SetText("Itemname kopieren")
+        GameTooltip:AddLine(
+            "Klicken → Name öffnen, danach Strg+C drücken.",
+            0.8, 0.8, 0.8,
+            true
+        )
+        GameTooltip:Show()
+    end)
+
+    copyButton:SetScript("OnLeave", function()
+        GameTooltip:Hide()
+    end)
+
+    copyButton:SetScript("OnClick", function(self)
+        if not self.itemId then return end
+        ShowCopyPopup(self.itemId, self.fallbackName)
+    end)
+
+    row.copyButton = copyButton
+
     row:Hide()
     return row
 end
@@ -896,6 +1046,8 @@ local function RefreshSection(entry, specData, animate)
         row:SetPoint("TOPLEFT", entry.body, "TOPLEFT", 0, 0)
         row:SetPoint("RIGHT", entry.body, "RIGHT", 0, 0)
         row.iconButton.itemId = nil
+        row.copyButton.itemId = nil
+        row.copyButton.fallbackName = nil
         row.iconButton.texture:SetTexture(134400)
         row.slotText:SetText("")
         row.nameText:SetText("Keine Daten verfügbar.")
@@ -925,6 +1077,8 @@ local function RefreshSection(entry, specData, animate)
         row:SetPoint("RIGHT", entry.body, "RIGHT", 0, 0)
 
         row.iconButton.itemId = itemID
+        row.copyButton.itemId = itemID
+        row.copyButton.fallbackName = itemEntry.item.name
         row.iconButton.texture:SetTexture(134400)
         row.slotText:SetText(itemEntry.label or "")
         row.nameText:SetText(itemEntry.item.name or ("Item " .. tostring(itemID)))
@@ -935,7 +1089,9 @@ local function RefreshSection(entry, specData, animate)
             if row.iconButton.itemId ~= itemID then return end
 
             row.iconButton.texture:SetTexture(item:GetItemIcon() or 134400)
-            row.nameText:SetText(item:GetItemName() or itemEntry.item.name or ("Item " .. tostring(itemID)))
+            local localizedName = item:GetItemName() or itemEntry.item.name or ("Item " .. tostring(itemID))
+            row.nameText:SetText(localizedName)
+            row.copyButton.fallbackName = localizedName
             SetItemQuality(row.nameText, item)
         end)
 

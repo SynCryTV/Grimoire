@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexIcyVeinsData = ClassCodexIcyVeinsData or {}
-ClassCodexIcyVeinsData["WARLOCK"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireIcyVeinsData = GrimoireIcyVeinsData or {}
+GrimoireIcyVeinsData["WARLOCK"] = {
   ["affliction"] = {
     bisGear = {
       { label = "Overall", slots = {

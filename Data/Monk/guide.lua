@@ -1,7 +1,7 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 -- talents/rotation bewusst als Platzhalter -- siehe Projektnotizen
-ClassCodexData = ClassCodexData or {}
-ClassCodexData["MONK"] = {
+GrimoireData = GrimoireData or {}
+GrimoireData["MONK"] = {
   ["brewmaster"] = {
     label = "Brewmaster Monk",
     priorities = {
@@ -26,13 +26,6 @@ ClassCodexData["MONK"] = {
           { "Versatility", "Mastery" },
           { "Haste" },
         },
-        previousStats = {
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Versatility" },
-          { "Haste" },
-        },
-        changedDate = "2026-08-12",
       },
       {
         heroTalent = "Master of Harmony", context = "Offensive",
@@ -41,13 +34,6 @@ ClassCodexData["MONK"] = {
           { "Versatility", "Mastery" },
           { "Haste" },
         },
-        previousStats = {
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Versatility" },
-          { "Haste" },
-        },
-        changedDate = "2026-08-12",
       },
     },
     talents = {},
@@ -73,13 +59,6 @@ ClassCodexData["MONK"] = {
           { "Critical Strike" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-          { "Mastery" },
-        },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},

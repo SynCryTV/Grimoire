@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexOmniumFolio = ClassCodexOmniumFolio or {}
-ClassCodexOmniumFolio["WARLOCK"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireOmniumFolio = GrimoireOmniumFolio or {}
+GrimoireOmniumFolio["WARLOCK"] = {
   ["affliction"] = { { label = "Rune 1", spellId = 1279599, name = "Rune of Unleashed Fire" }, { label = "Rune 2", spellId = 1279603, name = "Rune of Self-Mending" }, { label = "Rune 3", spellId = 1287555, name = "Rune of Lingering" }, { label = "Rune 4", spellId = 1279609, name = "Rune of Critical Power" }, { label = "Rune 5", spellId = 1279614, name = "Rune of Overload" } },
   ["demonology"] = { { label = "Rune 1", spellId = 1279596, name = "Rune of Void-Touched Orbs" }, { label = "Rune 2", spellId = 1279603, name = "Rune of Self-Mending" }, { label = "Rune 3", spellId = 1287555, name = "Rune of Lingering" }, { label = "Rune 4", spellId = 1279609, name = "Rune of Critical Power" }, { label = "Rune 5", spellId = 1279614, name = "Rune of Overload" } },
   ["destruction"] = { { label = "Rune 1", spellId = 1279596, name = "Rune of Void-Touched Orbs" }, { label = "Rune 2", spellId = 1279603, name = "Rune of Self-Mending" }, { label = "Rune 3", spellId = 1287555, name = "Rune of Lingering" }, { label = "Rune 4", spellId = 1279609, name = "Rune of Critical Power" }, { label = "Rune 5", spellId = 1279615, name = "Rune of Residual Energy" } },

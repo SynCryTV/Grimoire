@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexGearData = ClassCodexGearData or {}
-ClassCodexGearData["MAGE"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireGearData = GrimoireGearData or {}
+GrimoireGearData["MAGE"] = {
   ["arcane"] = {
     enchants = {
       { slot = "Weapon", best = { itemId = 244029, name = "Enchant Weapon - Acuity of the Ren'dorei" } },

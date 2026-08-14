@@ -1,7 +1,7 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 -- talents/rotation bewusst als Platzhalter -- siehe Projektnotizen
-ClassCodexData = ClassCodexData or {}
-ClassCodexData["WARRIOR"] = {
+GrimoireData = GrimoireData or {}
+GrimoireData["WARRIOR"] = {
   ["arms"] = {
     label = "Arms Warrior",
     priorities = {

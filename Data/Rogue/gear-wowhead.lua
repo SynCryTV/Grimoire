@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexGearData = ClassCodexGearData or {}
-ClassCodexGearData["ROGUE"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireGearData = GrimoireGearData or {}
+GrimoireGearData["ROGUE"] = {
   ["assassination"] = {
     enchants = {
       { slot = "Both Weapons", best = { itemId = 243973, name = "Enchant Weapon - Berserker's Rage" } },

@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexArchonGearData = ClassCodexArchonGearData or {}
-ClassCodexArchonGearData["ROGUE"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireArchonGearData = GrimoireArchonGearData or {}
+GrimoireArchonGearData["ROGUE"] = {
   ["assassination"] = {
     bisGear = {
       { label = "Mythic+", slots = {
@@ -89,7 +89,7 @@ ClassCodexArchonGearData["ROGUE"] = {
         { item = { itemId = 250004, name = "Venom Casks of the Grim Jest" }, bis = false },
         { item = { itemId = 258575, name = "Rigid Scale Greatcloak" }, bis = false },
         { item = { itemId = 250009, name = "Fantastic Finery of the Grim Jest" }, bis = false },
-        { item = { itemId = 244576, name = "Silvermoon Agent's Deflectors" }, bis = false },
+        { item = { itemId = 244576, name = "Silvermoon Agent's Deflectors" }, bis = true },
         { item = { itemId = 250007, name = "Sleight of Hand of the Grim Jest" }, bis = false },
         { item = { itemId = 268286, name = "Sash of the Putrid Giant" }, bis = false },
         { item = { itemId = 49817, name = "Shaggy Wyrmleather Leggings" }, bis = false },
@@ -107,7 +107,7 @@ ClassCodexArchonGearData["ROGUE"] = {
         { item = { itemId = 250004, name = "Venom Casks of the Grim Jest" }, bis = false },
         { item = { itemId = 239656, name = "Adherent's Silken Shroud" }, bis = false },
         { item = { itemId = 250009, name = "Fantastic Finery of the Grim Jest" }, bis = false },
-        { item = { itemId = 244576, name = "Silvermoon Agent's Deflectors" }, bis = false },
+        { item = { itemId = 244576, name = "Silvermoon Agent's Deflectors" }, bis = true },
         { item = { itemId = 250007, name = "Sleight of Hand of the Grim Jest" }, bis = false },
         { item = { itemId = 268286, name = "Sash of the Putrid Giant" }, bis = false },
         { item = { itemId = 49817, name = "Shaggy Wyrmleather Leggings" }, bis = false },

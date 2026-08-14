@@ -1,7 +1,7 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 -- talents/rotation bewusst als Platzhalter -- siehe Projektnotizen
-ClassCodexData = ClassCodexData or {}
-ClassCodexData["HUNTER"] = {
+GrimoireData = GrimoireData or {}
+GrimoireData["HUNTER"] = {
   ["beast-mastery"] = {
     label = "Beast Mastery Hunter",
     priorities = {
@@ -24,14 +24,6 @@ ClassCodexData["HUNTER"] = {
           { "Haste" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Weapon Damage" },
-          { "Mastery" },
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        changedDate = "2026-08-12",
       },
     },
     talents = {},

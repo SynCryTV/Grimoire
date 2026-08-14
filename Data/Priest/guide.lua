@@ -1,7 +1,7 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 -- talents/rotation bewusst als Platzhalter -- siehe Projektnotizen
-ClassCodexData = ClassCodexData or {}
-ClassCodexData["PRIEST"] = {
+GrimoireData = GrimoireData or {}
+GrimoireData["PRIEST"] = {
   ["discipline"] = {
     label = "Discipline Priest",
     priorities = {
@@ -13,13 +13,6 @@ ClassCodexData["PRIEST"] = {
           { "Critical Strike" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Haste" },
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Versatility" },
-        },
-        changedDate = "2026-08-12",
       },
       {
         heroTalent = "Voidweaver", context = "Raid",
@@ -29,13 +22,6 @@ ClassCodexData["PRIEST"] = {
           { "Critical Strike" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Haste" },
-          { "Critical Strike" },
-          { "Mastery" },
-          { "Versatility" },
-        },
-        changedDate = "2026-08-12",
       },
       {
         heroTalent = "Oracle", context = "Dungeons",
@@ -45,13 +31,6 @@ ClassCodexData["PRIEST"] = {
           { "Critical Strike" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-          { "Mastery" },
-        },
-        changedDate = "2026-08-12",
       },
       {
         heroTalent = "Voidweaver", context = "Dungeons",
@@ -61,13 +40,6 @@ ClassCodexData["PRIEST"] = {
           { "Critical Strike" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-          { "Mastery" },
-        },
-        changedDate = "2026-08-12",
       },
     },
     talents = {},

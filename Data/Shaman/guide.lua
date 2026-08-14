@@ -1,7 +1,7 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 -- talents/rotation bewusst als Platzhalter -- siehe Projektnotizen
-ClassCodexData = ClassCodexData or {}
-ClassCodexData["SHAMAN"] = {
+GrimoireData = GrimoireData or {}
+GrimoireData["SHAMAN"] = {
   ["elemental"] = {
     label = "Elemental Shaman",
     priorities = {
@@ -35,12 +35,6 @@ ClassCodexData["SHAMAN"] = {
           { "Critical Strike" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Haste" },
-          { "Mastery", "Critical Strike" },
-          { "Versatility" },
-        },
-        changedDate = "2026-08-12",
       },
       {
         heroTalent = "Totemic", context = "General",
@@ -49,13 +43,6 @@ ClassCodexData["SHAMAN"] = {
           { "Critical Strike" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Mastery" },
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        changedDate = "2026-08-12",
       },
     },
     talents = {},
@@ -72,11 +59,6 @@ ClassCodexData["SHAMAN"] = {
           { "Versatility" },
           { "Mastery" },
         },
-        previousStats = {
-          { "Critical Strike" },
-          { "Versatility", "Mastery", "Haste" },
-        },
-        changedDate = "2026-08-12",
       },
       {
         heroTalent = "Totemic", context = "General",
@@ -86,11 +68,6 @@ ClassCodexData["SHAMAN"] = {
           { "Versatility" },
           { "Mastery" },
         },
-        previousStats = {
-          { "Critical Strike" },
-          { "Versatility", "Mastery", "Haste" },
-        },
-        changedDate = "2026-08-12",
       },
     },
     talents = {},

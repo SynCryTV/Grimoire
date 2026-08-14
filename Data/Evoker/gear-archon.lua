@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexArchonGearData = ClassCodexArchonGearData or {}
-ClassCodexArchonGearData["EVOKER"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireArchonGearData = GrimoireArchonGearData or {}
+GrimoireArchonGearData["EVOKER"] = {
   ["augmentation"] = {
     bisGear = {
       { label = "Mythic+", slots = {

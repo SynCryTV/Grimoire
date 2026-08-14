@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexGearData = ClassCodexGearData or {}
-ClassCodexGearData["MONK"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireGearData = GrimoireGearData or {}
+GrimoireGearData["MONK"] = {
   ["brewmaster"] = {
     enchants = {
       { slot = "Weapons (2h & Dual-Wield)", best = { itemId = 244029, name = "Enchant Weapon - Acuity of the Ren'dorei" } },

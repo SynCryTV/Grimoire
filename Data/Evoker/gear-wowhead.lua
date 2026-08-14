@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexGearData = ClassCodexGearData or {}
-ClassCodexGearData["EVOKER"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireGearData = GrimoireGearData or {}
+GrimoireGearData["EVOKER"] = {
   ["augmentation"] = {
     enchants = {
       { slot = "Weapon", best = { itemId = 244031, name = "Enchant Weapon - Arcane Mastery" } },

@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexArchonGearData = ClassCodexArchonGearData or {}
-ClassCodexArchonGearData["DEMONHUNTER"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireArchonGearData = GrimoireArchonGearData or {}
+GrimoireArchonGearData["DEMONHUNTER"] = {
   ["devourer"] = {
     bisGear = {
       { label = "Mythic+", slots = {

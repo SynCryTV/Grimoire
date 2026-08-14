@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexOmniumFolio = ClassCodexOmniumFolio or {}
-ClassCodexOmniumFolio["MONK"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireOmniumFolio = GrimoireOmniumFolio or {}
+GrimoireOmniumFolio["MONK"] = {
   ["brewmaster"] = { { label = "Rune 1", spellId = 1279599, name = "Rune of Unleashed Fire" }, { label = "Rune 2", spellId = 1279603, name = "Rune of Self-Mending" }, { label = "Rune 3", spellId = 1287555, name = "Rune of Lingering" }, { label = "Rune 4", spellId = 1279613, name = "Rune of the Versatile Warrior" }, { label = "Rune 5", spellId = 1279614, name = "Rune of Overload" } },
   ["mistweaver"] = { { label = "Rune 1", spellId = 1279599, name = "Rune of Unleashed Fire" }, { label = "Rune 2", spellId = 1279603, name = "Rune of Self-Mending" }, { label = "Rune 3", spellId = 1287555, name = "Rune of Lingering" }, { label = "Rune 4", spellId = 1279610, name = "Rune of Burning Haste" }, { label = "Rune 5", spellId = 1279615, name = "Rune of Residual Energy" } },
   ["windwalker"] = { { label = "Rune Row 1", spellId = 1279599, name = "Rune of Unleashed Fire" }, { label = "Rune Row 2", spellId = 1279604, name = "Rune of Void-Tainted Shell" }, { label = "Rune Row 3", spellId = 1287555, name = "Rune of Lingering" }, { label = "Rune Row 4 (sim)", spellId = 1279609, name = "Rune of Critical Power" }, { label = "Rune Row 5", spellId = 1279614, name = "Rune of Overload" } },

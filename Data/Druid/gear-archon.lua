@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexArchonGearData = ClassCodexArchonGearData or {}
-ClassCodexArchonGearData["DRUID"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireArchonGearData = GrimoireArchonGearData or {}
+GrimoireArchonGearData["DRUID"] = {
   ["balance"] = {
     bisGear = {
       { label = "Mythic+", slots = {

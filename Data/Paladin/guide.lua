@@ -1,7 +1,7 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 -- talents/rotation bewusst als Platzhalter -- siehe Projektnotizen
-ClassCodexData = ClassCodexData or {}
-ClassCodexData["PALADIN"] = {
+GrimoireData = GrimoireData or {}
+GrimoireData["PALADIN"] = {
   ["holy"] = {
     label = "Holy Paladin",
     priorities = {
@@ -36,13 +36,6 @@ ClassCodexData["PALADIN"] = {
           { "Critical Strike" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Haste" },
-          { "Versatility" },
-          { "Mastery" },
-          { "Critical Strike" },
-        },
-        changedDate = "2026-08-12",
       },
       {
         context = "General",
@@ -52,13 +45,6 @@ ClassCodexData["PALADIN"] = {
           { "Mastery" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Haste" },
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        changedDate = "2026-08-14",
       },
     },
     talents = {},
@@ -75,13 +61,6 @@ ClassCodexData["PALADIN"] = {
           { "Critical Strike" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        changedDate = "2026-08-12",
       },
       {
         heroTalent = "Herald of the Sun", context = "General",
@@ -91,13 +70,6 @@ ClassCodexData["PALADIN"] = {
           { "Critical Strike" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Mastery" },
-          { "Critical Strike" },
-          { "Haste" },
-          { "Versatility" },
-        },
-        changedDate = "2026-08-12",
       },
     },
     talents = {},

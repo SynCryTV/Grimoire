@@ -1,7 +1,7 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 -- talents/rotation bewusst als Platzhalter -- siehe Projektnotizen
-ClassCodexData = ClassCodexData or {}
-ClassCodexData["EVOKER"] = {
+GrimoireData = GrimoireData or {}
+GrimoireData["EVOKER"] = {
   ["augmentation"] = {
     label = "Augmentation Evoker",
     priorities = {
@@ -13,13 +13,6 @@ ClassCodexData["EVOKER"] = {
           { "Haste" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Critical Strike" },
-          { "Haste" },
-          { "Mastery" },
-          { "Versatility" },
-        },
-        changedDate = "2026-08-12",
       },
       {
         heroTalent = "Scalecommander", context = "General",
@@ -29,13 +22,6 @@ ClassCodexData["EVOKER"] = {
           { "Haste" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Critical Strike" },
-          { "Haste" },
-          { "Mastery" },
-          { "Versatility" },
-        },
-        changedDate = "2026-08-12",
       },
     },
     talents = {},
@@ -52,13 +38,6 @@ ClassCodexData["EVOKER"] = {
           { "Haste" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Critical Strike" },
-          { "Haste" },
-          { "Mastery" },
-          { "Versatility" },
-        },
-        changedDate = "2026-08-12",
       },
       {
         heroTalent = "Scalecommander", context = "General",
@@ -68,13 +47,6 @@ ClassCodexData["EVOKER"] = {
           { "Haste" },
           { "Versatility" },
         },
-        previousStats = {
-          { "Critical Strike" },
-          { "Haste" },
-          { "Mastery" },
-          { "Versatility" },
-        },
-        changedDate = "2026-08-12",
       },
     },
     talents = {},

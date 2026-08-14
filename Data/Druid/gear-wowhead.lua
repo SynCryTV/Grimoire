@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexGearData = ClassCodexGearData or {}
-ClassCodexGearData["DRUID"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireGearData = GrimoireGearData or {}
+GrimoireGearData["DRUID"] = {
   ["balance"] = {
     enchants = {
       { slot = "Weapon", best = { itemId = 244031, name = "Enchant Weapon - Arcane Mastery" } },

@@ -1,7 +1,7 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 -- talents/rotation bewusst als Platzhalter -- siehe Projektnotizen
-ClassCodexData = ClassCodexData or {}
-ClassCodexData["DEMONHUNTER"] = {
+GrimoireData = GrimoireData or {}
+GrimoireData["DEMONHUNTER"] = {
   ["devourer"] = {
     label = "Devourer Demon Hunter",
     priorities = {
@@ -23,13 +23,6 @@ ClassCodexData["DEMONHUNTER"] = {
           { "Versatility" },
           { "Haste." },
         },
-        previousStats = {
-          { "Mastery" },
-          { "Haste" },
-          { "Critical Strike" },
-          { "Versatility" },
-        },
-        changedDate = "2026-08-12",
       },
     },
     talents = {},

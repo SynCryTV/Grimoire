@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexGearData = ClassCodexGearData or {}
-ClassCodexGearData["WARLOCK"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireGearData = GrimoireGearData or {}
+GrimoireGearData["WARLOCK"] = {
   ["affliction"] = {
     enchants = {
       { slot = "Weapon", best = { itemId = 243971, name = "Enchant Weapon - Jan'alai's Precision" } },

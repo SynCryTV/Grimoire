@@ -1,6 +1,6 @@
--- Manuell aktualisiert via classcodex-scraper (nicht offiziell)
-ClassCodexGearData = ClassCodexGearData or {}
-ClassCodexGearData["DEATHKNIGHT"] = {
+-- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
+GrimoireGearData = GrimoireGearData or {}
+GrimoireGearData["DEATHKNIGHT"] = {
   ["blood"] = {
     enchants = {
       { slot = "Helm", best = { itemId = 243981, name = "Enchant Helm - Empowered Blessing of Speed" } },

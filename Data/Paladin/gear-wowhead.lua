@@ -32,7 +32,6 @@ GrimoireGearData["PALADIN"] = {
     trinkets = {
       { itemId = 270162, tier = "S", contexts = { "crafting", "delves", "dungeon", "raid" }, source = "Nek'zali the Soulcoiler" },
       { itemId = 270164, tier = "S", contexts = { "raid" }, source = "The Lost Explorers" },
-      { itemId = 249343, tier = "A", contexts = { "raid" } },
       { itemId = 250214, tier = "A", contexts = { "dungeon" } },
       { itemId = 250215, tier = "A", contexts = { "dungeon" } },
       { itemId = 270167, tier = "A", contexts = { "raid" } },

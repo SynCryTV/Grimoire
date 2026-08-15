@@ -206,7 +206,7 @@ GrimoireGearData["DEATHKNIGHT"] = {
     },
     bisGear = {
       { label = "Overall", slots = {
-        { slot = "Weapon", item = { itemId = 268213, name = "Maze-roa, Warlord's Fury", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
+        { slot = "Weapon", item = { itemId = 268213, name = "Maze-roa, Warlord's Fury", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
         { slot = "Head", item = { itemId = 271474, name = "Baleful Grave-Knight's Casque", bonusIDs = {  } }, source = "Tier Set", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/season-2-tier-set-bonus-appearance-overview" } },
         { slot = "Neck", item = { itemId = 268265, name = "Aqirbane Reliquary", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
         { slot = "Shoulders", item = { itemId = 271472, name = "Baleful Grave-Knight's Gibbets", bonusIDs = {  } }, source = "Tier Set", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/season-2-tier-set-bonus-appearance-overview" } },
@@ -214,7 +214,7 @@ GrimoireGearData["DEATHKNIGHT"] = {
         { slot = "Chest", item = { itemId = 271477, name = "Baleful Grave-Knight's Breastplate", bonusIDs = {  } }, source = "Tier Set", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/season-2-tier-set-bonus-appearance-overview" } },
         { slot = "Wrist", item = { itemId = 237834, name = "Spellbreaker's Bracers", bonusIDs = {  } }, source = "Crafting", sourceMeta = { kind = "crafting", url = "https://www.wowhead.com/guide/professions/overview" } },
         { slot = "Hands", item = { itemId = 271475, name = "Baleful Grave-Knight's Deathgrips", bonusIDs = {  } }, source = "Tier Set", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/season-2-tier-set-bonus-appearance-overview" } },
-        { slot = "Waist", item = { itemId = 268259, name = "Girdle of Toxic Regret", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
+        { slot = "Waist", item = { itemId = 268259, name = "Girdle of Toxic Regret", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
         { slot = "Legs", item = { itemId = 271878, name = "Chausses of Unbound Rancor", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
         { slot = "Feet", item = { itemId = 237828, name = "Spellbreaker's March", bonusIDs = {  } }, source = "Crafting", sourceMeta = { kind = "crafting", url = "https://www.wowhead.com/guide/professions/overview" } },
         { slot = "Ring", item = { itemId = 273792, name = "Band of the Amani Warlord", bonusIDs = {  } }, source = "Altar of Fangs", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/altar-of-fangs-dungeon-overview-location-rewards" } },

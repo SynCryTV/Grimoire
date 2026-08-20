@@ -148,7 +148,7 @@ GrimoireIcyVeinsData["WARRIOR"] = {
         { slot = "Ring", item = { itemId = 252258, name = "Sickening Signet of Atroxus", bonusIDs = { 12854 } }, source = "Voidscar Arena" },
         { slot = "Trinket", item = { itemId = 250229, name = "Idol of the War Loa", bonusIDs = { 12854 } }, source = "Den of Nalorakk" },
         { slot = "Bracers", item = { itemId = 237834, name = "Spellbreaker's Bracers", bonusIDs = { 13751 } }, source = "Crafted by Blacksmithing" },
-        { slot = "Trinket", item = { itemId = 273796, name = "Vile Vial of Volatile Venom", bonusIDs = { 12854 } }, source = "Murder Row" },
+        { slot = "Trinket", item = { itemId = 273796, name = "Vile Vial of Volatile Venom", bonusIDs = { 12854 } }, source = "Altar of Fangs" },
         { slot = "Main Hand", item = { itemId = 251195, name = "Thorned Reply", bonusIDs = { 12854 } }, source = "Blinding Vale" },
         { slot = "Off Hand", item = { itemId = 251150, name = "Tempest's Shelter", bonusIDs = { 12854 } }, source = "Den of Nalorakk" },
       } },

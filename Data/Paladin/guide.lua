@@ -56,7 +56,7 @@ GrimoireData["PALADIN"] = {
           { "Versatility" },
         },
         previousOperators = { ">", ">", ">", ">" },
-        changedDate = "2026-08-15",
+        changedDate = "2026-08-20",
       },
     },
     talents = {},

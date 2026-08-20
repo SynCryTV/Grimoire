@@ -2,15 +2,12 @@
 GrimoireArchonStats = GrimoireArchonStats or {}
 GrimoireArchonStats["EVOKER"] = {
   ["devastation"] = {
-    ["Mythic+"] = { targets = { crit = 1047, haste = 805, mastery = 461, versatility = 133 } },
-    ["Raid"] = { targets = { crit = 1105, haste = 915, mastery = 444, versatility = 83 } },
+    ["Mythic+"] = { targets = { crit = 1076, haste = 827, mastery = 557, versatility = 150 } },
   },
   ["augmentation"] = {
-    ["Mythic+"] = { targets = { crit = 1171, haste = 1010, mastery = 253, versatility = 108 } },
-    ["Raid"] = { targets = { crit = 1191, haste = 940, mastery = 274, versatility = 66 } },
+    ["Mythic+"] = { targets = { crit = 926, haste = 786, mastery = 506, versatility = 157 } },
   },
   ["preservation"] = {
-    ["Mythic+"] = { targets = { mastery = 713, haste = 686, crit = 635, versatility = 180 } },
-    ["Raid"] = { targets = { mastery = 1325, crit = 681, haste = 615, versatility = 69 } },
+    ["Mythic+"] = { targets = { mastery = 912, crit = 766, haste = 724, versatility = 187 } },
   },
 }

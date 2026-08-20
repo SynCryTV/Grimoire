@@ -52,7 +52,7 @@ GrimoireGearData["WARLOCK"] = {
     bisGear = {
       { label = "Overall", slots = {
         { slot = "Weapon", item = { itemId = 271092, name = "Jan'thrazet, the Soul Fang", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
-        { slot = "Off Hand", item = { itemId = 273779, name = "Nocuous Focal Fang", bonusIDs = {  } }, source = "The Writhing Coil", sourceMeta = { kind = "world", url = "https://www.wowhead.com/npc=259446/the-writhing-coil", wowheadType = "npc", wowheadId = 259446 } },
+        { slot = "Off Hand", item = { itemId = 245769, name = "Aln'hara Lantern", bonusIDs = {  } }, source = "Crafting", sourceMeta = { kind = "crafting", url = "https://www.wowhead.com/guide/professions/overview" } },
         { slot = "Head", item = { itemId = 271874, name = "Venomkeeper's Horrific Cowl", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
         { slot = "Neck", item = { itemId = 268265, name = "Aqirbane Reliquary", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
         { slot = "Shoulders", item = { itemId = 271544, name = "Spires of the Damned Necrolyte", bonusIDs = {  } }, source = "The Lost Explorers", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-lost-explorers-boss-strategy-abilities" } },

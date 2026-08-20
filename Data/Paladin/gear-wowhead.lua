@@ -3,7 +3,7 @@ GrimoireGearData = GrimoireGearData or {}
 GrimoireGearData["PALADIN"] = {
   ["holy"] = {
     enchants = {
-      { slot = "Weapon", best = { itemId = 244029, name = "Enchant Weapon - Acuity of the Ren'dorei" } },
+      { slot = "Weapon", best = { itemId = 244031, name = "Enchant Weapon - Arcane Mastery" } },
       { slot = "Shoulders", best = { itemId = 244021, name = "Enchant Shoulders - Silvermoon's Mending" } },
       { slot = "Chest", best = { itemId = 244003, name = "Enchant Chest - Mark of the Magister" } },
       { slot = "Legs", best = { itemId = 240155, name = "Arcanoweave Spellthread" } },
@@ -21,11 +21,10 @@ GrimoireGearData["PALADIN"] = {
       flask = { itemId = 241322, name = "Flask of the Magisters" },
       weaponBuff = { itemId = 243734, name = "Thalassian Phoenix Oil" },
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
-      food = { itemId = 242747, name = "Hearty Royal Roast" },
+      food = { itemId = 275264, name = "Amani Cornucopia" },
       combatPotion = { itemId = 241288, name = "Potion of Recklessness" },
       extra_mana_potion = { itemId = 241300, name = "Lightfused Mana Potion" },
       healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
-      food_266985 = { itemId = 266985, name = "Hearty Silvermoon Parade" },
       food_242299 = { itemId = 242299, name = "Sanguithorn Tea" },
       invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },
     },
@@ -53,7 +52,7 @@ GrimoireGearData["PALADIN"] = {
       { label = "Overall", slots = {
         { slot = "Weapon", item = { itemId = 268211, name = "Baleful Hexblade", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
         { slot = "Shield", item = { itemId = 268262, name = "Bubblefin Splash Guard", bonusIDs = {  } }, source = "Nymrissa Wavecaller", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/nymrissa-wavecaller-tidebound-grotto-lair-boss-strategy-rewards" } },
-        { slot = "Head", item = { itemId = 271465, name = "Warhelm of the Consecrated Flame", bonusIDs = {  } }, source = "Nek'zali the Soulcoiler", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-nekzali-the-soulcoiler-boss-strategy-abilities" } },
+        { slot = "Head", item = { itemId = 271465, name = "Warhelm of the Consecrated Flame", bonusIDs = {  } }, source = "Murder Row", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/murder-row-dungeon-overview-location-rewards" } },
         { slot = "Neck", item = { itemId = 268265, name = "Aqirbane Reliquary", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
         { slot = "Shoulders", item = { itemId = 271463, name = "Pauldrons of the Consecrated Flame", bonusIDs = {  } }, source = "Murder Row", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/murder-row-dungeon-overview-location-rewards" } },
         { slot = "Back", item = { itemId = 268253, name = "Silken Voodoo Drape", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
@@ -171,7 +170,7 @@ GrimoireGearData["PALADIN"] = {
     },
     trinkets = {
       { itemId = 270173, tier = "S", contexts = { "raid" }, source = "The Coiled Altar" },
-      { itemId = 250259, tier = "A", contexts = { "dungeon" } },
+      { itemId = 250259, tier = "A", contexts = { "dungeon", "raid" } },
       { itemId = 270175, tier = "A", contexts = { "raid" }, source = "Ula'tek" },
       { itemId = 193762, tier = "B", contexts = { "dungeon" } },
       { itemId = 251792, tier = "B", contexts = { "delves" } },

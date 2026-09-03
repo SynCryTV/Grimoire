@@ -70,7 +70,7 @@ GrimoireData["MONK"] = {
           { "Mastery" },
         },
         previousOperators = { ">", ">", ">", ">" },
-        changedDate = "2026-08-20",
+        changedDate = "2026-09-03",
       },
     },
     talents = {},

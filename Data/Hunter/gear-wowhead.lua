@@ -3,7 +3,7 @@ GrimoireGearData = GrimoireGearData or {}
 GrimoireGearData["HUNTER"] = {
   ["beast-mastery"] = {
     enchants = {
-      { slot = "Weapon", best = { itemId = 244031, name = "Enchant Weapon - Arcane Mastery" } },
+      { slot = "Weapon", best = { itemId = 273072, name = "Enchant Weapon - Rite of the Hash'ey" } },
       { slot = "Head", best = { itemId = 244007, name = "Enchant Helm - Empowered Rune of Avoidance" } },
       { slot = "Shoulders", best = { itemId = 243991, name = "Enchant Shoulders - Amirdrassil's Grace" } },
       { slot = "Chest", best = { itemId = 243977, name = "Enchant Chest - Mark of the Worldsoul" } },
@@ -28,6 +28,7 @@ GrimoireGearData["HUNTER"] = {
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
       food = { itemId = 255846, name = "Harandar Celebration" },
       combatPotion_241288 = { itemId = 241288, name = "Potion of Recklessness" },
+      combatPotion_271887 = { itemId = 271887, name = "Liquid Luster" },
       healthPotion = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
       food_242275 = { itemId = 242275, name = "Royal Roast" },
       invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },
@@ -71,7 +72,7 @@ GrimoireGearData["HUNTER"] = {
         { slot = "Hands", item = { itemId = 271493, name = "Skulking Viper's Hidepiercers", bonusIDs = {  } }, source = "King's Rest", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/kings-rest-dungeon-overview-mythic-plus" } },
         { slot = "Waist", item = { itemId = 244581, name = "Farstrider's Trophy Belt", bonusIDs = {  } }, source = "Leatherworking", sourceMeta = { kind = "crafting", url = "https://www.wowhead.com/skill=165/leatherworking" } },
         { slot = "Legs", item = { itemId = 271491, name = "Skulking Viper's Coiled Legwraps", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
-        { slot = "Feet", item = { itemId = 268233, name = "Ferocious Scaleboots", bonusIDs = {  } }, source = "Sszorak", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-sszorak-boss-strategy-abilities" } },
+        { slot = "Feet", item = { itemId = 159388, name = "Sabatons of Coruscating Energy", bonusIDs = {  } }, source = "Temple of Sethraliss", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/temple-of-sethraliss-dungeon-overview-mythic-plus" } },
         { slot = "Ring", item = { itemId = 268249, name = "Vile Alchemist's Band", bonusIDs = {  } }, source = "Vashnik the Malignant", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-vashnik-the-malignant-boss-strategy-abilities" } },
         { slot = "Ring", item = { itemId = 252258, name = "Sickening Signet of Atroxus", bonusIDs = {  } }, source = "Voidscar Arena", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/voidscar-arena-dungeon-overview-location-rewards" } },
         { slot = "Trinket", item = { itemId = 270173, name = "Zul'jin's Guillotine Technique", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
@@ -82,7 +83,7 @@ GrimoireGearData["HUNTER"] = {
   },
   ["marksmanship"] = {
     enchants = {
-      { slot = "Weapon", best = { itemId = 243971, name = "Enchant Weapon - Jan'alai's Precision" } },
+      { slot = "Weapon", best = { itemId = 273072, name = "Enchant Weapon - Rite of the Hash'ey" } },
       { slot = "Shoulders", best = { itemId = 244021, name = "Enchant Shoulders - Silvermoon's Mending" } },
       { slot = "Chest", best = { itemId = 243977, name = "Enchant Chest - Mark of the Worldsoul" } },
       { slot = "Legs", best = { itemId = 244641, name = "Forest Hunter's Armor Kit" } },
@@ -111,10 +112,10 @@ GrimoireGearData["HUNTER"] = {
       invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },
     },
     trinkets = {
-      { itemId = 270173, tier = "S", contexts = { "raid" }, source = "The Coiled Altar" },
+      { itemId = 270168, tier = "S", contexts = { "raid" }, source = "Ula'tek" },
+      { itemId = 270173, tier = "S", contexts = { "raid" } },
       { itemId = 270175, tier = "S", contexts = { "raid" }, source = "Ula'tek" },
-      { itemId = 159617, tier = "A", contexts = { "dungeon", "raid" } },
-      { itemId = 270168, tier = "A", contexts = { "raid" } },
+      { itemId = 159617, tier = "A", contexts = { "dungeon" } },
       { itemId = 273796, tier = "A", contexts = { "dungeon" } },
       { itemId = 250214, tier = "B", contexts = { "dungeon" } },
       { itemId = 250215, tier = "B", contexts = { "dungeon" } },
@@ -145,13 +146,13 @@ GrimoireGearData["HUNTER"] = {
         { slot = "Ring", item = { itemId = 251136, name = "Signet of Snarling Servitude", bonusIDs = {  } }, source = "Murder Row", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/murder-row-dungeon-overview-location-rewards" } },
         { slot = "Ring", item = { itemId = 268249, name = "Vile Alchemist's Band", bonusIDs = {  } }, source = "Vashnik the Malignant", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-vashnik-the-malignant-boss-strategy-abilities" } },
         { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
-        { slot = "Trinket", item = { itemId = 270173, name = "Zul'jin's Guillotine Technique", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
+        { slot = "Trinket", item = { itemId = 270168, name = "Font of Venomous Rage", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
       } },
     },
   },
   ["survival"] = {
     enchants = {
-      { slot = "Weapon", best = { itemId = 244031, name = "Enchant Weapon - Arcane Mastery" } },
+      { slot = "Weapon", best = { itemId = 273072, name = "Enchant Weapon - Rite of the Hash'ey" } },
       { slot = "Head", best = { itemId = 244007, name = "Enchant Helm - Empowered Rune of Avoidance" } },
       { slot = "Shoulders", best = { itemId = 243991, name = "Enchant Shoulders - Amirdrassil's Grace" } },
       { slot = "Chest", best = { itemId = 243977, name = "Enchant Chest - Mark of the Worldsoul" } },
@@ -205,7 +206,7 @@ GrimoireGearData["HUNTER"] = {
         { slot = "Waist", item = { itemId = 244581, name = "Farstrider's Trophy Belt", bonusIDs = {  } }, source = "Crafting", sourceMeta = { kind = "crafting", url = "https://www.wowhead.com/guide/professions/overview" } },
         { slot = "Legs", item = { itemId = 271491, name = "Skulking Viper's Coiled Legwraps", bonusIDs = {  } }, source = "Tier Set | The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/season-2-tier-set-bonus-appearance-overview" } },
         { slot = "Feet", item = { itemId = 268233, name = "Ferocious Scaleboots", bonusIDs = {  } }, source = "Sszorak", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-sszorak-boss-strategy-abilities" } },
-        { slot = "Ring", item = { itemId = 273792, name = "Band of the Amani Warlord", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
+        { slot = "Ring", item = { itemId = 273792, name = "Band of the Amani Warlord", bonusIDs = {  } }, source = "Altar of Fangs", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/altar-of-fangs-dungeon-overview-location-rewards" } },
         { slot = "Ring", item = { itemId = 252258, name = "Sickening Signet of Atroxus", bonusIDs = {  } }, source = "Voidscar Arena", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/voidscar-arena-dungeon-overview-location-rewards" } },
         { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
         { slot = "Trinket", item = { itemId = 270173, name = "Zul'jin's Guillotine Technique", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },

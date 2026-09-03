@@ -3,7 +3,7 @@ GrimoireGearData = GrimoireGearData or {}
 GrimoireGearData["DRUID"] = {
   ["balance"] = {
     enchants = {
-      { slot = "Weapon", best = { itemId = 244031, name = "Enchant Weapon - Arcane Mastery" } },
+      { slot = "Weapon", best = { itemId = 273072, name = "Enchant Weapon - Rite of the Hash'ey" } },
       { slot = "Head", best = { itemId = 244007, name = "Enchant Helm - Empowered Rune of Avoidance" } },
       { slot = "Shoulders", best = { itemId = 243991, name = "Enchant Shoulders - Amirdrassil's Grace" } },
       { slot = "Chest", best = { itemId = 243977, name = "Enchant Chest - Mark of the Worldsoul" } },
@@ -53,7 +53,7 @@ GrimoireGearData["DRUID"] = {
         { slot = "Off Hand", item = { itemId = 245769, name = "Aln'hara Lantern", bonusIDs = {  } }, source = "Crafting/ Misc", sourceMeta = { kind = "crafting", url = "https://www.wowhead.com/guide/professions/overview" } },
         { slot = "Head", item = { itemId = 271875, name = "Gaze of the Coiled Watcher", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
         { slot = "Neck", item = { itemId = 268265, name = "Aqirbane Reliquary", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
-        { slot = "Shoulders", item = { itemId = 268246, name = "Frothing Venom Spaulders", bonusIDs = {  } }, source = "The Lost Explorers", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-lost-explorers-boss-strategy-abilities" } },
+        { slot = "Shoulders", item = { itemId = 268246, name = "Frothing Venom Spaulders", bonusIDs = {  } }, source = "Vashnik the Malignant", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-vashnik-the-malignant-boss-strategy-abilities" } },
         { slot = "Back", item = { itemId = 268253, name = "Silken Voodoo Drape", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
         { slot = "Chest", item = { itemId = 251159, name = "War Trial Vestments", bonusIDs = {  } }, source = "Den of Nalorakk", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/den-of-nalorakk-dungeon-overview-location-rewards" } },
         { slot = "Wrist", item = { itemId = 244576, name = "Silvermoon Agent's Deflectors", bonusIDs = {  } }, source = "Crafting/ Misc", sourceMeta = { kind = "crafting", url = "https://www.wowhead.com/guide/professions/overview" } },
@@ -167,12 +167,14 @@ GrimoireGearData["DRUID"] = {
       { itemId = 270173, tier = "S", contexts = { "raid" }, source = "The Coiled Altar" },
       { itemId = 270175, tier = "S", contexts = { "raid" } },
       { itemId = 250215, tier = "A", contexts = { "dungeon" } },
+      { itemId = 250245, tier = "A", contexts = { "dungeon" } },
       { itemId = 270166, tier = "A", contexts = { "raid" } },
       { itemId = 273796, tier = "A", contexts = { "dungeon" } },
       { itemId = 273797, tier = "A", contexts = { "dungeon" } },
       { itemId = 159617, tier = "B", contexts = { "dungeon" } },
       { itemId = 250214, tier = "B", contexts = { "dungeon" } },
       { itemId = 250228, tier = "B", contexts = { "dungeon" } },
+      { itemId = 250259, tier = "B", contexts = { "dungeon" } },
       { itemId = 193757, tier = "C", contexts = { "dungeon" } },
       { itemId = 241340, tier = "C", contexts = { "crafting" } },
       { itemId = 246304, tier = "C", contexts = { "crafting" } },
@@ -181,8 +183,6 @@ GrimoireGearData["DRUID"] = {
       { itemId = 246307, tier = "C", contexts = { "crafting" } },
       { itemId = 250225, tier = "C", contexts = { "dungeon" } },
       { itemId = 158374, tier = "D", contexts = { "dungeon" } },
-      { itemId = 250245, tier = "D", contexts = { "dungeon" } },
-      { itemId = 250259, tier = "D", contexts = { "dungeon" } },
     },
     bisGear = {
       { label = "Overall", slots = {

@@ -36,9 +36,14 @@ GrimoireData["SHAMAN"] = {
       {
         heroTalent = "Stormbringer", heroTalentIcon = "wow-hero-talent-stormbringer", context = "General",
         stats = {
-          { "Mastery", "Haste" },
+          { "Critical Strike", "Mastery" },
         },
         operators = {  },
+        previousStats = {
+          { "Mastery", "Haste" },
+        },
+        previousOperators = {  },
+        changedDate = "2026-09-03",
       },
       {
         heroTalent = "Totemic", heroTalentIcon = "wow-hero-talent-totemic", context = "General",
@@ -57,24 +62,34 @@ GrimoireData["SHAMAN"] = {
       {
         heroTalent = "Farseer", heroTalentIcon = "wow-hero-talent-farseer", context = "General",
         stats = {
+          { "Haste", "Versatility" },
+        },
+        operators = {  },
+        previousStats = {
           { "Intellect" },
           { "Critical Strike" },
           { "Haste" },
           { "Versatility" },
           { "Mastery" },
         },
-        operators = { ">", ">", ">", ">" },
+        previousOperators = { ">", ">", ">", ">" },
+        changedDate = "2026-09-03",
       },
       {
         heroTalent = "Totemic", heroTalentIcon = "wow-hero-talent-totemic", context = "General",
         stats = {
+          { "Haste", "Versatility" },
+        },
+        operators = {  },
+        previousStats = {
           { "Intellect" },
           { "Critical Strike" },
           { "Haste" },
           { "Versatility" },
           { "Mastery" },
         },
-        operators = { ">", ">", ">", ">" },
+        previousOperators = { ">", ">", ">", ">" },
+        changedDate = "2026-09-03",
       },
     },
     talents = {},

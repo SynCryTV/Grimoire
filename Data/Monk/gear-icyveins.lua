@@ -5,7 +5,7 @@ GrimoireIcyVeinsData["MONK"] = {
     bisGear = {
       { label = "Overall", slots = {
         { slot = "Helm", item = { itemId = 271519, name = "Monkey King's Unyielding Visage", bonusIDs = { 13848 } }, source = "Ula'tek" },
-        { slot = "Hands", item = { itemId = 271520, name = "Monkey King's Fighting Fists", bonusIDs = { 12854 } }, source = "Catalyst Ruby Life Pools" },
+        { slot = "Hands", item = { itemId = 271520, name = "Monkey King's Fighting Fists", bonusIDs = { 12854 } }, source = "Ruby Life Pools" },
         { slot = "Neck", item = { itemId = 268265, name = "Aqirbane Reliquary", bonusIDs = { 13848 } }, source = "Ula'tek" },
         { slot = "Waist", item = { itemId = 268256, name = "Sash of the Forlorn Vessel", bonusIDs = { 13848 } }, source = "Coiled Altar" },
         { slot = "Shoulders", item = { itemId = 271517, name = "Tassels of the Monkey King", bonusIDs = { 12854 } }, source = "Altar of Fangs" },
@@ -146,7 +146,7 @@ GrimoireIcyVeinsData["MONK"] = {
         { slot = "Ring", item = { itemId = 252258, name = "Sickening Signet of Atroxus", bonusIDs = { 12806 } }, source = "Voidscar Arena" },
         { slot = "Trinket", item = { itemId = 273796, name = "Vile Vial of Volatile Venom", bonusIDs = { 12806 } }, source = "Altar of Fangs" },
         { slot = "Bracers", item = { itemId = 244576, name = "Silvermoon Agent's Deflectors", bonusIDs = { 12806 } }, source = "Leatherworking" },
-        { slot = "Trinket", item = { itemId = 250259, name = "Sapling of the Dawnroot", bonusIDs = { 12806 } }, source = "The Blinding Vale" },
+        { slot = "Trinket", item = { itemId = 250214, name = "Lightspire Core", bonusIDs = { 12806 } }, source = "The Blinding Vale" },
         { slot = "Main Hand", item = { itemId = 273783, name = "Toxin-Coated Warstaff", bonusIDs = { 12806 } }, source = "Altar of Fangs" },
       } },
       { label = "Raid", slots = {

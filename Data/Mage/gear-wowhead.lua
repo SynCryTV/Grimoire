@@ -3,7 +3,7 @@ GrimoireGearData = GrimoireGearData or {}
 GrimoireGearData["MAGE"] = {
   ["arcane"] = {
     enchants = {
-      { slot = "Weapon", best = { itemId = 244029, name = "Enchant Weapon - Acuity of the Ren'dorei" } },
+      { slot = "Weapon", best = { itemId = 273071, name = "Enchant Weapon - Rite of the Hash'ey" } },
       { slot = "Head", best = { itemId = 244007, name = "Enchant Helm - Empowered Rune of Avoidance" } },
       { slot = "Shoulders", best = { itemId = 244021, name = "Enchant Shoulders - Silvermoon's Mending" } },
       { slot = "Chest", best = { itemId = 243977, name = "Enchant Chest - Mark of the Worldsoul" } },
@@ -147,7 +147,7 @@ GrimoireGearData["MAGE"] = {
         { slot = "Weapon", item = { itemId = 271092, name = "Jan'thrazet, the Soul Fang", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
         { slot = "Off Hand", item = { itemId = 245769, name = "Aln'hara Lantern", bonusIDs = {  } }, source = "Crafting", sourceMeta = { kind = "crafting", url = "https://www.wowhead.com/guide/professions/overview" } },
         { slot = "Head", item = { itemId = 271564, name = "Crown of the Primal Leywarden", bonusIDs = {  } }, source = "Tier Set", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/season-2-tier-set-bonus-appearance-overview" } },
-        { slot = "Neck", item = { itemId = 251142, name = "Pendant of Malefic Fury", bonusIDs = {  } }, source = "Murder Row", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/murder-row-dungeon-overview-location-rewards" } },
+        { slot = "Neck", item = { itemId = 268265, name = "Aqirbane Reliquary", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
         { slot = "Shoulders", item = { itemId = 271562, name = "Primal Leywarden's Manaflux", bonusIDs = {  } }, source = "Tier Set", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/season-2-tier-set-bonus-appearance-overview" } },
         { slot = "Back", item = { itemId = 268253, name = "Silken Voodoo Drape", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
         { slot = "Chest", item = { itemId = 271567, name = "Crest of the Primal Leywarden", bonusIDs = {  } }, source = "Tier Set", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/season-2-tier-set-bonus-appearance-overview" } },

@@ -258,7 +258,7 @@ GrimoireGearData["DRUID"] = {
     bisGear = {
       { label = "Overall", slots = {
         { slot = "Head", item = { itemId = 271528, name = "Enigmatic Dreamwatcher's Somnolent Stare", bonusIDs = {  } }, source = "Ula'tek (Raid) & Catalyst", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
-        { slot = "Neck", item = { itemId = 268251, name = "Amulet of the Twin Fangs", bonusIDs = {  } }, source = "The Twin Fangs (Raid)", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-twin-fangs-boss-strategy-abilities" } },
+        { slot = "Neck", item = { itemId = 268265, name = "Aqirbane Reliquary", bonusIDs = {  } }, source = "Ula'tek (Raid)", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
         { slot = "Shoulders", item = { itemId = 244572, name = "Silvermoon Agent's Mantle", bonusIDs = {  } }, source = "Leatherworking", sourceMeta = { kind = "crafting", url = "https://www.wowhead.com/skill=165/leatherworking" } },
         { slot = "Back", item = { itemId = 268253, name = "Silken Voodoo Drape", bonusIDs = {  } }, source = "The Coiled Alter (Raid)", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
         { slot = "Chest", item = { itemId = 271531, name = "Enigmatic Dreamwatcher's Lunar Raiment", bonusIDs = {  } }, source = "Nek'zali the Soulcoiler (Raid) & Catalyst", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-nekzali-the-soulcoiler-boss-strategy-abilities" } },

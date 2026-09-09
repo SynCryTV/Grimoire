@@ -1,7 +1,7 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 GrimoireArchonGearData = GrimoireArchonGearData or {}
 GrimoireArchonGearData["PRIEST"] = {
-  ["discipline"] = {
+  ["holy"] = {
     bisGear = {
       { label = "Mythic+", slots = {
       } },
@@ -9,7 +9,7 @@ GrimoireArchonGearData["PRIEST"] = {
       } },
     },
   },
-  ["holy"] = {
+  ["discipline"] = {
     bisGear = {
       { label = "Mythic+", slots = {
       } },

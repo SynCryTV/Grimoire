@@ -32,7 +32,7 @@ GrimoireGearData["ROGUE"] = {
     },
     trinkets = {
       { itemId = 270168, tier = "S", contexts = { "dungeon", "raid" }, source = "Ula'tek" },
-      { itemId = 270175, tier = "S", contexts = { "raid" }, source = "Ula'tek" },
+      { itemId = 270175, tier = "S", contexts = { "crafting", "raid" }, source = "Ula'tek" },
       { itemId = 193701, tier = "A", contexts = { "crafting", "delves", "dungeon", "raid" } },
       { itemId = 270164, tier = "A", contexts = { "raid" } },
       { itemId = 270165, tier = "A", contexts = { "raid" } },
@@ -65,7 +65,7 @@ GrimoireGearData["ROGUE"] = {
     bisGear = {
       { label = "Overall", slots = {
         { slot = "Weapon", item = { itemId = 271093, name = "Zatha'tek, Breath of Corruption", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
-        { slot = "Off Hand", item = { itemId = 237837, name = "Farstrider's Mercy", bonusIDs = {  } }, source = "Crafting/ Misc", sourceMeta = { kind = "crafting", url = "https://www.wowhead.com/guide/professions/overview" } },
+        { slot = "Off Hand", item = { itemId = 275070, name = "Sharpened Lightwood Slasher", bonusIDs = {  } }, source = "Altar of Fangs", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/altar-of-fangs-dungeon-overview-location-rewards" } },
         { slot = "Head", item = { itemId = 271510, name = "Chosen Bloodslayer's Spirit Shroud", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
         { slot = "Neck", item = { itemId = 268265, name = "Aqirbane Reliquary", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
         { slot = "Shoulders", item = { itemId = 271508, name = "Chosen Bloodslayer's Voodoo Guards", bonusIDs = {  } }, source = "Voidscar Arena", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/voidscar-arena-dungeon-overview-location-rewards" } },
@@ -75,7 +75,7 @@ GrimoireGearData["ROGUE"] = {
         { slot = "Hands", item = { itemId = 271511, name = "Chosen Bloodslayer's Fanged Grips", bonusIDs = {  } }, source = "Entombed Sentinels", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-entombed-sentinels-boss-strategy-abilities" } },
         { slot = "Waist", item = { itemId = 268256, name = "Sash of the Forlorn Vessel", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
         { slot = "Legs", item = { itemId = 271509, name = "Chosen Bloodslayer's Reinforced Pants", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
-        { slot = "Feet", item = { itemId = 251153, name = "Arctic Explorer's Legwraps", bonusIDs = {  } }, source = "Den of Nalorakk", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/den-of-nalorakk-dungeon-overview-location-rewards" } },
+        { slot = "Feet", item = { itemId = 244569, name = "Silvermoon Agent's Sneakers", bonusIDs = {  } }, source = "Crafted", sourceMeta = { kind = "crafting", url = "https://www.wowhead.com/guide/midnight/den-of-nalorakk-dungeon-overview-location-rewards" } },
         { slot = "Ring", item = { itemId = 273792, name = "Band of the Amani Warlord", bonusIDs = {  } }, source = "Altar of Fangs", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/altar-of-fangs-dungeon-overview-location-rewards" } },
         { slot = "Ring", item = { itemId = 268249, name = "Vile Alchemist's Band", bonusIDs = {  } }, source = "Vashnik the Malignant", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-vashnik-the-malignant-boss-strategy-abilities" } },
         { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },

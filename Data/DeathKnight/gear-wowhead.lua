@@ -85,7 +85,7 @@ GrimoireGearData["DEATHKNIGHT"] = {
     },
     consumables = {
       flask = { itemId = 241326, name = "Flask of the Shattered Sun" },
-      combatPotion = { itemId = 241308, name = "Light's Potential" },
+      combatPotion = { itemId = 241288, name = "Potion of Recklessness" },
       weaponBuff = { itemId = 243734, name = "Thalassian Phoenix Oil" },
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
       food = { itemId = 242275, name = "Royal Roast" },
@@ -218,7 +218,7 @@ GrimoireGearData["DEATHKNIGHT"] = {
         { slot = "Waist", item = { itemId = 268259, name = "Girdle of Toxic Regret", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
         { slot = "Legs", item = { itemId = 271878, name = "Chausses of Unbound Rancor", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
         { slot = "Feet", item = { itemId = 237828, name = "Spellbreaker's March", bonusIDs = {  } }, source = "Crafting", sourceMeta = { kind = "crafting", url = "https://www.wowhead.com/guide/professions/overview" } },
-        { slot = "Ring", item = { itemId = 273792, name = "Band of the Amani Warlord", bonusIDs = {  } }, source = "Altar of Fangs", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/altar-of-fangs-dungeon-overview-location-rewards" } },
+        { slot = "Ring", item = { itemId = 268249, name = "Vile Alchemist's Band", bonusIDs = {  } }, source = "Vashnik", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-vashnik-the-malignant-boss-strategy-abilities" } },
         { slot = "Ring", item = { itemId = 252258, name = "Sickening Signet of Atroxus", bonusIDs = {  } }, source = "Voidscar Arena", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/voidscar-arena-dungeon-overview-location-rewards" } },
         { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek", bonusIDs = {  } }, source = "Ula'tek", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-ulatek-boss-strategy-abilities" } },
         { slot = "Trinket", item = { itemId = 270173, name = "Zul'jin's Guillotine Technique", bonusIDs = {  } }, source = "The Coiled Altar", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },

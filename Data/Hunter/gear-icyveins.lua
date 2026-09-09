@@ -17,7 +17,7 @@ GrimoireIcyVeinsData["HUNTER"] = {
         { slot = "Ring", item = { itemId = 158366, name = "Charged Sandstone Band", bonusIDs = { 12854 } }, source = "Temple of Sethraliss" },
         { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek", bonusIDs = { 13848 } }, source = "Ula'tek" },
         { slot = "Bracers", item = { itemId = 244584, name = "Farstrider's Plated Bracers", bonusIDs = { 13751 } }, source = "Crafted by Leatherworking" },
-        { slot = "Trinket", item = { itemId = 270173, name = "Zul'jin's Guillotine Technique", bonusIDs = { 13848 } }, source = "Coiled Altar" },
+        { slot = "Trinket", item = { itemId = 270165, name = "Keeper's Seething Core", bonusIDs = { 13848 } }, source = "Entombed Sentinels" },
         { slot = "Main Hand", item = { itemId = 268207, name = "Caustic Repose Greatbow", bonusIDs = { 13848 } }, source = "Ula'tek" },
       } },
       { label = "Mythic+", slots = {

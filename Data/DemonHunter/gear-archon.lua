@@ -1,7 +1,7 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 GrimoireArchonGearData = GrimoireArchonGearData or {}
 GrimoireArchonGearData["DEMONHUNTER"] = {
-  ["vengeance"] = {
+  ["devourer"] = {
     bisGear = {
       { label = "Mythic+", slots = {
       } },
@@ -17,7 +17,7 @@ GrimoireArchonGearData["DEMONHUNTER"] = {
       } },
     },
   },
-  ["devourer"] = {
+  ["vengeance"] = {
     bisGear = {
       { label = "Mythic+", slots = {
       } },

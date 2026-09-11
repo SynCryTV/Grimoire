@@ -10,7 +10,9 @@ Grund auf neu; dieses README beschreibt den angestrebten Funktionsumfang.
 
 ## Was das Addon zeigt
 
-- **Best-in-Slot-Gear** von Wowhead, Icy-Veins und Archon
+- **Best-in-Slot-Gear** von Wowhead, Icy-Veins und Murlok (Mythic+)
+- **Werteziele als Live-Balken:** Murlok für Mythic+ und eine eigene
+  Warcraft-Logs-Top-100-Auswertung für Raid
 - **Wertepriorität** pro Spec/Hero-Talent, inklusive Hinweis, wenn sich die
   Reihenfolge seit dem letzten Update geändert hat
 - **Omnium Folio** – die empfohlenen Runen pro Woche, mit echten
@@ -23,7 +25,7 @@ Grund auf neu; dieses README beschreibt den angestrebten Funktionsumfang.
 
 - **Talente & Rotation** – bewusst nicht enthalten, um den Traffic der
   Guide-Autoren nicht zu untergraben. Das Addon verlinkt stattdessen direkt
-  zu Wowhead, Archon, Icy-Veins und Murlok.
+  zu Wowhead, Icy-Veins und Murlok.
 - **Crafting & Embellishments** – nicht enthalten.
 - **PvP** – nicht enthalten, reiner PvE-Fokus.
 - **Sprachen** – nur Deutsch (Englisch bleibt als technischer Fallback für

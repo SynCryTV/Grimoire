@@ -191,7 +191,7 @@ local function Refresh()
 
     local classToken = G.GetSelectedClass()
     local specKey = G.GetSelectedSpec()
-    local specData = GrimoireArchonStats and GrimoireArchonStats[classToken] and GrimoireArchonStats[classToken][specKey]
+    local specData = GrimoireStatTargets and GrimoireStatTargets[classToken] and GrimoireStatTargets[classToken][specKey]
     if not specData then
         ShowFallback("Keine Werteziele für diese Spec verfügbar.")
         G.LayoutGuideTab()

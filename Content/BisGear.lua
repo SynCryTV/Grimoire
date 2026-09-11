@@ -33,18 +33,6 @@ local CANONICAL_SLOTS = {
 local SLOT_INFO = {}
 for _, s in ipairs(CANONICAL_SLOTS) do SLOT_INFO[s.key] = s end
 
--- Archon liefert pro Eintrag KEIN slot-Feld -- die Reihenfolge der 16
--- zurückgegebenen Items ist implizit (siehe scrape_all_archon.py: erst die
--- 12 "gear"-Slots, dann 2 "weapons", dann 2 "trinkets"). Anhand identischer
--- Items über mehrere Specs hinweg verifiziert (z.B. liegt "Silvermoon
--- Agent's Deflectors" bei allen drei Quellen konsistent auf Handgelenke).
--- Muss in Sync mit archon.py bleiben, falls sich dort mal die
--- Scrape-Reihenfolge ändert.
-local ARCHON_SLOT_ORDER = {
-    "head", "neck", "shoulder", "back", "chest", "wrist", "hands", "waist",
-    "legs", "feet", "ring1", "ring2", "mainhand", "offhand", "trinket1", "trinket2",
-}
-
 -- Wowhead und Icy-Veins liefern das slot-Feld als englisches Klartextwort,
 -- aber mit unterschiedlicher Wortwahl je Quelle ("Head" vs. "Helm", "Belt"
 -- vs. "Waist" usw.). "Ring"/"Trinket" bewusst nicht hier -- die kommen pro
@@ -87,7 +75,7 @@ end
 -- Quelle unterschiedlich, siehe oben) -- normalize() bringt alle auf
 -- dieselbe Form: { {key, item={itemId,name}, source?, bis?}, ... }
 -- Reihenfolge hier = Dropdown-Reihenfolge = Wowhead zuerst (Standard),
--- dann Archon, dann Icy Veins.
+-- dann Murlok (Mythic+), dann Icy Veins.
 -- ============================================================
 local SOURCES = {
     {
@@ -108,17 +96,17 @@ local SOURCES = {
         end,
     },
     {
-        key = "archon", label = "Archon",
+        key = "murlok", label = "Murlok (Mythic+)",
         getRaw = function(classToken, specKey)
-            local d = GrimoireArchonGearData and GrimoireArchonGearData[classToken] and GrimoireArchonGearData[classToken][specKey]
+            local d = GrimoireMurlokGearData and GrimoireMurlokGearData[classToken] and GrimoireMurlokGearData[classToken][specKey]
             return d and d.bisGear
         end,
         normalize = function(rawSlots)
-            local out = {}
-            for i, s in ipairs(rawSlots) do
-                local key = ARCHON_SLOT_ORDER[i]
+            local counters, out = {}, {}
+            for _, s in ipairs(rawSlots) do
+                local key = ResolveSlotKey(s.slot, counters)
                 if key then
-                    table.insert(out, { key = key, item = s.item, bis = s.bis })
+                    table.insert(out, { key = key, item = s.item, source = s.source })
                 end
             end
             return out
@@ -1034,7 +1022,7 @@ alertCheckbox:SetScript("OnClick", function(self)
 
     if self:GetChecked() then
         -- Exklusiv: Diese Liste wird die EINZIGE überwachte Liste.
-        -- Ein vorheriger Haken bei Wowhead/Archon/Icy verschwindet damit
+        -- Ein vorheriger Haken bei Wowhead/Murlok/Icy verschwindet damit
         -- automatisch, weil sourceKey/context überschrieben werden.
         cfg.enabled = true
         cfg.sourceKey = selectedSourceKey

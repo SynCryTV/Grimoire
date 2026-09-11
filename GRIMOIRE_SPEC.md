@@ -78,7 +78,7 @@ Drei Abschnitte, von oben nach unten, **jeder einzeln ein-/ausklappbar**
   ausgeblendet.
 - **Guide-Autoren-Hinweis + Links:** Direkt darunter ein kurzer Hinweistext
   ("Talente/Rotation/Crafting bewusst nicht dupliziert") mit vier klickbaren
-  Links (Wowhead, Archon, Icy-Veins, Murlok) zu den jeweiligen Guide-Seiten
+  Links (Wowhead, Icy-Veins, Murlok) zu den jeweiligen Guide-Seiten
   der aktuellen Spec. Klick kopiert den Link in ein Popup zum Kopieren.
 - **Sim-Hinweis:** Ein weiterer kurzer Hinweis mit zwei klickbaren Links
   (Raidbots Top Gear, SimulationCraft/CurseForge) für individuelles Simmen.
@@ -96,10 +96,10 @@ Drei Abschnitte, von oben nach unten, **jeder einzeln ein-/ausklappbar**
 
 - Liste aller Ausrüstungsslots (Kopf, Schulter, Brust, ... bis Trinkets/Ring)
   mit dem empfohlenen Item pro Slot.
-- **Quellen-Dropdown** oben: Wowhead / Icy-Veins / Archon, sofern für die
+- **Quellen-Dropdown** oben: Wowhead / Icy-Veins / Murlok, sofern für die
   jeweilige Quelle Daten vorhanden sind (Dropdown nur sichtbar, wenn mehr als
   eine Quelle verfügbar ist).
-- **Kontext-Unterreiter** je nach Quelle: Archon z.B. Raid vs. Mythic+,
+- **Kontext-Unterreiter** für Werteziele: Raid vs. Mythic+,
   Wowhead ggf. nur eine Liste.
 - Pro Item: Icon, Name (farbig nach Qualität), Klick öffnet den
   Standard-Item-Tooltip; Item-Herkunft (z.B. "Raid — Bossname", "Catalyst",
@@ -150,7 +150,7 @@ Drei Unterabschnitte, jeweils **einzeln ein-/ausklappbar**:
 
 Alle Inhalte kommen aus separaten, vom Update-Tool erzeugten Lua-Dateien pro
 Klasse (Struktur wird in Phase 2 mit neuen Tabellennamen festgelegt, aber
-inhaltlich identisch zu: Wowhead-Gear, Icy-Veins-Gear, Archon-Gear+Stats,
+inhaltlich identisch zu: Wowhead-Gear, Icy-Veins-Gear, Murlok-Gear+Stats,
 Wertepriorität, Omnium Folio). Fehlen Daten für eine Spec komplett, blendet
 sich der jeweilige Abschnitt/Dropdown-Eintrag unauffällig aus, statt einen
 Fehler oder eine leere Box zu zeigen.

@@ -99,7 +99,13 @@ local SOURCES = {
         key = "murlok", label = "Murlok (Mythic+)",
         getRaw = function(classToken, specKey)
             local d = GrimoireMurlokGearData and GrimoireMurlokGearData[classToken] and GrimoireMurlokGearData[classToken][specKey]
-            return d and d.bisGear
+            -- Die BiS-Ansicht arbeitet bei jeder Quelle mit Kontextlisten.
+            -- Murlok liefert genau einen Kontext, also hier in dieselbe
+            -- gemeinsame Form einpacken statt eine nackte Slotliste
+            -- zurückzugeben.
+            return d and d.bisGear and {
+                { label = "Mythic+", slots = d.bisGear },
+            }
         end,
         normalize = function(rawSlots)
             local counters, out = {}, {}

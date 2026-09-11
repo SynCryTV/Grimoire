@@ -1,8 +1,8 @@
 ## Interface: 120007
 ## Title: Grimoire
-## Notes: Best-in-Slot, Werteprioritäten, Werteziele, Omnium Folio sowie Enchants, Gems und Verbrauchsgüter für jede Spec. Deutsch, PvE, automatisch aktuell. Änderungen v3.1.1: Archon entfernt; Murlok liefert Mythic+-BiS und Werteziele; Raid-Werteziele basieren auf Warcraft-Logs-Top-100.
+## Notes: Best-in-Slot, Werteprioritäten, Werteziele, Omnium Folio sowie Enchants, Gems und Verbrauchsgüter für jede Spec. Deutsch, PvE, automatisch aktuell. Änderungen v4.0.2: Archon entfernt; Murlok liefert Mythic+-BiS und Werteziele; Raid-Werteziele basieren auf Warcraft-Logs-Top-1000 über alle Bosse.
 ## Author: Ravyniel
-## Version: 4.0.2
+## Version: 4.0.3
 ## SavedVariables: GrimoireDB
 ## SavedVariablesPerCharacter: GrimoireCharDB
 ## IconTexture: Interface\AddOns\Grimoire\icon

@@ -12,7 +12,7 @@ Grund auf neu; dieses README beschreibt den angestrebten Funktionsumfang.
 
 - **Best-in-Slot-Gear** von Wowhead, Icy-Veins und Murlok (Mythic+)
 - **Werteziele als Live-Balken:** Murlok für Mythic+ und eine eigene
-  Warcraft-Logs-Top-100-Auswertung für Raid
+  Warcraft-Logs-Top-1000-Auswertung über alle Raid-Bosse
 - **Wertepriorität** pro Spec/Hero-Talent, inklusive Hinweis, wenn sich die
   Reihenfolge seit dem letzten Update geändert hat
 - **Omnium Folio** – die empfohlenen Runen pro Woche, mit echten

@@ -164,27 +164,27 @@ GrimoireGearData["EVOKER"] = {
   },
   ["preservation"] = {
     enchants = {
-      { slot = "Weapon", best = { itemId = 244031, name = "Enchant Weapon - Arcane Mastery" } },
+      { slot = "Weapon", best = { itemId = 273072, name = "Enchant Weapon - Rite of the Hash'ey" } },
       { slot = "Shoulders", best = { itemId = 244021, name = "Enchant Shoulders - Silvermoon's Mending" } },
       { slot = "Chest", best = { itemId = 243977, name = "Enchant Chest - Mark of the Worldsoul" } },
       { slot = "Legs", best = { itemId = 240155, name = "Arcanoweave Spellthread" } },
       { slot = "Feet", best = { itemId = 243983, name = "Enchant Boots - Shaladrassil's Roots" } },
-      { slot = "Ring", best = { itemId = 243959, name = "Enchant Ring - Zul'jin's Mastery" } },
+      { slot = "Ring", best = { itemId = 243957, name = "Enchant Ring - Eyes of the Eagle" } },
       { slot = "Head", best = { itemId = 243951, name = "Enchant Helm - Empowered Hex of Leeching" } },
     },
     gems = {
       primary = { itemId = 240983, name = "Indecipherable Eversong Diamond" },
       secondary = {
         { itemId = 240900, name = "Flawless Quick Amethyst" },
+        { itemId = 240908, name = "Flawless Masterful Garnet" },
       },
     },
     consumables = {
-      flask = { itemId = 241322, name = "Flask of the Magisters" },
       combatPotion = { itemId = 241288, name = "Potion of Recklessness" },
       weaponBuff = { itemId = 243734, name = "Thalassian Phoenix Oil" },
       augmentRune = { itemId = 259085, name = "Void-Touched Augment Rune" },
       food = { itemId = 255846, name = "Harandar Celebration" },
-      combatPotion_241300 = { itemId = 241300, name = "Lightfused Mana Potion" },
+      flask = { itemId = 241322, name = "Flask of the Magisters" },
       healthPotion = { itemId = 241304, name = "Silvermoon Health Potion" },
       healthPotion_271884 = { itemId = 271884, name = "Concentrated Silvermoon Health Potion" },
       invisibilityPotion = { itemId = 241303, name = "Void-Shrouded Tincture" },

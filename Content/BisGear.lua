@@ -1158,14 +1158,22 @@ local function CreateRow(i)
 
     local nameText = row:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     nameText:SetPoint("TOPLEFT", slotText, "TOPRIGHT", 4, 0)
-    nameText:SetPoint("RIGHT", 0, 0)
+    nameText:SetPoint("RIGHT", row, "CENTER", -6, 0)
     nameText:SetJustifyH("LEFT")
     nameText:SetWordWrap(false)
     row.nameText = nameText
 
+    local alternativeText = row:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
+    alternativeText:SetPoint("TOPLEFT", row, "TOP", 4, -1)
+    alternativeText:SetPoint("RIGHT", row, "RIGHT", -2, 0)
+    alternativeText:SetJustifyH("LEFT")
+    alternativeText:SetWordWrap(false)
+    alternativeText:Hide()
+    row.alternativeText = alternativeText
+
     local sourceText = row:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
     sourceText:SetPoint("TOPLEFT", slotText, "BOTTOMLEFT", 0, -2)
-    sourceText:SetPoint("RIGHT", 0, 0)
+    sourceText:SetPoint("RIGHT", row, "CENTER", -6, 0)
     sourceText:SetJustifyH("LEFT")
     sourceText:SetWordWrap(false)
     row.sourceText = sourceText
@@ -1231,11 +1239,17 @@ local function RenderSlots(normalizedSlots, yOffset)
 
     local ordered = {}
     for _, slotDef in ipairs(CANONICAL_SLOTS) do
-        for index, entry in ipairs(byKey[slotDef.key] or {}) do
+        local choices = byKey[slotDef.key] or {}
+        if choices[1] then
+            local alternatives = {}
+            for index = 2, #choices do
+                alternatives[#alternatives + 1] = choices[index]
+            end
             table.insert(ordered, {
-                entry = entry,
+                entry = choices[1],
                 slotDef = slotDef,
-                label = index == 1 and slotDef.label or (slotDef.label .. " (Alternative)"),
+                label = slotDef.label,
+                alternatives = alternatives,
             })
         end
     end
@@ -1260,6 +1274,36 @@ local function RenderSlots(normalizedSlots, yOffset)
             row.iconButton.sourceName = entry.source
             row.iconButton.texture:SetTexture(134400) -- Fragezeichen-Icon, bis Item geladen ist
             row.slotText:SetText(display.label)
+            row.alternativeText:Hide()
+            row.alternativeText:SetText("")
+
+            local alternatives = display.alternatives or {}
+            if #alternatives > 0 then
+                local alternativeKey = table.concat((function()
+                    local ids = {}
+                    for _, alternative in ipairs(alternatives) do
+                        ids[#ids + 1] = tostring(alternative.item.itemId)
+                    end
+                    return ids
+                end)(), ",")
+                row.alternativeKey = alternativeKey
+                local names, pending = {}, #alternatives
+                for index, alternative in ipairs(alternatives) do
+                    local alternativeID = alternative.item.itemId
+                    local alternativeItem = Item:CreateFromItemID(alternativeID)
+                    alternativeItem:ContinueOnItemLoad(function()
+                        if row.alternativeKey ~= alternativeKey then return end
+                        names[index] = alternativeItem:GetItemName() or alternative.item.name or ("Item " .. tostring(alternativeID))
+                        pending = pending - 1
+                        if pending == 0 and row.alternativeKey == alternativeKey then
+                            row.alternativeText:SetText("Alternativen: " .. table.concat(names, " • "))
+                            row.alternativeText:Show()
+                        end
+                    end)
+                end
+            else
+                row.alternativeKey = nil
+            end
 
             local nameText, sourceText = row.nameText, row.sourceText
             nameText:SetText(entry.item.name)
@@ -1338,6 +1382,13 @@ end
 local function Refresh()
     fallbackText:Hide()
     contextDropdown:Hide()
+
+    -- KeystoneLoot liefert pro Slot oft mehrere Optionen. Für die
+    -- nebeneinanderliegende Darstellung den Panel-Rahmen nur bei Bedarf
+    -- verbreitern; die gespeicherte Nutzerbreite bleibt unverändert.
+    if selectedSourceKey == "keystoneloot" and G.panel and G.panel:GetWidth() < 500 then
+        G.panel:SetWidth(500)
+    end
 
     local classToken = G.GetSelectedClass()
     local specKey = G.GetSelectedSpec()

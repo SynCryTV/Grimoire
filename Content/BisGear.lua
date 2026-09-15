@@ -65,6 +65,14 @@ local KEYSTONE_EQUIPLOC_TO_KEY = {
     INVTYPE_RANGED = "mainhand", INVTYPE_RANGEDRIGHT = "mainhand", INVTYPE_THROWN = "mainhand",
 }
 
+-- Die Import-API liefert die ausgerüsteten Kern-Slots in dieser festen
+-- Reihenfolge. Das ist zuverlässiger als die Item-Eigenschaft bei Waffen,
+-- denn einige Einhandwaffen melden dort beide als Mainhand.
+local KEYSTONE_SLOT_ORDER = {
+    "head", "neck", "shoulder", "back", "chest", "wrist", "hands", "waist",
+    "legs", "feet", "ring1", "ring2", "trinket1", "trinket2", "mainhand", "offhand",
+}
+
 -- Löst das rohe slot-Feld (Wowhead/Icy-Veins) in einen kanonischen Key auf.
 -- counters zählt "Ring"/"Trinket" hoch (pro Liste 2x vorhanden, z.B. auch
 -- "Trinket (Raw Damage)" bei Wowhead -- daher Teilstring-Match "^ring"/
@@ -141,14 +149,15 @@ local SOURCES = {
             for index, entry in ipairs(rawEntries or {}) do
                 local itemID = entry.itemId
                 local equipLoc = itemID and select(4, GetItemInfoInstant(itemID))
-                local key = equipLoc and KEYSTONE_EQUIPLOC_TO_KEY[equipLoc]
-                if equipLoc == "INVTYPE_FINGER" then
+                local key = KEYSTONE_SLOT_ORDER[index]
+                if not key then key = equipLoc and KEYSTONE_EQUIPLOC_TO_KEY[equipLoc] end
+                if not KEYSTONE_SLOT_ORDER[index] and equipLoc == "INVTYPE_FINGER" then
                     counters.ring = (counters.ring or 0) + 1
                     key = counters.ring == 1 and "ring1" or "ring2"
-                elseif equipLoc == "INVTYPE_TRINKET" then
+                elseif not KEYSTONE_SLOT_ORDER[index] and equipLoc == "INVTYPE_TRINKET" then
                     counters.trinket = (counters.trinket or 0) + 1
                     key = counters.trinket == 1 and "trinket1" or "trinket2"
-                elseif equipLoc == "INVTYPE_WEAPON" then
+                elseif not KEYSTONE_SLOT_ORDER[index] and equipLoc == "INVTYPE_WEAPON" then
                     -- Zwei generische Einhandwaffen (z.B. Dämonenjäger)
                     -- haben dieselbe EquipLoc. Die zweite darf die erste
                     -- daher nicht als Mainhand überschreiben.

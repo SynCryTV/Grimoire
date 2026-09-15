@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 4.1.10
+
+- KeystoneLoot-Slotzuordnung korrigiert: Die zweite Waffe wird zuverlässig als Nebenhand angezeigt, auch wenn WoW beide Einhandwaffen technisch als Mainhand meldet.
+
 ## 4.1.9
 
 - KeystoneLoot-Alternativen in der BiS-Liste erhalten Item-Icons und vollständige Tooltips beim Darüberfahren.

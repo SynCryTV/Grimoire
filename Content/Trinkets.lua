@@ -90,6 +90,11 @@ local function IsTierEnabled(tier)
     return G.db.trinketTierFilters[tier] ~= false
 end
 
+local function IsTooltipTierEnabled(tier)
+    if not G.db or not G.db.trinketTooltipTierFilters then return true end
+    return G.db.trinketTooltipTierFilters[tier] ~= false
+end
+
 local function IsPersonalSTier(itemID)
     return G.db and G.db.personalTrinketSTier and G.db.personalTrinketSTier[itemID] == true
 end
@@ -229,7 +234,7 @@ trinketHelp:SetScript("OnEnter", function(self)
         true
     )
     GameTooltip:AddLine(
-        "Die gewählten Tier-Filter gelten auch für die BiS-Hinweise in Item-Tooltips.",
+        "Die Listen- und Tooltip-Tiers lassen sich unabhängig voneinander einstellen.",
         0.85, 0.85, 0.85,
         true
     )
@@ -343,13 +348,51 @@ local infoText = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontDisable
 infoText:SetPoint("LEFT", lastLabel, "RIGHT", 10, 0)
 infoText:SetText("Wowhead")
 
+local tooltipTierLabel = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+tooltipTierLabel:SetPoint("TOPLEFT", tierLabel, "BOTTOMLEFT", 0, -4)
+tooltipTierLabel:SetText("Tooltip:")
+
+local tooltipTierCheckboxes = {}
+local lastTooltipLabel = tooltipTierLabel
+for _, tier in ipairs(TIER_ORDER) do
+    local cb = CreateFrame(
+        "CheckButton",
+        "GrimoireTrinketsTooltipTierFilter" .. tier,
+        trinketsFrame,
+        "UICheckButtonTemplate"
+    )
+    cb:SetSize(22, 22)
+
+    if lastTooltipLabel == tooltipTierLabel then
+        cb:SetPoint("LEFT", tooltipTierLabel, "RIGHT", 6, 0)
+    else
+        cb:SetPoint("LEFT", lastTooltipLabel, "RIGHT", 8, 0)
+    end
+
+    local label = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+    label:SetPoint("LEFT", cb, "RIGHT", 0, 0)
+    label:SetText(tier)
+    local tc = GetTierColor(tier)
+    label:SetTextColor(tc[1], tc[2], tc[3])
+
+    cb.tier = tier
+    cb:SetScript("OnClick", function(self)
+        if not G.db then return end
+        G.db.trinketTooltipTierFilters = G.db.trinketTooltipTierFilters or {}
+        G.db.trinketTooltipTierFilters[self.tier] = self:GetChecked() == true
+    end)
+
+    tooltipTierCheckboxes[tier] = cb
+    lastTooltipLabel = label
+end
+
 local scrollFrame = CreateFrame(
     "ScrollFrame",
     "GrimoireTrinketsScrollFrame",
     trinketsFrame,
     "UIPanelScrollFrameTemplate"
 )
-local TOP_CONTROLS_HEIGHT = DD_HEIGHT + 54
+local TOP_CONTROLS_HEIGHT = DD_HEIGHT + 82
 scrollFrame:SetPoint("TOPLEFT", trinketsFrame, "TOPLEFT", 0, -(TOP_CONTROLS_HEIGHT + DD_GAP))
 scrollFrame:SetPoint("RIGHT", trinketsFrame, "RIGHT", -26, 0)
 scrollFrame:SetHeight(CONTENT_HEIGHT - TOP_CONTROLS_HEIGHT - DD_GAP)
@@ -545,6 +588,9 @@ Refresh = function()
             if tierCheckboxes[tier] then
                 tierCheckboxes[tier]:SetChecked(IsTierEnabled(tier))
             end
+            if tooltipTierCheckboxes[tier] then
+                tooltipTierCheckboxes[tier]:SetChecked(IsTooltipTierEnabled(tier))
+            end
         end
     else
         ownClassCheckbox:SetChecked(true)
@@ -552,6 +598,9 @@ Refresh = function()
         for _, tier in ipairs(TIER_ORDER) do
             if tierCheckboxes[tier] then
                 tierCheckboxes[tier]:SetChecked(true)
+            end
+            if tooltipTierCheckboxes[tier] then
+                tooltipTierCheckboxes[tier]:SetChecked(true)
             end
         end
     end
@@ -847,7 +896,7 @@ local function FindTrinketMatches(itemID)
                             end
                         end
 
-                        if (not tier) or IsTierEnabled(tier) then
+                        if (not tier) or IsTooltipTierEnabled(tier) then
                             matches[#matches + 1] = {
                                 classToken = classToken,
                                 specKey = specKey,
@@ -876,6 +925,7 @@ local function OnTooltipTrinket(tooltip, tooltipData)
     tooltip:AddLine(" ")
     if personal then tooltip:AddLine("Persönliches S+-Tier", unpack(PERSONAL_S_PLUS_COLOR)) end
     if G.db and G.db.showTrinketTiersInTooltips == false then tooltip:Show(); return end
+    if #matches == 0 then tooltip:Show(); return end
     tooltip:AddLine("Beste Ausrüstung", 1.00, 0.82, 0.20)
 
     for _, match in ipairs(matches) do

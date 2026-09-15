@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.1.6
+
+- Trinket-Tab: Separate Tooltip-Tierauswahl für S, A, B, C und D. Sie beeinflusst die Item-Tooltips, ohne die sichtbare Trinketliste zu verändern.
+
 ## 5.1.5
 
 - KeystoneLoot-Daten werden beim Addon-Start im Hintergrund geladen, verbreitern das Grimoire-Fenster aber erst, wenn der BiS-Tab aktiv geöffnet ist und Alternativen vorliegen.

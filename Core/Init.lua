@@ -30,6 +30,13 @@ local DB_DEFAULTS = {
         C = true,
         D = true,
     },
+    trinketTooltipTierFilters = {
+        S = true,
+        A = true,
+        B = true,
+        C = true,
+        D = true,
+    },
 
     -- BiS-Drop-Warnung:
     -- Standardmäßig aktiv auf Wowhead -> Overall.

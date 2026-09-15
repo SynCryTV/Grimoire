@@ -138,7 +138,7 @@ local SOURCES = {
         end,
         normalize = function(rawEntries)
             local counters, out = {}, {}
-            for _, entry in ipairs(rawEntries or {}) do
+            for index, entry in ipairs(rawEntries or {}) do
                 local itemID = entry.itemId
                 local equipLoc = itemID and select(4, GetItemInfoInstant(itemID))
                 local key = equipLoc and KEYSTONE_EQUIPLOC_TO_KEY[equipLoc]
@@ -155,7 +155,10 @@ local SOURCES = {
                     counters.weapon = (counters.weapon or 0) + 1
                     key = counters.weapon == 1 and "mainhand" or "offhand"
                 end
-                if key and itemID then
+                -- Selbst wenn ein neuer/einmaliger EquipLoc-Typ noch nicht
+                -- bekannt ist, darf der API-Eintrag nicht verschwinden.
+                key = key or ("additional-" .. tostring(index))
+                if itemID then
                     table.insert(out, {
                         key = key,
                         item = { itemId = itemID, name = "Item " .. tostring(itemID) },
@@ -1218,16 +1221,37 @@ end
 local function RenderSlots(normalizedSlots, yOffset)
     fallbackText:Hide()
 
-    -- Feste Slot-Reihenfolge (CANONICAL_SLOTS), nicht die Reihenfolge aus
-    -- den Rohdaten -- die variiert je Quelle und Autor.
+    -- Feste Slot-Reihenfolge, aber keine Einträge verwerfen: KeystoneLoot
+    -- kann mehrere sinnvolle Alternativen für denselben Slot liefern.
     local byKey = {}
     for _, entry in ipairs(normalizedSlots) do
-        byKey[entry.key] = entry
+        byKey[entry.key] = byKey[entry.key] or {}
+        table.insert(byKey[entry.key], entry)
+    end
+
+    local ordered = {}
+    for _, slotDef in ipairs(CANONICAL_SLOTS) do
+        for index, entry in ipairs(byKey[slotDef.key] or {}) do
+            table.insert(ordered, {
+                entry = entry,
+                slotDef = slotDef,
+                label = index == 1 and slotDef.label or (slotDef.label .. " (Alternative)"),
+            })
+        end
+    end
+    for _, entry in ipairs(normalizedSlots) do
+        if not SLOT_INFO[entry.key] then
+            table.insert(ordered, {
+                entry = entry,
+                slotDef = {},
+                label = "Weitere Empfehlung",
+            })
+        end
     end
 
     local i = 0
-    for _, slotDef in ipairs(CANONICAL_SLOTS) do
-        local entry = byKey[slotDef.key]
+    for _, display in ipairs(ordered) do
+        local entry, slotDef = display.entry, display.slotDef
         if entry and entry.item then
             i = i + 1
             local row = rows[i] or CreateRow(i)
@@ -1235,7 +1259,7 @@ local function RenderSlots(normalizedSlots, yOffset)
             row.iconButton.itemId = entry.item.itemId
             row.iconButton.sourceName = entry.source
             row.iconButton.texture:SetTexture(134400) -- Fragezeichen-Icon, bis Item geladen ist
-            row.slotText:SetText(slotDef.label)
+            row.slotText:SetText(display.label)
 
             local nameText, sourceText = row.nameText, row.sourceText
             nameText:SetText(entry.item.name)

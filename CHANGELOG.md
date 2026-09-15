@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 4.1.3
+
+- KeystoneLoot-BiS zeigt nun alle API-Empfehlungen: Slot-Alternativen und Einträge mit unbekanntem Slot werden nicht länger ausgeblendet.
+
 ## 4.1.2
 
 - Eigenen KeystoneLoot-Tab entfernt: Die Quelle ist ausschließlich in der vorhandenen BiS-Gear-Auswahl integriert.

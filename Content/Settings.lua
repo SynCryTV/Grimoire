@@ -5,7 +5,7 @@ local TAB_KEY = "settings"
 local frame = CreateFrame("Frame", "GrimoireSettingsTab", G.panel)
 frame:SetPoint("TOPLEFT", G.selectorBar, "BOTTOMLEFT", 0, -20)
 frame:SetPoint("RIGHT", G.panel, "RIGHT", -16, 0)
-frame:SetHeight(255)
+frame:SetHeight(290)
 
 local title = frame:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
 title:SetPoint("TOPLEFT", 4, -2)
@@ -106,6 +106,88 @@ groupReminderHelp:SetText(
     .. "Das Fenster bleibt offen, bis du es selbst schließt."
 )
 
+-- ============================================================================
+-- Quellenübersicht
+-- ============================================================================
+
+local sourceInfoButton = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
+sourceInfoButton:SetSize(180, 24)
+sourceInfoButton:SetPoint("TOPLEFT", groupReminderHelp, "BOTTOMLEFT", 0, -14)
+sourceInfoButton:SetText("Info & Quellen")
+
+local sourceInfoHint = frame:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
+sourceInfoHint:SetPoint("LEFT", sourceInfoButton, "RIGHT", 8, 0)
+sourceInfoHint:SetText("Datenquellen und Links anzeigen")
+
+local sourcePopup = CreateFrame("Frame", "GrimoireSourceInfoPopup", UIParent, "BackdropTemplate")
+sourcePopup:SetSize(455, 300)
+sourcePopup:SetPoint("CENTER")
+sourcePopup:SetFrameStrata("DIALOG")
+sourcePopup:SetFrameLevel(100)
+sourcePopup:SetBackdrop({
+    bgFile = "Interface\\Tooltips\\UI-Tooltip-Background",
+    edgeFile = "Interface\\Tooltips\\UI-Tooltip-Border",
+    tile = true, tileSize = 16, edgeSize = 12,
+    insets = { left = 4, right = 4, top = 4, bottom = 4 },
+})
+sourcePopup:SetBackdropColor(0.035, 0.035, 0.035, 0.98)
+sourcePopup:SetBackdropBorderColor(0.42, 0.42, 0.42, 1)
+sourcePopup:EnableMouse(true)
+sourcePopup:Hide()
+
+local popupTitle = sourcePopup:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
+popupTitle:SetPoint("TOPLEFT", 14, -12)
+popupTitle:SetText("Grimoire – Quellen")
+
+local popupHint = sourcePopup:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
+popupHint:SetPoint("TOPLEFT", popupTitle, "BOTTOMLEFT", 0, -5)
+popupHint:SetText("Quelle anklicken → URL markieren → Strg+C im Browser einfügen")
+
+local popupClose = CreateFrame("Button", nil, sourcePopup, "UIPanelCloseButton")
+popupClose:SetPoint("TOPRIGHT", 1, 1)
+popupClose:SetScript("OnClick", function() sourcePopup:Hide() end)
+
+local urlBox = CreateFrame("EditBox", nil, sourcePopup, "InputBoxTemplate")
+urlBox:SetPoint("BOTTOMLEFT", sourcePopup, "BOTTOMLEFT", 14, 14)
+urlBox:SetPoint("BOTTOMRIGHT", sourcePopup, "BOTTOMRIGHT", -14, 14)
+urlBox:SetHeight(25)
+urlBox:SetAutoFocus(false)
+urlBox:SetFontObject("GameFontHighlight")
+urlBox:SetJustifyH("LEFT")
+
+local SOURCES = {
+    { name = "Wowhead", url = "https://www.wowhead.com/", note = "Guides, kaufbare VZ-Items und Verbrauchsgüter" },
+    { name = "Icy Veins", url = "https://www.icy-veins.com/wow/", note = "PvE-Guides und BiS-Listen" },
+    { name = "Murlok", url = "https://murlok.io/", note = "Mythic+-BiS und M+-Werteziele" },
+    { name = "KeystoneLoot", url = "https://keystoneloot.io/", note = "Overall-, Mythic+- und Raid-BiS inklusive Gems" },
+    { name = "Warcraft Logs", url = "https://www.warcraftlogs.com/", note = "Raid-Werteziele aus Ranking-Daten" },
+    { name = "Blizzard", url = "https://develop.battle.net/", note = "Item-Tooltips und Spielinformationen" },
+}
+
+for index, source in ipairs(SOURCES) do
+    local button = CreateFrame("Button", nil, sourcePopup, "UIPanelButtonTemplate")
+    button:SetSize(112, 22)
+    button:SetPoint("TOPLEFT", sourcePopup, "TOPLEFT", 14, -48 - ((index - 1) * 33))
+    button:SetText(source.name)
+    button:SetScript("OnClick", function()
+        urlBox:SetText(source.url)
+        urlBox:SetFocus()
+        urlBox:HighlightText()
+    end)
+
+    local description = sourcePopup:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
+    description:SetPoint("LEFT", button, "RIGHT", 8, 0)
+    description:SetPoint("RIGHT", sourcePopup, "RIGHT", -12, 0)
+    description:SetJustifyH("LEFT")
+    description:SetWordWrap(false)
+    description:SetText(source.note)
+end
+
+sourceInfoButton:SetScript("OnClick", function()
+    sourcePopup:Show()
+    urlBox:SetText(SOURCES[1].url)
+end)
+
 local function IsEnabled()
     if not G.db then
         return true
@@ -138,7 +220,7 @@ local function Refresh()
     if G.GetActiveTab and G.GetActiveTab() == TAB_KEY
         and G.SetPanelContentHeight
     then
-        G.SetPanelContentHeight(255)
+        G.SetPanelContentHeight(290)
     end
 end
 

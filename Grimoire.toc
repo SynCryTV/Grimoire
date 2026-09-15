@@ -1,8 +1,8 @@
 ## Interface: 120007
 ## Title: Grimoire
-## Notes: Best-in-Slot, Werteprioritäten, Werteziele, Omnium Folio sowie Enchants, Gems und Verbrauchsgüter für jede Spec. Deutsch, PvE, automatisch aktuell. Änderungen v4.1.4: KeystoneLoot auch im Auktionshaus-Tab, inklusive aktueller Gem-Alternativen. Flask, Food, Tränke und kaufbare VZ-Items weiterhin von Wowhead.
+## Notes: Best-in-Slot, Werteprioritäten, Werteziele, Omnium Folio sowie Enchants, Gems und Verbrauchsgüter für jede Spec. Deutsch, PvE, automatisch aktuell. Änderungen v4.1.5: Quellenübersicht in den Einstellungen; KeystoneLoot auch im Auktionshaus-Tab, inklusive aktueller Gem-Alternativen.
 ## Author: Ravyniel
-## Version: 4.1.4
+## Version: 4.1.5
 ## SavedVariables: GrimoireDB
 ## SavedVariablesPerCharacter: GrimoireCharDB
 ## IconTexture: Interface\AddOns\Grimoire\icon

@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 4.1.5
+
+- Einstellungen um „Info & Quellen“ erweitert: Links zu allen verwendeten Datenquellen lassen sich direkt kopieren.
+
 ## 4.1.4
 
 - Auktionshaus-Tab um die Wowhead-/KeystoneLoot-Quellenwahl ergänzt.

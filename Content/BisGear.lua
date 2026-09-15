@@ -1177,6 +1177,7 @@ local function CreateRow(i)
     alternativeText:SetWordWrap(false)
     alternativeText:Hide()
     row.alternativeText = alternativeText
+    row.alternativeButtons = {}
 
     local sourceText = row:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
     sourceText:SetPoint("TOPLEFT", slotText, "BOTTOMLEFT", 0, -2)
@@ -1283,6 +1284,12 @@ local function RenderSlots(normalizedSlots, yOffset)
             row.slotText:SetText(display.label)
             row.alternativeText:Hide()
             row.alternativeText:SetText("")
+            row.alternativeText:ClearAllPoints()
+            row.alternativeText:SetPoint("TOPLEFT", row, "TOP", 4, -1)
+            row.alternativeText:SetPoint("RIGHT", row, "RIGHT", -2, 0)
+            for _, button in ipairs(row.alternativeButtons) do
+                button:Hide()
+            end
 
             local alternatives = display.alternatives or {}
             if #alternatives > 0 then
@@ -1297,12 +1304,40 @@ local function RenderSlots(normalizedSlots, yOffset)
                 local names, pending = {}, #alternatives
                 for index, alternative in ipairs(alternatives) do
                     local alternativeID = alternative.item.itemId
+                    local alternativeButton = row.alternativeButtons[index]
+                    if not alternativeButton then
+                        alternativeButton = CreateFrame("Button", nil, row)
+                        alternativeButton:SetSize(20, 20)
+                        local texture = alternativeButton:CreateTexture(nil, "ARTWORK")
+                        texture:SetAllPoints()
+                        alternativeButton.texture = texture
+                        alternativeButton:SetScript("OnEnter", function(self)
+                            if not self.itemId then return end
+                            GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
+                            GameTooltip:SetItemByID(self.itemId)
+                            GameTooltip:AddLine(" ")
+                            GameTooltip:AddLine("KeystoneLoot-Alternative", 0.55, 0.75, 1.0)
+                            GameTooltip:Show()
+                        end)
+                        alternativeButton:SetScript("OnLeave", GameTooltip_Hide)
+                        row.alternativeButtons[index] = alternativeButton
+                    end
+                    alternativeButton:ClearAllPoints()
+                    alternativeButton:SetPoint("TOPLEFT", row, "TOP", 4 + ((index - 1) * 23), -1)
+                    alternativeButton.itemId = alternativeID
+                    alternativeButton.texture:SetTexture(134400)
+                    alternativeButton:Show()
                     local alternativeItem = Item:CreateFromItemID(alternativeID)
                     alternativeItem:ContinueOnItemLoad(function()
                         if row.alternativeKey ~= alternativeKey then return end
                         names[index] = alternativeItem:GetItemName() or alternative.item.name or ("Item " .. tostring(alternativeID))
+                        alternativeButton.texture:SetTexture(alternativeItem:GetItemIcon() or 134400)
                         pending = pending - 1
                         if pending == 0 and row.alternativeKey == alternativeKey then
+                            local lastButton = row.alternativeButtons[#alternatives]
+                            row.alternativeText:ClearAllPoints()
+                            row.alternativeText:SetPoint("TOPLEFT", lastButton, "TOPRIGHT", 4, 0)
+                            row.alternativeText:SetPoint("RIGHT", row, "RIGHT", -2, 0)
                             row.alternativeText:SetText("Alternativen: " .. table.concat(names, " • "))
                             row.alternativeText:Show()
                         end

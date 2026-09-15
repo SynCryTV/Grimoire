@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 4.1.9
+
+- KeystoneLoot-Alternativen in der BiS-Liste erhalten Item-Icons und vollständige Tooltips beim Darüberfahren.
+
 ## 4.1.8
 
 - Gewählte Quelle und Kontext werden für BiS-Gear, Enhancements und den Auktionshaus-Tab dauerhaft gespeichert.

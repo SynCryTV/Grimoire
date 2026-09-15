@@ -70,6 +70,10 @@ GrimoireKeystoneLootData["MAGE"] = {
       { itemId = 268243, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268236, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Sunfury", heroTalentIcon = "wow-hero-talent-sunfury", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Sunfury", heroTalentIcon = "wow-hero-talent-sunfury", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Sunfury", heroTalentIcon = "wow-hero-talent-sunfury", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["fire"] = { updated = "2026-09-10T19:12:55Z", lists = {
     { label = "Overall", slots = {
@@ -140,6 +144,10 @@ GrimoireKeystoneLootData["MAGE"] = {
       { itemId = 268243, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268236, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Sunfury", heroTalentIcon = "wow-hero-talent-sunfury", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Sunfury", heroTalentIcon = "wow-hero-talent-sunfury", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Sunfury", heroTalentIcon = "wow-hero-talent-sunfury", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["frost"] = { updated = "2026-09-10T19:12:55Z", lists = {
     { label = "Overall", slots = {
@@ -209,5 +217,9 @@ GrimoireKeystoneLootData["MAGE"] = {
       { itemId = 271874, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268243, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Frostfire", heroTalentIcon = "wow-hero-talent-frostfire", stats = { { "Intellect" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Frostfire", heroTalentIcon = "wow-hero-talent-frostfire", stats = { { "Intellect" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Frostfire", heroTalentIcon = "wow-hero-talent-frostfire", stats = { { "Intellect" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
 }

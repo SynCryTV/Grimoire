@@ -67,6 +67,13 @@ GrimoireKeystoneLootData["MONK"] = {
       { itemId = 268234, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268225, tier = 5, bonusIds = { 40, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Master of Harmony", heroTalentIcon = "wow-hero-talent-master-of-harmony", stats = { { "Agility" }, { "Critical strike" }, { "Versatility" }, { "Mastery" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Overall", heroTalent = "Shado-Pan", heroTalentIcon = "wow-hero-talent-shado-pan", stats = { { "Agility" }, { "Critical strike" }, { "Versatility" }, { "Mastery" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Master of Harmony", heroTalentIcon = "wow-hero-talent-master-of-harmony", stats = { { "Agility" }, { "Critical strike" }, { "Versatility" }, { "Mastery" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Shado-Pan", heroTalentIcon = "wow-hero-talent-shado-pan", stats = { { "Agility" }, { "Critical strike" }, { "Versatility" }, { "Mastery" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Master of Harmony", heroTalentIcon = "wow-hero-talent-master-of-harmony", stats = { { "Agility" }, { "Critical strike" }, { "Versatility" }, { "Mastery" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Shado-Pan", heroTalentIcon = "wow-hero-talent-shado-pan", stats = { { "Agility" }, { "Critical strike" }, { "Versatility" }, { "Mastery" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["mistweaver"] = { updated = "2026-09-10T19:12:56Z", lists = {
     { label = "Overall", slots = {
@@ -133,6 +140,10 @@ GrimoireKeystoneLootData["MONK"] = {
       { itemId = 268235, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268225, tier = 5, bonusIds = { 40, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Conduit of the Celestials", heroTalentIcon = "wow-hero-talent-conduit-of-the-celestials", recommendedHero = true, stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Conduit of the Celestials", heroTalentIcon = "wow-hero-talent-conduit-of-the-celestials", recommendedHero = true, stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Conduit of the Celestials", heroTalentIcon = "wow-hero-talent-conduit-of-the-celestials", recommendedHero = true, stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["windwalker"] = { updated = "2026-09-10T19:12:57Z", lists = {
     { label = "Overall", slots = {
@@ -201,5 +212,12 @@ GrimoireKeystoneLootData["MONK"] = {
       { itemId = 251124, tier = 5, bonusIds = { 41, 13662, 12699, 13440 }, gems = {  }, enchant = 0 },
       { itemId = 268234, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Conduit of the Celestials", heroTalentIcon = "wow-hero-talent-conduit-of-the-celestials", stats = { { "Agility" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Overall", heroTalent = "Shado-Pan", heroTalentIcon = "wow-hero-talent-shado-pan", stats = { { "Agility" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Conduit of the Celestials", heroTalentIcon = "wow-hero-talent-conduit-of-the-celestials", stats = { { "Agility" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Shado-Pan", heroTalentIcon = "wow-hero-talent-shado-pan", stats = { { "Agility" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Conduit of the Celestials", heroTalentIcon = "wow-hero-talent-conduit-of-the-celestials", stats = { { "Agility" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Shado-Pan", heroTalentIcon = "wow-hero-talent-shado-pan", stats = { { "Agility" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
 }

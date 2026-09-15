@@ -70,6 +70,10 @@ GrimoireKeystoneLootData["SHAMAN"] = {
       { itemId = 271876, tier = 5, bonusIds = { 6652, 13662, 13334, 13846, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268237, tier = 5, bonusIds = { 6652, 13662, 13333, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Farseer", heroTalentIcon = "wow-hero-talent-farseer", recommendedHero = true, stats = { { "Intellect" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Farseer", heroTalentIcon = "wow-hero-talent-farseer", recommendedHero = true, stats = { { "Intellect" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Farseer", heroTalentIcon = "wow-hero-talent-farseer", recommendedHero = true, stats = { { "Intellect" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["enhancement"] = { updated = "2026-09-10T19:12:54Z", lists = {
     { label = "Overall", slots = {
@@ -139,6 +143,10 @@ GrimoireKeystoneLootData["SHAMAN"] = {
       { itemId = 271876, tier = 5, bonusIds = { 6652, 13662, 13334, 13846, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268237, tier = 5, bonusIds = { 6652, 13662, 13333, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Stormbringer", heroTalentIcon = "wow-hero-talent-stormbringer", recommendedHero = true, stats = { { "Agility" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Stormbringer", heroTalentIcon = "wow-hero-talent-stormbringer", recommendedHero = true, stats = { { "Agility" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Stormbringer", heroTalentIcon = "wow-hero-talent-stormbringer", recommendedHero = true, stats = { { "Agility" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["restoration"] = { updated = "2026-09-10T19:12:54Z", lists = {
     { label = "Overall", slots = {
@@ -209,5 +217,12 @@ GrimoireKeystoneLootData["SHAMAN"] = {
       { itemId = 268223, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268238, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Totemic", heroTalentIcon = "wow-hero-talent-totemic", stats = { { "Intellect" }, { "Critical strike" }, { "Versatility" }, { "Haste" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Overall", heroTalent = "Farseer", heroTalentIcon = "wow-hero-talent-farseer", stats = { { "Intellect" }, { "Critical strike" }, { "Versatility" }, { "Haste" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Totemic", heroTalentIcon = "wow-hero-talent-totemic", stats = { { "Intellect" }, { "Critical strike" }, { "Versatility" }, { "Haste" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Farseer", heroTalentIcon = "wow-hero-talent-farseer", stats = { { "Intellect" }, { "Critical strike" }, { "Versatility" }, { "Haste" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Totemic", heroTalentIcon = "wow-hero-talent-totemic", stats = { { "Intellect" }, { "Critical strike" }, { "Versatility" }, { "Haste" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Farseer", heroTalentIcon = "wow-hero-talent-farseer", stats = { { "Intellect" }, { "Critical strike" }, { "Versatility" }, { "Haste" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
   } },
 }

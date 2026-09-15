@@ -63,6 +63,13 @@ GrimoireKeystoneLootData["DEATHKNIGHT"] = {
       { itemId = 268229, tier = 5, bonusIds = { 6652, 13695, 13662, 13333, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268222, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "San'layn", heroTalentIcon = "wow-hero-talent-sanlayn", recommendedHero = true, stats = { { "Strength" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Overall", heroTalent = "Deathbringer", heroTalentIcon = "wow-hero-talent-deathbringer", stats = { { "Strength" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "San'layn", heroTalentIcon = "wow-hero-talent-sanlayn", recommendedHero = true, stats = { { "Strength" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Deathbringer", heroTalentIcon = "wow-hero-talent-deathbringer", stats = { { "Strength" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "San'layn", heroTalentIcon = "wow-hero-talent-sanlayn", recommendedHero = true, stats = { { "Strength" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Deathbringer", heroTalentIcon = "wow-hero-talent-deathbringer", stats = { { "Strength" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["frost"] = { updated = "2026-09-10T19:12:53Z", lists = {
     { label = "Overall", slots = {
@@ -130,6 +137,10 @@ GrimoireKeystoneLootData["DEATHKNIGHT"] = {
       { itemId = 268222, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 271878, tier = 5, bonusIds = { 4786, 13708, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Deathbringer", heroTalentIcon = "wow-hero-talent-deathbringer", stats = { { "Strength" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Deathbringer", heroTalentIcon = "wow-hero-talent-deathbringer", stats = { { "Strength" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Deathbringer", heroTalentIcon = "wow-hero-talent-deathbringer", stats = { { "Strength" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["unholy"] = { updated = "2026-09-10T19:12:53Z", lists = {
     { label = "Overall", slots = {
@@ -195,5 +206,9 @@ GrimoireKeystoneLootData["DEATHKNIGHT"] = {
       { itemId = 268222, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 271878, tier = 5, bonusIds = { 4786, 13708, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "San'layn", heroTalentIcon = "wow-hero-talent-sanlayn", stats = { { "Strength" }, { "Critical strike" }, { "Mastery" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "San'layn", heroTalentIcon = "wow-hero-talent-sanlayn", stats = { { "Strength" }, { "Critical strike" }, { "Mastery" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "San'layn", heroTalentIcon = "wow-hero-talent-sanlayn", stats = { { "Strength" }, { "Critical strike" }, { "Mastery" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
 }

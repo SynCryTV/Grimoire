@@ -67,6 +67,10 @@ GrimoireKeystoneLootData["PRIEST"] = {
       { itemId = 268241, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268243, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Oracle", heroTalentIcon = "wow-hero-talent-oracle", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Oracle", heroTalentIcon = "wow-hero-talent-oracle", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Oracle", heroTalentIcon = "wow-hero-talent-oracle", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["holy"] = { updated = "2026-09-10T19:12:52Z", lists = {
     { label = "Overall", slots = {
@@ -135,6 +139,13 @@ GrimoireKeystoneLootData["PRIEST"] = {
       { itemId = 268243, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268236, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Oracle", heroTalentIcon = "wow-hero-talent-oracle", stats = { { "Intellect" }, { "Critical strike" }, { "Mastery" }, { "Versatility" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Overall", heroTalent = "Archon", heroTalentIcon = "wow-hero-talent-archon", stats = { { "Intellect" }, { "Critical strike" }, { "Mastery" }, { "Versatility" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Oracle", heroTalentIcon = "wow-hero-talent-oracle", stats = { { "Intellect" }, { "Critical strike" }, { "Mastery" }, { "Versatility" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Archon", heroTalentIcon = "wow-hero-talent-archon", stats = { { "Intellect" }, { "Critical strike" }, { "Mastery" }, { "Versatility" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Oracle", heroTalentIcon = "wow-hero-talent-oracle", stats = { { "Intellect" }, { "Critical strike" }, { "Mastery" }, { "Versatility" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Archon", heroTalentIcon = "wow-hero-talent-archon", stats = { { "Intellect" }, { "Critical strike" }, { "Mastery" }, { "Versatility" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["shadow"] = { updated = "2026-09-10T19:12:52Z", lists = {
     { label = "Overall", slots = {
@@ -203,5 +214,12 @@ GrimoireKeystoneLootData["PRIEST"] = {
       { itemId = 271874, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268243, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Voidweaver", heroTalentIcon = "wow-hero-talent-voidweaver", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Overall", heroTalent = "Archon", heroTalentIcon = "wow-hero-talent-archon", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Voidweaver", heroTalentIcon = "wow-hero-talent-voidweaver", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Archon", heroTalentIcon = "wow-hero-talent-archon", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Voidweaver", heroTalentIcon = "wow-hero-talent-voidweaver", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Archon", heroTalentIcon = "wow-hero-talent-archon", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
 }

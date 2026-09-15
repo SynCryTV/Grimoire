@@ -68,6 +68,10 @@ GrimoireKeystoneLootData["DEMONHUNTER"] = {
       { itemId = 268235, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268225, tier = 5, bonusIds = { 40, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Void-Scarred", heroTalentIcon = "wow-hero-talent-void-scarred", recommendedHero = true, stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Void-Scarred", heroTalentIcon = "wow-hero-talent-void-scarred", recommendedHero = true, stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Void-Scarred", heroTalentIcon = "wow-hero-talent-void-scarred", recommendedHero = true, stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["havoc"] = { updated = "2026-09-10T19:12:58Z", lists = {
     { label = "Overall", slots = {
@@ -137,6 +141,13 @@ GrimoireKeystoneLootData["DEMONHUNTER"] = {
       { itemId = 268235, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268225, tier = 5, bonusIds = { 40, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Aldrachi Reaver", heroTalentIcon = "wow-hero-talent-aldrachi-reaver", stats = { { "Agility" }, { "Critical strike" }, { "Mastery" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Overall", heroTalent = "Fel-Scarred", heroTalentIcon = "wow-hero-talent-fel-scarred", recommendedHero = true, stats = { { "Agility" }, { "Critical strike" }, { "Mastery" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Aldrachi Reaver", heroTalentIcon = "wow-hero-talent-aldrachi-reaver", stats = { { "Agility" }, { "Critical strike" }, { "Mastery" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Fel-Scarred", heroTalentIcon = "wow-hero-talent-fel-scarred", recommendedHero = true, stats = { { "Agility" }, { "Critical strike" }, { "Mastery" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Aldrachi Reaver", heroTalentIcon = "wow-hero-talent-aldrachi-reaver", stats = { { "Agility" }, { "Critical strike" }, { "Mastery" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Fel-Scarred", heroTalentIcon = "wow-hero-talent-fel-scarred", recommendedHero = true, stats = { { "Agility" }, { "Critical strike" }, { "Mastery" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["vengeance"] = { updated = "2026-09-10T19:12:58Z", lists = {
     { label = "Overall", slots = {
@@ -202,5 +213,9 @@ GrimoireKeystoneLootData["DEMONHUNTER"] = {
       { itemId = 271875, tier = 5, bonusIds = { 13847, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268225, tier = 5, bonusIds = { 40, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Annihilator", recommendedHero = true, stats = { { "Agility" }, { "Haste" }, { "Mastery" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Annihilator", recommendedHero = true, stats = { { "Agility" }, { "Haste" }, { "Mastery" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Annihilator", recommendedHero = true, stats = { { "Agility" }, { "Haste" }, { "Mastery" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
   } },
 }

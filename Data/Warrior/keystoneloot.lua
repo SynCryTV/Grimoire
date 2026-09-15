@@ -62,6 +62,10 @@ GrimoireKeystoneLootData["WARRIOR"] = {
       { itemId = 268222, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 271878, tier = 5, bonusIds = { 4786, 13708, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Slayer", heroTalentIcon = "wow-hero-talent-slayer", stats = { { "Strength" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Slayer", heroTalentIcon = "wow-hero-talent-slayer", stats = { { "Strength" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Slayer", heroTalentIcon = "wow-hero-talent-slayer", stats = { { "Strength" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["fury"] = { updated = "2026-09-10T19:12:48Z", lists = {
     { label = "Overall", slots = {
@@ -131,6 +135,10 @@ GrimoireKeystoneLootData["WARRIOR"] = {
       { itemId = 268222, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 271878, tier = 5, bonusIds = { 4786, 13708, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Mountain Thane", heroTalentIcon = "wow-hero-talent-mountain-thane", stats = { { "Strength" }, { "Mastery" }, { "Haste" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Mountain Thane", heroTalentIcon = "wow-hero-talent-mountain-thane", stats = { { "Strength" }, { "Mastery" }, { "Haste" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Mountain Thane", heroTalentIcon = "wow-hero-talent-mountain-thane", stats = { { "Strength" }, { "Mastery" }, { "Haste" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["protection"] = { updated = "2026-09-10T19:12:49Z", lists = {
     { label = "Overall", slots = {
@@ -200,5 +208,9 @@ GrimoireKeystoneLootData["WARRIOR"] = {
       { itemId = 268222, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 271878, tier = 5, bonusIds = { 4786, 13708, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Mountain Thane", heroTalentIcon = "wow-hero-talent-mountain-thane", stats = { { "Strength" }, { "Haste" }, { "Critical strike" }, { "Versatility" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Mountain Thane", heroTalentIcon = "wow-hero-talent-mountain-thane", stats = { { "Strength" }, { "Haste" }, { "Critical strike" }, { "Versatility" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Mountain Thane", heroTalentIcon = "wow-hero-talent-mountain-thane", stats = { { "Strength" }, { "Haste" }, { "Critical strike" }, { "Versatility" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
   } },
 }

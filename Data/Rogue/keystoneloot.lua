@@ -70,6 +70,13 @@ GrimoireKeystoneLootData["ROGUE"] = {
       { itemId = 268235, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268225, tier = 5, bonusIds = { 40, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Deathstalker", heroTalentIcon = "wow-hero-talent-deathstalker", stats = { { "Agility" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Overall", heroTalent = "Fatebound", heroTalentIcon = "wow-hero-talent-fatebound", recommendedHero = true, stats = { { "Agility" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Deathstalker", heroTalentIcon = "wow-hero-talent-deathstalker", stats = { { "Agility" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Fatebound", heroTalentIcon = "wow-hero-talent-fatebound", recommendedHero = true, stats = { { "Agility" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Deathstalker", heroTalentIcon = "wow-hero-talent-deathstalker", stats = { { "Agility" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Fatebound", heroTalentIcon = "wow-hero-talent-fatebound", recommendedHero = true, stats = { { "Agility" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["outlaw"] = { updated = "2026-09-10T19:12:51Z", lists = {
     { label = "Overall", slots = {
@@ -137,6 +144,10 @@ GrimoireKeystoneLootData["ROGUE"] = {
       { itemId = 268204, tier = 3, bonusIds = { 13335 }, gems = {  }, enchant = 8039 },
       { itemId = 268225, tier = 5, bonusIds = { 40, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Trickster", heroTalentIcon = "wow-hero-talent-trickster", stats = { { "Agility" }, { "Critical strike" }, { "Haste" }, { "Versatility" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Trickster", heroTalentIcon = "wow-hero-talent-trickster", stats = { { "Agility" }, { "Critical strike" }, { "Haste" }, { "Versatility" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Trickster", heroTalentIcon = "wow-hero-talent-trickster", stats = { { "Agility" }, { "Critical strike" }, { "Haste" }, { "Versatility" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["subtlety"] = { updated = "2026-09-10T19:12:51Z", lists = {
     { label = "Overall", slots = {
@@ -207,5 +218,12 @@ GrimoireKeystoneLootData["ROGUE"] = {
       { itemId = 268234, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268225, tier = 5, bonusIds = { 40, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Deathstalker", heroTalentIcon = "wow-hero-talent-deathstalker", stats = { { "Agility" }, { "Mastery" }, { "Haste" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Overall", heroTalent = "Trickster", heroTalentIcon = "wow-hero-talent-trickster", stats = { { "Agility" }, { "Mastery" }, { "Haste" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Deathstalker", heroTalentIcon = "wow-hero-talent-deathstalker", stats = { { "Agility" }, { "Mastery" }, { "Haste" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Trickster", heroTalentIcon = "wow-hero-talent-trickster", stats = { { "Agility" }, { "Mastery" }, { "Haste" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Deathstalker", heroTalentIcon = "wow-hero-talent-deathstalker", stats = { { "Agility" }, { "Mastery" }, { "Haste" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Trickster", heroTalentIcon = "wow-hero-talent-trickster", stats = { { "Agility" }, { "Mastery" }, { "Haste" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
   } },
 }

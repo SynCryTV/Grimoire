@@ -68,6 +68,10 @@ GrimoireKeystoneLootData["HUNTER"] = {
       { itemId = 268238, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268237, tier = 5, bonusIds = { 6652, 13662, 13333, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Pack Leader", heroTalentIcon = "wow-hero-talent-pack-leader", stats = { { "Agility" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Pack Leader", heroTalentIcon = "wow-hero-talent-pack-leader", stats = { { "Agility" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Pack Leader", heroTalentIcon = "wow-hero-talent-pack-leader", stats = { { "Agility" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["marksmanship"] = { updated = "2026-09-10T19:12:50Z", lists = {
     { label = "Overall", slots = {
@@ -136,6 +140,10 @@ GrimoireKeystoneLootData["HUNTER"] = {
       { itemId = 268238, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268237, tier = 5, bonusIds = { 6652, 13662, 13333, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Sentinel", heroTalentIcon = "wow-hero-talent-sentinel", stats = { { "Agility" }, { "Critical strike" }, { "Mastery" }, { "Versatility" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Sentinel", heroTalentIcon = "wow-hero-talent-sentinel", stats = { { "Agility" }, { "Critical strike" }, { "Mastery" }, { "Versatility" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Sentinel", heroTalentIcon = "wow-hero-talent-sentinel", stats = { { "Agility" }, { "Critical strike" }, { "Mastery" }, { "Versatility" }, { "Haste" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["survival"] = { updated = "2026-09-10T19:12:50Z", lists = {
     { label = "Overall", slots = {
@@ -202,5 +210,9 @@ GrimoireKeystoneLootData["HUNTER"] = {
       { itemId = 268238, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268237, tier = 5, bonusIds = { 6652, 13662, 13333, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Sentinel", heroTalentIcon = "wow-hero-talent-sentinel", stats = { { "Agility" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Sentinel", heroTalentIcon = "wow-hero-talent-sentinel", stats = { { "Agility" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Sentinel", heroTalentIcon = "wow-hero-talent-sentinel", stats = { { "Agility" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
 }

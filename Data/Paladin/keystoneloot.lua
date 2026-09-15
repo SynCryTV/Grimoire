@@ -68,6 +68,10 @@ GrimoireKeystoneLootData["PALADIN"] = {
       { itemId = 268222, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 271878, tier = 5, bonusIds = { 4786, 13708, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Herald of the Sun", heroTalentIcon = "wow-hero-talent-herald-of-the-sun", stats = { { "Intellect" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Herald of the Sun", heroTalentIcon = "wow-hero-talent-herald-of-the-sun", stats = { { "Intellect" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Herald of the Sun", heroTalentIcon = "wow-hero-talent-herald-of-the-sun", stats = { { "Intellect" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["protection"] = { updated = "2026-09-10T19:12:49Z", lists = {
     { label = "Overall", slots = {
@@ -139,6 +143,13 @@ GrimoireKeystoneLootData["PALADIN"] = {
       { itemId = 268220, tier = 5, bonusIds = { 6652, 13662, 13333, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 271878, tier = 5, bonusIds = { 4786, 13708, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Templar", heroTalentIcon = "wow-hero-talent-templar", stats = { { "Strength" }, { "Haste" }, { "Versatility" }, { "Mastery" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Overall", heroTalent = "Lightsmith", heroTalentIcon = "wow-hero-talent-lightsmith", stats = { { "Strength" }, { "Haste" }, { "Versatility" }, { "Mastery" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Templar", heroTalentIcon = "wow-hero-talent-templar", stats = { { "Strength" }, { "Haste" }, { "Versatility" }, { "Mastery" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Lightsmith", heroTalentIcon = "wow-hero-talent-lightsmith", stats = { { "Strength" }, { "Haste" }, { "Versatility" }, { "Mastery" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Templar", heroTalentIcon = "wow-hero-talent-templar", stats = { { "Strength" }, { "Haste" }, { "Versatility" }, { "Mastery" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Lightsmith", heroTalentIcon = "wow-hero-talent-lightsmith", stats = { { "Strength" }, { "Haste" }, { "Versatility" }, { "Mastery" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["retribution"] = { updated = "2026-09-10T19:12:50Z", lists = {
     { label = "Overall", slots = {
@@ -206,5 +217,12 @@ GrimoireKeystoneLootData["PALADIN"] = {
       { itemId = 268220, tier = 5, bonusIds = { 6652, 13662, 13333, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 271878, tier = 5, bonusIds = { 4786, 13708, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Herald of the Sun", heroTalentIcon = "wow-hero-talent-herald-of-the-sun", stats = { { "Strength" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Overall", heroTalent = "Templar", heroTalentIcon = "wow-hero-talent-templar", stats = { { "Strength" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Herald of the Sun", heroTalentIcon = "wow-hero-talent-herald-of-the-sun", stats = { { "Strength" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Templar", heroTalentIcon = "wow-hero-talent-templar", stats = { { "Strength" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Herald of the Sun", heroTalentIcon = "wow-hero-talent-herald-of-the-sun", stats = { { "Strength" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Templar", heroTalentIcon = "wow-hero-talent-templar", stats = { { "Strength" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
 }

@@ -68,6 +68,10 @@ GrimoireKeystoneLootData["WARLOCK"] = {
       { itemId = 268241, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268243, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Hellcaller", heroTalentIcon = "wow-hero-talent-hellcaller", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Hellcaller", heroTalentIcon = "wow-hero-talent-hellcaller", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Hellcaller", heroTalentIcon = "wow-hero-talent-hellcaller", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["demonology"] = { updated = "2026-09-10T19:12:55Z", lists = {
     { label = "Overall", slots = {
@@ -135,6 +139,13 @@ GrimoireKeystoneLootData["WARLOCK"] = {
       { itemId = 268241, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268243, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Diabolist", heroTalentIcon = "wow-hero-talent-diabolist", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Overall", heroTalent = "Soul Harvester", heroTalentIcon = "wow-hero-talent-soul-harvester", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Diabolist", heroTalentIcon = "wow-hero-talent-diabolist", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Soul Harvester", heroTalentIcon = "wow-hero-talent-soul-harvester", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Diabolist", heroTalentIcon = "wow-hero-talent-diabolist", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Soul Harvester", heroTalentIcon = "wow-hero-talent-soul-harvester", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["destruction"] = { updated = "2026-09-10T19:12:56Z", lists = {
     { label = "Overall", slots = {
@@ -202,5 +213,9 @@ GrimoireKeystoneLootData["WARLOCK"] = {
       { itemId = 268241, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268243, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Hellcaller", heroTalentIcon = "wow-hero-talent-hellcaller", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Hellcaller", heroTalentIcon = "wow-hero-talent-hellcaller", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Hellcaller", heroTalentIcon = "wow-hero-talent-hellcaller", stats = { { "Intellect" }, { "Haste" }, { "Critical strike" }, { "Mastery" } }, operators = { ">", ">", ">", ">" } },
   } },
 }

@@ -70,6 +70,13 @@ GrimoireKeystoneLootData["DRUID"] = {
       { itemId = 268234, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268225, tier = 5, bonusIds = { 40, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Elune's Chosen", heroTalentIcon = "wow-hero-talent-elunes-chosen", stats = { { "Intellect" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Overall", heroTalent = "Keeper of the Grove", heroTalentIcon = "wow-hero-talent-keeper-of-the-grove", stats = { { "Intellect" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Elune's Chosen", heroTalentIcon = "wow-hero-talent-elunes-chosen", stats = { { "Intellect" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Keeper of the Grove", heroTalentIcon = "wow-hero-talent-keeper-of-the-grove", stats = { { "Intellect" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Elune's Chosen", heroTalentIcon = "wow-hero-talent-elunes-chosen", stats = { { "Intellect" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Keeper of the Grove", heroTalentIcon = "wow-hero-talent-keeper-of-the-grove", stats = { { "Intellect" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["feral"] = { updated = "2026-09-10T19:12:57Z", lists = {
     { label = "Overall", slots = {
@@ -136,6 +143,10 @@ GrimoireKeystoneLootData["DRUID"] = {
       { itemId = 268234, tier = 5, bonusIds = { 6652, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268225, tier = 5, bonusIds = { 40, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Druid of the Claw", heroTalentIcon = "wow-hero-talent-druid-of-the-claw", recommendedHero = true, stats = { { "Agility" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Druid of the Claw", heroTalentIcon = "wow-hero-talent-druid-of-the-claw", recommendedHero = true, stats = { { "Agility" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Druid of the Claw", heroTalentIcon = "wow-hero-talent-druid-of-the-claw", recommendedHero = true, stats = { { "Agility" }, { "Mastery" }, { "Haste" }, { "Critical strike" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["guardian"] = { updated = "2026-09-10T19:12:57Z", lists = {
     { label = "Overall", slots = {
@@ -203,6 +214,10 @@ GrimoireKeystoneLootData["DRUID"] = {
       { itemId = 268235, tier = 5, bonusIds = { 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268225, tier = 5, bonusIds = { 40, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Elune's Chosen", heroTalentIcon = "wow-hero-talent-elunes-chosen", stats = { { "Agility" }, { "Haste" }, { "Versatility" }, { "Mastery" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Elune's Chosen", heroTalentIcon = "wow-hero-talent-elunes-chosen", stats = { { "Agility" }, { "Haste" }, { "Versatility" }, { "Mastery" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Elune's Chosen", heroTalentIcon = "wow-hero-talent-elunes-chosen", stats = { { "Agility" }, { "Haste" }, { "Versatility" }, { "Mastery" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["restoration"] = { updated = "2026-09-10T19:12:58Z", lists = {
     { label = "Overall", slots = {
@@ -270,5 +285,9 @@ GrimoireKeystoneLootData["DRUID"] = {
       { itemId = 159337, tier = 5, bonusIds = { 6652, 13662, 12699, 13440 }, gems = {  }, enchant = 0 },
       { itemId = 268225, tier = 5, bonusIds = { 40, 13662, 13334, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Wildstalker", heroTalentIcon = "wow-hero-talent-wildstalker", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Wildstalker", heroTalentIcon = "wow-hero-talent-wildstalker", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Wildstalker", heroTalentIcon = "wow-hero-talent-wildstalker", stats = { { "Intellect" }, { "Haste" }, { "Mastery" }, { "Versatility" }, { "Critical strike" } }, operators = { ">", ">", ">", ">" } },
   } },
 }

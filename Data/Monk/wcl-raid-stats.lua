@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["MONK"] = GrimoireStatTargets["MONK"] or {}
 
 GrimoireStatTargets["MONK"]["brewmaster"] = GrimoireStatTargets["MONK"]["brewmaster"] or {}
-GrimoireStatTargets["MONK"]["brewmaster"]["Raid"] = { targets = { crit = 950, haste = 324, mastery = 792, versatility = 424 }, samples = 1008, source = "Warcraft Logs Top 1000 (alle Bosse)" }
+GrimoireStatTargets["MONK"]["brewmaster"]["Raid"] = { targets = { crit = 946, haste = 324, mastery = 792, versatility = 424 }, samples = 1008, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["MONK"]["mistweaver"] = GrimoireStatTargets["MONK"]["mistweaver"] or {}
-GrimoireStatTargets["MONK"]["mistweaver"]["Raid"] = { targets = { crit = 522, haste = 909, mastery = 730, versatility = 236 }, samples = 1008, source = "Warcraft Logs Top 1000 (alle Bosse)" }
+GrimoireStatTargets["MONK"]["mistweaver"]["Raid"] = { targets = { crit = 522, haste = 906, mastery = 730, versatility = 237 }, samples = 1008, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["MONK"]["windwalker"] = GrimoireStatTargets["MONK"]["windwalker"] or {}
-GrimoireStatTargets["MONK"]["windwalker"]["Raid"] = { targets = { crit = 675, haste = 663, mastery = 958, versatility = 154 }, samples = 1005, source = "Warcraft Logs Top 1000 (alle Bosse)" }
+GrimoireStatTargets["MONK"]["windwalker"]["Raid"] = { targets = { crit = 676, haste = 663, mastery = 960, versatility = 156 }, samples = 1006, source = "Warcraft Logs Top 1000 (alle Bosse)" }

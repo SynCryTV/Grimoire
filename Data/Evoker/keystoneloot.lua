@@ -70,6 +70,13 @@ GrimoireKeystoneLootData["EVOKER"] = {
       { itemId = 271876, tier = 5, bonusIds = { 6652, 13662, 13334, 13846, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268237, tier = 5, bonusIds = { 6652, 13662, 13333, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Chronowarden", heroTalentIcon = "wow-hero-talent-chronowarden", stats = { { "Intellect" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Overall", heroTalent = "Scalecommander", heroTalentIcon = "wow-hero-talent-scalecommander", stats = { { "Intellect" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Chronowarden", heroTalentIcon = "wow-hero-talent-chronowarden", stats = { { "Intellect" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Scalecommander", heroTalentIcon = "wow-hero-talent-scalecommander", stats = { { "Intellect" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Chronowarden", heroTalentIcon = "wow-hero-talent-chronowarden", stats = { { "Intellect" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Scalecommander", heroTalentIcon = "wow-hero-talent-scalecommander", stats = { { "Intellect" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["devastation"] = { updated = "2026-09-10T19:12:59Z", lists = {
     { label = "Overall", slots = {
@@ -139,6 +146,10 @@ GrimoireKeystoneLootData["EVOKER"] = {
       { itemId = 271876, tier = 5, bonusIds = { 6652, 13662, 13334, 13846, 13335 }, gems = {  }, enchant = 0 },
       { itemId = 268237, tier = 5, bonusIds = { 6652, 13662, 13333, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Scalecommander", heroTalentIcon = "wow-hero-talent-scalecommander", stats = { { "Intellect" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Scalecommander", heroTalentIcon = "wow-hero-talent-scalecommander", stats = { { "Intellect" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Scalecommander", heroTalentIcon = "wow-hero-talent-scalecommander", stats = { { "Intellect" }, { "Critical strike" }, { "Haste" }, { "Mastery" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
   ["preservation"] = { updated = "2026-09-10T19:12:59Z", lists = {
     { label = "Overall", slots = {
@@ -210,5 +221,9 @@ GrimoireKeystoneLootData["EVOKER"] = {
       { itemId = 251165, tier = 5, bonusIds = { 6652, 13662, 12699, 13440 }, gems = {  }, enchant = 0 },
       { itemId = 268237, tier = 5, bonusIds = { 6652, 13662, 13333, 13335 }, gems = {  }, enchant = 0 },
     } },
+  }, priorities = {
+    { context = "Overall", heroTalent = "Flameshaper", heroTalentIcon = "wow-hero-talent-flameshaper", stats = { { "Intellect" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Mythic+", heroTalent = "Flameshaper", heroTalentIcon = "wow-hero-talent-flameshaper", stats = { { "Intellect" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
+    { context = "Raid", heroTalent = "Flameshaper", heroTalentIcon = "wow-hero-talent-flameshaper", stats = { { "Intellect" }, { "Mastery" }, { "Critical strike" }, { "Haste" }, { "Versatility" } }, operators = { ">", ">", ">", ">" } },
   } },
 }

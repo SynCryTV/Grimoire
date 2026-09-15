@@ -1,5 +1,11 @@
 # Änderungsverlauf
 
+## 4.1.4
+
+- Auktionshaus-Tab um die Wowhead-/KeystoneLoot-Quellenwahl ergänzt.
+- KeystoneLoot-Edelsteine inklusive aller Alternativen können nun direkt gesucht, favorisiert oder an Auctionator übergeben werden.
+- Der KeystoneLoot-API-Zeitstempel wird im Auktionshaus-Tab angezeigt; der Scraper aktualisiert diese Daten bei jedem normalen Komplettlauf.
+
 ## 4.1.3
 
 - KeystoneLoot-BiS zeigt nun alle API-Empfehlungen: Slot-Alternativen und Einträge mit unbekanntem Slot werden nicht länger ausgeblendet.

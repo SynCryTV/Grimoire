@@ -24,6 +24,8 @@ local SECTION_GAP = 7
 
 local selectedClass
 local selectedSpec
+local selectedSource = "wowhead"
+local selectedKeystoneContext = "Overall"
 local sections = {}
 
 local CONSUMABLE_SLOT_NAMES = {
@@ -681,8 +683,19 @@ local specDropdown = CreateFrame("DropdownButton", "GrimoireAHSpecDropdown", pan
 specDropdown:SetPoint("LEFT", classDropdown, "RIGHT", 8, 0)
 specDropdown:SetSize(190, 24)
 
+-- KeystoneLoot liefert die empfohlenen Edelsteine. Kaufbare VZ-Items und
+-- Verbrauchsgüter werden weiterhin korrekt aus Wowhead bezogen.
+local sourceDropdown = CreateFrame("DropdownButton", "GrimoireAHSourceDropdown", panel, "WowStyle1DropdownTemplate")
+sourceDropdown:SetPoint("TOPLEFT", classDropdown, "BOTTOMLEFT", 0, -5)
+sourceDropdown:SetSize(190, 24)
+
+local sourceHint = panel:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
+sourceHint:SetPoint("LEFT", sourceDropdown, "RIGHT", 8, 0)
+sourceHint:SetPoint("RIGHT", panel, "RIGHT", -14, 0)
+sourceHint:SetJustifyH("LEFT")
+
 local scrollFrame = CreateFrame("ScrollFrame", "GrimoireAHEnhancementsScrollFrame", panel, "UIPanelScrollFrameTemplate")
-scrollFrame:SetPoint("TOPLEFT", classDropdown, "BOTTOMLEFT", 0, -12)
+scrollFrame:SetPoint("TOPLEFT", sourceDropdown, "BOTTOMLEFT", 0, -12)
 scrollFrame:SetPoint("BOTTOMRIGHT", panel, "BOTTOMRIGHT", -30, 14)
 
 local content = CreateFrame("Frame", nil, scrollFrame)
@@ -928,9 +941,43 @@ for _, def in ipairs(SECTION_DEFS) do
     CreateSection(def)
 end
 
-local function GetSelectedSpecData()
+local function GetWowheadSpecData()
     local classData = selectedClass and GrimoireGearData and GrimoireGearData[selectedClass]
     return classData and selectedSpec and classData[selectedSpec]
+end
+
+local function GetSelectedSpecData()
+    local wowhead = GetWowheadSpecData()
+    if selectedSource ~= "keystoneloot" then return wowhead end
+
+    local classData = selectedClass and GrimoireKeystoneLootData and GrimoireKeystoneLootData[selectedClass]
+    local keystone = classData and selectedSpec and classData[selectedSpec]
+    if not keystone then return wowhead end
+
+    local list
+    for _, candidate in ipairs(keystone.lists or {}) do
+        if candidate.label == selectedKeystoneContext then
+            list = candidate
+            break
+        end
+    end
+    list = list or (keystone.lists and keystone.lists[1])
+
+    local gems, seen = {}, {}
+    for _, entry in ipairs((list and list.slots) or {}) do
+        for _, itemID in ipairs(entry.gems or {}) do
+            if not seen[itemID] then
+                seen[itemID] = true
+                gems[#gems + 1] = { itemId = itemID }
+            end
+        end
+    end
+
+    return {
+        gems = { secondary = gems },
+        enchants = wowhead and wowhead.enchants or {},
+        consumables = wowhead and wowhead.consumables or {},
+    }
 end
 
 local function RefreshContent()
@@ -1063,6 +1110,41 @@ local function RefreshDropdowns()
     end
     local specMarkup = G.GetSpecIconMarkup and G.GetSpecIconMarkup(specIcon, 16) or ""
     specDropdown:SetText(specMarkup .. (specName or selectedSpec or "Spec"))
+
+    sourceDropdown:SetText(selectedSource == "keystoneloot" and "KeystoneLoot" or "Wowhead")
+    sourceDropdown:SetupMenu(function(_, rootDescription)
+        rootDescription:CreateRadio("Wowhead", function() return selectedSource == "wowhead" end, function()
+            selectedSource = "wowhead"
+            RefreshDropdowns()
+            RefreshContent()
+        end)
+        rootDescription:CreateRadio("KeystoneLoot", function() return selectedSource == "keystoneloot" end, function()
+            selectedSource = "keystoneloot"
+            RefreshDropdowns()
+            RefreshContent()
+        end)
+        if selectedSource == "keystoneloot" then
+            local data = GrimoireKeystoneLootData and GrimoireKeystoneLootData[selectedClass] and GrimoireKeystoneLootData[selectedClass][selectedSpec]
+            if data and data.lists then
+                rootDescription:CreateDivider()
+                rootDescription:CreateTitle("KeystoneLoot-Kontext")
+                for _, list in ipairs(data.lists) do
+                    rootDescription:CreateRadio(list.label, function() return selectedKeystoneContext == list.label end, function()
+                        selectedKeystoneContext = list.label
+                        RefreshDropdowns()
+                        RefreshContent()
+                    end)
+                end
+            end
+        end
+    end)
+    if selectedSource == "keystoneloot" then
+        local data = GrimoireKeystoneLootData and GrimoireKeystoneLootData[selectedClass] and GrimoireKeystoneLootData[selectedClass][selectedSpec]
+        local updated = data and data.updated or "unbekannt"
+        sourceHint:SetText("Gems: " .. selectedKeystoneContext .. " • API: " .. updated)
+    else
+        sourceHint:SetText("VZ, Edelsteine, Flask und Food: Wowhead")
+    end
 
     classDropdown:SetupMenu(function(_, rootDescription)
         for _, classToken in ipairs(CLASS_ORDER) do

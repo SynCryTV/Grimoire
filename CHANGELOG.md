@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 4.1.8
+
+- Gewählte Quelle und Kontext werden für BiS-Gear, Enhancements und den Auktionshaus-Tab dauerhaft gespeichert.
+- Der Auktionshaus-Tab merkt sich zusätzlich Klasse und Spezialisierung.
+
 ## 4.1.7
 
 - Quellenübersicht in den Einstellungen optisch vereinfacht.

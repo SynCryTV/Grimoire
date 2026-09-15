@@ -40,6 +40,11 @@ local DB_DEFAULTS = {
         sound = "pvpqueue",
     },
 
+    -- Zuletzt gewählte Datenquellen/Kontexte pro Ansicht.
+    bisGearView = { sourceKey = "wowhead", context = "Overall" },
+    enhancementsView = { sourceKey = "wowhead", context = "Overall" },
+    auctionHouseView = { sourceKey = "wowhead", context = "Overall" },
+
     sectionVisibility = {
         statTargets = true,
         statPriority = true,

@@ -11,6 +11,13 @@ frame:SetPoint("RIGHT", G.panel, "RIGHT", -16, 0)
 -- diese beiden Kategorien sind nicht Teil der KeystoneLoot-API.
 local selectedSource = "wowhead"
 local selectedKeystoneContext = "Overall"
+
+local function SaveEnhancementsView()
+    if not G.db then return end
+    G.db.enhancementsView = G.db.enhancementsView or {}
+    G.db.enhancementsView.sourceKey = selectedSource
+    G.db.enhancementsView.context = selectedKeystoneContext
+end
 local TOP_INSET = 30
 local sourceDropdown = CreateFrame("DropdownButton", "GrimoireEnhancementSourceDD", frame, "WowStyle1DropdownTemplate")
 sourceDropdown:SetPoint("TOPLEFT", 0, 0)
@@ -1212,10 +1219,12 @@ local function Refresh(animate)
     sourceDropdown:SetupMenu(function(_, root)
         root:CreateRadio("Wowhead", function() return selectedSource == "wowhead" end, function()
             selectedSource = "wowhead"
+            SaveEnhancementsView()
             Refresh(true)
         end)
         root:CreateRadio("KeystoneLoot", function() return selectedSource == "keystoneloot" end, function()
             selectedSource = "keystoneloot"
+            SaveEnhancementsView()
             Refresh(true)
         end)
         if selectedSource == "keystoneloot" then
@@ -1227,6 +1236,7 @@ local function Refresh(animate)
                 for _, list in ipairs(data.lists) do
                     root:CreateRadio(list.label, function() return selectedKeystoneContext == list.label end, function()
                         selectedKeystoneContext = list.label
+                        SaveEnhancementsView()
                         Refresh(true)
                     end)
                 end
@@ -1257,6 +1267,9 @@ if G.RegisterOnActiveTabChanged then
 end
 
 G.RegisterOnDatabaseReady(function()
+    local view = G.db and G.db.enhancementsView or {}
+    selectedSource = view.sourceKey == "keystoneloot" and "keystoneloot" or "wowhead"
+    selectedKeystoneContext = view.context or "Overall"
     ApplySavedVisibility()
     Refresh(false)
 end)

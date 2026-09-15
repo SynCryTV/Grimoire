@@ -28,6 +28,15 @@ local selectedSource = "wowhead"
 local selectedKeystoneContext = "Overall"
 local sections = {}
 
+local function SaveAuctionHouseView()
+    if not G.db then return end
+    G.db.auctionHouseView = G.db.auctionHouseView or {}
+    G.db.auctionHouseView.classToken = selectedClass
+    G.db.auctionHouseView.specKey = selectedSpec
+    G.db.auctionHouseView.sourceKey = selectedSource
+    G.db.auctionHouseView.context = selectedKeystoneContext
+end
+
 local CONSUMABLE_SLOT_NAMES = {
     ["flask"] = true,
     ["combat potion"] = true,
@@ -1115,11 +1124,13 @@ local function RefreshDropdowns()
     sourceDropdown:SetupMenu(function(_, rootDescription)
         rootDescription:CreateRadio("Wowhead", function() return selectedSource == "wowhead" end, function()
             selectedSource = "wowhead"
+            SaveAuctionHouseView()
             RefreshDropdowns()
             RefreshContent()
         end)
         rootDescription:CreateRadio("KeystoneLoot", function() return selectedSource == "keystoneloot" end, function()
             selectedSource = "keystoneloot"
+            SaveAuctionHouseView()
             RefreshDropdowns()
             RefreshContent()
         end)
@@ -1131,6 +1142,7 @@ local function RefreshDropdowns()
                 for _, list in ipairs(data.lists) do
                     rootDescription:CreateRadio(list.label, function() return selectedKeystoneContext == list.label end, function()
                         selectedKeystoneContext = list.label
+                        SaveAuctionHouseView()
                         RefreshDropdowns()
                         RefreshContent()
                     end)
@@ -1156,6 +1168,7 @@ local function RefreshDropdowns()
                     selectedClass = classToken
                     local specs = G.SPEC_KEYS and G.SPEC_KEYS[classToken] or {}
                     selectedSpec = specs[1]
+                    SaveAuctionHouseView()
                     RefreshDropdowns()
                     RefreshContent()
                 end
@@ -1172,6 +1185,7 @@ local function RefreshDropdowns()
                 function() return selectedSpec == specKey end,
                 function()
                     selectedSpec = specKey
+                    SaveAuctionHouseView()
                     RefreshDropdowns()
                     RefreshContent()
                 end
@@ -1179,6 +1193,14 @@ local function RefreshDropdowns()
         end
     end)
 end
+
+G.RegisterOnDatabaseReady(function()
+    local view = G.db and G.db.auctionHouseView or {}
+    selectedClass = view.classToken
+    selectedSpec = view.specKey
+    selectedSource = view.sourceKey == "keystoneloot" and "keystoneloot" or "wowhead"
+    selectedKeystoneContext = view.context or "Overall"
+end)
 
 local function PositionPanel()
     panel:ClearAllPoints()

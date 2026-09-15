@@ -909,6 +909,13 @@ fallbackText:Hide()
 local selectedSourceKey = SOURCES[1].key -- Wowhead ist Standard
 local selectedContext = "Overall"
 
+local function SaveBisGearView()
+    if not G.db then return end
+    G.db.bisGearView = G.db.bisGearView or {}
+    G.db.bisGearView.sourceKey = selectedSourceKey
+    G.db.bisGearView.context = selectedContext
+end
+
 local function FindContextEntryByLabel(raw, label)
     if not raw then return nil end
     for _, entry in ipairs(raw) do
@@ -1401,6 +1408,7 @@ local function Refresh()
                 function()
                     selectedSourceKey = src.key
                     selectedContext = nil -- Kontext-Optionen unterscheiden sich je Quelle
+                    SaveBisGearView()
 
                     -- Nur Ansicht wechseln. Die überwachte Sound-Liste
                     -- bleibt unverändert, bis der Nutzer den Haken setzt.
@@ -1422,6 +1430,7 @@ local function Refresh()
         if c == selectedContext then found = true break end
     end
     if not found then selectedContext = contextOptions[1] end
+    SaveBisGearView()
 
     local yOffset = CONTROL_AREA_HEIGHT + DD_GAP
     if #contextOptions > 1 then
@@ -1435,6 +1444,7 @@ local function Refresh()
                         -- Die aktive Sound-Überwachung wird erst durch den
                         -- Haken "Diese Liste überwachen" geändert.
                         selectedContext = c
+                        SaveBisGearView()
                         Refresh()
                     end)
             end
@@ -1468,10 +1478,9 @@ if G.RegisterOnActiveTabChanged then
 end
 
 G.RegisterOnDatabaseReady(function()
-    -- Sichtbare Startansicht bleibt bewusst Wowhead -> Overall.
-    -- Die überwachte Liste ist davon unabhängig gespeichert.
-    selectedSourceKey = "wowhead"
-    selectedContext = "Overall"
+    local view = G.db and G.db.bisGearView or {}
+    selectedSourceKey = SOURCE_BY_KEY[view.sourceKey] and view.sourceKey or "wowhead"
+    selectedContext = view.context or "Overall"
 
     SyncAlertControls()
     Refresh()

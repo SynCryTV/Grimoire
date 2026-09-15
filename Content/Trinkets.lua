@@ -22,6 +22,7 @@ local TIER_COLORS = {
     C = { 0.25, 1.00, 0.45 },
     D = { 0.70, 0.70, 0.70 },
 }
+local PERSONAL_S_PLUS_COLOR = { 0.64, 0.21, 0.93 }
 
 local CONTEXT_OPTIONS = {
     { key = "all",      label = "Alle" },
@@ -95,7 +96,7 @@ end
 
 local function SetPersonalMarkerColor(row, isMarked)
     if isMarked then
-        row.personalLabel:SetTextColor(0.95, 0.45, 0.10)
+        row.personalLabel:SetTextColor(unpack(PERSONAL_S_PLUS_COLOR))
     else
         row.personalLabel:SetTextColor(0.50, 0.50, 0.50)
     end
@@ -250,7 +251,7 @@ trinketHelp:SetScript("OnEnter", function(self)
     )
 
     GameTooltip:AddLine(" ")
-    GameTooltip:AddLine("S+ Tooltip", 0.95, 0.45, 0.10)
+    GameTooltip:AddLine("S+ Tooltip", unpack(PERSONAL_S_PLUS_COLOR))
     GameTooltip:AddLine(
         "Schaltet ausschließlich deine persönlichen S+-Markierungen in Item-Tooltips ein oder aus.",
         0.85, 0.85, 0.85,
@@ -284,7 +285,7 @@ personalTooltipCheckbox:SetSize(22, 22)
 local personalTooltipLabel = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 personalTooltipLabel:SetPoint("LEFT", personalTooltipCheckbox, "RIGHT", 0, 0)
 personalTooltipLabel:SetText("S+ Tooltip")
-personalTooltipLabel:SetTextColor(0.95, 0.45, 0.10)
+personalTooltipLabel:SetTextColor(unpack(PERSONAL_S_PLUS_COLOR))
 
 ownClassCheckbox:SetScript("OnClick", function(self)
     if not G.db then return end
@@ -631,7 +632,7 @@ Refresh = function()
     if #personalEntries > 0 then
         displayGroups[#displayGroups + 1] = {
             label = "S+-Tier (Markiert)",
-            color = { 0.95, 0.45, 0.10 },
+            color = PERSONAL_S_PLUS_COLOR,
             entries = personalEntries,
         }
     end
@@ -873,7 +874,7 @@ local function OnTooltipTrinket(tooltip, tooltipData)
     if TooltipAlreadyHasBestGear(tooltip) then return end
 
     tooltip:AddLine(" ")
-    if personal then tooltip:AddLine("Persönliches S+-Tier", 0.95, 0.45, 0.10) end
+    if personal then tooltip:AddLine("Persönliches S+-Tier", unpack(PERSONAL_S_PLUS_COLOR)) end
     if G.db and G.db.showTrinketTiersInTooltips == false then tooltip:Show(); return end
     tooltip:AddLine("Beste Ausrüstung", 1.00, 0.82, 0.20)
 

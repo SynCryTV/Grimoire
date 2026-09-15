@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.1.4
+
+- Persönliche S+-Trinketmarkierungen, die S+-Kategorie und ihre Tooltip-Hinweise verwenden nun Lila statt Artefaktorange.
+
 ## 5.1.3
 
 - KeystoneLoot-BiS prüft beim Zurückwechseln in den Tab erneut auf Alternativen und verbreitert die Ansicht dann zuverlässig.

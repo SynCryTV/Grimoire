@@ -178,7 +178,7 @@ local SOURCES = {
     { name = "Wowhead", url = "https://www.wowhead.com/", note = "Guides, kaufbare VZ-Items und Verbrauchsgüter" },
     { name = "Icy Veins", url = "https://www.icy-veins.com/wow/", note = "PvE-Guides und BiS-Listen" },
     { name = "Murlok", url = "https://murlok.io/", note = "Mythic+-BiS und M+-Werteziele" },
-    { name = "KeystoneLoot", url = "https://keystoneloot.io/", note = "Overall-, Mythic+- und Raid-BiS inklusive Gems" },
+    { name = "KeystoneLoot", url = "https://keystoneloot.io/", note = "BiS, Gems, aktuelle Wertepriorität und Heldentalent-Empfehlungen" },
     { name = "Warcraft Logs", url = "https://www.warcraftlogs.com/", note = "Raid-Werteziele aus Ranking-Daten" },
     { name = "Blizzard", url = "https://develop.battle.net/", note = "Item-Tooltips und Spielinformationen" },
 }

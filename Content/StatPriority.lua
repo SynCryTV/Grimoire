@@ -271,6 +271,15 @@ local function GetScrapedHeroIcon(priorities, heroKey)
     return nil
 end
 
+local function IsHeroRecommended(priorities, heroKey)
+    for _, entry in ipairs(priorities or {}) do
+        if entry.heroTalent == heroKey and entry.recommendedHero then
+            return true
+        end
+    end
+    return false
+end
+
 local function GetOwnSelectedSpecMatches(classToken, specKey)
     local _, ownClassToken = UnitClass("player")
     if ownClassToken ~= classToken then return false end
@@ -334,18 +343,24 @@ local function GetHeroSubTreeData(classToken, specKey, heroOptions)
     return result
 end
 
-local function HeroDisplayText(data)
+local function HeroDisplayText(data, recommended)
     if not data then return "" end
 
+    local text
     if data.iconAtlas and data.iconAtlas ~= "" then
-        return string.format(
+        text = string.format(
             "|A:%s:18:18|a %s",
             data.iconAtlas,
             data.displayName or data.key or ""
         )
+    else
+        text = data.displayName or data.key or ""
     end
 
-    return data.displayName or data.key or ""
+    if recommended then
+        text = text .. " |cff6cff00(Empfohlen)|r"
+    end
+    return text
 end
 
 local function FindHeroDataByKey(heroData, key)
@@ -442,7 +457,11 @@ local function Refresh()
     local specData = GrimoireData
         and GrimoireData[classToken]
         and GrimoireData[classToken][specKey]
-    local priorities = specData and specData.priorities
+    local keystoneSpecData = GrimoireKeystoneLootData
+        and GrimoireKeystoneLootData[classToken]
+        and GrimoireKeystoneLootData[classToken][specKey]
+    local priorities = keystoneSpecData and keystoneSpecData.priorities
+        or (specData and specData.priorities)
 
     if not priorities or #priorities == 0 then
         ShowFallback("Keine Wertepriorität für diese Spec verfügbar.")
@@ -493,12 +512,15 @@ local function Refresh()
         end
 
         local selectedData = FindHeroDataByKey(heroData, selectedHero)
-        heroDropdown:SetText(HeroDisplayText(selectedData))
+        heroDropdown:SetText(HeroDisplayText(
+            selectedData,
+            IsHeroRecommended(priorities, selectedHero)
+        ))
 
         heroDropdown:SetupMenu(function(_, rootDescription)
             for _, data in ipairs(heroData) do
                 rootDescription:CreateRadio(
-                    HeroDisplayText(data),
+                    HeroDisplayText(data, IsHeroRecommended(priorities, data.key)),
                     function()
                         return selectedHero == data.key
                     end,

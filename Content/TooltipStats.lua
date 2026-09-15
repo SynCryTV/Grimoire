@@ -28,11 +28,16 @@ local STAT_NAME_SUBSTRING = {
 -- schnellen Tooltip-Blick reicht das, eine Kontext-Auswahl wäre hier
 -- übertrieben.
 local function GetPriorityRanks(classToken, specKey, heroTalent)
+    local keystoneSpecData = GrimoireKeystoneLootData
+        and GrimoireKeystoneLootData[classToken]
+        and GrimoireKeystoneLootData[classToken][specKey]
     local specData = GrimoireData and GrimoireData[classToken] and GrimoireData[classToken][specKey]
-    if not specData or not specData.priorities then return nil end
+    local priorities = keystoneSpecData and keystoneSpecData.priorities
+        or (specData and specData.priorities)
+    if not priorities then return nil end
 
     local entry
-    for _, e in ipairs(specData.priorities) do
+    for _, e in ipairs(priorities) do
         if e.heroTalent == nil or e.heroTalent == heroTalent then
             entry = e
             break
@@ -41,8 +46,8 @@ local function GetPriorityRanks(classToken, specKey, heroTalent)
     -- Kein universeller/passender Eintrag gefunden -- als Fallback fuer den
     -- Tooltip einfach den ersten verfuegbaren nehmen, besser als gar keine
     -- Rang-Anzeige.
-    if not entry and specData.priorities[1] then
-        entry = specData.priorities[1]
+    if not entry and priorities[1] then
+        entry = priorities[1]
     end
     if not entry then return nil end
 

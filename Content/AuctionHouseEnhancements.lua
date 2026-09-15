@@ -711,6 +711,63 @@ local content = CreateFrame("Frame", nil, scrollFrame)
 content:SetSize(382, 1)
 scrollFrame:SetScrollChild(content)
 
+-- Weiches Scrollen wie in der Trinketliste: Mausradbewegungen werden
+-- sanft ausgerollt, der normale Blizzard-Scrollbalken bleibt voll nutzbar.
+scrollFrame:EnableMouseWheel(true)
+local ahScrollTarget = 0
+local ahScrollCurrent = 0
+local ahScrollRunning = false
+local AH_SCROLL_STEP = 78
+local AH_SCROLL_SPEED = 13
+
+local function GetAHMaxScroll()
+    return math.max(0, (content:GetHeight() or 0) - (scrollFrame:GetHeight() or 0))
+end
+
+local function StartAHSoftScroll()
+    if ahScrollRunning then return end
+    ahScrollRunning = true
+
+    scrollFrame:SetScript("OnUpdate", function(self, elapsed)
+        local maxScroll = GetAHMaxScroll()
+        ahScrollTarget = math.max(0, math.min(maxScroll, ahScrollTarget))
+
+        local difference = ahScrollTarget - ahScrollCurrent
+        if math.abs(difference) < 0.35 then
+            ahScrollCurrent = ahScrollTarget
+            self:SetVerticalScroll(ahScrollCurrent)
+            self:SetScript("OnUpdate", nil)
+            ahScrollRunning = false
+            return
+        end
+
+        local factor = 1 - math.exp(-AH_SCROLL_SPEED * elapsed)
+        ahScrollCurrent = ahScrollCurrent + difference * factor
+        self:SetVerticalScroll(ahScrollCurrent)
+    end)
+end
+
+scrollFrame:SetScript("OnMouseWheel", function(self, delta)
+    if not ahScrollRunning then
+        ahScrollCurrent = self:GetVerticalScroll() or 0
+        ahScrollTarget = ahScrollCurrent
+    end
+    ahScrollTarget = math.max(0, math.min(
+        GetAHMaxScroll(),
+        ahScrollTarget - (delta * AH_SCROLL_STEP)
+    ))
+    StartAHSoftScroll()
+end)
+
+if scrollFrame.ScrollBar then
+    scrollFrame.ScrollBar:HookScript("OnValueChanged", function(_, value)
+        if not ahScrollRunning then
+            ahScrollCurrent = value or 0
+            ahScrollTarget = ahScrollCurrent
+        end
+    end)
+end
+
 local toast = CreateFrame("Frame", nil, panel, "BackdropTemplate")
 toast:SetSize(320, 34)
 toast:SetPoint("BOTTOM", panel, "BOTTOM", 0, 18)

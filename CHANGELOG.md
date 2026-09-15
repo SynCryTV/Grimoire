@@ -1,5 +1,12 @@
 # Änderungsverlauf
 
+## 5.2.0
+
+- Wertepriorität verwendet nun KeystoneLoot statt Wowhead, einschließlich der Item-Tooltip-Ränge.
+- Der Heldentalent-Dropdown markiert die von KeystoneLoot aktuell empfohlene Auswahl.
+- Der Standardlauf des Scrapers aktualisiert Wertepriorität und Heldentalent-Empfehlung gemeinsam mit den KeystoneLoot-BiS-Daten; der frühere Wowhead-Prioritätslauf entfällt.
+- Auktionshaus-Ansicht scrollt per Mausrad nun weich und trägheitsbasiert.
+
 ## 5.1.6
 
 - Trinket-Tab: Separate Tooltip-Tierauswahl für S, A, B, C und D. Sie beeinflusst die Item-Tooltips, ohne die sichtbare Trinketliste zu verändern.

@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 4.1.1
+
+- KeystoneLoot-Dual-Wield korrigiert: Mainhand und Nebenhand werden getrennt angezeigt, unter anderem für Dämonenjäger.
+- Fernkampfwaffen werden bei KeystoneLoot ebenfalls als Waffe erkannt.
+
 ## 4.1.0
 
 - KeystoneLoot als neue, umschaltbare BiS-Quelle ergänzt: Overall, Mythic+ und Raid für alle Specs.

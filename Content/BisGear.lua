@@ -59,9 +59,10 @@ local KEYSTONE_EQUIPLOC_TO_KEY = {
     INVTYPE_HEAD = "head", INVTYPE_NECK = "neck", INVTYPE_SHOULDER = "shoulder",
     INVTYPE_CLOAK = "back", INVTYPE_CHEST = "chest", INVTYPE_ROBE = "chest",
     INVTYPE_WRIST = "wrist", INVTYPE_HAND = "hands", INVTYPE_WAIST = "waist",
-    INVTYPE_LEGS = "legs", INVTYPE_FEET = "feet", INVTYPE_WEAPON = "mainhand",
+    INVTYPE_LEGS = "legs", INVTYPE_FEET = "feet",
     INVTYPE_2HWEAPON = "mainhand", INVTYPE_WEAPONMAINHAND = "mainhand",
     INVTYPE_HOLDABLE = "offhand", INVTYPE_SHIELD = "offhand", INVTYPE_WEAPONOFFHAND = "offhand",
+    INVTYPE_RANGED = "mainhand", INVTYPE_RANGEDRIGHT = "mainhand", INVTYPE_THROWN = "mainhand",
 }
 
 -- Löst das rohe slot-Feld (Wowhead/Icy-Veins) in einen kanonischen Key auf.
@@ -147,6 +148,12 @@ local SOURCES = {
                 elseif equipLoc == "INVTYPE_TRINKET" then
                     counters.trinket = (counters.trinket or 0) + 1
                     key = counters.trinket == 1 and "trinket1" or "trinket2"
+                elseif equipLoc == "INVTYPE_WEAPON" then
+                    -- Zwei generische Einhandwaffen (z.B. Dämonenjäger)
+                    -- haben dieselbe EquipLoc. Die zweite darf die erste
+                    -- daher nicht als Mainhand überschreiben.
+                    counters.weapon = (counters.weapon or 0) + 1
+                    key = counters.weapon == 1 and "mainhand" or "offhand"
                 end
                 if key and itemID then
                     table.insert(out, {

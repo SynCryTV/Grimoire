@@ -1259,6 +1259,17 @@ end
 local function ApplyBisPanelWidth(needsAlternativeLayout)
     if not G.panel then return end
 
+    -- Der Daten-Refresh läuft auch im Hintergrund beim Addon-Start. Nur der
+    -- tatsächlich sichtbare BiS-Tab darf die Panel-Breite verändern.
+    if not G.GetActiveTab or G.GetActiveTab() ~= TAB_KEY then
+        if G.ApplyPanelWidth then
+            G.ApplyPanelWidth()
+        else
+            G.panel:SetWidth(G.PANEL_WIDTH_DEFAULT)
+        end
+        return
+    end
+
     if needsAlternativeLayout then
         if G.SoftWidth and G.panel:IsShown() then
             G.SoftWidth(G.panel, 500, 0.28)

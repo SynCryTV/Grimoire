@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.1.5
+
+- KeystoneLoot-Daten werden beim Addon-Start im Hintergrund geladen, verbreitern das Grimoire-Fenster aber erst, wenn der BiS-Tab aktiv geöffnet ist und Alternativen vorliegen.
+
 ## 5.1.4
 
 - Persönliche S+-Trinketmarkierungen, die S+-Kategorie und ihre Tooltip-Hinweise verwenden nun Lila statt Artefaktorange.

@@ -1,6 +1,6 @@
 # Änderungsverlauf
 
-## 4.2.1
+## 5.0.0
 
 - Liquid-Armory-Trinket-Integration wieder entfernt.
 - Versionsnummer für WowUp-Update erhöht.

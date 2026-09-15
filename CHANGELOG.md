@@ -1,5 +1,15 @@
 # Änderungsverlauf
 
+## 5.1.3
+
+- KeystoneLoot-BiS prüft beim Zurückwechseln in den Tab erneut auf Alternativen und verbreitert die Ansicht dann zuverlässig.
+- Das BiS-Fenster animiert beim Verbreitern und beim Zurückkehren zur normalen Breite weich.
+
+## 5.1.2
+
+- Trinketliste: Persönlich markierte Items erscheinen automatisch ganz oben in „S+-Tier (Markiert)“ in Artefaktfarbe.
+- Neuer S+-Schalter direkt oben in der Trinketansicht, um nur persönliche S+-Marker in Item-Tooltips ein- oder auszublenden.
+
 ## 5.1.1
 
 - Normale Trinket-Tierwertungen bleiben sichtbar; die persönliche Empfehlung steht separat als S+ in Artefaktfarbe daneben.

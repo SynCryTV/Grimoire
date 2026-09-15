@@ -38,12 +38,16 @@ function G.SetPanelContentHeight(contentHeight)
     end
 end
 
-local function ApplyPanelWidth()
+local function ApplyPanelWidth(animated)
     local width = (G.db and G.db.panelWidth) or G.PANEL_WIDTH_DEFAULT
     if type(width) ~= "number" or width < G.PANEL_WIDTH_MIN or width > G.PANEL_WIDTH_MAX then
         width = G.PANEL_WIDTH_DEFAULT
     end
-    panel:SetWidth(width)
+    if animated and panel:IsShown() and G.SoftWidth then
+        G.SoftWidth(panel, width, 0.24)
+    else
+        panel:SetWidth(width)
+    end
 end
 G.ApplyPanelWidth = ApplyPanelWidth
 

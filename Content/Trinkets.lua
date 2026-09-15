@@ -250,6 +250,14 @@ trinketHelp:SetScript("OnEnter", function(self)
     )
 
     GameTooltip:AddLine(" ")
+    GameTooltip:AddLine("S+ Tooltip", 0.95, 0.45, 0.10)
+    GameTooltip:AddLine(
+        "Schaltet ausschließlich deine persönlichen S+-Markierungen in Item-Tooltips ein oder aus.",
+        0.85, 0.85, 0.85,
+        true
+    )
+
+    GameTooltip:AddLine(" ")
     GameTooltip:AddLine(
         "Die Einstellungen werden gespeichert und bleiben nach einem Neustart erhalten.",
         0.45, 0.85, 1.0,
@@ -264,9 +272,28 @@ trinketHelp:SetScript("OnLeave", function()
     GameTooltip:Hide()
 end)
 
+local personalTooltipCheckbox = CreateFrame(
+    "CheckButton",
+    "GrimoireTrinketsPersonalTooltip",
+    trinketsFrame,
+    "UICheckButtonTemplate"
+)
+personalTooltipCheckbox:SetPoint("LEFT", trinketHelp, "RIGHT", 5, 0)
+personalTooltipCheckbox:SetSize(22, 22)
+
+local personalTooltipLabel = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
+personalTooltipLabel:SetPoint("LEFT", personalTooltipCheckbox, "RIGHT", 0, 0)
+personalTooltipLabel:SetText("S+ Tooltip")
+personalTooltipLabel:SetTextColor(0.95, 0.45, 0.10)
+
 ownClassCheckbox:SetScript("OnClick", function(self)
     if not G.db then return end
     G.db.trinketTiersAllClasses = not self:GetChecked()
+end)
+
+personalTooltipCheckbox:SetScript("OnClick", function(self)
+    if not G.db then return end
+    G.db.showPersonalTrinketSTierInTooltips = self:GetChecked() == true
 end)
 
 local tierLabel = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
@@ -479,6 +506,7 @@ local function CreateRow(index)
         G.db.personalTrinketSTier = G.db.personalTrinketSTier or {}
         G.db.personalTrinketSTier[self.itemId] = self:GetChecked() and true or nil
         SetPersonalMarkerColor(row, self:GetChecked())
+        if Refresh then Refresh() end
     end)
     local label = personalCheck:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     label:SetPoint("CENTER", 0, 0)
@@ -511,6 +539,7 @@ end
 Refresh = function()
     if G.db then
         ownClassCheckbox:SetChecked(not G.db.trinketTiersAllClasses)
+        personalTooltipCheckbox:SetChecked(G.db.showPersonalTrinketSTierInTooltips ~= false)
         for _, tier in ipairs(TIER_ORDER) do
             if tierCheckboxes[tier] then
                 tierCheckboxes[tier]:SetChecked(IsTierEnabled(tier))
@@ -518,6 +547,7 @@ Refresh = function()
         end
     else
         ownClassCheckbox:SetChecked(true)
+        personalTooltipCheckbox:SetChecked(true)
         for _, tier in ipairs(TIER_ORDER) do
             if tierCheckboxes[tier] then
                 tierCheckboxes[tier]:SetChecked(true)
@@ -565,6 +595,7 @@ Refresh = function()
     end
 
     local byTier = {}
+    local personalEntries = {}
     for _, tier in ipairs(TIER_ORDER) do
         byTier[tier] = {}
     end
@@ -573,7 +604,6 @@ Refresh = function()
         if entry.itemId
             and entry.tier
             and byTier[entry.tier]
-            and IsTierEnabled(entry.tier)
             and HasContext(entry, selectedContext)
         then
             local include = true
@@ -583,7 +613,11 @@ Refresh = function()
             end
 
             if include then
-                byTier[entry.tier][#byTier[entry.tier] + 1] = entry
+                if IsPersonalSTier(entry.itemId) then
+                    personalEntries[#personalEntries + 1] = entry
+                elseif IsTierEnabled(entry.tier) then
+                    byTier[entry.tier][#byTier[entry.tier] + 1] = entry
+                end
             end
         end
     end
@@ -593,17 +627,33 @@ Refresh = function()
     local headerIndex = 0
     local any = false
 
+    local displayGroups = {}
+    if #personalEntries > 0 then
+        displayGroups[#displayGroups + 1] = {
+            label = "S+-Tier (Markiert)",
+            color = { 0.95, 0.45, 0.10 },
+            entries = personalEntries,
+        }
+    end
     for _, tier in ipairs(TIER_ORDER) do
-        local tierEntries = byTier[tier]
+        displayGroups[#displayGroups + 1] = {
+            label = tier .. "-Tier",
+            color = GetTierColor(tier),
+            entries = byTier[tier],
+        }
+    end
+
+    for _, group in ipairs(displayGroups) do
+        local tierEntries = group.entries
         if #tierEntries > 0 then
             any = true
             headerIndex = headerIndex + 1
             local header = headers[headerIndex] or CreateHeader(headerIndex)
-            local tc = GetTierColor(tier)
+            local tc = group.color
 
             header:ClearAllPoints()
             header:SetPoint("TOPLEFT", scrollChild, "TOPLEFT", 4, -y)
-            header:SetText(tier .. "-Tier")
+            header:SetText(group.label)
             header:SetTextColor(tc[1], tc[2], tc[3])
             header:Show()
             y = y + HEADER_HEIGHT
@@ -817,6 +867,7 @@ local function OnTooltipTrinket(tooltip, tooltipData)
     if not itemID then return end
 
     local personal = IsPersonalSTier(itemID)
+        and (not G.db or G.db.showPersonalTrinketSTierInTooltips ~= false)
     local matches = FindTrinketMatches(itemID)
     if not personal and (#matches == 0 or (G.db and G.db.showTrinketTiersInTooltips == false)) then return end
     if TooltipAlreadyHasBestGear(tooltip) then return end

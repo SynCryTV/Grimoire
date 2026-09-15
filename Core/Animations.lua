@@ -106,6 +106,24 @@ function G.SoftHeight(frame, targetHeight, duration)
     )
 end
 
+function G.SoftWidth(frame, targetWidth, duration)
+    if not frame then return end
+
+    local key = tostring(frame) .. ":width"
+    local fromWidth = frame:GetWidth() or targetWidth
+
+    StartTween(
+        key,
+        fromWidth,
+        targetWidth,
+        duration or 0.24,
+        function(value)
+            if frame then frame:SetWidth(value) end
+        end,
+        EaseInOutCubic
+    )
+end
+
 function G.SoftIconHover(texture, hovered, duration)
     if not texture then return end
 

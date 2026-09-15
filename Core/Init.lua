@@ -22,6 +22,7 @@ local DB_DEFAULTS = {
     showTrinketTiersInTooltips = true,
     trinketTiersAllClasses = false,
     personalTrinketSTier = {},
+    showPersonalTrinketSTierInTooltips = true,
     trinketTierFilters = {
         S = true,
         A = true,

@@ -1260,11 +1260,19 @@ local function ApplyBisPanelWidth(needsAlternativeLayout)
     if not G.panel then return end
 
     if needsAlternativeLayout then
-        G.panel:SetWidth(500)
+        if G.SoftWidth and G.panel:IsShown() then
+            G.SoftWidth(G.panel, 500, 0.28)
+        else
+            G.panel:SetWidth(500)
+        end
     elseif G.ApplyPanelWidth then
-        G.ApplyPanelWidth()
+        G.ApplyPanelWidth(true)
     else
-        G.panel:SetWidth(G.PANEL_WIDTH_DEFAULT)
+        if G.SoftWidth and G.panel:IsShown() then
+            G.SoftWidth(G.panel, G.PANEL_WIDTH_DEFAULT, 0.24)
+        else
+            G.panel:SetWidth(G.PANEL_WIDTH_DEFAULT)
+        end
     end
 end
 
@@ -1543,9 +1551,9 @@ G.RegisterTabContent(TAB_KEY, bisGearFrame)
 if G.RegisterOnActiveTabChanged then
     G.RegisterOnActiveTabChanged(function(tabKey)
         if tabKey == TAB_KEY then
-            G.SetPanelContentHeight(bisGearFrame:GetHeight())
+            Refresh()
         elseif G.ApplyPanelWidth then
-            G.ApplyPanelWidth()
+            G.ApplyPanelWidth(true)
         end
     end)
 end

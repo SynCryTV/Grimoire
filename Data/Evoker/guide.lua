@@ -102,7 +102,7 @@ GrimoireData["EVOKER"] = {
           { "Versatility" },
         },
         previousOperators = { ">", ">", ">", ">" },
-        changedDate = "2026-09-11",
+        changedDate = "2026-09-15",
       },
     },
     talents = {},

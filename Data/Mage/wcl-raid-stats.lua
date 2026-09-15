@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["MAGE"] = GrimoireStatTargets["MAGE"] or {}
 
 GrimoireStatTargets["MAGE"]["arcane"] = GrimoireStatTargets["MAGE"]["arcane"] or {}
-GrimoireStatTargets["MAGE"]["arcane"]["Raid"] = { targets = { crit = 702, haste = 822, mastery = 380, versatility = 426 }, samples = 1002, source = "Warcraft Logs Top 1000 (alle Bosse)" }
+GrimoireStatTargets["MAGE"]["arcane"]["Raid"] = { targets = { crit = 695, haste = 819, mastery = 379, versatility = 426 }, samples = 1002, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["MAGE"]["fire"] = GrimoireStatTargets["MAGE"]["fire"] or {}
-GrimoireStatTargets["MAGE"]["fire"]["Raid"] = { targets = { crit = 284, haste = 1036, mastery = 663, versatility = 323 }, samples = 973, source = "Warcraft Logs Top 1000 (alle Bosse)" }
+GrimoireStatTargets["MAGE"]["fire"]["Raid"] = { targets = { crit = 286, haste = 1036, mastery = 655, versatility = 328 }, samples = 1008, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["MAGE"]["frost"] = GrimoireStatTargets["MAGE"]["frost"] or {}
-GrimoireStatTargets["MAGE"]["frost"]["Raid"] = { targets = { crit = 825, haste = 616, mastery = 687, versatility = 218 }, samples = 1006, source = "Warcraft Logs Top 1000 (alle Bosse)" }
+GrimoireStatTargets["MAGE"]["frost"]["Raid"] = { targets = { crit = 825, haste = 614, mastery = 700, versatility = 223 }, samples = 1006, source = "Warcraft Logs Top 1000 (alle Bosse)" }

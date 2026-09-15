@@ -3,13 +3,13 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["DRUID"] = GrimoireStatTargets["DRUID"] or {}
 
 GrimoireStatTargets["DRUID"]["balance"] = GrimoireStatTargets["DRUID"]["balance"] or {}
-GrimoireStatTargets["DRUID"]["balance"]["Raid"] = { targets = { crit = 739, haste = 768, mastery = 668, versatility = 217 }, samples = 1007, source = "Warcraft Logs Top 1000 (alle Bosse)" }
+GrimoireStatTargets["DRUID"]["balance"]["Raid"] = { targets = { crit = 731, haste = 768, mastery = 671, versatility = 239 }, samples = 1007, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["DRUID"]["feral"] = GrimoireStatTargets["DRUID"]["feral"] or {}
-GrimoireStatTargets["DRUID"]["feral"]["Raid"] = { targets = { crit = 722, haste = 769, mastery = 686, versatility = 188 }, samples = 1006, source = "Warcraft Logs Top 1000 (alle Bosse)" }
+GrimoireStatTargets["DRUID"]["feral"]["Raid"] = { targets = { crit = 723, haste = 759, mastery = 696, versatility = 190 }, samples = 1007, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["DRUID"]["guardian"] = GrimoireStatTargets["DRUID"]["guardian"] or {}
-GrimoireStatTargets["DRUID"]["guardian"]["Raid"] = { targets = { crit = 708, haste = 946, mastery = 385, versatility = 331 }, samples = 1005, source = "Warcraft Logs Top 1000 (alle Bosse)" }
+GrimoireStatTargets["DRUID"]["guardian"]["Raid"] = { targets = { crit = 711, haste = 943, mastery = 389, versatility = 329 }, samples = 1005, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["DRUID"]["restoration"] = GrimoireStatTargets["DRUID"]["restoration"] or {}
-GrimoireStatTargets["DRUID"]["restoration"]["Raid"] = { targets = { crit = 485, haste = 998, mastery = 621, versatility = 281 }, samples = 1006, source = "Warcraft Logs Top 1000 (alle Bosse)" }
+GrimoireStatTargets["DRUID"]["restoration"]["Raid"] = { targets = { crit = 478, haste = 1003, mastery = 618, versatility = 281 }, samples = 1006, source = "Warcraft Logs Top 1000 (alle Bosse)" }

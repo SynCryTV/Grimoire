@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["HUNTER"] = GrimoireStatTargets["HUNTER"] or {}
 
 GrimoireStatTargets["HUNTER"]["beast-mastery"] = GrimoireStatTargets["HUNTER"]["beast-mastery"] or {}
-GrimoireStatTargets["HUNTER"]["beast-mastery"]["Mythic+"] = { targets = { crit = 1091, haste = 405, mastery = 1125, versatility = 199 } }
+GrimoireStatTargets["HUNTER"]["beast-mastery"]["Mythic+"] = { targets = { crit = 1249, haste = 268, mastery = 1231, versatility = 226 } }
 
 GrimoireStatTargets["HUNTER"]["marksmanship"] = GrimoireStatTargets["HUNTER"]["marksmanship"] or {}
-GrimoireStatTargets["HUNTER"]["marksmanship"]["Mythic+"] = { targets = { crit = 1353, haste = 294, mastery = 997, versatility = 220 } }
+GrimoireStatTargets["HUNTER"]["marksmanship"]["Mythic+"] = { targets = { crit = 1393, haste = 310, mastery = 1100, versatility = 218 } }
 
 GrimoireStatTargets["HUNTER"]["survival"] = GrimoireStatTargets["HUNTER"]["survival"] or {}
-GrimoireStatTargets["HUNTER"]["survival"]["Mythic+"] = { targets = { crit = 857, haste = 752, mastery = 1076, versatility = 142 } }
+GrimoireStatTargets["HUNTER"]["survival"]["Mythic+"] = { targets = { crit = 884, haste = 798, mastery = 1148, versatility = 76 } }

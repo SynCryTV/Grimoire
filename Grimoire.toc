@@ -1,8 +1,8 @@
 ## Interface: 120007
 ## Title: Grimoire
-## Notes: Best-in-Slot, Werteprioritäten, Werteziele, Omnium Folio sowie Enchants, Gems und Verbrauchsgüter für jede Spec. Deutsch, PvE, automatisch aktuell. Änderungen v4.2.0: Liquid Armory Trinket-Balken für DPS/Tanks.
+## Notes: Best-in-Slot, Werteprioritäten, Werteziele, Omnium Folio sowie Enchants, Gems und Verbrauchsgüter für jede Spec. Deutsch, PvE, automatisch aktuell. Änderungen v4.1.10: KeystoneLoot zeigt Nebenhand zuverlässig als eigenen Slot.
 ## Author: Ravyniel
-## Version: 4.2.0
+## Version: 4.1.10
 ## SavedVariables: GrimoireDB
 ## SavedVariablesPerCharacter: GrimoireCharDB
 ## IconTexture: Interface\AddOns\Grimoire\icon
@@ -23,7 +23,6 @@ Data\DeathKnight\gear-murlok.lua
 Data\DeathKnight\keystoneloot.lua
 Data\DeathKnight\murlok-stats.lua
 Data\DeathKnight\wcl-raid-stats.lua
-Data\DeathKnight\trinkets-liquid.lua
 Data\DeathKnight\guide.lua
 Data\DeathKnight\omnium-folio.lua
 Data\DemonHunter\gear-wowhead.lua
@@ -32,7 +31,6 @@ Data\DemonHunter\gear-murlok.lua
 Data\DemonHunter\keystoneloot.lua
 Data\DemonHunter\murlok-stats.lua
 Data\DemonHunter\wcl-raid-stats.lua
-Data\DemonHunter\trinkets-liquid.lua
 Data\DemonHunter\guide.lua
 Data\DemonHunter\omnium-folio.lua
 Data\Druid\gear-wowhead.lua
@@ -41,7 +39,6 @@ Data\Druid\gear-murlok.lua
 Data\Druid\keystoneloot.lua
 Data\Druid\murlok-stats.lua
 Data\Druid\wcl-raid-stats.lua
-Data\Druid\trinkets-liquid.lua
 Data\Druid\guide.lua
 Data\Druid\omnium-folio.lua
 Data\Evoker\gear-wowhead.lua
@@ -50,7 +47,6 @@ Data\Evoker\gear-murlok.lua
 Data\Evoker\keystoneloot.lua
 Data\Evoker\murlok-stats.lua
 Data\Evoker\wcl-raid-stats.lua
-Data\Evoker\trinkets-liquid.lua
 Data\Evoker\guide.lua
 Data\Evoker\omnium-folio.lua
 Data\Hunter\gear-wowhead.lua
@@ -59,7 +55,6 @@ Data\Hunter\gear-murlok.lua
 Data\Hunter\keystoneloot.lua
 Data\Hunter\murlok-stats.lua
 Data\Hunter\wcl-raid-stats.lua
-Data\Hunter\trinkets-liquid.lua
 Data\Hunter\guide.lua
 Data\Hunter\omnium-folio.lua
 Data\Mage\gear-wowhead.lua
@@ -68,7 +63,6 @@ Data\Mage\gear-murlok.lua
 Data\Mage\keystoneloot.lua
 Data\Mage\murlok-stats.lua
 Data\Mage\wcl-raid-stats.lua
-Data\Mage\trinkets-liquid.lua
 Data\Mage\guide.lua
 Data\Mage\omnium-folio.lua
 Data\Monk\gear-wowhead.lua
@@ -77,7 +71,6 @@ Data\Monk\gear-murlok.lua
 Data\Monk\keystoneloot.lua
 Data\Monk\murlok-stats.lua
 Data\Monk\wcl-raid-stats.lua
-Data\Monk\trinkets-liquid.lua
 Data\Monk\guide.lua
 Data\Monk\omnium-folio.lua
 Data\Paladin\gear-wowhead.lua
@@ -86,7 +79,6 @@ Data\Paladin\gear-murlok.lua
 Data\Paladin\keystoneloot.lua
 Data\Paladin\murlok-stats.lua
 Data\Paladin\wcl-raid-stats.lua
-Data\Paladin\trinkets-liquid.lua
 Data\Paladin\guide.lua
 Data\Paladin\omnium-folio.lua
 Data\Priest\gear-wowhead.lua
@@ -95,7 +87,6 @@ Data\Priest\gear-murlok.lua
 Data\Priest\keystoneloot.lua
 Data\Priest\murlok-stats.lua
 Data\Priest\wcl-raid-stats.lua
-Data\Priest\trinkets-liquid.lua
 Data\Priest\guide.lua
 Data\Priest\omnium-folio.lua
 Data\Rogue\gear-wowhead.lua
@@ -104,7 +95,6 @@ Data\Rogue\gear-murlok.lua
 Data\Rogue\keystoneloot.lua
 Data\Rogue\murlok-stats.lua
 Data\Rogue\wcl-raid-stats.lua
-Data\Rogue\trinkets-liquid.lua
 Data\Rogue\guide.lua
 Data\Rogue\omnium-folio.lua
 Data\Shaman\gear-wowhead.lua
@@ -113,7 +103,6 @@ Data\Shaman\gear-murlok.lua
 Data\Shaman\keystoneloot.lua
 Data\Shaman\murlok-stats.lua
 Data\Shaman\wcl-raid-stats.lua
-Data\Shaman\trinkets-liquid.lua
 Data\Shaman\guide.lua
 Data\Shaman\omnium-folio.lua
 Data\Warlock\gear-wowhead.lua
@@ -122,7 +111,6 @@ Data\Warlock\gear-murlok.lua
 Data\Warlock\keystoneloot.lua
 Data\Warlock\murlok-stats.lua
 Data\Warlock\wcl-raid-stats.lua
-Data\Warlock\trinkets-liquid.lua
 Data\Warlock\guide.lua
 Data\Warlock\omnium-folio.lua
 Data\Warrior\gear-wowhead.lua
@@ -131,7 +119,6 @@ Data\Warrior\gear-murlok.lua
 Data\Warrior\keystoneloot.lua
 Data\Warrior\murlok-stats.lua
 Data\Warrior\wcl-raid-stats.lua
-Data\Warrior\trinkets-liquid.lua
 Data\Warrior\guide.lua
 Data\Warrior\omnium-folio.lua
 

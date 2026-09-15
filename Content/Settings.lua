@@ -157,7 +157,6 @@ local SOURCES = {
     { name = "Murlok", url = "https://murlok.io/", note = "Mythic+-BiS und M+-Werteziele" },
     { name = "KeystoneLoot", url = "https://keystoneloot.io/", note = "Overall-, Mythic+- und Raid-BiS inklusive Gems" },
     { name = "Warcraft Logs", url = "https://www.warcraftlogs.com/", note = "Raid-Werteziele aus Ranking-Daten" },
-    { name = "Liquid Armory", url = "https://liquidarmory.com/trinket-tracker", note = "Trinket-Simulationen und Wert-Balken" },
     { name = "Blizzard", url = "https://develop.battle.net/", note = "Item-Tooltips und Spielinformationen" },
 }
 

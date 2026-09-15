@@ -44,6 +44,7 @@ local DB_DEFAULTS = {
     bisGearView = { sourceKey = "wowhead", context = "Overall" },
     enhancementsView = { sourceKey = "wowhead", context = "Overall" },
     auctionHouseView = { sourceKey = "wowhead", context = "Overall" },
+    trinketView = { sourceKey = "wowhead", level = "Hero" },
 
     sectionVisibility = {
         statTargets = true,

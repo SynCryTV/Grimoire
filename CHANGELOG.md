@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 4.2.0
+
+- Liquid Armory als Trinket-Quelle ergänzt: Champion-, Hero- und Myth-Balken für DPS- und Tank-Specs.
+- Liquid-Auswahl wird gespeichert; Heiler erhalten keine nicht vorhandene Liquid-Quelle.
+
 ## 4.1.10
 
 - KeystoneLoot-Slotzuordnung korrigiert: Die zweite Waffe wird zuverlässig als Nebenhand angezeigt, auch wenn WoW beide Einhandwaffen technisch als Mainhand meldet.

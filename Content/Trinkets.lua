@@ -44,6 +44,8 @@ local CLASS_ORDER = {
 }
 
 local selectedContext = "all"
+local selectedDataSource = "wowhead"
+local selectedLiquidLevel = "Hero"
 local Refresh
 local itemNameCache = {}
 local pendingItemNames = {}
@@ -56,6 +58,31 @@ local function GetSpecTrinkets(classToken, specKey)
     local classData = GrimoireGearData and GrimoireGearData[classToken]
     local specData = classData and classData[specKey]
     return specData and specData.trinkets
+end
+
+local function GetLiquidTrinkets(classToken, specKey)
+    local data = GrimoireLiquidTrinketData and GrimoireLiquidTrinketData[classToken]
+    local spec = data and data.specs and data.specs[specKey]
+    if not spec then return nil end -- Heiler erhalten keine Liquid-Auswahl.
+    local profile
+    for _, candidate in ipairs(spec.profiles or {}) do
+        if candidate.name:find("Liquid Generated %- M%+") then profile = candidate break end
+        profile = profile or candidate
+    end
+    if not profile then return nil end
+    local out = {}
+    for _, entry in ipairs(profile.trinkets or {}) do
+        local value
+        for _, level in ipairs(entry.levels or {}) do
+            if level.name == selectedLiquidLevel then value = level.value break end
+        end
+        if value then
+            out[#out + 1] = { itemId = entry.itemId, tier = "S", source = entry.source,
+                liquidValue = value, liquidLevel = selectedLiquidLevel, label = entry.label }
+        end
+    end
+    table.sort(out, function(a, b) return a.liquidValue > b.liquidValue end)
+    return out
 end
 
 local function HasContext(entry, wanted)
@@ -149,8 +176,12 @@ local contextDropdown = CreateFrame(
 contextDropdown:SetPoint("TOPLEFT", 0, 0)
 contextDropdown:SetSize(125, DD_HEIGHT)
 
+local liquidDropdown = CreateFrame("DropdownButton", "GrimoireTrinketsLiquidDD", trinketsFrame, "WowStyle1DropdownTemplate")
+liquidDropdown:SetPoint("LEFT", contextDropdown, "RIGHT", 8, 0)
+liquidDropdown:SetSize(150, DD_HEIGHT)
+
 local searchLabel = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
-searchLabel:SetPoint("LEFT", contextDropdown, "RIGHT", 8, 0)
+searchLabel:SetPoint("LEFT", liquidDropdown, "RIGHT", 8, 0)
 searchLabel:SetText("Suche:")
 
 local searchBox = CreateFrame("EditBox", "GrimoireTrinketsSearchBox", trinketsFrame, "InputBoxTemplate")
@@ -459,6 +490,15 @@ local function CreateRow(index)
     tierText:SetJustifyH("CENTER")
     row.tierText = tierText
 
+    local bar = CreateFrame("StatusBar", nil, row)
+    bar:SetStatusBarTexture("Interface\\Buttons\\WHITE8x8")
+    bar:SetStatusBarColor(0.32, 0.72, 1.0, 0.85)
+    bar:SetPoint("BOTTOMLEFT", iconButton, "BOTTOMRIGHT", 7, 1)
+    bar:SetPoint("RIGHT", tierText, "LEFT", -5, 0)
+    bar:SetHeight(3)
+    bar:Hide()
+    row.bar = bar
+
     row:Hide()
     rows[index] = row
     return row
@@ -523,7 +563,24 @@ Refresh = function()
 
     local classToken = G.GetSelectedClass and G.GetSelectedClass()
     local specKey = G.GetSelectedSpec and G.GetSelectedSpec()
-    local trinkets = classToken and specKey and GetSpecTrinkets(classToken, specKey)
+    local liquid = classToken and specKey and GetLiquidTrinkets(classToken, specKey)
+    if selectedDataSource == "liquid" and not liquid then selectedDataSource = "wowhead" end
+    local trinkets = classToken and specKey and (selectedDataSource == "liquid" and liquid or GetSpecTrinkets(classToken, specKey))
+    liquidDropdown:SetText(selectedDataSource == "liquid" and ("Liquid: " .. selectedLiquidLevel) or "Wowhead")
+    liquidDropdown:SetupMenu(function(_, root)
+        root:CreateRadio("Wowhead", function() return selectedDataSource == "wowhead" end, function()
+            selectedDataSource = "wowhead"; G.db.trinketView.sourceKey = "wowhead"; Refresh()
+        end)
+        if liquid then
+            root:CreateDivider(); root:CreateTitle("Liquid Armory")
+            for _, level in ipairs({ "Champion", "Hero", "Myth" }) do
+                root:CreateRadio(level, function() return selectedDataSource == "liquid" and selectedLiquidLevel == level end, function()
+                    selectedDataSource = "liquid"; selectedLiquidLevel = level
+                    G.db.trinketView.sourceKey = "liquid"; G.db.trinketView.level = level; Refresh()
+                end)
+            end
+        end
+    end)
 
     fallbackText:Hide()
 
@@ -610,6 +667,15 @@ Refresh = function()
                 local equipped1 = GetInventoryItemID("player", INVSLOT_TRINKET1)
                 local equipped2 = GetInventoryItemID("player", INVSLOT_TRINKET2)
                 row.ownedHighlight:SetShown(entry.itemId == equipped1 or entry.itemId == equipped2)
+                if entry.liquidValue then
+                    local max = tierEntries[1] and tierEntries[1].liquidValue or entry.liquidValue
+                    row.bar:SetMinMaxValues(0, max)
+                    row.bar:SetValue(entry.liquidValue)
+                    row.bar:Show()
+                    row.detailText:SetText((entry.source or "Liquid Armory") .. " • " .. selectedLiquidLevel)
+                else
+                    row.bar:Hide()
+                end
 
                 local item = Item:CreateFromItemID(entry.itemId)
                 item:ContinueOnItemLoad(function()
@@ -652,7 +718,12 @@ if G.RegisterOnActiveTabChanged then
     end)
 end
 
-G.RegisterOnDatabaseReady(Refresh)
+G.RegisterOnDatabaseReady(function()
+    local view = G.db and G.db.trinketView or {}
+    selectedDataSource = view.sourceKey == "liquid" and "liquid" or "wowhead"
+    selectedLiquidLevel = view.level or "Hero"
+    Refresh()
+end)
 G.RegisterOnSelectionChanged(Refresh)
 
 -- ============================================================

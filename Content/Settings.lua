@@ -115,10 +115,6 @@ sourceInfoButton:SetSize(180, 24)
 sourceInfoButton:SetPoint("TOPLEFT", groupReminderHelp, "BOTTOMLEFT", 0, -14)
 sourceInfoButton:SetText("Info & Quellen")
 
-local sourceInfoHint = frame:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
-sourceInfoHint:SetPoint("LEFT", sourceInfoButton, "RIGHT", 8, 0)
-sourceInfoHint:SetText("Datenquellen und Links anzeigen")
-
 local sourcePopup = CreateFrame("Frame", "GrimoireSourceInfoPopup", UIParent, "BackdropTemplate")
 sourcePopup:SetSize(455, 300)
 sourcePopup:SetPoint("CENTER")

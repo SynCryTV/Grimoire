@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 4.1.7
+
+- Quellenübersicht in den Einstellungen optisch vereinfacht.
+
 ## 4.1.6
 
 - KeystoneLoot-BiS breiter und kompakter: Hauptempfehlung links, alle Alternativen desselben Slots rechts daneben.

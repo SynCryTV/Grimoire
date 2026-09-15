@@ -341,12 +341,13 @@ local function GetSpecData()
 
     local gems, seen = {}, {}
     for _, entry in ipairs((list and list.slots) or {}) do
-        if (entry.tier or 2) == 3 then
-            for _, itemID in ipairs(entry.gems or {}) do
-                if not seen[itemID] then
-                    seen[itemID] = true
-                    gems[#gems + 1] = { itemId = itemID }
-                end
+        -- Nicht nur Tier 3: Die API liefert bei Alternativen häufig einen
+        -- niedrigeren Tier-Wert. Alle unterschiedlichen Edelsteine der
+        -- gewählten Liste sollen deshalb sichtbar und kaufbar sein.
+        for _, itemID in ipairs(entry.gems or {}) do
+            if not seen[itemID] then
+                seen[itemID] = true
+                gems[#gems + 1] = { itemId = itemID }
             end
         end
     end

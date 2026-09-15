@@ -3,7 +3,6 @@ local ADDON_NAME, G = ...
 local TAB_DEFS = {
     { key = "guide",        label = "Guide",        icon = "Interface\\Icons\\INV_Misc_Book_09" },
     { key = "bisGear",      label = "BiS-Gear",     icon = "Interface\\Icons\\INV_Chest_Plate04" },
-    { key = "keystoneloot", label = "KeystoneLoot", icon = "Interface\\Icons\\INV_Misc_Key_03" },
     { key = "trinkets",     label = "Trinkets",     icon = "Interface\\Icons\\INV_Jewelry_Talisman_04" },
     { key = "enhancements", label = "Enhancements", icon = "Interface\\Icons\\Trade_Engraving" },
 }

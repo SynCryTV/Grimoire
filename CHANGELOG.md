@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 4.1.2
+
+- Eigenen KeystoneLoot-Tab entfernt: Die Quelle ist ausschließlich in der vorhandenen BiS-Gear-Auswahl integriert.
+- KeystoneLoot-Edelsteine zeigen nun sämtliche API-Alternativen der gewählten Overall-, Mythic+- oder Raid-Liste.
+
 ## 4.1.1
 
 - KeystoneLoot-Dual-Wield korrigiert: Mainhand und Nebenhand werden getrennt angezeigt, unter anderem für Dämonenjäger.
@@ -8,7 +13,7 @@
 ## 4.1.0
 
 - KeystoneLoot als neue, umschaltbare BiS-Quelle ergänzt: Overall, Mythic+ und Raid für alle Specs.
-- Neuer KeystoneLoot-Tab zeigt die BiS-Items inklusive gemeldeter Sockel und VZ-Hinweise.
+- KeystoneLoot-BiS-Items inklusive gemeldeter Sockel und VZ-Hinweise ergänzt.
 - Im Tab „Verzauberungen & Verbrauchsgüter“ ist KeystoneLoot als Quelle auswählbar; die Edelsteine folgen dem gewählten KeystoneLoot-Kontext.
 - Fläschchen, Essen, Tränke und kaufbare Verzauberungs-Items bleiben bei Wowhead, da KeystoneLoot diese Daten nicht per API bereitstellt. Damit bleiben Auctionator-Einkaufslisten vollständig nutzbar.
 

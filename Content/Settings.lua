@@ -5,7 +5,7 @@ local TAB_KEY = "settings"
 local frame = CreateFrame("Frame", "GrimoireSettingsTab", G.panel)
 frame:SetPoint("TOPLEFT", G.selectorBar, "BOTTOMLEFT", 0, -20)
 frame:SetPoint("RIGHT", G.panel, "RIGHT", -16, 0)
-frame:SetHeight(290)
+frame:SetHeight(340)
 
 local title = frame:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
 title:SetPoint("TOPLEFT", 4, -2)
@@ -115,6 +115,29 @@ sourceInfoButton:SetSize(180, 24)
 sourceInfoButton:SetPoint("TOPLEFT", groupReminderHelp, "BOTTOMLEFT", 0, -14)
 sourceInfoButton:SetText("Info & Quellen")
 
+local trinketTooltipCheck = CreateFrame(
+    "CheckButton",
+    "GrimoireTrinketTooltipSetting",
+    frame,
+    "UICheckButtonTemplate"
+)
+trinketTooltipCheck:SetPoint("TOPLEFT", sourceInfoButton, "BOTTOMLEFT", -4, -14)
+trinketTooltipCheck:SetSize(24, 24)
+
+local trinketTooltipLabel = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+trinketTooltipLabel:SetPoint("LEFT", trinketTooltipCheck, "RIGHT", 4, 0)
+trinketTooltipLabel:SetText("Normale Trinket-Tierhinweise im Tooltip")
+
+local trinketTooltipHelp = frame:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
+trinketTooltipHelp:SetPoint("TOPLEFT", trinketTooltipLabel, "BOTTOMLEFT", 0, -6)
+trinketTooltipHelp:SetPoint("RIGHT", frame, "RIGHT", -12, 0)
+trinketTooltipHelp:SetJustifyH("LEFT")
+trinketTooltipHelp:SetWordWrap(true)
+trinketTooltipHelp:SetText(
+    "Deaktiviert blendet nur deine rechts in der Trinketliste markierten "
+    .. "persönlichen S-Tier-Items im Tooltip ein."
+)
+
 local sourcePopup = CreateFrame("Frame", "GrimoireSourceInfoPopup", UIParent, "BackdropTemplate")
 sourcePopup:SetSize(455, 300)
 sourcePopup:SetPoint("CENTER")
@@ -212,11 +235,12 @@ end
 local function Refresh()
     dungeonTeleportCheck:SetChecked(IsEnabled())
     groupReminderCheck:SetChecked(IsGroupReminderEnabled())
+    trinketTooltipCheck:SetChecked(not G.db or G.db.showTrinketTiersInTooltips ~= false)
 
     if G.GetActiveTab and G.GetActiveTab() == TAB_KEY
         and G.SetPanelContentHeight
     then
-        G.SetPanelContentHeight(290)
+        G.SetPanelContentHeight(340)
     end
 end
 
@@ -240,6 +264,11 @@ groupReminderCheck:SetScript("OnClick", function(self)
     then
         G.HideGroupFinderReminder()
     end
+end)
+
+trinketTooltipCheck:SetScript("OnClick", function(self)
+    if not G.db then return end
+    G.db.showTrinketTiersInTooltips = self:GetChecked() == true
 end)
 
 G.RegisterTabContent(TAB_KEY, frame)

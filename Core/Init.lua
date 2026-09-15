@@ -21,6 +21,7 @@ local DB_DEFAULTS = {
     showStatPriorityInTooltips = true,
     showTrinketTiersInTooltips = true,
     trinketTiersAllClasses = false,
+    personalTrinketSTier = {},
     trinketTierFilters = {
         S = true,
         A = true,

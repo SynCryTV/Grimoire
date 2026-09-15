@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 5.1.0
+
+- Trinkets lassen sich rechts in der Liste als persönliche S-Tier-Empfehlung markieren; aktive Marker erscheinen in Artefaktfarbe.
+- Neue Einstellung für die normalen Trinket-Tierhinweise im Tooltip. Wenn sie deaktiviert ist, zeigt der Tooltip ausschließlich persönliche S-Tier-Markierungen.
+
 ## 5.0.0
 
 - Liquid-Armory-Trinket-Integration wieder entfernt.

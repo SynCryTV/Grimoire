@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 4.2.1
+
+- Liquid-Armory-Trinket-Integration wieder entfernt.
+- Versionsnummer für WowUp-Update erhöht.
+
 ## 4.1.10
 
 - KeystoneLoot-Slotzuordnung korrigiert: Die zweite Waffe wird zuverlässig als Nebenhand angezeigt, auch wenn WoW beide Einhandwaffen technisch als Mainhand meldet.

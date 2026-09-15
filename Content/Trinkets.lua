@@ -470,11 +470,10 @@ local function CreateRow(index)
     tierText:SetWidth(28)
     tierText:SetJustifyH("CENTER")
     row.tierText = tierText
-    tierText:Hide()
 
     local personalCheck = CreateFrame("CheckButton", nil, row, "UICheckButtonTemplate")
-    personalCheck:SetSize(22, 22)
-    personalCheck:SetPoint("RIGHT", row, "RIGHT", -3, 0)
+    personalCheck:SetSize(28, 22)
+    personalCheck:SetPoint("RIGHT", tierText, "LEFT", -2, 0)
     personalCheck:SetScript("OnClick", function(self)
         if not self.itemId or not G.db then return end
         G.db.personalTrinketSTier = G.db.personalTrinketSTier or {}
@@ -483,7 +482,7 @@ local function CreateRow(index)
     end)
     local label = personalCheck:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     label:SetPoint("CENTER", 0, 0)
-    label:SetText("S")
+    label:SetText("S+")
     label:SetTextColor(0.50, 0.50, 0.50)
     row.personalCheck = personalCheck
     row.personalLabel = label
@@ -635,7 +634,6 @@ Refresh = function()
                 local tc = GetTierColor(entry.tier)
                 row.tierText:SetText(entry.tier)
                 row.tierText:SetTextColor(tc[1], tc[2], tc[3])
-                row.tierText:Hide()
 
                 local equipped1 = GetInventoryItemID("player", INVSLOT_TRINKET1)
                 local equipped2 = GetInventoryItemID("player", INVSLOT_TRINKET2)
@@ -741,7 +739,7 @@ local function TooltipAlreadyHasBestGear(tooltip)
     for i = 1, tooltip:NumLines() do
         local left = _G[tooltipName .. "TextLeft" .. i]
         local text = left and left:GetText()
-        if text == "Beste Ausrüstung" or text == "Persönliches S-Tier" then
+        if text == "Beste Ausrüstung" or text == "Persönliches S+-Tier" then
             return true
         end
     end
@@ -824,7 +822,7 @@ local function OnTooltipTrinket(tooltip, tooltipData)
     if TooltipAlreadyHasBestGear(tooltip) then return end
 
     tooltip:AddLine(" ")
-    if personal then tooltip:AddLine("Persönliches S-Tier", 0.95, 0.45, 0.10) end
+    if personal then tooltip:AddLine("Persönliches S+-Tier", 0.95, 0.45, 0.10) end
     if G.db and G.db.showTrinketTiersInTooltips == false then tooltip:Show(); return end
     tooltip:AddLine("Beste Ausrüstung", 1.00, 0.82, 0.20)
 

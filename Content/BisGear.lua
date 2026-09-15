@@ -1243,6 +1243,31 @@ local function FindContextEntry(raw, label)
     return nil
 end
 
+local function HasKeystoneAlternatives(normalizedSlots)
+    local slotCounts = {}
+    for _, entry in ipairs(normalizedSlots or {}) do
+        if entry.key and SLOT_INFO[entry.key] then
+            slotCounts[entry.key] = (slotCounts[entry.key] or 0) + 1
+            if slotCounts[entry.key] > 1 then
+                return true
+            end
+        end
+    end
+    return false
+end
+
+local function ApplyBisPanelWidth(needsAlternativeLayout)
+    if not G.panel then return end
+
+    if needsAlternativeLayout then
+        G.panel:SetWidth(500)
+    elseif G.ApplyPanelWidth then
+        G.ApplyPanelWidth()
+    else
+        G.panel:SetWidth(G.PANEL_WIDTH_DEFAULT)
+    end
+end
+
 local function RenderSlots(normalizedSlots, yOffset)
     fallbackText:Hide()
 
@@ -1433,13 +1458,7 @@ end
 local function Refresh()
     fallbackText:Hide()
     contextDropdown:Hide()
-
-    -- KeystoneLoot liefert pro Slot oft mehrere Optionen. Für die
-    -- nebeneinanderliegende Darstellung den Panel-Rahmen nur bei Bedarf
-    -- verbreitern; die gespeicherte Nutzerbreite bleibt unverändert.
-    if selectedSourceKey == "keystoneloot" and G.panel and G.panel:GetWidth() < 500 then
-        G.panel:SetWidth(500)
-    end
+    ApplyBisPanelWidth(false)
 
     local classToken = G.GetSelectedClass()
     local specKey = G.GetSelectedSpec()
@@ -1502,8 +1521,16 @@ local function Refresh()
         return
     end
 
+    local normalizedSlots = source.normalize(contextEntry.slots)
+    -- Nur KeystoneLoot mit tatsächlich vorhandenen Slot-Alternativen braucht
+    -- die breite Darstellung. Alle anderen Ansichten bleiben kompakt.
+    ApplyBisPanelWidth(
+        selectedSourceKey == "keystoneloot"
+        and HasKeystoneAlternatives(normalizedSlots)
+    )
+
     SyncAlertControls()
-    RenderSlots(source.normalize(contextEntry.slots), yOffset)
+    RenderSlots(normalizedSlots, yOffset)
 end
 
 G.RegisterTabContent(TAB_KEY, bisGearFrame)
@@ -1517,6 +1544,8 @@ if G.RegisterOnActiveTabChanged then
     G.RegisterOnActiveTabChanged(function(tabKey)
         if tabKey == TAB_KEY then
             G.SetPanelContentHeight(bisGearFrame:GetHeight())
+        elseif G.ApplyPanelWidth then
+            G.ApplyPanelWidth()
         end
     end)
 end

@@ -135,7 +135,7 @@ trinketTooltipHelp:SetJustifyH("LEFT")
 trinketTooltipHelp:SetWordWrap(true)
 trinketTooltipHelp:SetText(
     "Deaktiviert blendet nur deine rechts in der Trinketliste markierten "
-    .. "persönlichen S-Tier-Items im Tooltip ein."
+    .. "persönlichen S+-Items im Tooltip ein."
 )
 
 local sourcePopup = CreateFrame("Frame", "GrimoireSourceInfoPopup", UIParent, "BackdropTemplate")

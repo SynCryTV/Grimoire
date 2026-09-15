@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 5.1.1
+
+- Normale Trinket-Tierwertungen bleiben sichtbar; die persönliche Empfehlung steht separat als S+ in Artefaktfarbe daneben.
+- Die BiS-Ansicht wird nur bei KeystoneLoot mit vorhandenen Slot-Alternativen verbreitert; sonst nutzt Grimoire wieder die normale Fensterbreite.
+
 ## 5.1.0
 
 - Trinkets lassen sich rechts in der Liste als persönliche S-Tier-Empfehlung markieren; aktive Marker erscheinen in Artefaktfarbe.

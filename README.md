@@ -10,15 +10,18 @@ Grund auf neu; dieses README beschreibt den angestrebten Funktionsumfang.
 
 ## Was das Addon zeigt
 
-- **Best-in-Slot-Gear** von Wowhead, Icy-Veins und Murlok (Mythic+)
+- **Best-in-Slot-Gear** von Wowhead, Icy-Veins, Murlok (Mythic+) und
+  KeystoneLoot (Overall, Mythic+ und Raid)
 - **Werteziele als Live-Balken:** Murlok für Mythic+ und eine eigene
   Warcraft-Logs-Top-1000-Auswertung über alle Raid-Bosse
 - **Wertepriorität** pro Spec/Hero-Talent, inklusive Hinweis, wenn sich die
   Reihenfolge seit dem letzten Update geändert hat
 - **Omnium Folio** – die empfohlenen Runen pro Woche, mit echten
   Blizzard-Tooltips beim Hovern
-- **Verzauberungen, Edelsteine, Verbrauchsmaterial** – inklusive
-  Auctionator-Einkaufslisten-Export für jede der drei Kategorien
+- **Verzauberungen, Edelsteine, Verbrauchsmaterial** – die Quelle lässt sich
+  zwischen Wowhead und KeystoneLoot umschalten. KeystoneLoot liefert die
+  Sockel direkt aus der BiS-Liste; Wowhead liefert kaufbare VZ-Items sowie
+  Fläschchen, Essen und Tränke, inklusive Auctionator-Einkaufslisten-Export.
 - Direktlinks zu Raidbots/SimulationCraft für genauere, individuelle Werte
 
 ## Was bewusst fehlt (und warum)

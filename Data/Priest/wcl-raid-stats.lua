@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["PRIEST"] = GrimoireStatTargets["PRIEST"] or {}
 
 GrimoireStatTargets["PRIEST"]["discipline"] = GrimoireStatTargets["PRIEST"]["discipline"] or {}
-GrimoireStatTargets["PRIEST"]["discipline"]["Raid"] = { targets = { crit = 581, haste = 1170, mastery = 518, versatility = 154 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["PRIEST"]["discipline"]["Raid"] = { targets = { crit = 586, haste = 1188, mastery = 516, versatility = 156 }, samples = 1007, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["PRIEST"]["holy"] = GrimoireStatTargets["PRIEST"]["holy"] or {}
-GrimoireStatTargets["PRIEST"]["holy"]["Raid"] = { targets = { crit = 805, haste = 686, mastery = 640, versatility = 212 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["PRIEST"]["holy"]["Raid"] = { targets = { crit = 794, haste = 654, mastery = 696, versatility = 202 }, samples = 1006, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["PRIEST"]["shadow"] = GrimoireStatTargets["PRIEST"]["shadow"] or {}
-GrimoireStatTargets["PRIEST"]["shadow"]["Raid"] = { targets = { crit = 714, haste = 722, mastery = 842, versatility = 149 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["PRIEST"]["shadow"]["Raid"] = { targets = { crit = 751, haste = 726, mastery = 811, versatility = 151 }, samples = 1008, source = "Warcraft Logs Top 1000 (alle Bosse)" }

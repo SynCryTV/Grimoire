@@ -53,6 +53,17 @@ local RAW_SLOT_TO_KEY = {
     ["boots"] = "feet", ["feet"] = "feet",
 }
 
+-- KeystoneLoot liefert Item-IDs ohne ausgeschriebenen Inventarslot. Der
+-- WoW-Client kennt den Slot aber direkt über die Item-Metadaten.
+local KEYSTONE_EQUIPLOC_TO_KEY = {
+    INVTYPE_HEAD = "head", INVTYPE_NECK = "neck", INVTYPE_SHOULDER = "shoulder",
+    INVTYPE_CLOAK = "back", INVTYPE_CHEST = "chest", INVTYPE_ROBE = "chest",
+    INVTYPE_WRIST = "wrist", INVTYPE_HAND = "hands", INVTYPE_WAIST = "waist",
+    INVTYPE_LEGS = "legs", INVTYPE_FEET = "feet", INVTYPE_WEAPON = "mainhand",
+    INVTYPE_2HWEAPON = "mainhand", INVTYPE_WEAPONMAINHAND = "mainhand",
+    INVTYPE_HOLDABLE = "offhand", INVTYPE_SHIELD = "offhand", INVTYPE_WEAPONOFFHAND = "offhand",
+}
+
 -- Löst das rohe slot-Feld (Wowhead/Icy-Veins) in einen kanonischen Key auf.
 -- counters zählt "Ring"/"Trinket" hoch (pro Liste 2x vorhanden, z.B. auch
 -- "Trinket (Raw Damage)" bei Wowhead -- daher Teilstring-Match "^ring"/
@@ -113,6 +124,40 @@ local SOURCES = {
                 local key = ResolveSlotKey(s.slot, counters)
                 if key then
                     table.insert(out, { key = key, item = s.item, source = s.source })
+                end
+            end
+            return out
+        end,
+    },
+    {
+        key = "keystoneloot", label = "KeystoneLoot",
+        getRaw = function(classToken, specKey)
+            local d = GrimoireKeystoneLootData and GrimoireKeystoneLootData[classToken] and GrimoireKeystoneLootData[classToken][specKey]
+            return d and d.lists
+        end,
+        normalize = function(rawEntries)
+            local counters, out = {}, {}
+            for _, entry in ipairs(rawEntries or {}) do
+                local itemID = entry.itemId
+                local equipLoc = itemID and select(4, GetItemInfoInstant(itemID))
+                local key = equipLoc and KEYSTONE_EQUIPLOC_TO_KEY[equipLoc]
+                if equipLoc == "INVTYPE_FINGER" then
+                    counters.ring = (counters.ring or 0) + 1
+                    key = counters.ring == 1 and "ring1" or "ring2"
+                elseif equipLoc == "INVTYPE_TRINKET" then
+                    counters.trinket = (counters.trinket or 0) + 1
+                    key = counters.trinket == 1 and "trinket1" or "trinket2"
+                end
+                if key and itemID then
+                    table.insert(out, {
+                        key = key,
+                        item = { itemId = itemID, name = "Item " .. tostring(itemID) },
+                        source = "KeystoneLoot",
+                        tier = entry.tier,
+                        gems = entry.gems,
+                        enchant = entry.enchant,
+                        socketCount = entry.gems and #entry.gems or 0,
+                    })
                 end
             end
             return out
@@ -1222,7 +1267,18 @@ local function RenderSlots(normalizedSlots, yOffset)
             end)
 
             if entry.source then
-                sourceText:SetText(entry.source)
+                local sourceLabel = entry.source
+                if entry.source == "KeystoneLoot" then
+                    local notes = {}
+                    if entry.socketCount and entry.socketCount > 0 then
+                        table.insert(notes, entry.socketCount == 1 and "Sockel" or (entry.socketCount .. " Sockel"))
+                    end
+                    if entry.enchant and entry.enchant > 0 then
+                        table.insert(notes, "VZ")
+                    end
+                    if #notes > 0 then sourceLabel = sourceLabel .. " • " .. table.concat(notes, ", ") end
+                end
+                sourceText:SetText(sourceLabel)
                 sourceText:Show()
             else
                 sourceText:Hide()

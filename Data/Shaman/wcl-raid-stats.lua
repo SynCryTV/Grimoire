@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["SHAMAN"] = GrimoireStatTargets["SHAMAN"] or {}
 
 GrimoireStatTargets["SHAMAN"]["elemental"] = GrimoireStatTargets["SHAMAN"]["elemental"] or {}
-GrimoireStatTargets["SHAMAN"]["elemental"]["Raid"] = { targets = { crit = 783, haste = 718, mastery = 712, versatility = 196 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["SHAMAN"]["elemental"]["Raid"] = { targets = { crit = 808, haste = 706, mastery = 657, versatility = 211 }, samples = 1007, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["SHAMAN"]["enhancement"] = GrimoireStatTargets["SHAMAN"]["enhancement"] or {}
-GrimoireStatTargets["SHAMAN"]["enhancement"]["Raid"] = { targets = { crit = 738, haste = 751, mastery = 762, versatility = 129 }, samples = 99, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["SHAMAN"]["enhancement"]["Raid"] = { targets = { crit = 735, haste = 757, mastery = 752, versatility = 124 }, samples = 1007, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["SHAMAN"]["restoration"] = GrimoireStatTargets["SHAMAN"]["restoration"] or {}
-GrimoireStatTargets["SHAMAN"]["restoration"]["Raid"] = { targets = { crit = 922, haste = 673, mastery = 341, versatility = 381 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["SHAMAN"]["restoration"]["Raid"] = { targets = { crit = 907, haste = 690, mastery = 348, versatility = 389 }, samples = 1007, source = "Warcraft Logs Top 1000 (alle Bosse)" }

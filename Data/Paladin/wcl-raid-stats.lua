@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["PALADIN"] = GrimoireStatTargets["PALADIN"] or {}
 
 GrimoireStatTargets["PALADIN"]["holy"] = GrimoireStatTargets["PALADIN"]["holy"] or {}
-GrimoireStatTargets["PALADIN"]["holy"]["Raid"] = { targets = { crit = 699, haste = 752, mastery = 703, versatility = 230 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["PALADIN"]["holy"]["Raid"] = { targets = { crit = 715, haste = 776, mastery = 702, versatility = 202 }, samples = 1007, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["PALADIN"]["protection"] = GrimoireStatTargets["PALADIN"]["protection"] or {}
-GrimoireStatTargets["PALADIN"]["protection"]["Raid"] = { targets = { crit = 830, haste = 763, mastery = 582, versatility = 200 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["PALADIN"]["protection"]["Raid"] = { targets = { crit = 832, haste = 780, mastery = 571, versatility = 192 }, samples = 1008, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["PALADIN"]["retribution"] = GrimoireStatTargets["PALADIN"]["retribution"] or {}
-GrimoireStatTargets["PALADIN"]["retribution"]["Raid"] = { targets = { crit = 962, haste = 652, mastery = 903, versatility = 87 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["PALADIN"]["retribution"]["Raid"] = { targets = { crit = 928, haste = 652, mastery = 888, versatility = 87 }, samples = 1006, source = "Warcraft Logs Top 1000 (alle Bosse)" }

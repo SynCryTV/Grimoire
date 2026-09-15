@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["EVOKER"] = GrimoireStatTargets["EVOKER"] or {}
 
 GrimoireStatTargets["EVOKER"]["augmentation"] = GrimoireStatTargets["EVOKER"]["augmentation"] or {}
-GrimoireStatTargets["EVOKER"]["augmentation"]["Raid"] = { targets = { crit = 812, haste = 538, mastery = 822, versatility = 198 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["EVOKER"]["augmentation"]["Raid"] = { targets = { crit = 828, haste = 582, mastery = 811, versatility = 191 }, samples = 1007, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["EVOKER"]["devastation"] = GrimoireStatTargets["EVOKER"]["devastation"] or {}
-GrimoireStatTargets["EVOKER"]["devastation"]["Raid"] = { targets = { crit = 944, haste = 670, mastery = 582, versatility = 200 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["EVOKER"]["devastation"]["Raid"] = { targets = { crit = 944, haste = 693, mastery = 564, versatility = 207 }, samples = 1007, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["EVOKER"]["preservation"] = GrimoireStatTargets["EVOKER"]["preservation"] or {}
-GrimoireStatTargets["EVOKER"]["preservation"]["Raid"] = { targets = { crit = 874, haste = 672, mastery = 568, versatility = 236 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["EVOKER"]["preservation"]["Raid"] = { targets = { crit = 867, haste = 713, mastery = 568, versatility = 205 }, samples = 1008, source = "Warcraft Logs Top 1000 (alle Bosse)" }

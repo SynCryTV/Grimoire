@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["WARLOCK"] = GrimoireStatTargets["WARLOCK"] or {}
 
 GrimoireStatTargets["WARLOCK"]["affliction"] = GrimoireStatTargets["WARLOCK"]["affliction"] or {}
-GrimoireStatTargets["WARLOCK"]["affliction"]["Raid"] = { targets = { crit = 605, haste = 940, mastery = 591, versatility = 202 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["WARLOCK"]["affliction"]["Raid"] = { targets = { crit = 598, haste = 1015, mastery = 511, versatility = 218 }, samples = 1008, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["WARLOCK"]["demonology"] = GrimoireStatTargets["WARLOCK"]["demonology"] or {}
-GrimoireStatTargets["WARLOCK"]["demonology"]["Raid"] = { targets = { crit = 660, haste = 852, mastery = 617, versatility = 192 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["WARLOCK"]["demonology"]["Raid"] = { targets = { crit = 673, haste = 850, mastery = 623, versatility = 203 }, samples = 1003, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["WARLOCK"]["destruction"] = GrimoireStatTargets["WARLOCK"]["destruction"] or {}
-GrimoireStatTargets["WARLOCK"]["destruction"]["Raid"] = { targets = { crit = 563, haste = 876, mastery = 731, versatility = 188 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["WARLOCK"]["destruction"]["Raid"] = { targets = { crit = 581, haste = 864, mastery = 720, versatility = 196 }, samples = 1006, source = "Warcraft Logs Top 1000 (alle Bosse)" }

@@ -6,6 +6,21 @@ local frame = CreateFrame("Frame", "GrimoireEnhancementsTab", G.panel)
 frame:SetPoint("TOPLEFT", G.selectorBar, "BOTTOMLEFT", 0, -20)
 frame:SetPoint("RIGHT", G.panel, "RIGHT", -16, 0)
 
+-- KeystoneLoot liefert die Sockel direkt aus seiner BiS-Liste. Für
+-- Verzauberungs-Items und Verbrauchsgüter bleibt Wowhead die Quelle, denn
+-- diese beiden Kategorien sind nicht Teil der KeystoneLoot-API.
+local selectedSource = "wowhead"
+local selectedKeystoneContext = "Overall"
+local TOP_INSET = 30
+local sourceDropdown = CreateFrame("DropdownButton", "GrimoireEnhancementSourceDD", frame, "WowStyle1DropdownTemplate")
+sourceDropdown:SetPoint("TOPLEFT", 0, 0)
+sourceDropdown:SetSize(174, 24)
+
+local sourceHint = frame:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
+sourceHint:SetPoint("LEFT", sourceDropdown, "RIGHT", 8, 0)
+sourceHint:SetPoint("RIGHT", frame, "RIGHT", 0, 0)
+sourceHint:SetJustifyH("LEFT")
+
 -- ============================================================
 -- Soft Toast / In-Panel-Bestätigung
 -- ============================================================
@@ -298,11 +313,52 @@ local function SetItemQuality(fontString, item)
     fontString:SetTextColor(1, 1, 1)
 end
 
-local function GetSpecData()
+local function GetWowheadSpecData()
     local classToken = G.GetSelectedClass and G.GetSelectedClass()
     local specKey = G.GetSelectedSpec and G.GetSelectedSpec()
     local classData = classToken and GrimoireGearData and GrimoireGearData[classToken]
     return classData and specKey and classData[specKey]
+end
+
+local function GetSpecData()
+    local wowhead = GetWowheadSpecData()
+    if selectedSource ~= "keystoneloot" then return wowhead end
+
+    local classToken = G.GetSelectedClass and G.GetSelectedClass()
+    local specKey = G.GetSelectedSpec and G.GetSelectedSpec()
+    local classData = classToken and GrimoireKeystoneLootData and GrimoireKeystoneLootData[classToken]
+    local keystone = classData and specKey and classData[specKey]
+    if not keystone then return wowhead end
+
+    local list
+    for _, candidate in ipairs(keystone.lists or {}) do
+        if candidate.label == selectedKeystoneContext then
+            list = candidate
+            break
+        end
+    end
+    list = list or (keystone.lists and keystone.lists[1])
+
+    local gems, seen = {}, {}
+    for _, entry in ipairs((list and list.slots) or {}) do
+        if (entry.tier or 2) == 3 then
+            for _, itemID in ipairs(entry.gems or {}) do
+                if not seen[itemID] then
+                    seen[itemID] = true
+                    gems[#gems + 1] = { itemId = itemID }
+                end
+            end
+        end
+    end
+
+    -- KeystoneLoot führt keine kaufbaren VZ-Item-IDs oder Verbrauchsgüter.
+    -- Beide Listen werden bewusst von Wowhead übernommen, damit die
+    -- Auktionshaus-Exportfunktion weiterhin korrekte kaufbare Items erhält.
+    return {
+        gems = { secondary = gems },
+        enchants = wowhead and wowhead.enchants or {},
+        consumables = wowhead and wowhead.consumables or {},
+    }
 end
 
 local function NormalizeSlotKey(slot)
@@ -871,7 +927,7 @@ local function Layout()
 
     for _, entry in ipairs(sections) do
         entry.section:ClearAllPoints()
-        entry.section:SetPoint("TOPLEFT", frame, "TOPLEFT", 0, -totalHeight)
+        entry.section:SetPoint("TOPLEFT", frame, "TOPLEFT", 0, -(TOP_INSET + totalHeight))
         entry.section:SetPoint("RIGHT", frame, "RIGHT", 0, 0)
 
         local sectionHeight = 22
@@ -887,10 +943,10 @@ local function Layout()
         totalHeight = totalHeight - SECTION_GAP
     end
 
-    frame:SetHeight(totalHeight)
+    frame:SetHeight(TOP_INSET + totalHeight)
 
     if G.SetPanelContentHeight and G.GetActiveTab and G.GetActiveTab() == TAB_KEY then
-        G.SetPanelContentHeight(totalHeight)
+        G.SetPanelContentHeight(TOP_INSET + totalHeight)
     end
 end
 
@@ -1150,6 +1206,37 @@ end
 
 local function Refresh(animate)
     local specData = GetSpecData()
+
+    sourceDropdown:SetText(selectedSource == "keystoneloot" and "KeystoneLoot" or "Wowhead")
+    sourceDropdown:SetupMenu(function(_, root)
+        root:CreateRadio("Wowhead", function() return selectedSource == "wowhead" end, function()
+            selectedSource = "wowhead"
+            Refresh(true)
+        end)
+        root:CreateRadio("KeystoneLoot", function() return selectedSource == "keystoneloot" end, function()
+            selectedSource = "keystoneloot"
+            Refresh(true)
+        end)
+        if selectedSource == "keystoneloot" then
+            local classToken, specKey = G.GetSelectedClass(), G.GetSelectedSpec()
+            local data = GrimoireKeystoneLootData and GrimoireKeystoneLootData[classToken] and GrimoireKeystoneLootData[classToken][specKey]
+            if data and data.lists then
+                root:CreateDivider()
+                root:CreateTitle("KeystoneLoot-Kontext")
+                for _, list in ipairs(data.lists) do
+                    root:CreateRadio(list.label, function() return selectedKeystoneContext == list.label end, function()
+                        selectedKeystoneContext = list.label
+                        Refresh(true)
+                    end)
+                end
+            end
+        end
+    end)
+    if selectedSource == "keystoneloot" then
+        sourceHint:SetText("Sockel: KeystoneLoot (" .. selectedKeystoneContext .. ") • VZ, Fläschchen, Essen: Wowhead")
+    else
+        sourceHint:SetText("VZ, Sockel, Fläschchen, Essen und Tränke: Wowhead")
+    end
 
     for _, entry in ipairs(sections) do
         RefreshSection(entry, specData, animate)

@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["HUNTER"] = GrimoireStatTargets["HUNTER"] or {}
 
 GrimoireStatTargets["HUNTER"]["beast-mastery"] = GrimoireStatTargets["HUNTER"]["beast-mastery"] or {}
-GrimoireStatTargets["HUNTER"]["beast-mastery"]["Raid"] = { targets = { crit = 657, haste = 726, mastery = 834, versatility = 149 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["HUNTER"]["beast-mastery"]["Raid"] = { targets = { crit = 642, haste = 731, mastery = 851, versatility = 147 }, samples = 1007, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["HUNTER"]["marksmanship"] = GrimoireStatTargets["HUNTER"]["marksmanship"] or {}
-GrimoireStatTargets["HUNTER"]["marksmanship"]["Raid"] = { targets = { crit = 951, haste = 492, mastery = 826, versatility = 150 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["HUNTER"]["marksmanship"]["Raid"] = { targets = { crit = 937, haste = 504, mastery = 837, versatility = 165 }, samples = 1007, source = "Warcraft Logs Top 1000 (alle Bosse)" }
 
 GrimoireStatTargets["HUNTER"]["survival"] = GrimoireStatTargets["HUNTER"]["survival"] or {}
-GrimoireStatTargets["HUNTER"]["survival"]["Raid"] = { targets = { crit = 566, haste = 808, mastery = 867, versatility = 88 }, samples = 100, source = "Warcraft Logs Top 100" }
+GrimoireStatTargets["HUNTER"]["survival"]["Raid"] = { targets = { crit = 559, haste = 806, mastery = 884, versatility = 88 }, samples = 1008, source = "Warcraft Logs Top 1000 (alle Bosse)" }

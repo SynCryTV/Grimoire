@@ -1,5 +1,12 @@
 # Änderungsverlauf
 
+## 4.1.0
+
+- KeystoneLoot als neue, umschaltbare BiS-Quelle ergänzt: Overall, Mythic+ und Raid für alle Specs.
+- Neuer KeystoneLoot-Tab zeigt die BiS-Items inklusive gemeldeter Sockel und VZ-Hinweise.
+- Im Tab „Verzauberungen & Verbrauchsgüter“ ist KeystoneLoot als Quelle auswählbar; die Edelsteine folgen dem gewählten KeystoneLoot-Kontext.
+- Fläschchen, Essen, Tränke und kaufbare Verzauberungs-Items bleiben bei Wowhead, da KeystoneLoot diese Daten nicht per API bereitstellt. Damit bleiben Auctionator-Einkaufslisten vollständig nutzbar.
+
 ## 4.0.3
 
 - Archon als Datenquelle entfernt.

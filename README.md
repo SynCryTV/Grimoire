@@ -46,6 +46,8 @@ fortlaufender Arbeit an Daten, Scraper, Tests und neuen Funktionen. Wenn dir
 das Addon hilft und du die weitere Entwicklung auf "Buy me a coffee"-Basis
 unterstützen möchtest, freue ich mich über einen Kaffee auf
 [Ko-fi](https://ko-fi.com/syncrytv). Natürlich bleibt Grimoire kostenlos.
+Im Spiel selbst wird es keine Werbung und keine Spendenlinks geben – wir
+halten das Addon bewusst clean und halten uns an Blizzards Addon-Richtlinien.
 
 ## Installation
 

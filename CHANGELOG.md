@@ -1,6 +1,6 @@
 # Änderungsverlauf
 
-## 5.2.1
+## 5.2.2
 
 - Bestehende Profile werden auf die getrennten Trinket-Tooltipfilter migriert: Normale Tierhinweise bleiben neben persönlichen S+-Markierungen sichtbar.
 - Der Einstellungs-Schalter für normale Trinket-Tierhinweise schaltet nun die Tierfilter S bis D gemeinsam; die persönliche S+-Anzeige bleibt unabhängig.

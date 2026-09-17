@@ -317,15 +317,15 @@ local function GetHeroSubTreeData(classToken, specKey, heroOptions)
     local configID = C_ClassTalents.GetActiveConfigID
         and C_ClassTalents.GetActiveConfigID()
 
-    -- Wowhead liefert pro Spec dieselben zwei Hero-Bäume in seiner
-    -- Hero-Talent-Reihenfolge. Wir koppeln diese Reihenfolge an Blizzards
-    -- SubTree-Reihenfolge. Falls Blizzard für eine fremde Spec keine
-    -- SubTreeInfo liefert, bleibt der englische Scrapername als Fallback.
+    -- Die Reihenfolge darf nur verwendet werden, wenn der Scraper beide
+    -- Hero-Bäume geliefert hat. Mit einem einzelnen, empfohlenen Hero-Baum
+    -- würde er sonst fälschlich auf Blizzards erste SubTree-Position zeigen.
+    local canMapByOrder = subTreeIDs and #heroOptions == #subTreeIDs
     for i, key in ipairs(heroOptions) do
         local data = {
             key = key,
             displayName = HeroFallbackName(key),
-            subTreeID = subTreeIDs and subTreeIDs[i] or nil,
+            subTreeID = canMapByOrder and subTreeIDs[i] or nil,
         }
 
         if configID and data.subTreeID then
@@ -562,6 +562,9 @@ local function Refresh()
     end
 
     if #contextOptions > 1 then
+        -- Der Kontext darf nie über die rechte Kante der Guide-Ansicht ragen.
+        contextDropdown:ClearAllPoints()
+        contextDropdown:SetPoint("TOPRIGHT", body, "TOPRIGHT", 0, 0)
         contextDropdown:SetText(LocalizeContext(selectedContext))
         contextDropdown:SetupMenu(function(_, rootDescription)
             for _, c in ipairs(contextOptions) do

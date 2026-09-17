@@ -861,47 +861,20 @@ local function FindTrinketMatches(itemID)
             if classData and specKeys then
                 for _, specKey in ipairs(specKeys) do
                     local specData = classData[specKey]
-                    local bisGear = specData and specData.bisGear
-                    local isOverallBisTrinket = false
-
-                    if bisGear then
-                        for _, contextEntry in ipairs(bisGear) do
-                            if contextEntry.label
-                                and contextEntry.label:lower() == "overall"
-                                and contextEntry.slots
-                            then
-                                for _, slotEntry in ipairs(contextEntry.slots) do
-                                    local slotName = slotEntry.slot and slotEntry.slot:lower()
-                                    local id = slotEntry.item and slotEntry.item.itemId
-
-                                    if slotName == "trinket" and id == itemID then
-                                        isOverallBisTrinket = true
-                                        break
-                                    end
-                                end
+                    -- Die Trinketliste enthält bewusst mehr Items als die
+                    -- beiden Overall-BiS-Slots. Tooltip und Liste müssen
+                    -- daher dieselbe vollständige Tierdatenquelle verwenden.
+                    local trinkets = specData and specData.trinkets
+                    if trinkets then
+                        for _, entry in ipairs(trinkets) do
+                            if entry.itemId == itemID and IsTooltipTierEnabled(entry.tier) then
+                                matches[#matches + 1] = {
+                                    classToken = classToken,
+                                    specKey = specKey,
+                                    tier = entry.tier,
+                                }
                                 break
                             end
-                        end
-                    end
-
-                    if isOverallBisTrinket then
-                        local tier
-                        local trinkets = specData and specData.trinkets
-                        if trinkets then
-                            for _, entry in ipairs(trinkets) do
-                                if entry.itemId == itemID then
-                                    tier = entry.tier
-                                    break
-                                end
-                            end
-                        end
-
-                        if (not tier) or IsTooltipTierEnabled(tier) then
-                            matches[#matches + 1] = {
-                                classToken = classToken,
-                                specKey = specKey,
-                                tier = tier,
-                            }
                         end
                     end
                 end

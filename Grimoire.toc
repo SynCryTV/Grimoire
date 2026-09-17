@@ -1,8 +1,8 @@
 ## Interface: 120007
 ## Title: Grimoire
-## Notes: Best-in-Slot, Werteprioritäten, Werteziele, Omnium Folio sowie Enchants, Gems und Verbrauchsgüter für jede Spec. Deutsch, PvE, automatisch aktuell. Version 5.2.2: Trinket-Tooltipfilter und persönliche S+-Markierungen überarbeitet.
+## Notes: Best-in-Slot, Werteprioritäten, Werteziele, Omnium Folio sowie Enchants, Gems und Verbrauchsgüter für jede Spec. Deutsch, PvE, automatisch aktuell. Version 5.2.3: Vollständige Trinket-Tierhinweise und korrigierte Heldentalent-Empfehlungen.
 ## Author: Ravyniel
-## Version: 5.2.2
+## Version: 5.2.3
 ## SavedVariables: GrimoireDB
 ## SavedVariablesPerCharacter: GrimoireCharDB
 ## IconTexture: Interface\AddOns\Grimoire\icon

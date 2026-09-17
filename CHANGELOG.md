@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 5.2.3
+
+- Item-Tooltips verwenden nun die vollständige Trinket-Tierliste statt nur der beiden Overall-BiS-Slots. Alle eingeblendeten S- bis D-Tiers erscheinen dadurch zuverlässig, ebenso persönlich markierte S+-Trinkets.
+- Heldentalent-Empfehlungen werden für beide Hero-Bäume pro Spec korrekt zugeordnet; der Kontext-Dropdown bleibt innerhalb der Guide-Ansicht.
+
 ## 5.2.2
 
 - Bestehende Profile werden auf die getrennten Trinket-Tooltipfilter migriert: Normale Tierhinweise bleiben neben persönlichen S+-Markierungen sichtbar.

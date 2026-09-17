@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 5.2.10
+
+- BiS-Listen ohne Alternativen nutzen die volle Zeilenbreite für Itemnamen.
+- Murlok- und KeystoneLoot-Einträge ergänzen nach dem Laden die echte Boss-/Instanzquelle aus dem Abenteuerführer.
+
 ## 5.2.9
 
 - Wertepriorität: Heldentalent- und Kontext-Dropdown haben nun einen festen sichtbaren Abstand und überlappen nicht mehr.

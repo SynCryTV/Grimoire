@@ -481,6 +481,48 @@ local function FindEncounterJournalSourceByItemID(itemID, callback)
     end)
 end
 
+-- Murlok und KeystoneLoot liefern für ihre Itemlisten keine eigene
+-- Dungeon-/Bossquelle. Diese wird daher einmal pro Item über den
+-- Abenteuerführer nachgeladen, seriell (die EJ-Suche ist global).
+local resolvedItemSources = {}
+local sourceResolveQueue = {}
+local sourceResolveRunning = false
+
+local function QueueItemSourceResolution(itemID, callback)
+    if resolvedItemSources[itemID] ~= nil then
+        callback(resolvedItemSources[itemID] or nil)
+        return
+    end
+
+    sourceResolveQueue[#sourceResolveQueue + 1] = { itemID = itemID, callback = callback }
+    if sourceResolveRunning then return end
+
+    local function ProcessNext()
+        local job = table.remove(sourceResolveQueue, 1)
+        if not job then
+            sourceResolveRunning = false
+            return
+        end
+
+        sourceResolveRunning = true
+        FindEncounterJournalSourceByItemID(job.itemID, function(result)
+            local label
+            if result then
+                if result.encounterName and result.instanceName then
+                    label = result.encounterName .. " • " .. result.instanceName
+                else
+                    label = result.encounterName or result.instanceName
+                end
+            end
+            resolvedItemSources[job.itemID] = label or false
+            job.callback(label)
+            ProcessNext()
+        end)
+    end
+
+    ProcessNext()
+end
+
 local function FindInstanceByLocalizedSource(sourceName, callback)
     if not sourceName or sourceName == "" then
         callback(nil)
@@ -1401,6 +1443,15 @@ local function RenderSlots(normalizedSlots, yOffset)
             end
 
             local nameText, sourceText = row.nameText, row.sourceText
+            local hasAlternatives = #alternatives > 0
+            -- Ohne Alternativen ist rechts keine zweite Spalte nötig: der
+            -- Itemname darf die volle verfügbare Zeilenbreite benutzen.
+            nameText:ClearAllPoints()
+            nameText:SetPoint("TOPLEFT", slotText, "TOPRIGHT", 4, 0)
+            nameText:SetPoint("RIGHT", row, hasAlternatives and "CENTER" or "RIGHT", hasAlternatives and -6 or -4, 0)
+            sourceText:ClearAllPoints()
+            sourceText:SetPoint("TOPLEFT", slotText, "BOTTOMLEFT", 0, -2)
+            sourceText:SetPoint("RIGHT", row, hasAlternatives and "CENTER" or "RIGHT", hasAlternatives and -6 or -4, 0)
             nameText:SetText(entry.item.name)
             nameText:SetTextColor(1, 1, 1)
 
@@ -1450,7 +1501,22 @@ local function RenderSlots(normalizedSlots, yOffset)
                 end
                 sourceText:SetText(sourceLabel)
                 sourceText:Show()
+
+                if entry.source == "Murlok" or entry.source == "KeystoneLoot" then
+                    local sourceKey = tostring(entry.item.itemId) .. ":" .. entry.source
+                    row.sourceResolveKey = sourceKey
+                    QueueItemSourceResolution(entry.item.itemId, function(resolvedLabel)
+                        if row.sourceResolveKey ~= sourceKey then return end
+                        if resolvedLabel and resolvedLabel ~= "" then
+                            sourceText:SetText(sourceLabel .. " • " .. resolvedLabel)
+                            row.iconButton.sourceName = resolvedLabel
+                        end
+                    end)
+                else
+                    row.sourceResolveKey = nil
+                end
             else
+                row.sourceResolveKey = nil
                 sourceText:Hide()
             end
 

@@ -278,6 +278,18 @@ local function ShowReminder(data)
         groupText:Hide()
     end
 
+    -- Das Popup lässt sich schnell wegklicken. Die Annahme bleibt deshalb
+    -- zusätzlich dauerhaft im Chatfenster nachvollziehbar.
+    if DEFAULT_CHAT_FRAME then
+        DEFAULT_CHAT_FRAME:AddMessage(
+            "|cffc792ea[Grimoire]|r Gruppensucher: |cffffffff"
+            .. (data.activityName or "Unbekannt")
+            .. "|r |cffaaaaaa("
+            .. (data.difficulty or "Unbekannt")
+            .. ")|r"
+        )
+    end
+
     popup:Show()
 end
 

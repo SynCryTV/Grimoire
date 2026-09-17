@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.21
+
+- Der Gruppensucher-Reminder schreibt die angenommene Aktivität samt Schwierigkeitsgrad zusätzlich in den Chat, damit sie nach dem Wegklicken nachlesbar bleibt.
+
 ## 5.2.20
 
 - Den überflüssigen globalen Tooltip-Schalter aus den Einstellungen entfernt; die Tierfilter werden direkt und unabhängig in der Schmuckstückliste verwaltet.

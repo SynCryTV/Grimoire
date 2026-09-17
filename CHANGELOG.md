@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.7
+
+- Trinket-Tooltip verwendet wieder die ursprüngliche Klassen- und Spec-Reihenfolge statt einer Tier-Sortierung.
+
 ## 5.2.6
 
 - Trinket-Tooltip wieder global nach S, A, B, C und D sortiert; bei gleichem Tier wird die eingeloggte Klasse bevorzugt.

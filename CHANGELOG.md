@@ -1,5 +1,11 @@
 # Änderungsverlauf
 
+## 5.2.12
+
+- Fensteranker auf den bewährten Stand aus 5.2.9 zurückgestellt.
+- Automatische Abenteuerführer-Abfragen beim Aufbau der BiS-Liste entfernt; sie konnten die Blizzard-Fensterverwaltung stören.
+- BiS-Itemnamen ohne Alternativen behalten die volle Zeilenbreite.
+
 ## 5.2.11
 
 - Grimoire-Fenster ist vom geschützten CharacterFrame-Ankersystem entkoppelt; das Öffnen erzeugt keinen „anchor family connection“-Lua-Fehler mehr.

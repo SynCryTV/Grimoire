@@ -98,6 +98,28 @@ local function IsTeleportKnown(spellID)
     return false
 end
 
+-- Auch andere Grimoire-Ansichten (z. B. der Gruppensucher-Reminder) dürfen
+-- dieselbe, zentrale Zuordnung verwenden statt eigene Zauberlisten zu pflegen.
+G.GetDungeonTeleportSpell = function(dungeonName)
+    dungeonName = NormalizeDungeonName(dungeonName)
+    if not dungeonName then return nil end
+
+    local direct = TELEPORT_SPELLS_BY_DUNGEON[dungeonName]
+    if direct then return direct end
+
+    -- LFG-Aktivitäten enthalten gelegentlich Zusätze wie "Mythisch+: ...".
+    local normalized = dungeonName:lower()
+    for alias, spellID in pairs(TELEPORT_SPELLS_BY_DUNGEON) do
+        if normalized:find(alias:lower(), 1, true) then
+            return spellID
+        end
+    end
+    return nil
+end
+
+G.IsDungeonTeleportKnown = IsTeleportKnown
+G.IsDungeonTeleportsEnabled = IsFeatureEnabled
+
 local function GetCooldownText(spellID)
     if not spellID or not C_Spell or not C_Spell.GetSpellCooldown then
         return nil

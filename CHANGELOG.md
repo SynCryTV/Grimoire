@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.22
+
+- Der Gruppensucher-Reminder bietet für bekannte Mythisch+-Dungeons einen direkten Keystone-Hero-Teleport. Nicht erlernte Zauber werden ausgegraut angezeigt und erklären sich beim Überfahren.
+
 ## 5.2.21
 
 - Der Gruppensucher-Reminder schreibt die angenommene Aktivität samt Schwierigkeitsgrad zusätzlich in den Chat, damit sie nach dem Wegklicken nachlesbar bleibt.

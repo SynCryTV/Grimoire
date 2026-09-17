@@ -235,6 +235,37 @@ groupText:SetPoint("RIGHT", popup, "RIGHT", -16, 0)
 groupText:SetJustifyH("LEFT")
 groupText:SetWordWrap(false)
 
+local teleportButton = CreateFrame(
+    "Button",
+    nil,
+    popup,
+    "InsecureActionButtonTemplate, UIPanelButtonTemplate"
+)
+teleportButton:SetSize(180, 24)
+teleportButton:SetPoint("BOTTOMLEFT", popup, "BOTTOMLEFT", 16, 12)
+teleportButton:SetText("Zum Dungeon teleportieren")
+teleportButton:RegisterForClicks("AnyUp")
+teleportButton:Hide()
+
+teleportButton:SetScript("OnEnter", function(self)
+    GameTooltip:SetOwner(self, "ANCHOR_TOP")
+    if not self.spellKnown then
+        GameTooltip:SetText(SPELL_FAILED_NOT_KNOWN or "Zauber nicht erlernt", 1.0, 0.25, 0.25)
+    else
+        GameTooltip:SetText("Dungeon-Teleport", 1.0, 0.82, 0.0)
+        GameTooltip:AddLine("Klicken, um zum Dungeon-Eingang zu teleportieren.", 0.9, 0.9, 0.9, true)
+    end
+    GameTooltip:Show()
+end)
+teleportButton:SetScript("OnLeave", function()
+    GameTooltip:Hide()
+end)
+teleportButton:SetScript("PostClick", function(self)
+    if self.spellID and not self.spellKnown and UIErrorsFrame and UIErrorsFrame.AddMessage then
+        UIErrorsFrame:AddMessage(SPELL_FAILED_NOT_KNOWN or "Zauber nicht erlernt", 1.0, 0.20, 0.20, 1.0)
+    end
+end)
+
 local okButton = CreateFrame(
     "Button",
     nil,
@@ -242,7 +273,7 @@ local okButton = CreateFrame(
     "UIPanelButtonTemplate"
 )
 okButton:SetSize(100, 24)
-okButton:SetPoint("BOTTOM", popup, "BOTTOM", 0, 12)
+okButton:SetPoint("BOTTOMRIGHT", popup, "BOTTOMRIGHT", -16, 12)
 okButton:SetText("Alles klar")
 okButton:SetScript("OnClick", function()
     popup:Hide()
@@ -276,6 +307,28 @@ local function ShowReminder(data)
         groupText:Show()
     else
         groupText:Hide()
+    end
+
+    local spellID = G.GetDungeonTeleportSpell and G.GetDungeonTeleportSpell(data.activityName)
+    local featureEnabled = not G.IsDungeonTeleportsEnabled or G.IsDungeonTeleportsEnabled()
+    if spellID and featureEnabled and not InCombatLockdown() then
+        local known = G.IsDungeonTeleportKnown and G.IsDungeonTeleportKnown(spellID)
+        teleportButton.spellID = spellID
+        teleportButton.spellKnown = known == true
+        -- Nicht wirklich deaktivieren: So bleibt der Hover-Hinweis auch für
+        -- noch nicht erlernte Keystone-Hero-Teleports erreichbar.
+        teleportButton:SetAlpha(teleportButton.spellKnown and 1 or 0.45)
+        if not InCombatLockdown() then
+            teleportButton:SetAttribute("type", teleportButton.spellKnown and "spell" or nil)
+            teleportButton:SetAttribute("spell", teleportButton.spellKnown and spellID or nil)
+        end
+        teleportButton:Show()
+        okButton:ClearAllPoints()
+        okButton:SetPoint("BOTTOMRIGHT", popup, "BOTTOMRIGHT", -16, 12)
+    else
+        teleportButton:Hide()
+        okButton:ClearAllPoints()
+        okButton:SetPoint("BOTTOM", popup, "BOTTOM", 0, 12)
     end
 
     -- Das Popup lässt sich schnell wegklicken. Die Annahme bleibt deshalb

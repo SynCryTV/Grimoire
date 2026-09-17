@@ -13,7 +13,9 @@ local heroDropdown = CreateFrame(
     "WowStyle1DropdownTemplate"
 )
 heroDropdown:SetPoint("TOPLEFT", 0, 0)
-heroDropdown:SetSize(178, DD_HEIGHT)
+-- Beide Dropdowns brauchen sichtbaren Abstand, auch bei der schmalen
+-- Standardbreite des Guide-Panels.
+heroDropdown:SetSize(168, DD_HEIGHT)
 heroDropdown:Hide()
 
 local contextDropdown = CreateFrame(
@@ -23,7 +25,7 @@ local contextDropdown = CreateFrame(
     "WowStyle1DropdownTemplate"
 )
 contextDropdown:SetPoint("LEFT", heroDropdown, "RIGHT", 8, 0)
-contextDropdown:SetSize(140, DD_HEIGHT)
+contextDropdown:SetSize(132, DD_HEIGHT)
 contextDropdown:Hide()
 
 -- Eine kompakte Prioritätszeile statt nummerierter Einzelzeilen:
@@ -564,7 +566,7 @@ local function Refresh()
     if #contextOptions > 1 then
         -- Der Kontext darf nie über die rechte Kante der Guide-Ansicht ragen.
         contextDropdown:ClearAllPoints()
-        contextDropdown:SetPoint("TOPRIGHT", body, "TOPRIGHT", 0, 0)
+        contextDropdown:SetPoint("TOPRIGHT", body, "TOPRIGHT", -2, 0)
         contextDropdown:SetText(LocalizeContext(selectedContext))
         contextDropdown:SetupMenu(function(_, rootDescription)
             for _, c in ipairs(contextOptions) do

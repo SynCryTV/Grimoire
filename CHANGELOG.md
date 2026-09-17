@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.9
+
+- Wertepriorität: Heldentalent- und Kontext-Dropdown haben nun einen festen sichtbaren Abstand und überlappen nicht mehr.
+
 ## 5.2.8
 
 - Trinket-Tooltips: Persönliche S+-Markierungen stehen immer ganz oben als auffällige lila Zeile mit Spec-Icon und bleiben auch bei ausgeblendeten normalen Tiers sichtbar.

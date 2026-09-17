@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 5.2.18
+
+- Murlok- und KeystoneLoot-Einträge zeigen nun zusätzlich ihren Fundort aus den bereits vorhandenen Guide-Daten an, zum Beispiel `KeystoneLoot • Ula'tek`.
+- Fehlt für eine Item-ID noch ein Datenabgleich, bleibt die Herkunft transparent als Murlok beziehungsweise KeystoneLoot sichtbar.
+
 ## 5.2.17
 
 - BiS-Itemnamen ohne Alternativen nutzen wieder die volle Zeilenbreite. Die Anzeige wechselt zwischen zwei fest verankerten Textfeldern und verändert beim Rendern keine Anker.

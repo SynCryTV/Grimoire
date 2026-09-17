@@ -97,6 +97,41 @@ end
 -- Reihenfolge hier = Dropdown-Reihenfolge = Wowhead zuerst (Standard),
 -- dann Murlok (Mythic+), dann Icy Veins.
 -- ============================================================
+local function FindReferenceItemSource(classToken, specKey, itemID)
+    -- Die Murlok- und KeystoneLoot-Importe enthalten keine Fundorte. Bereits
+    -- geladene Guide-Daten kennen sie jedoch für viele derselben Item-IDs.
+    -- Das ist ein reiner Tabellenabgleich, ohne UI-/Abenteuerführer-Aufruf.
+    local function FindInSpecData(specData)
+        for _, context in ipairs(specData and specData.bisGear or {}) do
+            for _, slot in ipairs(context.slots or {}) do
+                local item = slot.item
+                if item and item.itemId == itemID and slot.source and slot.source ~= "" then
+                    return slot.source
+                end
+            end
+        end
+        return nil
+    end
+
+    for _, dataRoot in ipairs({ GrimoireGearData, GrimoireIcyVeinsData }) do
+        local source = FindInSpecData(dataRoot and dataRoot[classToken] and dataRoot[classToken][specKey])
+        if source then return source end
+    end
+
+    -- Einige Gegenst\u00e4nde stehen nur in der Empfehlung einer anderen Spec.
+    -- Der Fundort selbst ist aber identisch, deshalb ist das ein sinnvoller
+    -- zweiter, weiterhin rein statischer Abgleich.
+    for _, dataRoot in ipairs({ GrimoireGearData, GrimoireIcyVeinsData }) do
+        for _, classData in pairs(dataRoot or {}) do
+            for _, specData in pairs(classData) do
+                local source = FindInSpecData(specData)
+                if source then return source end
+            end
+        end
+    end
+    return nil
+end
+
 local SOURCES = {
     {
         key = "wowhead", label = "Wowhead",
@@ -127,12 +162,17 @@ local SOURCES = {
                 { label = "Mythic+", slots = d.bisGear },
             }
         end,
-        normalize = function(rawSlots)
+        normalize = function(rawSlots, classToken, specKey)
             local counters, out = {}, {}
             for _, s in ipairs(rawSlots) do
                 local key = ResolveSlotKey(s.slot, counters)
                 if key then
-                    table.insert(out, { key = key, item = s.item, source = s.source })
+                    table.insert(out, {
+                        key = key,
+                        item = s.item,
+                        source = FindReferenceItemSource(classToken, specKey, s.item and s.item.itemId) or s.source,
+                        provider = "Murlok",
+                    })
                 end
             end
             return out
@@ -144,7 +184,7 @@ local SOURCES = {
             local d = GrimoireKeystoneLootData and GrimoireKeystoneLootData[classToken] and GrimoireKeystoneLootData[classToken][specKey]
             return d and d.lists
         end,
-        normalize = function(rawEntries)
+        normalize = function(rawEntries, classToken, specKey)
             local counters, out = {}, {}
             for index, entry in ipairs(rawEntries or {}) do
                 local itemID = entry.itemId
@@ -171,7 +211,8 @@ local SOURCES = {
                     table.insert(out, {
                         key = key,
                         item = { itemId = itemID, name = "Item " .. tostring(itemID) },
-                        source = "KeystoneLoot",
+                        source = FindReferenceItemSource(classToken, specKey, itemID) or "KeystoneLoot",
+                        provider = "KeystoneLoot",
                         tier = entry.tier,
                         gems = entry.gems,
                         enchant = entry.enchant,
@@ -960,7 +1001,7 @@ local function RebuildTrackedBisItems()
         return
     end
 
-    local normalized = source.normalize(contextEntry.slots)
+    local normalized = source.normalize(contextEntry.slots, classToken, specKey)
     for _, entry in ipairs(normalized or {}) do
         local itemID = entry.item and entry.item.itemId
         if itemID then
@@ -1459,8 +1500,11 @@ local function RenderSlots(normalizedSlots, yOffset)
             end)
 
             if entry.source then
-                local sourceLabel = entry.source
-                if entry.source == "KeystoneLoot" then
+                local sourceLabel = entry.provider or entry.source
+                if entry.provider and entry.provider ~= entry.source then
+                    sourceLabel = sourceLabel .. " • " .. entry.source
+                end
+                if entry.provider == "KeystoneLoot" or entry.source == "KeystoneLoot" then
                     local notes = {}
                     if entry.socketCount and entry.socketCount > 0 then
                         table.insert(notes, entry.socketCount == 1 and "Sockel" or (entry.socketCount .. " Sockel"))
@@ -1564,7 +1608,7 @@ local function Refresh()
         return
     end
 
-    local normalizedSlots = source.normalize(contextEntry.slots)
+    local normalizedSlots = source.normalize(contextEntry.slots, classToken, specKey)
     -- Nur KeystoneLoot mit tatsächlich vorhandenen Slot-Alternativen braucht
     -- die breite Darstellung. Alle anderen Ansichten bleiben kompakt.
     ApplyBisPanelWidth(

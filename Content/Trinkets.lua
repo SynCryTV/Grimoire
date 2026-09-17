@@ -883,17 +883,16 @@ local function FindTrinketMatches(itemID)
         end
     end
 
-    -- Tooltip-Zeilen sollen immer der Tier-Reihenfolge entsprechen, nicht
-    -- der zufälligen Klassen-/Spec-Reihenfolge der gespeicherten Daten.
-    -- Bei gleichem Tier ist die eigene Klasse hilfreicher und steht zuerst.
+    -- Die aktuell eingeloggte Klasse steht grundsätzlich vor allen anderen;
+    -- innerhalb beider Gruppen gilt anschließend die Tier-Reihenfolge.
     table.sort(matches, function(a, b)
-        local aRank = tierRank[a.tier] or 99
-        local bRank = tierRank[b.tier] or 99
-        if aRank ~= bRank then return aRank < bRank end
-
         local aOwn = a.classToken == playerClassToken
         local bOwn = b.classToken == playerClassToken
         if aOwn ~= bOwn then return aOwn end
+
+        local aRank = tierRank[a.tier] or 99
+        local bRank = tierRank[b.tier] or 99
+        if aRank ~= bRank then return aRank < bRank end
 
         if a.classToken ~= b.classToken then
             return a.classToken < b.classToken

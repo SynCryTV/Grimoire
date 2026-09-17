@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.5
+
+- In Trinket-Tooltips stehen alle Einträge der aktuell eingeloggten Klasse grundsätzlich vor anderen Klassen; innerhalb jeder Gruppe bleibt die Reihenfolge S bis D erhalten.
+
 ## 5.2.4
 
 - Trinket-Tierhinweise im Item-Tooltip werden nun immer nach S, A, B, C und D sortiert. Bei gleichem Tier erscheint die eigene Klasse vor anderen Klassen.

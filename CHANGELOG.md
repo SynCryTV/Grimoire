@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.6
+
+- Trinket-Tooltip wieder global nach S, A, B, C und D sortiert; bei gleichem Tier wird die eingeloggte Klasse bevorzugt.
+
 ## 5.2.5
 
 - In Trinket-Tooltips stehen alle Einträge der aktuell eingeloggten Klasse grundsätzlich vor anderen Klassen; innerhalb jeder Gruppe bleibt die Reihenfolge S bis D erhalten.

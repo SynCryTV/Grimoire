@@ -883,16 +883,16 @@ local function FindTrinketMatches(itemID)
         end
     end
 
-    -- Die aktuell eingeloggte Klasse steht grundsätzlich vor allen anderen;
-    -- innerhalb beider Gruppen gilt anschließend die Tier-Reihenfolge.
+    -- Tooltip-Zeilen folgen immer der Tier-Reihenfolge; bei gleichem Tier
+    -- steht die aktuell eingeloggte Klasse vor anderen Klassen.
     table.sort(matches, function(a, b)
-        local aOwn = a.classToken == playerClassToken
-        local bOwn = b.classToken == playerClassToken
-        if aOwn ~= bOwn then return aOwn end
-
         local aRank = tierRank[a.tier] or 99
         local bRank = tierRank[b.tier] or 99
         if aRank ~= bRank then return aRank < bRank end
+
+        local aOwn = a.classToken == playerClassToken
+        local bOwn = b.classToken == playerClassToken
+        if aOwn ~= bOwn then return aOwn end
 
         if a.classToken ~= b.classToken then
             return a.classToken < b.classToken

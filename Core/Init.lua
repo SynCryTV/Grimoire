@@ -92,6 +92,17 @@ loader:SetScript("OnEvent", function(self, event, loadedAddon)
 
     GrimoireDB = GrimoireDB or {}
     ApplyDefaults(GrimoireDB, DB_DEFAULTS)
+
+    -- Die einzelnen Tooltip-Tierfilter haben den alten globalen Schalter
+    -- abgelöst. Bestehende Profile, in denen er noch deaktiviert war,
+    -- sollen nicht versehentlich ausschließlich persönliche S+-Markierungen
+    -- anzeigen.
+    if not GrimoireDB.trinketTooltipFilterMigration then
+        if GrimoireDB.showTrinketTiersInTooltips == false then
+            GrimoireDB.showTrinketTiersInTooltips = true
+        end
+        GrimoireDB.trinketTooltipFilterMigration = true
+    end
     G.db = GrimoireDB
 
     GrimoireCharDB = GrimoireCharDB or {}

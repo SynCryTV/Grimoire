@@ -268,7 +268,15 @@ end)
 
 trinketTooltipCheck:SetScript("OnClick", function(self)
     if not G.db then return end
-    G.db.showTrinketTiersInTooltips = self:GetChecked() == true
+
+    -- Der Master-Schalter schaltet die normalen Tier-Filter gemeinsam.
+    -- Persönliche S+-Markierungen bleiben davon bewusst unabhängig.
+    local enabled = self:GetChecked() == true
+    G.db.showTrinketTiersInTooltips = enabled
+    G.db.trinketTooltipTierFilters = G.db.trinketTooltipTierFilters or {}
+    for _, tier in ipairs({ "S", "A", "B", "C", "D" }) do
+        G.db.trinketTooltipTierFilters[tier] = enabled
+    end
 end)
 
 G.RegisterTabContent(TAB_KEY, frame)

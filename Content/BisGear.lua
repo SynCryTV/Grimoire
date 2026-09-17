@@ -1500,10 +1500,9 @@ local function RenderSlots(normalizedSlots, yOffset)
             end)
 
             if entry.source then
-                local sourceLabel = entry.provider or entry.source
-                if entry.provider and entry.provider ~= entry.source then
-                    sourceLabel = sourceLabel .. " • " .. entry.source
-                end
+                -- Ein echter Fundort ist aussagekräftiger als der Importer.
+                -- Die Quellenbezeichnung bleibt nur als transparenter Fallback.
+                local sourceLabel = entry.source
                 if entry.provider == "KeystoneLoot" or entry.source == "KeystoneLoot" then
                     local notes = {}
                     if entry.socketCount and entry.socketCount > 0 then

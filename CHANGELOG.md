@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.19
+
+- Bei bekannten Fundorten zeigt die BiS-Liste nur noch Dungeon, Boss oder Herstellung an. Murlok beziehungsweise KeystoneLoot erscheinen nur noch als Fallback.
+
 ## 5.2.18
 
 - Murlok- und KeystoneLoot-Einträge zeigen nun zusätzlich ihren Fundort aus den bereits vorhandenen Guide-Daten an, zum Beispiel `KeystoneLoot • Ula'tek`.

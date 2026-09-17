@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 5.2.8
+
+- Trinket-Tooltips: Persönliche S+-Markierungen stehen immer ganz oben als auffällige lila Zeile mit Spec-Icon und bleiben auch bei ausgeblendeten normalen Tiers sichtbar.
+- Danach folgen zuerst die aktuell eingeloggte Klasse, dann weitere Klassen; innerhalb jeder Gruppe S bis D.
+
 ## 5.2.7
 
 - Trinket-Tooltip verwendet wieder die ursprüngliche Klassen- und Spec-Reihenfolge statt einer Tier-Sortierung.

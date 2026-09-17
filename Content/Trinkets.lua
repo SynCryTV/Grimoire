@@ -847,8 +847,9 @@ local function TooltipAlreadyHasBestGear(tooltip)
     return false
 end
 
-local function FindTrinketMatches(itemID)
+local function FindTrinketMatches(itemID, ignoreTierFilter)
     local matches = {}
+    local tierRank = { S = 1, A = 2, B = 3, C = 4, D = 5 }
 
     local _, playerClassToken = UnitClass("player")
     local showAllClasses = G.db and G.db.trinketTiersAllClasses == true
@@ -867,7 +868,9 @@ local function FindTrinketMatches(itemID)
                     local trinkets = specData and specData.trinkets
                     if trinkets then
                         for _, entry in ipairs(trinkets) do
-                            if entry.itemId == itemID and IsTooltipTierEnabled(entry.tier) then
+                            if entry.itemId == itemID
+                                and (ignoreTierFilter or IsTooltipTierEnabled(entry.tier))
+                            then
                                 matches[#matches + 1] = {
                                     classToken = classToken,
                                     specKey = specKey,
@@ -882,6 +885,24 @@ local function FindTrinketMatches(itemID)
         end
     end
 
+    -- Persönliche S+-Markierungen stehen separat darüber. Für die normalen
+    -- Zeilen folgt zuerst die eingeloggte Klasse, jeweils S bis D; danach
+    -- kommen andere Klassen ebenfalls in Tier-Reihenfolge.
+    table.sort(matches, function(a, b)
+        local aOwn = a.classToken == playerClassToken
+        local bOwn = b.classToken == playerClassToken
+        if aOwn ~= bOwn then return aOwn end
+
+        local aRank = tierRank[a.tier] or 99
+        local bRank = tierRank[b.tier] or 99
+        if aRank ~= bRank then return aRank < bRank end
+
+        if a.classToken ~= b.classToken then
+            return a.classToken < b.classToken
+        end
+        return a.specKey < b.specKey
+    end)
+
     return matches
 end
 
@@ -892,11 +913,37 @@ local function OnTooltipTrinket(tooltip, tooltipData)
     local personal = IsPersonalSTier(itemID)
         and (not G.db or G.db.showPersonalTrinketSTierInTooltips ~= false)
     local matches = FindTrinketMatches(itemID)
+    -- S+ bleibt sichtbar, selbst wenn das zugrundeliegende normale Tier
+    -- für Tooltips ausgeblendet wurde.
+    local personalMatches = personal and FindTrinketMatches(itemID, true) or nil
     if not personal and (#matches == 0 or (G.db and G.db.showTrinketTiersInTooltips == false)) then return end
     if TooltipAlreadyHasBestGear(tooltip) then return end
 
     tooltip:AddLine(" ")
-    if personal then tooltip:AddLine("Persönliches S+-Tier", unpack(PERSONAL_S_PLUS_COLOR)) end
+    if personal then
+        tooltip:AddLine("Persönliches S+-Tier", unpack(PERSONAL_S_PLUS_COLOR))
+        local personalMatch = personalMatches and personalMatches[1]
+        local pr, pg, pb = unpack(PERSONAL_S_PLUS_COLOR)
+        if personalMatch then
+            local specName, specIcon = G.GetSpecInfo(personalMatch.classToken, personalMatch.specKey)
+            local className = G.GetClassDisplayName(personalMatch.classToken) or personalMatch.classToken
+            local personalText = specIcon and G.GetSpecIconMarkup(specIcon, 14) or ""
+            personalText = personalText .. (specName or personalMatch.specKey) .. " " .. className
+            tooltip:AddDoubleLine(
+                personalText,
+                "S+",
+                pr, pg, pb,
+                pr, pg, pb
+            )
+        else
+            tooltip:AddDoubleLine(
+                "Persönlich markiert",
+                "S+",
+                pr, pg, pb,
+                pr, pg, pb
+            )
+        end
+    end
     if G.db and G.db.showTrinketTiersInTooltips == false then tooltip:Show(); return end
     if #matches == 0 then tooltip:Show(); return end
     tooltip:AddLine("Beste Ausrüstung", 1.00, 0.82, 0.20)

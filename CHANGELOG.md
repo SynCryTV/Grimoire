@@ -1,6 +1,6 @@
 # Änderungsverlauf
 
-## 5.2.12
+## 5.2.15
 
 - Fensteranker auf den bewährten Stand aus 5.2.9 zurückgestellt.
 - Automatische Abenteuerführer-Abfragen beim Aufbau der BiS-Liste entfernt; sie konnten die Blizzard-Fensterverwaltung stören.

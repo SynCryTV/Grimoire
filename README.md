@@ -39,6 +39,14 @@ Grund auf neu; dieses README beschreibt den angestrebten Funktionsumfang.
 Die Daten werden über ein separates, lokales Scraper-Tool aktuell gehalten,
 das nicht Teil dieses Repos ist. Updates landen als Commit/Release hier.
 
+## Freiwillig unterstützen
+
+Grimoire ist inzwischen ein Projekt mit aktuell **19.432 Lua-Zeilen** und
+fortlaufender Arbeit an Daten, Scraper, Tests und neuen Funktionen. Wenn dir
+das Addon hilft und du die weitere Entwicklung auf "Buy me a coffee"-Basis
+unterstützen möchtest, freue ich mich über einen Kaffee auf
+[Ko-fi](https://ko-fi.com/syncrytv). Natürlich bleibt Grimoire kostenlos.
+
 ## Installation
 
 Über [WowUp](https://wowup.io/) durch Hinzufügen dieses Repos als Quelle,

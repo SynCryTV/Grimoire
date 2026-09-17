@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 5.2.1
+
+- Bestehende Profile werden auf die getrennten Trinket-Tooltipfilter migriert: Normale Tierhinweise bleiben neben persönlichen S+-Markierungen sichtbar.
+- Der Einstellungs-Schalter für normale Trinket-Tierhinweise schaltet nun die Tierfilter S bis D gemeinsam; die persönliche S+-Anzeige bleibt unabhängig.
+
 ## 5.2.0
 
 - Wertepriorität verwendet nun KeystoneLoot statt Wowhead, einschließlich der Item-Tooltip-Ränge.

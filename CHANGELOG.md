@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.11
+
+- Grimoire-Fenster ist vom geschützten CharacterFrame-Ankersystem entkoppelt; das Öffnen erzeugt keinen „anchor family connection“-Lua-Fehler mehr.
+
 ## 5.2.10
 
 - BiS-Listen ohne Alternativen nutzen die volle Zeilenbreite für Itemnamen.

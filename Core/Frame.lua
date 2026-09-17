@@ -1,6 +1,11 @@
 local ADDON_NAME, G = ...
 
-local panel = CreateFrame("Frame", "GrimoirePanel", CharacterFrame, "BackdropTemplate")
+-- Das CharacterFrame gehört in aktuellen WoW-Versionen zu einer geschützten
+-- Ankerfamilie. Ein direkt daran verankertes eigenes Fenster löst beim
+-- Öffnen den Fehler „anchor family connection“ aus. Das Panel bleibt daher
+-- ein eigenständiges UIParent-Fenster und wird nur positionsgleich daneben
+-- gesetzt.
+local panel = CreateFrame("Frame", "GrimoirePanel", UIParent, "BackdropTemplate")
 panel:SetBackdrop({
     bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
     edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
@@ -53,7 +58,14 @@ G.ApplyPanelWidth = ApplyPanelWidth
 
 local function PositionPanel()
     panel:ClearAllPoints()
-    panel:SetPoint("TOPLEFT", CharacterFrame, "TOPRIGHT", 2, 0)
+
+    local parentScale = UIParent:GetEffectiveScale() or 1
+    local characterScale = CharacterFrame:GetEffectiveScale() or parentScale
+    local scale = parentScale / characterScale
+    local x = (CharacterFrame:GetRight() or 0) * scale + 2
+    local y = (CharacterFrame:GetTop() or 0) * scale
+
+    panel:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", x, y)
 end
 G.PositionPanel = PositionPanel
 

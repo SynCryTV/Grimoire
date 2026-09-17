@@ -916,7 +916,7 @@ local function OnTooltipTrinket(tooltip, tooltipData)
     -- S+ bleibt sichtbar, selbst wenn das zugrundeliegende normale Tier
     -- für Tooltips ausgeblendet wurde.
     local personalMatches = personal and FindTrinketMatches(itemID, true) or nil
-    if not personal and (#matches == 0 or (G.db and G.db.showTrinketTiersInTooltips == false)) then return end
+    if not personal and #matches == 0 then return end
     if TooltipAlreadyHasBestGear(tooltip) then return end
 
     tooltip:AddLine(" ")
@@ -944,7 +944,6 @@ local function OnTooltipTrinket(tooltip, tooltipData)
             )
         end
     end
-    if G.db and G.db.showTrinketTiersInTooltips == false then tooltip:Show(); return end
     if #matches == 0 then tooltip:Show(); return end
     tooltip:AddLine("Beste Ausrüstung", 1.00, 0.82, 0.20)
 

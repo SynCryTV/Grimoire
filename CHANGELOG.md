@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.20
+
+- Den überflüssigen globalen Tooltip-Schalter aus den Einstellungen entfernt; die Tierfilter werden direkt und unabhängig in der Schmuckstückliste verwaltet.
+
 ## 5.2.19
 
 - Bei bekannten Fundorten zeigt die BiS-Liste nur noch Dungeon, Boss oder Herstellung an. Murlok beziehungsweise KeystoneLoot erscheinen nur noch als Fallback.

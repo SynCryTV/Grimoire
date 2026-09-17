@@ -1401,15 +1401,6 @@ local function RenderSlots(normalizedSlots, yOffset)
             end
 
             local nameText, sourceText = row.nameText, row.sourceText
-            local hasAlternatives = #alternatives > 0
-            -- Ohne Alternativen ist rechts keine zweite Spalte nötig: der
-            -- Itemname darf die volle verfügbare Zeilenbreite benutzen.
-            nameText:ClearAllPoints()
-            nameText:SetPoint("TOPLEFT", slotText, "TOPRIGHT", 4, 0)
-            nameText:SetPoint("RIGHT", row, hasAlternatives and "CENTER" or "RIGHT", hasAlternatives and -6 or -4, 0)
-            sourceText:ClearAllPoints()
-            sourceText:SetPoint("TOPLEFT", slotText, "BOTTOMLEFT", 0, -2)
-            sourceText:SetPoint("RIGHT", row, hasAlternatives and "CENTER" or "RIGHT", hasAlternatives and -6 or -4, 0)
             nameText:SetText(entry.item.name)
             nameText:SetTextColor(1, 1, 1)
 
@@ -1459,7 +1450,6 @@ local function RenderSlots(normalizedSlots, yOffset)
                 end
                 sourceText:SetText(sourceLabel)
                 sourceText:Show()
-
             else
                 sourceText:Hide()
             end

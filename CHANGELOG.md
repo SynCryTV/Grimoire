@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.16
+
+- BiS-Zeilendarstellung vollständig auf den Stand vor den Quellen- und Namensanzeige-Experimenten zurückgesetzt.
+
 ## 5.2.15
 
 - Fensteranker auf den bewährten Stand aus 5.2.9 zurückgestellt.

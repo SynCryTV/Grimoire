@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.17
+
+- BiS-Itemnamen ohne Alternativen nutzen wieder die volle Zeilenbreite. Die Anzeige wechselt zwischen zwei fest verankerten Textfeldern und verändert beim Rendern keine Anker.
+
 ## 5.2.16
 
 - BiS-Zeilendarstellung vollständig auf den Stand vor den Quellen- und Namensanzeige-Experimenten zurückgesetzt.

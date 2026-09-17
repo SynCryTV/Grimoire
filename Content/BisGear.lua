@@ -1179,6 +1179,17 @@ local function CreateRow(i)
     nameText:SetWordWrap(false)
     row.nameText = nameText
 
+    -- Statisch breit verankerte Variante für Listen ohne Alternativen.
+    -- Kein ClearAllPoints/SetPoint während des Renderns: Das vermeidet
+    -- Änderungen an WoWs Ankergraph beim Öffnen des Panels.
+    local wideNameText = row:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
+    wideNameText:SetPoint("TOPLEFT", slotText, "TOPRIGHT", 4, 0)
+    wideNameText:SetPoint("RIGHT", row, "RIGHT", -4, 0)
+    wideNameText:SetJustifyH("LEFT")
+    wideNameText:SetWordWrap(false)
+    wideNameText:Hide()
+    row.wideNameText = wideNameText
+
     local alternativeText = row:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
     alternativeText:SetPoint("TOPLEFT", row, "TOP", 4, -1)
     alternativeText:SetPoint("RIGHT", row, "RIGHT", -2, 0)
@@ -1400,14 +1411,21 @@ local function RenderSlots(normalizedSlots, yOffset)
                 row.alternativeKey = nil
             end
 
-            local nameText, sourceText = row.nameText, row.sourceText
+            local nameText, wideNameText, sourceText = row.nameText, row.wideNameText, row.sourceText
+            local hasAlternatives = #alternatives > 0
+            nameText:SetShown(hasAlternatives)
+            wideNameText:SetShown(not hasAlternatives)
             nameText:SetText(entry.item.name)
+            wideNameText:SetText(entry.item.name)
             nameText:SetTextColor(1, 1, 1)
+            wideNameText:SetTextColor(1, 1, 1)
 
             local item = Item:CreateFromItemID(entry.item.itemId)
             item:ContinueOnItemLoad(function()
                 row.iconButton.texture:SetTexture(item:GetItemIcon() or 134400)
-                nameText:SetText(item:GetItemName() or entry.item.name or ("Item " .. tostring(entry.item.itemId)))
+                local itemName = item:GetItemName() or entry.item.name or ("Item " .. tostring(entry.item.itemId))
+                nameText:SetText(itemName)
+                wideNameText:SetText(itemName)
 
                 -- Aktuelle WoW-Versionen können hier statt r, g, b ein
                 -- Farbobjekt als ersten Rückgabewert liefern.
@@ -1423,16 +1441,20 @@ local function RenderSlots(normalizedSlots, yOffset)
                         and type(cb) == "number"
                     then
                         nameText:SetTextColor(cr, cg, cb)
+                        wideNameText:SetTextColor(cr, cg, cb)
                     else
                         nameText:SetTextColor(1, 1, 1)
+                        wideNameText:SetTextColor(1, 1, 1)
                     end
                 elseif type(colorOrR) == "number"
                     and type(g) == "number"
                     and type(b) == "number"
                 then
                     nameText:SetTextColor(colorOrR, g, b)
+                    wideNameText:SetTextColor(colorOrR, g, b)
                 else
                     nameText:SetTextColor(1, 1, 1)
+                    wideNameText:SetTextColor(1, 1, 1)
                 end
             end)
 
@@ -1458,7 +1480,9 @@ local function RenderSlots(normalizedSlots, yOffset)
             row.ownedHighlight:SetShown(owned and true or false)
 
             if entry.bis then
-                nameText:SetText((entry.item.name or "") .. " |cffe6cc80(BiS)|r")
+                local bisName = (entry.item.name or "") .. " |cffe6cc80(BiS)|r"
+                nameText:SetText(bisName)
+                wideNameText:SetText(bisName)
             end
 
             row:ClearAllPoints()

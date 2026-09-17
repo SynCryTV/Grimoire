@@ -849,6 +849,7 @@ end
 
 local function FindTrinketMatches(itemID)
     local matches = {}
+    local tierRank = { S = 1, A = 2, B = 3, C = 4, D = 5 }
 
     local _, playerClassToken = UnitClass("player")
     local showAllClasses = G.db and G.db.trinketTiersAllClasses == true
@@ -881,6 +882,24 @@ local function FindTrinketMatches(itemID)
             end
         end
     end
+
+    -- Tooltip-Zeilen sollen immer der Tier-Reihenfolge entsprechen, nicht
+    -- der zufälligen Klassen-/Spec-Reihenfolge der gespeicherten Daten.
+    -- Bei gleichem Tier ist die eigene Klasse hilfreicher und steht zuerst.
+    table.sort(matches, function(a, b)
+        local aRank = tierRank[a.tier] or 99
+        local bRank = tierRank[b.tier] or 99
+        if aRank ~= bRank then return aRank < bRank end
+
+        local aOwn = a.classToken == playerClassToken
+        local bOwn = b.classToken == playerClassToken
+        if aOwn ~= bOwn then return aOwn end
+
+        if a.classToken ~= b.classToken then
+            return a.classToken < b.classToken
+        end
+        return a.specKey < b.specKey
+    end)
 
     return matches
 end

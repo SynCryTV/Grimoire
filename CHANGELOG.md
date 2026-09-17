@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.4
+
+- Trinket-Tierhinweise im Item-Tooltip werden nun immer nach S, A, B, C und D sortiert. Bei gleichem Tier erscheint die eigene Klasse vor anderen Klassen.
+
 ## 5.2.3
 
 - Item-Tooltips verwenden nun die vollständige Trinket-Tierliste statt nur der beiden Overall-BiS-Slots. Alle eingeblendeten S- bis D-Tiers erscheinen dadurch zuverlässig, ebenso persönlich markierte S+-Trinkets.

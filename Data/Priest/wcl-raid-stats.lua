@@ -6,7 +6,7 @@ GrimoireStatTargets["PRIEST"]["discipline"] = GrimoireStatTargets["PRIEST"]["dis
 GrimoireStatTargets["PRIEST"]["discipline"]["Raid"] = { targets = { crit = 463, haste = 1455, mastery = 400, versatility = 29 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss" }
 
 GrimoireStatTargets["PRIEST"]["holy"] = GrimoireStatTargets["PRIEST"]["holy"] or {}
-GrimoireStatTargets["PRIEST"]["holy"]["Raid"] = { targets = { crit = 818, haste = 622, mastery = 535, versatility = 144 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss" }
+GrimoireStatTargets["PRIEST"]["holy"]["Raid"] = { targets = { crit = 820, haste = 620, mastery = 541, versatility = 142 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss" }
 
 GrimoireStatTargets["PRIEST"]["shadow"] = GrimoireStatTargets["PRIEST"]["shadow"] or {}
-GrimoireStatTargets["PRIEST"]["shadow"]["Raid"] = { targets = { crit = 570, haste = 798, mastery = 1009, versatility = 5 }, samples = 99, source = "Warcraft Logs Heroisch-Endboss" }
+GrimoireStatTargets["PRIEST"]["shadow"]["Raid"] = { targets = { crit = 568, haste = 795, mastery = 1012, versatility = 5 }, samples = 99, source = "Warcraft Logs Heroisch-Endboss" }

@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.25
+
+- Sprachwahl im Einstellungen-Tab sichtbar gemacht; der Tab bietet nun ausreichend Platz für Dropdown und Menü.
+
 ## 5.2.24
 
 - Vollständige Sprachinfrastruktur ergänzt: Beim ersten Start übernimmt Grimoire die Client-Sprache; Deutsch und English lassen sich danach dauerhaft in den Einstellungen wählen.

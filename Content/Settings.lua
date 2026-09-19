@@ -5,7 +5,10 @@ local TAB_KEY = "settings"
 local frame = CreateFrame("Frame", "GrimoireSettingsTab", G.panel)
 frame:SetPoint("TOPLEFT", G.selectorBar, "BOTTOMLEFT", 0, -20)
 frame:SetPoint("RIGHT", G.panel, "RIGHT", -16, 0)
-frame:SetHeight(312)
+-- Die Sprachwahl sitzt unterhalb von „Info & Quellen“. Der Tab braucht
+-- bewusst etwas Luft nach unten, damit Dropdown und Menü nicht abgeschnitten
+-- werden – auch bei größeren UI-Schriftarten.
+frame:SetHeight(400)
 
 local title = frame:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
 title:SetPoint("TOPLEFT", 4, -2)
@@ -247,7 +250,7 @@ local function Refresh()
     if G.GetActiveTab and G.GetActiveTab() == TAB_KEY
         and G.SetPanelContentHeight
     then
-        G.SetPanelContentHeight(312)
+        G.SetPanelContentHeight(400)
     end
 end
 

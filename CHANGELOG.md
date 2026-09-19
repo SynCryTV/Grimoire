@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.29
+
+- Tooltip des Grimoire-Umschaltbuttons auf Englisch lokalisiert.
+
 ## 5.2.28
 
 - Englische Lokalisierung für Soundauswahl, BiS-Datenquellen und Trinket-Kontextfilter vervollständigt.

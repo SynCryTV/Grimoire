@@ -164,6 +164,7 @@ local EN = {
     ["Markiert alle Items dieses Abschnitts als Favoriten im normalen WoW-Auktionshaus."] = "Marks all items in this section as favorites in the regular WoW Auction House.",
     ["Ist das Auktionshaus nicht geöffnet, werden die Items vorgemerkt."] = "If the Auction House is closed, the items are queued.",
     ["Grimoire – Enhancements"] = "Grimoire – Enhancements",
+    ["Klicken zum Öffnen/Schließen"] = "Click to open/close",
     ["Wowhead"] = "Wowhead",
     ["Murlok"] = "Murlok",
     ["KeystoneLoot"] = "KeystoneLoot",

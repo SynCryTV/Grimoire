@@ -5,10 +5,7 @@ local TAB_KEY = "settings"
 local frame = CreateFrame("Frame", "GrimoireSettingsTab", G.panel)
 frame:SetPoint("TOPLEFT", G.selectorBar, "BOTTOMLEFT", 0, -20)
 frame:SetPoint("RIGHT", G.panel, "RIGHT", -16, 0)
--- Die Sprachwahl sitzt unterhalb von „Info & Quellen“. Der Tab braucht
--- bewusst etwas Luft nach unten, damit Dropdown und Menü nicht abgeschnitten
--- werden – auch bei größeren UI-Schriftarten.
-frame:SetHeight(400)
+frame:SetHeight(270)
 
 local title = frame:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
 title:SetPoint("TOPLEFT", 4, -2)
@@ -187,36 +184,6 @@ sourceInfoButton:SetScript("OnClick", function()
     urlBox:SetText(G.L(SOURCES[1].url))
 end)
 
-local languageLabel = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
-languageLabel:SetPoint("TOPLEFT", sourceInfoButton, "BOTTOMLEFT", 0, -16)
-languageLabel:SetText(G.T("LANGUAGE"))
-
-local languageDropdown = CreateFrame("DropdownButton", "GrimoireLanguageDropdown", frame, "WowStyle1DropdownTemplate")
-languageDropdown:SetPoint("TOPLEFT", languageLabel, "BOTTOMLEFT", -16, -3)
-languageDropdown:SetSize(220, 24)
-
-local function LanguageLabel(language)
-    return language == "enUS" and G.T("LANGUAGE_ENGLISH") or G.T("LANGUAGE_GERMAN")
-end
-
-local function RefreshLanguageDropdown()
-    languageDropdown:SetText(LanguageLabel(G.GetLanguage()))
-    languageDropdown:SetupMenu(function(_, rootDescription)
-        for _, language in ipairs({ "deDE", "enUS" }) do
-            rootDescription:CreateRadio(
-                LanguageLabel(language),
-                function() return G.GetLanguage() == language end,
-                function()
-                    G.SetLanguage(language)
-                    -- Statische Beschriftungen werden beim UI-Aufbau gesetzt;
-                    -- der Reload wendet den Wechsel vollständig an.
-                    ReloadUI()
-                end
-            )
-        end
-    end)
-end
-
 local function IsEnabled()
     if not G.db then
         return true
@@ -245,12 +212,10 @@ end
 local function Refresh()
     dungeonTeleportCheck:SetChecked(IsEnabled())
     groupReminderCheck:SetChecked(IsGroupReminderEnabled())
-    RefreshLanguageDropdown()
-
     if G.GetActiveTab and G.GetActiveTab() == TAB_KEY
         and G.SetPanelContentHeight
     then
-        G.SetPanelContentHeight(400)
+        G.SetPanelContentHeight(270)
     end
 end
 

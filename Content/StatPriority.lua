@@ -147,7 +147,7 @@ local CONTEXT_TRANSLATIONS = {
 local function LocalizeStat(raw)
     if not raw or raw == "" then return "" end
     if G.GetLanguage() == "enUS" then
-        return raw
+        return G.L(raw)
     end
 
     -- Breakpoints wie "(bis 800)" / "(ab 800)" erhalten.
@@ -183,7 +183,7 @@ end
 
 local function LocalizeContext(context)
     if G.GetLanguage() == "enUS" then
-        return context
+        return G.L(context)
     end
     return CONTEXT_TRANSLATIONS[context] or context
 end
@@ -362,10 +362,10 @@ local function HeroDisplayText(data, recommended)
         text = string.format(
             "|A:%s:18:18|a %s",
             data.iconAtlas,
-            data.displayName or data.key or ""
+            (G.GetLanguage() == "enUS" and data.key or data.displayName) or data.key or ""
         )
     else
-        text = data.displayName or data.key or ""
+        text = (G.GetLanguage() == "enUS" and data.key or data.displayName) or data.key or ""
     end
 
     if recommended then

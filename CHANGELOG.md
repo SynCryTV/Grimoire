@@ -1,5 +1,11 @@
 # Änderungsverlauf
 
+## 5.2.27
+
+- Sprache folgt wieder automatisch der WoW-Clientsprache: Deutsch auf deDE, Englisch als Fallback für enUS und alle weiteren Clientsprachen.
+- Manuelle Sprachwahl entfernt; dadurch kann kein gemischtes Deutsch/Englisch auf einem anderssprachigen WoW-Client entstehen.
+- Wertepriorität und Heldentalente verwenden bei englischem Client wieder die englischen Quelldaten statt deutscher Blizzard-Namen.
+
 ## 5.2.26
 
 - Locale-Hotfix: Repariert beschädigte Hilfsfunktionen, durch die Werteziele, Wertepriorität, Omnium Folio, BiS und Enhancements leer bleiben konnten.

@@ -91,10 +91,6 @@ loader:SetScript("OnEvent", function(self, event, loadedAddon)
 
     GrimoireDB = GrimoireDB or {}
     ApplyDefaults(GrimoireDB, DB_DEFAULTS)
-    if GrimoireDB.language == nil then
-        GrimoireDB.language = GetLocale() == "enUS" and "enUS" or "deDE"
-    end
-
     G.db = GrimoireDB
 
     GrimoireCharDB = GrimoireCharDB or {}
@@ -108,12 +104,7 @@ loader:SetScript("OnEvent", function(self, event, loadedAddon)
 end)
 
 function G.GetLanguage()
-    if G.db and G.db.language then return G.db.language end
-    return GetLocale() == "enUS" and "enUS" or "deDE"
-end
-
-function G.SetLanguage(language)
-    if (language == "deDE" or language == "enUS") and G.db then
-        G.db.language = language
-    end
+    -- Grimoire has a dedicated German locale. Every other WoW client locale
+    -- deliberately falls back to English until it receives its own locale.
+    return GetLocale() == "deDE" and "deDE" or "enUS"
 end

@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["MAGE"] = GrimoireStatTargets["MAGE"] or {}
 
 GrimoireStatTargets["MAGE"]["arcane"] = GrimoireStatTargets["MAGE"]["arcane"] or {}
-GrimoireStatTargets["MAGE"]["arcane"]["Raid"] = { targets = { crit = 639, haste = 907, mastery = 397, versatility = 382 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss" }
+GrimoireStatTargets["MAGE"]["arcane"]["Raid"] = { targets = { crit = 636, haste = 910, mastery = 397, versatility = 378 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["MAGE"]["fire"] = GrimoireStatTargets["MAGE"]["fire"] or {}
-GrimoireStatTargets["MAGE"]["fire"]["Raid"] = { targets = { crit = 90, haste = 1165, mastery = 749, versatility = 184 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss" }
+GrimoireStatTargets["MAGE"]["fire"]["Raid"] = { targets = { crit = 90, haste = 1160, mastery = 753, versatility = 186 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["MAGE"]["frost"] = GrimoireStatTargets["MAGE"]["frost"] or {}
-GrimoireStatTargets["MAGE"]["frost"]["Raid"] = { targets = { crit = 912, haste = 525, mastery = 913, versatility = 41 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss" }
+GrimoireStatTargets["MAGE"]["frost"]["Raid"] = { targets = { crit = 912, haste = 525, mastery = 913, versatility = 41 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }

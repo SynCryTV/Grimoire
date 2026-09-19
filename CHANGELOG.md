@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 5.2.23
+
+- Klassendaten für BiS-Listen, Mythisch+-Werteziele und Raid-Werteziele aktualisiert.
+- TOC-Metadaten und Versionshinweis auf den aktuellen Stand gebracht.
+
 ## 5.2.22
 
 - Der Gruppensucher-Reminder bietet für bekannte Mythisch+-Dungeons einen direkten Keystone-Hero-Teleport. Nicht erlernte Zauber werden ausgegraut angezeigt und erklären sich beim Überfahren.

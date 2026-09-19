@@ -26,7 +26,7 @@ GrimoireMurlokGearData["WARRIOR"] = {
     { slot = "Chest", item = { itemId = 271459, name = "Cuirass of the Jade Warlord" }, source = "Murlok" },
     { slot = "Wrist", item = { itemId = 237834, name = "Spellbreaker's Bracers" }, source = "Murlok" },
     { slot = "Hands", item = { itemId = 271457, name = "Jeweled Gauntlets of the Jade Warlord" }, source = "Murlok" },
-    { slot = "Waist", item = { itemId = 159418, name = "Girdle of Pestilent Purification" }, source = "Murlok" },
+    { slot = "Waist", item = { itemId = 268259, name = "Girdle of Toxic Regret" }, source = "Murlok" },
     { slot = "Legs", item = { itemId = 271455, name = "Greaves of the Jade Warlord" }, source = "Murlok" },
     { slot = "Feet", item = { itemId = 237828, name = "Spellbreaker's March" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 252258, name = "Sickening Signet of Atroxus" }, source = "Murlok" },
@@ -38,7 +38,7 @@ GrimoireMurlokGearData["WARRIOR"] = {
   } },
   ["protection"] = { bisGear = {
     { slot = "Head", item = { itemId = 271456, name = "Tempered Horns of the Jade Warlord" }, source = "Murlok" },
-    { slot = "Neck", item = { itemId = 268265, name = "Aqirbane Reliquary" }, source = "Murlok" },
+    { slot = "Neck", item = { itemId = 251173, name = "Yoke of the Charging Bear" }, source = "Murlok" },
     { slot = "Shoulders", item = { itemId = 271454, name = "Raging Pauldrons of the Jade Warlord" }, source = "Murlok" },
     { slot = "Back", item = { itemId = 193763, name = "Fireproof Drape" }, source = "Murlok" },
     { slot = "Chest", item = { itemId = 271459, name = "Cuirass of the Jade Warlord" }, source = "Murlok" },

@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["DEMONHUNTER"] = GrimoireStatTargets["DEMONHUNTER"] or {}
 
 GrimoireStatTargets["DEMONHUNTER"]["devourer"] = GrimoireStatTargets["DEMONHUNTER"]["devourer"] or {}
-GrimoireStatTargets["DEMONHUNTER"]["devourer"]["Raid"] = { targets = { crit = 838, haste = 611, mastery = 757, versatility = 183 }, samples = 1008, source = "Warcraft Logs Top 1000 (alle Bosse)" }
+GrimoireStatTargets["DEMONHUNTER"]["devourer"]["Raid"] = { targets = { crit = 901, haste = 687, mastery = 821, versatility = 2 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss" }
 
 GrimoireStatTargets["DEMONHUNTER"]["havoc"] = GrimoireStatTargets["DEMONHUNTER"]["havoc"] or {}
-GrimoireStatTargets["DEMONHUNTER"]["havoc"]["Raid"] = { targets = { crit = 1074, haste = 242, mastery = 922, versatility = 153 }, samples = 1008, source = "Warcraft Logs Top 1000 (alle Bosse)" }
+GrimoireStatTargets["DEMONHUNTER"]["havoc"]["Raid"] = { targets = { crit = 1457, haste = 111, mastery = 1066, versatility = 12 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss" }
 
 GrimoireStatTargets["DEMONHUNTER"]["vengeance"] = GrimoireStatTargets["DEMONHUNTER"]["vengeance"] or {}
-GrimoireStatTargets["DEMONHUNTER"]["vengeance"]["Raid"] = { targets = { crit = 787, haste = 788, mastery = 454, versatility = 327 }, samples = 1008, source = "Warcraft Logs Top 1000 (alle Bosse)" }
+GrimoireStatTargets["DEMONHUNTER"]["vengeance"]["Raid"] = { targets = { crit = 787, haste = 949, mastery = 320, versatility = 205 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss" }

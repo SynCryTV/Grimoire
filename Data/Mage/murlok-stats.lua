@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["MAGE"] = GrimoireStatTargets["MAGE"] or {}
 
 GrimoireStatTargets["MAGE"]["arcane"] = GrimoireStatTargets["MAGE"]["arcane"] or {}
-GrimoireStatTargets["MAGE"]["arcane"]["Mythic+"] = { targets = { crit = 765, haste = 995, mastery = 472, versatility = 605 } }
+GrimoireStatTargets["MAGE"]["arcane"]["Mythic+"] = { targets = { crit = 782, haste = 993, mastery = 490, versatility = 611 } }
 
 GrimoireStatTargets["MAGE"]["fire"] = GrimoireStatTargets["MAGE"]["fire"] or {}
-GrimoireStatTargets["MAGE"]["fire"]["Mythic+"] = { targets = { crit = 166, haste = 1290, mastery = 922, versatility = 399 } }
+GrimoireStatTargets["MAGE"]["fire"]["Mythic+"] = { targets = { crit = 185, haste = 1312, mastery = 900, versatility = 415 } }
 
 GrimoireStatTargets["MAGE"]["frost"] = GrimoireStatTargets["MAGE"]["frost"] or {}
-GrimoireStatTargets["MAGE"]["frost"]["Mythic+"] = { targets = { crit = 1045, haste = 644, mastery = 1080, versatility = 102 } }
+GrimoireStatTargets["MAGE"]["frost"]["Mythic+"] = { targets = { crit = 1029, haste = 643, mastery = 1059, versatility = 144 } }

@@ -612,14 +612,14 @@ Refresh = function()
             for _, option in ipairs(CONTEXT_OPTIONS) do
                 if option.key == selectedContext then return option.label end
             end
-            return "Alle"
+            return G.L("Alle")
         end)()
     ))
 
     contextDropdown:SetupMenu(function(_, rootDescription)
         for _, option in ipairs(CONTEXT_OPTIONS) do
             rootDescription:CreateRadio(
-                option.label,
+                G.L(option.label),
                 function() return selectedContext == option.key end,
                 function()
                     selectedContext = option.key

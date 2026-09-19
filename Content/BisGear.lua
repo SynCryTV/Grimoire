@@ -1112,7 +1112,7 @@ local function SyncAlertControls()
             local kit = def.getKit and def.getKit()
             if kit then
                 rootDescription:CreateRadio(
-                    def.label,
+                    G.L(def.label),
                     function()
                         return (G.db.bisDropAlert.sound or "pvpqueue") == def.key
                     end,
@@ -1552,7 +1552,7 @@ local function Refresh()
     sourceDropdown:SetText(G.L(SOURCE_BY_KEY[selectedSourceKey].label))
     sourceDropdown:SetupMenu(function(_, rootDescription)
         for _, src in ipairs(SOURCES) do
-            rootDescription:CreateRadio(src.label,
+            rootDescription:CreateRadio(G.L(src.label),
                 function() return selectedSourceKey == src.key end,
                 function()
                     selectedSourceKey = src.key
@@ -1586,7 +1586,7 @@ local function Refresh()
         contextDropdown:SetText(G.L(selectedContext))
         contextDropdown:SetupMenu(function(_, rootDescription)
             for _, c in ipairs(contextOptions) do
-                rootDescription:CreateRadio(c,
+                rootDescription:CreateRadio(G.L(c),
                     function() return selectedContext == c end,
                     function()
                         -- Nur sichtbare Unterkategorie wechseln.

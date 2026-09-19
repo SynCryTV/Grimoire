@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 5.2.28
+
+- Englische Lokalisierung für Soundauswahl, BiS-Datenquellen und Trinket-Kontextfilter vervollständigt.
+- Dropdown-Menüs verwenden nun dieselben übersetzten Beschriftungen wie die aktive Auswahl.
+
 ## 5.2.27
 
 - Sprache folgt wieder automatisch der WoW-Clientsprache: Deutsch auf deDE, Englisch als Fallback für enUS und alle weiteren Clientsprachen.

@@ -531,7 +531,7 @@ local function Refresh()
         heroDropdown:SetupMenu(function(_, rootDescription)
             for _, data in ipairs(heroData) do
                 rootDescription:CreateRadio(
-                    HeroDisplayText(data, IsHeroRecommended(priorities, data.key)),
+                    G.L(HeroDisplayText(data, IsHeroRecommended(priorities, data.key))),
                     function()
                         return selectedHero == data.key
                     end,

@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.30
+
+- „Empfohlen“-Hinweis im Heldentalent-Dropdown auf Englisch lokalisiert.
+
 ## 5.2.29
 
 - Tooltip des Grimoire-Umschaltbuttons auf Englisch lokalisiert.

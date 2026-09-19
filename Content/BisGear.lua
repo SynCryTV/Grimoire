@@ -287,7 +287,7 @@ local function EnsureNavToast()
     navToastText:SetJustifyH("CENTER")
 end
 
-local function ShowNavToast(G.L(message))
+local function ShowNavToast(message)
     EnsureNavToast()
     navToastGeneration = navToastGeneration + 1
     local generation = navToastGeneration
@@ -1267,7 +1267,7 @@ local function Layout(totalHeight)
     ReportContentHeight(totalHeight)
 end
 
-local function ShowFallback(G.L(text), yOffset)
+local function ShowFallback(text, yOffset)
     yOffset = yOffset or 0
     for _, row in ipairs(rows) do row:Hide() end
     fallbackText:ClearAllPoints()

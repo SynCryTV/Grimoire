@@ -1,8 +1,8 @@
 ## Interface: 120007
 ## Title: Grimoire
-## Notes: Best-in-Slot, Werteprioritäten, Werteziele, Omnium Folio sowie Enchants, Gems und Verbrauchsgüter für jede Spec. Deutsch, PvE, automatisch aktuell. Version 5.2.25: Sprachwahl ist in den Einstellungen sichtbar.
+## Notes: Best-in-Slot, Werteprioritäten, Werteziele, Omnium Folio sowie Enchants, Gems und Verbrauchsgüter für jede Spec. Deutsch, PvE, automatisch aktuell. Version 5.2.26: Locale-Hotfix für BiS, Werteziele und Enhancements.
 ## Author: Ravyniel
-## Version: 5.2.25
+## Version: 5.2.26
 ## SavedVariables: GrimoireDB
 ## SavedVariablesPerCharacter: GrimoireCharDB
 ## IconTexture: Interface\AddOns\Grimoire\icon

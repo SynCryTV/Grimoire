@@ -92,7 +92,7 @@ local function CreateRow(i)
     return row
 end
 
-local function ShowFallback(G.L(text))
+local function ShowFallback(text)
     for _, row in ipairs(rows) do row:Hide() end
     fallbackText:ClearAllPoints()
     fallbackText:SetPoint("TOPLEFT", body, "TOPLEFT", 0, 0)

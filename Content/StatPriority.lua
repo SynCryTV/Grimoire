@@ -443,7 +443,7 @@ local function DaysSince(isoDate)
     return math.floor((time() - changedTime) / 86400)
 end
 
-local function ShowFallback(G.L(text))
+local function ShowFallback(text)
     priorityText:Hide()
     diffText:Hide()
 

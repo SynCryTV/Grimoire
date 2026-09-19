@@ -219,7 +219,7 @@ end
 -- Blendet alle Wertezeilen aus und zeigt stattdessen einen Hinweistext --
 -- IMMER an derselben Stelle (direkt unter der Kontext-Dropdown, falls die
 -- gerade sichtbar ist), egal welcher Zustand vorher aktiv war.
-local function ShowFallback(G.L(text), yOffset)
+local function ShowFallback(text, yOffset)
     yOffset = yOffset or 0
     for i = 1, MAX_ROWS do rows[i]:Hide() end
     fallbackText:ClearAllPoints()

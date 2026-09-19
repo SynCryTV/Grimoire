@@ -63,7 +63,7 @@ toastText:SetWordWrap(false)
 
 local toastGeneration = 0
 
-local function ShowToast(G.L(message), kind)
+local function ShowToast(message, kind)
     toastGeneration = toastGeneration + 1
     local generation = toastGeneration
 

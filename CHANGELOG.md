@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.26
+
+- Locale-Hotfix: Repariert beschädigte Hilfsfunktionen, durch die Werteziele, Wertepriorität, Omnium Folio, BiS und Enhancements leer bleiben konnten.
+
 ## 5.2.25
 
 - Sprachwahl im Einstellungen-Tab sichtbar gemacht; der Tab bietet nun ausreichend Platz für Dropdown und Menü.

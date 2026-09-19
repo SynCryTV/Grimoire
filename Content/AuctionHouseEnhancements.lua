@@ -789,7 +789,7 @@ local toastText = toast:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall
 toastText:SetPoint("CENTER")
 local toastGeneration = 0
 
-local function ShowToast(G.L(message))
+local function ShowToast(message)
     toastGeneration = toastGeneration + 1
     local generation = toastGeneration
     toastText:SetText(G.L(message or ""))

@@ -301,7 +301,7 @@ local function SetAuctionSearchText(searchBar, text)
 
     local box = searchBar.SearchBox or searchBar.searchBox
     if box and box.SetText then
-        box:SetText(text)
+        box:SetText(G.L(text))
         return true
     end
 
@@ -675,11 +675,11 @@ AH.panel = panel
 
 local title = panel:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
 title:SetPoint("TOPLEFT", 14, -12)
-title:SetText("Grimoire – Auktionshaus")
+title:SetText(G.L("Grimoire – Auktionshaus"))
 
 local subtitle = panel:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
 subtitle:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -4)
-subtitle:SetText("Enhancements aller Klassen • Item anklicken = direkt suchen")
+subtitle:SetText(G.L("Enhancements aller Klassen • Item anklicken = direkt suchen"))
 
 local closeButton = CreateFrame("Button", nil, panel, "UIPanelCloseButton")
 closeButton:SetPoint("TOPRIGHT", 1, 1)
@@ -789,10 +789,10 @@ local toastText = toast:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall
 toastText:SetPoint("CENTER")
 local toastGeneration = 0
 
-local function ShowToast(message)
+local function ShowToast(G.L(message))
     toastGeneration = toastGeneration + 1
     local generation = toastGeneration
-    toastText:SetText(message or "")
+    toastText:SetText(G.L(message or ""))
     toast:Show()
     C_Timer.After(2.0, function()
         if generation == toastGeneration then
@@ -823,9 +823,9 @@ local function SearchItem(itemID, fallbackName)
         local name = item:GetItemName() or fallbackName
         local ok, message = SearchAuctionHouseByName(name)
         if ok then
-            ShowToast("Suche: " .. (name or "Item"))
+            ShowToast(G.L("Suche: " .. (name or "Item")))
         else
-            ShowToast(message or "AH-Suche fehlgeschlagen.")
+            ShowToast(G.L(message or "AH-Suche fehlgeschlagen."))
         end
     end)
 end
@@ -876,8 +876,8 @@ local function CreateRow(parent)
     searchButton:SetScript("OnEnter", function(self)
         if not self.itemId then return end
         GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-        GameTooltip:SetText("Im Auktionshaus suchen")
-        GameTooltip:AddLine("Klicken → Namen einsetzen und Suche starten.", 0.8, 0.8, 0.8, true)
+        GameTooltip:SetText(G.L("Im Auktionshaus suchen"))
+        GameTooltip:AddLine(G.L("Klicken → Namen einsetzen und Suche starten."), 0.8, 0.8, 0.8, true)
         GameTooltip:Show()
     end)
     searchButton:SetScript("OnLeave", GameTooltip_Hide)
@@ -915,7 +915,7 @@ local function CreateSection(def)
 
     local headerText = header:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     headerText:SetPoint("LEFT", 8, 0)
-    headerText:SetText(def.title)
+    headerText:SetText(G.L(def.title))
 
     -- Blizzard-AH Favoriten: ganze Sektion markieren.
     local favoriteButton = CreateFrame("Button", nil, header)
@@ -936,14 +936,14 @@ local function CreateSection(def)
 
     favoriteButton:SetScript("OnEnter", function(self)
         GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-        GameTooltip:SetText("Als Favoriten markieren")
-        GameTooltip:AddLine(
-            "Markiert alle Items dieses Abschnitts als Blizzard-AH-Favoriten.",
+        GameTooltip:SetText(G.L("Als Favoriten markieren"))
+        GameTooltip:AddLine(G.L(
+            "Markiert alle Items dieses Abschnitts als Blizzard-AH-Favoriten."),
             0.8, 0.8, 0.8,
             true
         )
-        GameTooltip:AddLine(
-            "Danach springt das Auktionshaus zurück zu den Favoriten.",
+        GameTooltip:AddLine(G.L(
+            "Danach springt das Auktionshaus zurück zu den Favoriten."),
             1.0, 0.82, 0.0,
             true
         )
@@ -955,11 +955,11 @@ local function CreateSection(def)
         local added, already, failed = FavoriteEntries(entry.currentEntries)
 
         if added > 0 then
-            ShowToast(string.format("%d Favoriten gesetzt", added))
+            ShowToast(G.L(string.format("%d Favoriten gesetzt", added)))
         elseif already > 0 and failed == 0 then
-            ShowToast(string.format("%d bereits favorisiert", already))
+            ShowToast(G.L(string.format("%d bereits favorisiert", already)))
         elseif failed > 0 then
-            ShowToast("Favoriten konnten nicht vollständig gesetzt werden.")
+            ShowToast(G.L("Favoriten konnten nicht vollständig gesetzt werden."))
         end
 
         -- Blizzard aktualisiert den Favorite-State asynchron.
@@ -972,14 +972,14 @@ local function CreateSection(def)
     local auctionButton = CreateFrame("Button", nil, header, "UIPanelButtonTemplate")
     auctionButton:SetSize(34, 18)
     auctionButton:SetPoint("RIGHT", favoriteButton, "LEFT", -4, 0)
-    auctionButton:SetText("AH")
+    auctionButton:SetText(G.L("AH"))
     auctionButton:SetFrameLevel(header:GetFrameLevel() + 5)
 
     auctionButton:SetScript("OnEnter", function(self)
         GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-        GameTooltip:SetText("Zu Auctionator")
-        GameTooltip:AddLine(
-            "Erstellt oder aktualisiert die Einkaufsliste für diesen Abschnitt.",
+        GameTooltip:SetText(G.L("Zu Auctionator"))
+        GameTooltip:AddLine(G.L(
+            "Erstellt oder aktualisiert die Einkaufsliste für diesen Abschnitt."),
             0.8, 0.8, 0.8,
             true
         )
@@ -1081,8 +1081,8 @@ local function RefreshContent()
             row.searchButton.itemId = nil
             row.searchButton.fallbackName = nil
             row.iconButton.texture:SetTexture(134400)
-            row.slotText:SetText("")
-            row.nameText:SetText("Keine Daten verfügbar.")
+            row.slotText:SetText(G.L(""))
+            row.nameText:SetText(G.L("Keine Daten verfügbar."))
             row.nameText:SetTextColor(0.55, 0.55, 0.55)
             row:Show()
             for i = 2, #entry.rows do entry.rows[i]:Hide() end
@@ -1102,8 +1102,8 @@ local function RefreshContent()
                 row.searchButton.itemId = itemID
                 row.searchButton.fallbackName = itemEntry.item.name
                 row.iconButton.texture:SetTexture(134400)
-                row.slotText:SetText(itemEntry.label or "")
-                row.nameText:SetText(itemEntry.item.name or ("Item " .. tostring(itemID)))
+                row.slotText:SetText(G.L(itemEntry.label or ""))
+                row.nameText:SetText(G.L(itemEntry.item.name or ("Item " .. tostring(itemID))))
                 row.nameText:SetTextColor(1, 1, 1)
                 row:Show()
 
@@ -1112,7 +1112,7 @@ local function RefreshContent()
                     if row.iconButton.itemId ~= itemID then return end
                     row.iconButton.texture:SetTexture(item:GetItemIcon() or 134400)
                     local localizedName = item:GetItemName() or itemEntry.item.name or ("Item " .. tostring(itemID))
-                    row.nameText:SetText(localizedName)
+                    row.nameText:SetText(G.L(localizedName))
                     row.searchButton.fallbackName = localizedName
                     SetItemQuality(row.nameText, item)
                 end)
@@ -1168,16 +1168,16 @@ local function RefreshDropdowns()
 
     local className = G.GetClassDisplayName and G.GetClassDisplayName(selectedClass) or selectedClass or "Klasse"
     local classMarkup = G.GetClassIconMarkup and G.GetClassIconMarkup(selectedClass, 16) or ""
-    classDropdown:SetText(classMarkup .. className)
+    classDropdown:SetText(G.L(classMarkup .. className))
 
     local specName, specIcon
     if G.GetSpecInfo and selectedClass and selectedSpec then
         specName, specIcon = G.GetSpecInfo(selectedClass, selectedSpec)
     end
     local specMarkup = G.GetSpecIconMarkup and G.GetSpecIconMarkup(specIcon, 16) or ""
-    specDropdown:SetText(specMarkup .. (specName or selectedSpec or "Spec"))
+    specDropdown:SetText(G.L(specMarkup .. (specName or selectedSpec or "Spec")))
 
-    sourceDropdown:SetText(selectedSource == "keystoneloot" and "KeystoneLoot" or "Wowhead")
+    sourceDropdown:SetText(G.L(selectedSource == "keystoneloot" and "KeystoneLoot" or "Wowhead"))
     sourceDropdown:SetupMenu(function(_, rootDescription)
         rootDescription:CreateRadio("Wowhead", function() return selectedSource == "wowhead" end, function()
             selectedSource = "wowhead"
@@ -1210,9 +1210,9 @@ local function RefreshDropdowns()
     if selectedSource == "keystoneloot" then
         local data = GrimoireKeystoneLootData and GrimoireKeystoneLootData[selectedClass] and GrimoireKeystoneLootData[selectedClass][selectedSpec]
         local updated = data and data.updated or "unbekannt"
-        sourceHint:SetText("Gems: " .. selectedKeystoneContext .. " • API: " .. updated)
+        sourceHint:SetText(G.L("Gems: " .. selectedKeystoneContext .. " • API: " .. updated))
     else
-        sourceHint:SetText("VZ, Edelsteine, Flask und Food: Wowhead")
+        sourceHint:SetText(G.L("VZ, Edelsteine, Flask und Food: Wowhead"))
     end
 
     classDropdown:SetupMenu(function(_, rootDescription)
@@ -1308,15 +1308,15 @@ local function CreateAuctionHouseButton()
     )
     ahToggleButton:SetSize(24, 24)
     ahToggleButton:SetPoint("TOPRIGHT", AuctionHouseFrame, "TOPRIGHT", -34, -6)
-    ahToggleButton:SetText("G")
+    ahToggleButton:SetText(G.L("G"))
     ahToggleButton:SetFrameLevel(AuctionHouseFrame:GetFrameLevel() + 20)
 
     ahToggleButton:SetScript("OnClick", AH.Toggle)
     ahToggleButton:SetScript("OnEnter", function(self)
         GameTooltip:SetOwner(self, "ANCHOR_LEFT")
-        GameTooltip:SetText("Grimoire – Enhancements")
-        GameTooltip:AddLine("Alle Klassen/Specs fürs Auktionshaus anzeigen.", 0.8, 0.8, 0.8, true)
-        GameTooltip:AddLine("Item anklicken → direkt im AH suchen.", 1.0, 0.82, 0.0, true)
+        GameTooltip:SetText(G.L("Grimoire – Enhancements"))
+        GameTooltip:AddLine(G.L("Alle Klassen/Specs fürs Auktionshaus anzeigen."), 0.8, 0.8, 0.8, true)
+        GameTooltip:AddLine(G.L("Item anklicken → direkt im AH suchen."), 1.0, 0.82, 0.0, true)
         GameTooltip:Show()
     end)
     ahToggleButton:SetScript("OnLeave", GameTooltip_Hide)

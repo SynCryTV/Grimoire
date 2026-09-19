@@ -1,5 +1,11 @@
 # Änderungsverlauf
 
+## 5.2.24
+
+- Vollständige Sprachinfrastruktur ergänzt: Beim ersten Start übernimmt Grimoire die Client-Sprache; Deutsch und English lassen sich danach dauerhaft in den Einstellungen wählen.
+- Alle sichtbaren UI-, Tooltip-, Hinweis-, Chat- und Fehlermeldungen laufen über die zentrale Locale-Schicht. Neue Übersetzungen nutzen Schlüssel und lassen sich künftig ohne doppelte UI-Logik ergänzen.
+- Raid-Werteziele zeigen ein gelbes Ausrufezeichen mit Hover-Erklärung, wenn für die aktive Spec noch nicht genügend Mythic-Parses vorliegen und deshalb der heroische Endboss-Fallback verwendet wird.
+
 ## 5.2.23
 
 - Klassendaten für BiS-Listen, Mythisch+-Werteziele und Raid-Werteziele aktualisiert.

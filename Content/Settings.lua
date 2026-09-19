@@ -5,15 +5,15 @@ local TAB_KEY = "settings"
 local frame = CreateFrame("Frame", "GrimoireSettingsTab", G.panel)
 frame:SetPoint("TOPLEFT", G.selectorBar, "BOTTOMLEFT", 0, -20)
 frame:SetPoint("RIGHT", G.panel, "RIGHT", -16, 0)
-frame:SetHeight(270)
+frame:SetHeight(312)
 
 local title = frame:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
 title:SetPoint("TOPLEFT", 4, -2)
-title:SetText("Einstellungen")
+title:SetText(G.L("Einstellungen"))
 
 local subtitle = frame:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
 subtitle:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -6)
-subtitle:SetText("Optionale Grimoire-Funktionen")
+subtitle:SetText(G.L("Optionale Grimoire-Funktionen"))
 
 local dungeonTeleportCheck = CreateFrame(
     "CheckButton",
@@ -30,7 +30,7 @@ local dungeonTeleportLabel = frame:CreateFontString(
     "GameFontHighlight"
 )
 dungeonTeleportLabel:SetPoint("LEFT", dungeonTeleportCheck, "RIGHT", 4, 0)
-dungeonTeleportLabel:SetText("Dungeon-Teleports auf der Mythisch+-Übersicht")
+dungeonTeleportLabel:SetText(G.L("Dungeon-Teleports auf der Mythisch+-Übersicht"))
 
 local dungeonTeleportHelp = frame:CreateFontString(
     nil,
@@ -47,21 +47,21 @@ dungeonTeleportHelp:SetPoint(
 dungeonTeleportHelp:SetPoint("RIGHT", frame, "RIGHT", -12, 0)
 dungeonTeleportHelp:SetJustifyH("LEFT")
 dungeonTeleportHelp:SetWordWrap(true)
-dungeonTeleportHelp:SetText(
+dungeonTeleportHelp:SetText(G.L(
     "Wenn aktiviert, teleportiert ein Klick auf einen Dungeon in der "
     .. "Mythisch+-Übersicht direkt zum Eingang – sofern der entsprechende "
     .. "Keystone-Hero-Teleport auf diesem Charakter erlernt ist."
-)
+))
 
 local note = frame:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
 note:SetPoint("TOPLEFT", dungeonTeleportHelp, "BOTTOMLEFT", 0, -14)
 note:SetPoint("RIGHT", frame, "RIGHT", -12, 0)
 note:SetJustifyH("LEFT")
 note:SetWordWrap(true)
-note:SetText(
+note:SetText(G.L(
     "Nicht erlernte Teleports werden nicht ausgelöst. "
     .. "Im Tooltip steht dann „Zauber nicht erlernt“."
-)
+))
 
 
 -- ============================================================
@@ -83,7 +83,7 @@ local groupReminderLabel = frame:CreateFontString(
     "GameFontHighlight"
 )
 groupReminderLabel:SetPoint("LEFT", groupReminderCheck, "RIGHT", 4, 0)
-groupReminderLabel:SetText("Gruppensucher-Reminder")
+groupReminderLabel:SetText(G.L("Gruppensucher-Reminder"))
 
 local groupReminderHelp = frame:CreateFontString(
     nil,
@@ -100,11 +100,11 @@ groupReminderHelp:SetPoint(
 groupReminderHelp:SetPoint("RIGHT", frame, "RIGHT", -12, 0)
 groupReminderHelp:SetJustifyH("LEFT")
 groupReminderHelp:SetWordWrap(true)
-groupReminderHelp:SetText(
+groupReminderHelp:SetText(G.L(
     "Zeigt nach dem Beitritt über den organisierten Gruppensucher ein "
     .. "kleines Reminder-Fenster mit Dungeon/Raid und Schwierigkeitsgrad. "
     .. "Das Fenster bleibt offen, bis du es selbst schließt."
-)
+))
 
 -- ============================================================================
 -- Quellenübersicht
@@ -113,7 +113,7 @@ groupReminderHelp:SetText(
 local sourceInfoButton = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
 sourceInfoButton:SetSize(180, 24)
 sourceInfoButton:SetPoint("TOPLEFT", groupReminderHelp, "BOTTOMLEFT", 0, -14)
-sourceInfoButton:SetText("Info & Quellen")
+sourceInfoButton:SetText(G.L("Info & Quellen"))
 
 local sourcePopup = CreateFrame("Frame", "GrimoireSourceInfoPopup", UIParent, "BackdropTemplate")
 sourcePopup:SetSize(455, 300)
@@ -133,11 +133,11 @@ sourcePopup:Hide()
 
 local popupTitle = sourcePopup:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
 popupTitle:SetPoint("TOPLEFT", 14, -12)
-popupTitle:SetText("Grimoire – Quellen")
+popupTitle:SetText(G.L("Grimoire – Quellen"))
 
 local popupHint = sourcePopup:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
 popupHint:SetPoint("TOPLEFT", popupTitle, "BOTTOMLEFT", 0, -5)
-popupHint:SetText("Quelle anklicken → URL markieren → Strg+C im Browser einfügen")
+popupHint:SetText(G.L("Quelle anklicken → URL markieren → Strg+C im Browser einfügen"))
 
 local popupClose = CreateFrame("Button", nil, sourcePopup, "UIPanelCloseButton")
 popupClose:SetPoint("TOPRIGHT", 1, 1)
@@ -164,9 +164,9 @@ for index, source in ipairs(SOURCES) do
     local button = CreateFrame("Button", nil, sourcePopup, "UIPanelButtonTemplate")
     button:SetSize(112, 22)
     button:SetPoint("TOPLEFT", sourcePopup, "TOPLEFT", 14, -48 - ((index - 1) * 33))
-    button:SetText(source.name)
+    button:SetText(G.L(source.name))
     button:SetScript("OnClick", function()
-        urlBox:SetText(source.url)
+        urlBox:SetText(G.L(source.url))
         urlBox:SetFocus()
         urlBox:HighlightText()
     end)
@@ -176,13 +176,43 @@ for index, source in ipairs(SOURCES) do
     description:SetPoint("RIGHT", sourcePopup, "RIGHT", -12, 0)
     description:SetJustifyH("LEFT")
     description:SetWordWrap(false)
-    description:SetText(source.note)
+    description:SetText(G.L(source.note))
 end
 
 sourceInfoButton:SetScript("OnClick", function()
     sourcePopup:Show()
-    urlBox:SetText(SOURCES[1].url)
+    urlBox:SetText(G.L(SOURCES[1].url))
 end)
+
+local languageLabel = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+languageLabel:SetPoint("TOPLEFT", sourceInfoButton, "BOTTOMLEFT", 0, -16)
+languageLabel:SetText(G.T("LANGUAGE"))
+
+local languageDropdown = CreateFrame("DropdownButton", "GrimoireLanguageDropdown", frame, "WowStyle1DropdownTemplate")
+languageDropdown:SetPoint("TOPLEFT", languageLabel, "BOTTOMLEFT", -16, -3)
+languageDropdown:SetSize(220, 24)
+
+local function LanguageLabel(language)
+    return language == "enUS" and G.T("LANGUAGE_ENGLISH") or G.T("LANGUAGE_GERMAN")
+end
+
+local function RefreshLanguageDropdown()
+    languageDropdown:SetText(LanguageLabel(G.GetLanguage()))
+    languageDropdown:SetupMenu(function(_, rootDescription)
+        for _, language in ipairs({ "deDE", "enUS" }) do
+            rootDescription:CreateRadio(
+                LanguageLabel(language),
+                function() return G.GetLanguage() == language end,
+                function()
+                    G.SetLanguage(language)
+                    -- Statische Beschriftungen werden beim UI-Aufbau gesetzt;
+                    -- der Reload wendet den Wechsel vollständig an.
+                    ReloadUI()
+                end
+            )
+        end
+    end)
+end
 
 local function IsEnabled()
     if not G.db then
@@ -212,11 +242,12 @@ end
 local function Refresh()
     dungeonTeleportCheck:SetChecked(IsEnabled())
     groupReminderCheck:SetChecked(IsGroupReminderEnabled())
+    RefreshLanguageDropdown()
 
     if G.GetActiveTab and G.GetActiveTab() == TAB_KEY
         and G.SetPanelContentHeight
     then
-        G.SetPanelContentHeight(270)
+        G.SetPanelContentHeight(312)
     end
 end
 

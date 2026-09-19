@@ -7,9 +7,9 @@ SlashCmdList["GRIMOIRE"] = function(msg)
     local command = (msg or ""):trim():lower()
 
     if command == "help" then
-        print("|cffa335eeGrimoire|r Befehle:")
-        print("  /grim — Panel öffnen/schließen")
-        print("  /grim help — diese Liste anzeigen")
+        print(G.L("|cffa335eeGrimoire|r Befehle:"))
+        print(G.L("  /grim — Panel öffnen/schließen"))
+        print(G.L("  /grim help — diese Liste anzeigen"))
         return
     end
 
@@ -18,6 +18,6 @@ end
 
 G.RegisterOnDatabaseReady(function()
     if G.db.showLoginMessage then
-        print("|cffa335eeGrimoire|r geladen — tippe /grim zum Öffnen")
+        print(G.L("|cffa335eeGrimoire|r geladen — tippe /grim zum Öffnen"))
     end
 end)

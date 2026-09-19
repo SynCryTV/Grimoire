@@ -63,11 +63,11 @@ toastText:SetWordWrap(false)
 
 local toastGeneration = 0
 
-local function ShowToast(message, kind)
+local function ShowToast(G.L(message), kind)
     toastGeneration = toastGeneration + 1
     local generation = toastGeneration
 
-    toastText:SetText(message or "")
+    toastText:SetText(G.L(message or ""))
 
     if kind == "warning" then
         toastIcon:SetAtlas("common-icon-redx", false)
@@ -141,11 +141,11 @@ copyPopup:Hide()
 
 local copyTitle = copyPopup:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
 copyTitle:SetPoint("TOPLEFT", copyPopup, "TOPLEFT", 10, -8)
-copyTitle:SetText("Itemname kopieren")
+copyTitle:SetText(G.L("Itemname kopieren"))
 
 local copyHint = copyPopup:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
 copyHint:SetPoint("TOPRIGHT", copyPopup, "TOPRIGHT", -32, -8)
-copyHint:SetText("Strg+C")
+copyHint:SetText(G.L("Strg+C"))
 
 -- Schließen-Button, falls das Fenster versehentlich geöffnet wurde.
 local copyCloseButton = CreateFrame("Button", nil, copyPopup, "UIPanelCloseButton")
@@ -171,7 +171,7 @@ CloseCopyPopup = function(copied)
     copyClickCatcher:Hide()
 
     if copied then
-        ShowToast("Name kopiert")
+        ShowToast(G.L("Name kopiert"))
     end
 end
 
@@ -194,7 +194,7 @@ local function ShowCopyPopup(itemID, fallbackName)
 
         name = name or fallbackName or ("Item " .. tostring(itemID))
 
-        copyEdit:SetText(name)
+        copyEdit:SetText(G.L(name))
         copyClickCatcher:Show()
         copyPopup:Show()
         copyEdit:SetFocus()
@@ -676,20 +676,20 @@ local function SendSectionToAuctionator(sectionTitle, entries)
         or not Auctionator.Shopping
         or not Auctionator.Shopping.ListManager
     then
-        ShowToast("Auctionator ist nicht geladen.", "warning")
+        ShowToast(G.L("Auctionator ist nicht geladen."), "warning")
         return
     end
 
     if not entries or #entries == 0 then
-        ShowToast("Keine Items in diesem Abschnitt.", "warning")
+        ShowToast(G.L("Keine Items in diesem Abschnitt."), "warning")
         return
     end
 
-    ShowToast("Items werden vorbereitet …")
+    ShowToast(G.L("Items werden vorbereitet …"))
 
     BuildLocalizedAuctionatorItems(entries, function(items)
         if #items == 0 then
-            ShowToast("Itemnamen konnten nicht geladen werden.", "warning")
+            ShowToast(G.L("Itemnamen konnten nicht geladen werden."), "warning")
             return
         end
 
@@ -702,14 +702,14 @@ local function SendSectionToAuctionator(sectionTitle, entries)
 
         local list = manager:GetByName(listName)
         if not list then
-            ShowToast("Auctionator-Liste konnte nicht erstellt werden.", "warning")
+            ShowToast(G.L("Auctionator-Liste konnte nicht erstellt werden."), "warning")
             return
         end
 
         list:ClearItems()
         list:AppendItems(items)
 
-        ShowToast(string.format("%d Items → Auctionator-Liste", #items))
+        ShowToast(G.L(string.format("%d Items → Auctionator-Liste", #items)))
     end)
 end
 
@@ -782,19 +782,19 @@ local function ApplyPendingFavorites()
             pending[itemIDString] = nil
             completed = completed + 1
         elseif reason == "max" then
-            ShowToast("Maximale Anzahl an Favoriten erreicht.", "warning")
+            ShowToast(G.L("Maximale Anzahl an Favoriten erreicht."), "warning")
             break
         end
     end
 
     if completed > 0 then
-        ShowToast(string.format("%d Favoriten gesetzt", completed))
+        ShowToast(G.L(string.format("%d Favoriten gesetzt", completed)))
     end
 end
 
 local function FavoriteSectionItems(entries)
     if not entries or #entries == 0 then
-        ShowToast("Keine Items in diesem Abschnitt.", "warning")
+        ShowToast(G.L("Keine Items in diesem Abschnitt."), "warning")
         return
     end
 
@@ -814,7 +814,7 @@ local function FavoriteSectionItems(entries)
                 elseif ok and reason == "already" then
                     already = already + 1
                 elseif reason == "max" then
-                    ShowToast("Maximale Anzahl an Favoriten erreicht.", "warning")
+                    ShowToast(G.L("Maximale Anzahl an Favoriten erreicht."), "warning")
                     break
                 else
                     QueueFavorite(itemID)
@@ -828,17 +828,17 @@ local function FavoriteSectionItems(entries)
     end
 
     if added > 0 then
-        ShowToast(string.format("%d Favoriten gesetzt", added))
+        ShowToast(G.L(string.format("%d Favoriten gesetzt", added)))
     end
 
     if already > 0 then
         if added == 0 and queued == 0 then
-            ShowToast(string.format("%d Items bereits favorisiert", already))
+            ShowToast(G.L(string.format("%d Items bereits favorisiert", already)))
         end
     end
 
     if queued > 0 then
-        ShowToast(string.format("%d Favoriten vorgemerkt", queued))
+        ShowToast(G.L(string.format("%d Favoriten vorgemerkt", queued)))
     end
 end
 
@@ -906,9 +906,9 @@ local function CreateRow(parent)
     copyButton:SetScript("OnEnter", function(self)
         if not self.itemId then return end
         GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-        GameTooltip:SetText("Itemname kopieren")
-        GameTooltip:AddLine(
-            "Klicken → Name öffnen, danach Strg+C drücken.",
+        GameTooltip:SetText(G.L("Itemname kopieren"))
+        GameTooltip:AddLine(G.L(
+            "Klicken → Name öffnen, danach Strg+C drücken."),
             0.8, 0.8, 0.8,
             true
         )
@@ -1043,20 +1043,20 @@ for _, def in ipairs(SECTION_DEFS) do
     local auctionButton = CreateFrame("Button", nil, header, "UIPanelButtonTemplate")
     auctionButton:SetSize(34, 18)
     auctionButton:SetPoint("RIGHT", favoriteButton, "LEFT", -4, 0)
-    auctionButton:SetText("AH")
+    auctionButton:SetText(G.L("AH"))
     auctionButton:SetFrameLevel(header:GetFrameLevel() + 5)
 
     favoriteButton:SetScript("OnEnter", function(self)
         GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-        GameTooltip:SetText("Auktionshaus-Favoriten")
-        GameTooltip:AddLine(
-            "Markiert alle Items dieses Abschnitts als Favoriten im normalen WoW-Auktionshaus.",
+        GameTooltip:SetText(G.L("Auktionshaus-Favoriten"))
+        GameTooltip:AddLine(G.L(
+            "Markiert alle Items dieses Abschnitts als Favoriten im normalen WoW-Auktionshaus."),
             0.8, 0.8, 0.8,
             true
         )
         if not CanUseAuctionFavorites() then
-            GameTooltip:AddLine(
-                "Ist das Auktionshaus nicht geöffnet, werden die Items vorgemerkt.",
+            GameTooltip:AddLine(G.L(
+                "Ist das Auktionshaus nicht geöffnet, werden die Items vorgemerkt."),
                 1.0, 0.82, 0.0,
                 true
             )
@@ -1074,9 +1074,9 @@ for _, def in ipairs(SECTION_DEFS) do
 
     auctionButton:SetScript("OnEnter", function(self)
         GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-        GameTooltip:SetText("Zu Auctionator")
-        GameTooltip:AddLine(
-            "Erstellt oder aktualisiert die Einkaufsliste für diesen Abschnitt.",
+        GameTooltip:SetText(G.L("Zu Auctionator"))
+        GameTooltip:AddLine(G.L(
+            "Erstellt oder aktualisiert die Einkaufsliste für diesen Abschnitt."),
             0.8, 0.8, 0.8,
             true
         )
@@ -1144,8 +1144,8 @@ local function RefreshSection(entry, specData, animate)
         row.copyButton.itemId = nil
         row.copyButton.fallbackName = nil
         row.iconButton.texture:SetTexture(134400)
-        row.slotText:SetText("")
-        row.nameText:SetText("Keine Daten verfügbar.")
+        row.slotText:SetText(G.L(""))
+        row.nameText:SetText(G.L("Keine Daten verfügbar."))
         row.nameText:SetTextColor(0.55, 0.55, 0.55)
         row:SetAlpha(1)
         row:Show()
@@ -1175,8 +1175,8 @@ local function RefreshSection(entry, specData, animate)
         row.copyButton.itemId = itemID
         row.copyButton.fallbackName = itemEntry.item.name
         row.iconButton.texture:SetTexture(134400)
-        row.slotText:SetText(itemEntry.label or "")
-        row.nameText:SetText(itemEntry.item.name or ("Item " .. tostring(itemID)))
+        row.slotText:SetText(G.L(itemEntry.label or ""))
+        row.nameText:SetText(G.L(itemEntry.item.name or ("Item " .. tostring(itemID))))
         row.nameText:SetTextColor(1, 1, 1)
 
         local item = Item:CreateFromItemID(itemID)
@@ -1185,7 +1185,7 @@ local function RefreshSection(entry, specData, animate)
 
             row.iconButton.texture:SetTexture(item:GetItemIcon() or 134400)
             local localizedName = item:GetItemName() or itemEntry.item.name or ("Item " .. tostring(itemID))
-            row.nameText:SetText(localizedName)
+            row.nameText:SetText(G.L(localizedName))
             row.copyButton.fallbackName = localizedName
             SetItemQuality(row.nameText, item)
         end)
@@ -1215,7 +1215,7 @@ end
 local function Refresh(animate)
     local specData = GetSpecData()
 
-    sourceDropdown:SetText(selectedSource == "keystoneloot" and "KeystoneLoot" or "Wowhead")
+    sourceDropdown:SetText(G.L(selectedSource == "keystoneloot" and "KeystoneLoot" or "Wowhead"))
     sourceDropdown:SetupMenu(function(_, root)
         root:CreateRadio("Wowhead", function() return selectedSource == "wowhead" end, function()
             selectedSource = "wowhead"
@@ -1244,9 +1244,9 @@ local function Refresh(animate)
         end
     end)
     if selectedSource == "keystoneloot" then
-        sourceHint:SetText("Sockel: KeystoneLoot (" .. selectedKeystoneContext .. ") • VZ, Fläschchen, Essen: Wowhead")
+        sourceHint:SetText(G.L("Sockel: KeystoneLoot (" .. selectedKeystoneContext .. ") • VZ, Fläschchen, Essen: Wowhead"))
     else
-        sourceHint:SetText("VZ, Sockel, Fläschchen, Essen und Tränke: Wowhead")
+        sourceHint:SetText(G.L("VZ, Sockel, Fläschchen, Essen und Tränke: Wowhead"))
     end
 
     for _, entry in ipairs(sections) do

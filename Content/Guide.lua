@@ -1,4 +1,5 @@
 local ADDON_NAME, G = ...
+local L = G.L
 
 local guideFrame = CreateFrame("Frame", "GrimoireGuideTab", G.panel)
 guideFrame:SetPoint("TOPLEFT", G.selectorBar, "BOTTOMLEFT", 0, -20)
@@ -19,7 +20,7 @@ local function MakePlaceholderBody(parent, text)
     fs:SetPoint("RIGHT", -4, 0)
     fs:SetJustifyH("LEFT")
     fs:SetTextColor(0.5, 0.5, 0.5)
-    fs:SetText(text)
+    fs:SetText(G.L(text))
     return body
 end
 
@@ -89,9 +90,9 @@ end
 
 -- Reihenfolge gemäß Spezifikation: Werteziele, Wertepriorität, Omnium Folio.
 G.GuideSectionOrder = { "statTargets", "statPriority", "omniumFolio" }
-AddSection("statTargets", "Werteziele", "Werteziele werden geladen, sobald Daten für diese Spec verfügbar sind.")
-AddSection("statPriority", "Wertepriorität", "Wertepriorität wird geladen, sobald Daten für diese Spec verfügbar sind.")
-AddSection("omniumFolio", "Omnium Folio", "Omnium-Folio-Empfehlungen werden geladen, sobald Daten für diese Spec verfügbar sind.")
+AddSection("statTargets", L("Werteziele"), L("Werteziele werden geladen, sobald Daten für diese Spec verfügbar sind."))
+AddSection("statPriority", L("Wertepriorität"), L("Wertepriorität wird geladen, sobald Daten für diese Spec verfügbar sind."))
+AddSection("omniumFolio", L("Omnium Folio"), L("Omnium-Folio-Empfehlungen werden geladen, sobald Daten für diese Spec verfügbar sind."))
 
 LayoutGuideTab()
 G.RegisterTabContent("guide", guideFrame)

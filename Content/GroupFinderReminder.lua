@@ -192,7 +192,7 @@ local title = popup:CreateFontString(
 title:SetPoint("TOPLEFT", icon, "TOPRIGHT", 10, -2)
 title:SetPoint("RIGHT", popup, "RIGHT", -38, 0)
 title:SetJustifyH("LEFT")
-title:SetText("Gruppensucher-Reminder")
+title:SetText(G.L("Gruppensucher-Reminder"))
 
 local activityText = popup:CreateFontString(
     nil,
@@ -243,17 +243,17 @@ local teleportButton = CreateFrame(
 )
 teleportButton:SetSize(180, 24)
 teleportButton:SetPoint("BOTTOMLEFT", popup, "BOTTOMLEFT", 16, 12)
-teleportButton:SetText("Zum Dungeon teleportieren")
+teleportButton:SetText(G.L("Zum Dungeon teleportieren"))
 teleportButton:RegisterForClicks("AnyUp")
 teleportButton:Hide()
 
 teleportButton:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_TOP")
     if not self.spellKnown then
-        GameTooltip:SetText(SPELL_FAILED_NOT_KNOWN or "Zauber nicht erlernt", 1.0, 0.25, 0.25)
+        GameTooltip:SetText(G.L(SPELL_FAILED_NOT_KNOWN or "Zauber nicht erlernt"), 1.0, 0.25, 0.25)
     else
-        GameTooltip:SetText("Dungeon-Teleport", 1.0, 0.82, 0.0)
-        GameTooltip:AddLine("Klicken, um zum Dungeon-Eingang zu teleportieren.", 0.9, 0.9, 0.9, true)
+        GameTooltip:SetText(G.L("Dungeon-Teleport"), 1.0, 0.82, 0.0)
+        GameTooltip:AddLine(G.L("Klicken, um zum Dungeon-Eingang zu teleportieren."), 0.9, 0.9, 0.9, true)
     end
     GameTooltip:Show()
 end)
@@ -274,7 +274,7 @@ local okButton = CreateFrame(
 )
 okButton:SetSize(100, 24)
 okButton:SetPoint("BOTTOMRIGHT", popup, "BOTTOMRIGHT", -16, 12)
-okButton:SetText("Alles klar")
+okButton:SetText(G.L("Alles klar"))
 okButton:SetScript("OnClick", function()
     popup:Hide()
 end)
@@ -288,22 +288,22 @@ local function ShowReminder(data)
         return
     end
 
-    activityText:SetText(
+    activityText:SetText(G.L(
         string.format(
             "%s: |cffffffff%s|r",
             data.activityType or "Aktivität",
             data.activityName or "Unbekannt"
         )
-    )
+    ))
 
-    difficultyText:SetText(
+    difficultyText:SetText(G.L(
         "Schwierigkeitsgrad: |cffffd200"
         .. (data.difficulty or "Unbekannt")
         .. "|r"
-    )
+    ))
 
     if data.groupName and data.groupName ~= "" then
-        groupText:SetText("Gruppe: " .. data.groupName)
+        groupText:SetText(G.L("Gruppe: " .. data.groupName))
         groupText:Show()
     else
         groupText:Hide()

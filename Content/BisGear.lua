@@ -287,12 +287,12 @@ local function EnsureNavToast()
     navToastText:SetJustifyH("CENTER")
 end
 
-local function ShowNavToast(message)
+local function ShowNavToast(G.L(message))
     EnsureNavToast()
     navToastGeneration = navToastGeneration + 1
     local generation = navToastGeneration
 
-    navToastText:SetText(message or "")
+    navToastText:SetText(G.L(message or ""))
     navToast:SetAlpha(0)
     navToast:Show()
 
@@ -595,7 +595,7 @@ end
 
 local function NavigateToBisSource(itemID, sourceName)
     if not itemID then
-        ShowNavToast("Für dieses Item fehlt die Item-ID.")
+        ShowNavToast(G.L("Für dieses Item fehlt die Item-ID."))
         return
     end
 
@@ -604,30 +604,30 @@ local function NavigateToBisSource(itemID, sourceName)
         or normalized:find("herstellung", 1, true)
         or normalized:find("crafted", 1, true)
     then
-        ShowNavToast("Quelle: Herstellung")
+        ShowNavToast(G.L("Quelle: Herstellung"))
         return
     end
 
     if sourceName and TrySetSourceWaypoint(sourceName) then
-        ShowNavToast("Kartenmarker gesetzt: " .. sourceName)
+        ShowNavToast(G.L("Kartenmarker gesetzt: " .. sourceName))
         return
     end
 
-    ShowNavToast("Quelle wird gesucht …")
+    ShowNavToast(G.L("Quelle wird gesucht …"))
 
     -- Weg 1: Item-ID -> lokaler deutscher Itemname -> EJ-Lootsuche.
     FindEncounterJournalSourceByItemID(itemID, function(result)
         if result and OpenEncounterJournalResult(result, itemID) then
             if result.encounterID then
-                ShowNavToast(
+                ShowNavToast(G.L(
                     "Beute geöffnet: "
                     .. (result.encounterName or result.instanceName or "Boss")
-                )
+                ))
             else
-                ShowNavToast(
+                ShowNavToast(G.L(
                     "Beute geöffnet: "
                     .. (result.instanceName or "Dungeon/Raid")
-                )
+                ))
             end
             return
         end
@@ -636,17 +636,17 @@ local function NavigateToBisSource(itemID, sourceName)
         -- Dann über die Quelle zur Instanz navigieren.
         FindInstanceByLocalizedSource(sourceName, function(sourceResult)
             if sourceResult and OpenEncounterJournalResult(sourceResult, itemID) then
-                ShowNavToast(
+                ShowNavToast(G.L(
                     "Instanz/Beute geöffnet: "
                     .. (sourceResult.instanceName or sourceName or "Dungeon/Raid")
-                )
+                ))
                 return
             end
 
             if sourceName and sourceName ~= "" then
-                ShowNavToast("Keine automatische Navigation: " .. sourceName)
+                ShowNavToast(G.L("Keine automatische Navigation: " .. sourceName))
             else
-                ShowNavToast("Keine Dungeon-/Raidquelle gefunden.")
+                ShowNavToast(G.L("Keine Dungeon-/Raidquelle gefunden."))
             end
         end)
     end)
@@ -854,7 +854,7 @@ alertCheckbox:SetSize(24, 24)
 
 local alertLabel = bisGearFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 alertLabel:SetPoint("LEFT", alertCheckbox, "RIGHT", 2, 0)
-alertLabel:SetText("Diese Liste überwachen")
+alertLabel:SetText(G.L("Diese Liste überwachen"))
 
 -- Kleine Hilfe direkt neben der Einstellung.
 local alertHelp = CreateFrame("Frame", nil, bisGearFrame)
@@ -864,45 +864,45 @@ alertHelp:EnableMouse(true)
 
 local alertHelpText = alertHelp:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
 alertHelpText:SetPoint("CENTER", 0, 0)
-alertHelpText:SetText("?")
+alertHelpText:SetText(G.L("?"))
 alertHelpText:SetTextColor(0.72, 0.72, 0.72)
 
 alertHelp:SetScript("OnEnter", function(self)
     alertHelpText:SetTextColor(1.0, 0.82, 0.0)
 
     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-    GameTooltip:SetText("BiS-Drop-Warnung")
-    GameTooltip:AddLine(" ")
-    GameTooltip:AddLine(
-        "Überwacht genau die aktuell ausgewählte BiS-Liste und Unterkategorie.",
+    GameTooltip:SetText(G.L("BiS-Drop-Warnung"))
+    GameTooltip:AddLine(G.L(" "))
+    GameTooltip:AddLine(G.L(
+        "Überwacht genau die aktuell ausgewählte BiS-Liste und Unterkategorie."),
         1, 1, 1,
         true
     )
-    GameTooltip:AddLine(" ")
-    GameTooltip:AddLine(
-        "Es kann immer nur eine BiS-Liste gleichzeitig überwacht werden.",
+    GameTooltip:AddLine(G.L(" "))
+    GameTooltip:AddLine(G.L(
+        "Es kann immer nur eine BiS-Liste gleichzeitig überwacht werden."),
         0.82, 0.82, 0.82,
         true
     )
-    GameTooltip:AddLine(
-        "Aktivierst du den Haken bei einer anderen Liste, wird die vorherige automatisch deaktiviert.",
+    GameTooltip:AddLine(G.L(
+        "Aktivierst du den Haken bei einer anderen Liste, wird die vorherige automatisch deaktiviert."),
         0.82, 0.82, 0.82,
         true
     )
-    GameTooltip:AddLine(" ")
-    GameTooltip:AddLine(
-        "Eigene Drops: Sound, wenn du selbst eines deiner BiS-Items erhältst.",
+    GameTooltip:AddLine(G.L(" "))
+    GameTooltip:AddLine(G.L(
+        "Eigene Drops: Sound, wenn du selbst eines deiner BiS-Items erhältst."),
         0.45, 0.85, 1.0,
         true
     )
-    GameTooltip:AddLine(
-        "Drops anderer: Sound, wenn ein Gruppen- oder Raidmitglied eines deiner BiS-Items erhält.",
+    GameTooltip:AddLine(G.L(
+        "Drops anderer: Sound, wenn ein Gruppen- oder Raidmitglied eines deiner BiS-Items erhält."),
         0.45, 0.85, 1.0,
         true
     )
-    GameTooltip:AddLine(" ")
-    GameTooltip:AddLine(
-        "Den Warnton kannst du im Dropdown auswählen und direkt vorhören.",
+    GameTooltip:AddLine(G.L(" "))
+    GameTooltip:AddLine(G.L(
+        "Den Warnton kannst du im Dropdown auswählen und direkt vorhören."),
         1.0, 0.82, 0.0,
         true
     )
@@ -934,7 +934,7 @@ ownDropCheckbox:SetSize(24, 24)
 
 local ownDropLabel = bisGearFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 ownDropLabel:SetPoint("LEFT", ownDropCheckbox, "RIGHT", 2, 0)
-ownDropLabel:SetText("Eigene Drops")
+ownDropLabel:SetText(G.L("Eigene Drops"))
 
 local othersDropCheckbox = CreateFrame(
     "CheckButton",
@@ -947,7 +947,7 @@ othersDropCheckbox:SetSize(24, 24)
 
 local othersDropLabel = bisGearFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 othersDropLabel:SetPoint("LEFT", othersDropCheckbox, "RIGHT", 2, 0)
-othersDropLabel:SetText("Drops anderer")
+othersDropLabel:SetText(G.L("Drops anderer"))
 
 local rows = {}
 
@@ -1105,7 +1105,7 @@ local function SyncAlertControls()
     othersDropCheckbox:SetChecked(cfg.otherDrops == true)
 
     local soundDef = BIS_ALERT_SOUND_BY_KEY[cfg.sound or "epic"] or BIS_ALERT_SOUND_BY_KEY.pvpqueue
-    soundDropdown:SetText(soundDef and soundDef.label or "Epische Beute")
+    soundDropdown:SetText(G.L(soundDef and soundDef.label or "Epische Beute"))
 
     soundDropdown:SetupMenu(function(_, rootDescription)
         for _, def in ipairs(BIS_ALERT_SOUNDS) do
@@ -1118,7 +1118,7 @@ local function SyncAlertControls()
                     end,
                     function()
                         G.db.bisDropAlert.sound = def.key
-                        soundDropdown:SetText(def.label)
+                        soundDropdown:SetText(G.L(def.label))
 
                         -- Vorhören direkt bei Auswahl.
                         PreviewBisAlertSound(def.key)
@@ -1188,9 +1188,9 @@ local function CreateRow(i)
         GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
         GameTooltip:SetItemByID(self.itemId)
         if self.sourceName and self.sourceName ~= "" then
-            GameTooltip:AddLine(" ")
-            GameTooltip:AddLine("Linksklick: Quelle anzeigen", 1.0, 0.82, 0.0)
-            GameTooltip:AddLine("Rechtsklick: Anprobe", 0.65, 0.65, 0.65)
+            GameTooltip:AddLine(G.L(" "))
+            GameTooltip:AddLine(G.L("Linksklick: Quelle anzeigen"), 1.0, 0.82, 0.0)
+            GameTooltip:AddLine(G.L("Rechtsklick: Anprobe"), 0.65, 0.65, 0.65)
         end
         GameTooltip:Show()
     end)
@@ -1267,13 +1267,13 @@ local function Layout(totalHeight)
     ReportContentHeight(totalHeight)
 end
 
-local function ShowFallback(text, yOffset)
+local function ShowFallback(G.L(text), yOffset)
     yOffset = yOffset or 0
     for _, row in ipairs(rows) do row:Hide() end
     fallbackText:ClearAllPoints()
     fallbackText:SetPoint("TOPLEFT", bisGearFrame, "TOPLEFT", 0, -yOffset)
     fallbackText:SetPoint("RIGHT", bisGearFrame, "RIGHT", 0, 0)
-    fallbackText:SetText(text)
+    fallbackText:SetText(G.L(text))
     fallbackText:Show()
     Layout(yOffset + (fallbackText:GetStringHeight() or 14) + 6)
 end
@@ -1386,9 +1386,9 @@ local function RenderSlots(normalizedSlots, yOffset)
             row.iconButton.itemId = entry.item.itemId
             row.iconButton.sourceName = entry.source
             row.iconButton.texture:SetTexture(134400) -- Fragezeichen-Icon, bis Item geladen ist
-            row.slotText:SetText(display.label)
+            row.slotText:SetText(G.L(display.label))
             row.alternativeText:Hide()
-            row.alternativeText:SetText("")
+            row.alternativeText:SetText(G.L(""))
             row.alternativeText:ClearAllPoints()
             row.alternativeText:SetPoint("TOPLEFT", row, "TOP", 4, -1)
             row.alternativeText:SetPoint("RIGHT", row, "RIGHT", -2, 0)
@@ -1420,8 +1420,8 @@ local function RenderSlots(normalizedSlots, yOffset)
                             if not self.itemId then return end
                             GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
                             GameTooltip:SetItemByID(self.itemId)
-                            GameTooltip:AddLine(" ")
-                            GameTooltip:AddLine("KeystoneLoot-Alternative", 0.55, 0.75, 1.0)
+                            GameTooltip:AddLine(G.L(" "))
+                            GameTooltip:AddLine(G.L("KeystoneLoot-Alternative"), 0.55, 0.75, 1.0)
                             GameTooltip:Show()
                         end)
                         alternativeButton:SetScript("OnLeave", GameTooltip_Hide)
@@ -1443,7 +1443,7 @@ local function RenderSlots(normalizedSlots, yOffset)
                             row.alternativeText:ClearAllPoints()
                             row.alternativeText:SetPoint("TOPLEFT", lastButton, "TOPRIGHT", 4, 0)
                             row.alternativeText:SetPoint("RIGHT", row, "RIGHT", -2, 0)
-                            row.alternativeText:SetText("Alternativen: " .. table.concat(names, " • "))
+                            row.alternativeText:SetText(G.L("Alternativen: " .. table.concat(names, " • ")))
                             row.alternativeText:Show()
                         end
                     end)
@@ -1456,8 +1456,8 @@ local function RenderSlots(normalizedSlots, yOffset)
             local hasAlternatives = #alternatives > 0
             nameText:SetShown(hasAlternatives)
             wideNameText:SetShown(not hasAlternatives)
-            nameText:SetText(entry.item.name)
-            wideNameText:SetText(entry.item.name)
+            nameText:SetText(G.L(entry.item.name))
+            wideNameText:SetText(G.L(entry.item.name))
             nameText:SetTextColor(1, 1, 1)
             wideNameText:SetTextColor(1, 1, 1)
 
@@ -1465,8 +1465,8 @@ local function RenderSlots(normalizedSlots, yOffset)
             item:ContinueOnItemLoad(function()
                 row.iconButton.texture:SetTexture(item:GetItemIcon() or 134400)
                 local itemName = item:GetItemName() or entry.item.name or ("Item " .. tostring(entry.item.itemId))
-                nameText:SetText(itemName)
-                wideNameText:SetText(itemName)
+                nameText:SetText(G.L(itemName))
+                wideNameText:SetText(G.L(itemName))
 
                 -- Aktuelle WoW-Versionen können hier statt r, g, b ein
                 -- Farbobjekt als ersten Rückgabewert liefern.
@@ -1513,7 +1513,7 @@ local function RenderSlots(normalizedSlots, yOffset)
                     end
                     if #notes > 0 then sourceLabel = sourceLabel .. " • " .. table.concat(notes, ", ") end
                 end
-                sourceText:SetText(sourceLabel)
+                sourceText:SetText(G.L(sourceLabel))
                 sourceText:Show()
             else
                 sourceText:Hide()
@@ -1524,8 +1524,8 @@ local function RenderSlots(normalizedSlots, yOffset)
 
             if entry.bis then
                 local bisName = (entry.item.name or "") .. " |cffe6cc80(BiS)|r"
-                nameText:SetText(bisName)
-                wideNameText:SetText(bisName)
+                nameText:SetText(G.L(bisName))
+                wideNameText:SetText(G.L(bisName))
             end
 
             row:ClearAllPoints()
@@ -1549,7 +1549,7 @@ local function Refresh()
     local classToken = G.GetSelectedClass()
     local specKey = G.GetSelectedSpec()
 
-    sourceDropdown:SetText(SOURCE_BY_KEY[selectedSourceKey].label)
+    sourceDropdown:SetText(G.L(SOURCE_BY_KEY[selectedSourceKey].label))
     sourceDropdown:SetupMenu(function(_, rootDescription)
         for _, src in ipairs(SOURCES) do
             rootDescription:CreateRadio(src.label,
@@ -1570,7 +1570,7 @@ local function Refresh()
     local contextOptions, raw = GetContextOptions(source, classToken, specKey)
 
     if not contextOptions or #contextOptions == 0 then
-        ShowFallback("Keine BiS-Gear-Daten für diese Spec verfügbar.", CONTROL_AREA_HEIGHT + DD_GAP)
+        ShowFallback(G.L("Keine BiS-Gear-Daten für diese Spec verfügbar."), CONTROL_AREA_HEIGHT + DD_GAP)
         return
     end
 
@@ -1583,7 +1583,7 @@ local function Refresh()
 
     local yOffset = CONTROL_AREA_HEIGHT + DD_GAP
     if #contextOptions > 1 then
-        contextDropdown:SetText(selectedContext)
+        contextDropdown:SetText(G.L(selectedContext))
         contextDropdown:SetupMenu(function(_, rootDescription)
             for _, c in ipairs(contextOptions) do
                 rootDescription:CreateRadio(c,
@@ -1603,7 +1603,7 @@ local function Refresh()
 
     local contextEntry = FindContextEntry(raw, selectedContext)
     if not contextEntry then
-        ShowFallback("Keine BiS-Gear-Daten für diese Auswahl verfügbar.", yOffset)
+        ShowFallback(G.L("Keine BiS-Gear-Daten für diese Auswahl verfügbar."), yOffset)
         return
     end
 

@@ -29,7 +29,7 @@ function G.UI.CreateCollapsibleSection(opts)
 
     local title = header:CreateFontString(nil, "OVERLAY", "GameFontNormal")
     title:SetPoint("LEFT", arrow, "RIGHT", 4, 0)
-    title:SetText(opts.title)
+    title:SetText(G.L(opts.title))
     header.title = title
 
     local content = CreateFrame("Frame", nil, section)

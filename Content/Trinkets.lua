@@ -169,7 +169,7 @@ contextDropdown:SetSize(125, DD_HEIGHT)
 
 local searchLabel = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 searchLabel:SetPoint("LEFT", contextDropdown, "RIGHT", 8, 0)
-searchLabel:SetText("Suche:")
+searchLabel:SetText(G.L("Suche:"))
 
 local searchBox = CreateFrame("EditBox", "GrimoireTrinketsSearchBox", trinketsFrame, "InputBoxTemplate")
 searchBox:SetPoint("LEFT", searchLabel, "RIGHT", 6, 0)
@@ -193,7 +193,7 @@ ownClassCheckbox:SetSize(24, 24)
 
 local ownClassLabel = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 ownClassLabel:SetPoint("LEFT", ownClassCheckbox, "RIGHT", 2, 0)
-ownClassLabel:SetText("Tooltip: nur eigene Klasse")
+ownClassLabel:SetText(G.L("Tooltip: nur eigene Klasse"))
 
 -- Kleine Hilfe für Suche, Tierfilter und Tooltip-Optionen.
 local trinketHelp = CreateFrame("Frame", nil, trinketsFrame)
@@ -203,69 +203,69 @@ trinketHelp:EnableMouse(true)
 
 local trinketHelpText = trinketHelp:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
 trinketHelpText:SetPoint("CENTER", 0, 0)
-trinketHelpText:SetText("?")
+trinketHelpText:SetText(G.L("?"))
 trinketHelpText:SetTextColor(0.72, 0.72, 0.72)
 
 trinketHelp:SetScript("OnEnter", function(self)
     trinketHelpText:SetTextColor(1.0, 0.82, 0.0)
 
     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-    GameTooltip:SetText("Trinket-Tierliste")
-    GameTooltip:AddLine(" ")
+    GameTooltip:SetText(G.L("Trinket-Tierliste"))
+    GameTooltip:AddLine(G.L(" "))
 
-    GameTooltip:AddLine(
-        "Suche",
+    GameTooltip:AddLine(G.L(
+        "Suche"),
         1.0, 0.82, 0.0
     )
-    GameTooltip:AddLine(
-        "Filtert die Trinket-Liste nach dem eingegebenen Namen.",
+    GameTooltip:AddLine(G.L(
+        "Filtert die Trinket-Liste nach dem eingegebenen Namen."),
         0.85, 0.85, 0.85,
         true
     )
 
-    GameTooltip:AddLine(" ")
-    GameTooltip:AddLine(
-        "Tier-Filter",
+    GameTooltip:AddLine(G.L(" "))
+    GameTooltip:AddLine(G.L(
+        "Tier-Filter"),
         1.0, 0.82, 0.0
     )
-    GameTooltip:AddLine(
-        "Mit S, A, B, C und D kannst du mehrere Tiers gleichzeitig ein- oder ausblenden.",
+    GameTooltip:AddLine(G.L(
+        "Mit S, A, B, C und D kannst du mehrere Tiers gleichzeitig ein- oder ausblenden."),
         0.85, 0.85, 0.85,
         true
     )
-    GameTooltip:AddLine(
-        "Die Listen- und Tooltip-Tiers lassen sich unabhängig voneinander einstellen.",
+    GameTooltip:AddLine(G.L(
+        "Die Listen- und Tooltip-Tiers lassen sich unabhängig voneinander einstellen."),
         0.85, 0.85, 0.85,
         true
     )
 
-    GameTooltip:AddLine(" ")
-    GameTooltip:AddLine(
-        "Tooltip: nur eigene Klasse",
+    GameTooltip:AddLine(G.L(" "))
+    GameTooltip:AddLine(G.L(
+        "Tooltip: nur eigene Klasse"),
         1.0, 0.82, 0.0
     )
-    GameTooltip:AddLine(
-        "Aktiviert: Im Item-Tooltip werden nur die Specs deiner aktuell gespielten Klasse angezeigt.",
+    GameTooltip:AddLine(G.L(
+        "Aktiviert: Im Item-Tooltip werden nur die Specs deiner aktuell gespielten Klasse angezeigt."),
         0.85, 0.85, 0.85,
         true
     )
-    GameTooltip:AddLine(
-        "Deaktiviert: Der Tooltip kann passende Specs aller Klassen anzeigen.",
-        0.85, 0.85, 0.85,
-        true
-    )
-
-    GameTooltip:AddLine(" ")
-    GameTooltip:AddLine("S+ Tooltip", unpack(PERSONAL_S_PLUS_COLOR))
-    GameTooltip:AddLine(
-        "Schaltet ausschließlich deine persönlichen S+-Markierungen in Item-Tooltips ein oder aus.",
+    GameTooltip:AddLine(G.L(
+        "Deaktiviert: Der Tooltip kann passende Specs aller Klassen anzeigen."),
         0.85, 0.85, 0.85,
         true
     )
 
-    GameTooltip:AddLine(" ")
-    GameTooltip:AddLine(
-        "Die Einstellungen werden gespeichert und bleiben nach einem Neustart erhalten.",
+    GameTooltip:AddLine(G.L(" "))
+    GameTooltip:AddLine(G.L("S+ Tooltip"), unpack(PERSONAL_S_PLUS_COLOR))
+    GameTooltip:AddLine(G.L(
+        "Schaltet ausschließlich deine persönlichen S+-Markierungen in Item-Tooltips ein oder aus."),
+        0.85, 0.85, 0.85,
+        true
+    )
+
+    GameTooltip:AddLine(G.L(" "))
+    GameTooltip:AddLine(G.L(
+        "Die Einstellungen werden gespeichert und bleiben nach einem Neustart erhalten."),
         0.45, 0.85, 1.0,
         true
     )
@@ -289,7 +289,7 @@ personalTooltipCheckbox:SetSize(22, 22)
 
 local personalTooltipLabel = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 personalTooltipLabel:SetPoint("LEFT", personalTooltipCheckbox, "RIGHT", 0, 0)
-personalTooltipLabel:SetText("S+ Tooltip")
+personalTooltipLabel:SetText(G.L("S+ Tooltip"))
 personalTooltipLabel:SetTextColor(unpack(PERSONAL_S_PLUS_COLOR))
 
 ownClassCheckbox:SetScript("OnClick", function(self)
@@ -304,7 +304,7 @@ end)
 
 local tierLabel = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 tierLabel:SetPoint("TOPLEFT", ownClassCheckbox, "BOTTOMLEFT", 4, -4)
-tierLabel:SetText("Tier:")
+tierLabel:SetText(G.L("Tier:"))
 
 local tierCheckboxes = {}
 local lastLabel = tierLabel
@@ -326,7 +326,7 @@ for _, tier in ipairs(TIER_ORDER) do
 
     local label = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     label:SetPoint("LEFT", cb, "RIGHT", 0, 0)
-    label:SetText(tier)
+    label:SetText(G.L(tier))
 
     local tc = GetTierColor(tier)
     label:SetTextColor(tc[1], tc[2], tc[3])
@@ -346,11 +346,11 @@ end
 
 local infoText = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
 infoText:SetPoint("LEFT", lastLabel, "RIGHT", 10, 0)
-infoText:SetText("Wowhead")
+infoText:SetText(G.L("Wowhead"))
 
 local tooltipTierLabel = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
 tooltipTierLabel:SetPoint("TOPLEFT", tierLabel, "BOTTOMLEFT", 0, -4)
-tooltipTierLabel:SetText("Tooltip:")
+tooltipTierLabel:SetText(G.L("Tooltip:"))
 
 local tooltipTierCheckboxes = {}
 local lastTooltipLabel = tooltipTierLabel
@@ -371,7 +371,7 @@ for _, tier in ipairs(TIER_ORDER) do
 
     local label = trinketsFrame:CreateFontString(nil, "OVERLAY", "GameFontHighlightSmall")
     label:SetPoint("LEFT", cb, "RIGHT", 0, 0)
-    label:SetText(tier)
+    label:SetText(G.L(tier))
     local tc = GetTierColor(tier)
     label:SetTextColor(tc[1], tc[2], tc[3])
 
@@ -554,7 +554,7 @@ local function CreateRow(index)
     end)
     local label = personalCheck:CreateFontString(nil, "OVERLAY", "GameFontNormalSmall")
     label:SetPoint("CENTER", 0, 0)
-    label:SetText("S+")
+    label:SetText(G.L("S+"))
     label:SetTextColor(0.50, 0.50, 0.50)
     row.personalCheck = personalCheck
     row.personalLabel = label
@@ -607,14 +607,14 @@ Refresh = function()
 
     local searchQuery = (searchBox:GetText() or ""):lower():match("^%s*(.-)%s*$") or ""
 
-    contextDropdown:SetText(
+    contextDropdown:SetText(G.L(
         (function()
             for _, option in ipairs(CONTEXT_OPTIONS) do
                 if option.key == selectedContext then return option.label end
             end
             return "Alle"
         end)()
-    )
+    ))
 
     contextDropdown:SetupMenu(function(_, rootDescription)
         for _, option in ipairs(CONTEXT_OPTIONS) do
@@ -637,7 +637,7 @@ Refresh = function()
 
     if not trinkets or #trinkets == 0 then
         HideUnused(0, 0)
-        fallbackText:SetText("Keine Trinket-Tierdaten für diese Spec verfügbar.")
+        fallbackText:SetText(G.L("Keine Trinket-Tierdaten für diese Spec verfügbar."))
         fallbackText:Show()
         scrollChild:SetHeight(60)
         ReportContentHeight()
@@ -703,7 +703,7 @@ Refresh = function()
 
             header:ClearAllPoints()
             header:SetPoint("TOPLEFT", scrollChild, "TOPLEFT", 4, -y)
-            header:SetText(group.label)
+            header:SetText(G.L(group.label))
             header:SetTextColor(tc[1], tc[2], tc[3])
             header:Show()
             y = y + HEADER_HEIGHT
@@ -719,20 +719,20 @@ Refresh = function()
                 row.iconButton.itemId = entry.itemId
                 row.iconButton.texture:SetTexture(134400)
 
-                row.nameText:SetText("Item " .. tostring(entry.itemId))
+                row.nameText:SetText(G.L("Item " .. tostring(entry.itemId)))
                 row.nameText:SetTextColor(1, 1, 1)
 
                 local context = ContextText(entry.contexts)
                 if entry.source and entry.source ~= "" then
-                    row.detailText:SetText(
+                    row.detailText:SetText(G.L(
                         (context ~= "" and (context .. "  •  ") or "") .. entry.source
-                    )
+                    ))
                 else
-                    row.detailText:SetText(context)
+                    row.detailText:SetText(G.L(context))
                 end
 
                 local tc = GetTierColor(entry.tier)
-                row.tierText:SetText(entry.tier)
+                row.tierText:SetText(G.L(entry.tier))
                 row.tierText:SetTextColor(tc[1], tc[2], tc[3])
 
                 local equipped1 = GetInventoryItemID("player", INVSLOT_TRINKET1)
@@ -748,7 +748,7 @@ Refresh = function()
                     if row.iconButton.itemId ~= entry.itemId then return end
 
                     row.iconButton.texture:SetTexture(item:GetItemIcon() or 134400)
-                    row.nameText:SetText(item:GetItemName() or ("Item " .. tostring(entry.itemId)))
+                    row.nameText:SetText(G.L(item:GetItemName() or ("Item " .. tostring(entry.itemId))))
                     SetFontStringItemQuality(row.nameText, item)
                 end)
 
@@ -763,7 +763,7 @@ Refresh = function()
     HideUnused(rowIndex, headerIndex)
 
     if not any then
-        fallbackText:SetText("Keine Trinkets passen zu Filter oder Suche.")
+        fallbackText:SetText(G.L("Keine Trinkets passen zu Filter oder Suche."))
         fallbackText:Show()
         y = 60
     end
@@ -919,9 +919,9 @@ local function OnTooltipTrinket(tooltip, tooltipData)
     if not personal and #matches == 0 then return end
     if TooltipAlreadyHasBestGear(tooltip) then return end
 
-    tooltip:AddLine(" ")
+    tooltip:AddLine(G.L(" "))
     if personal then
-        tooltip:AddLine("Persönliches S+-Tier", unpack(PERSONAL_S_PLUS_COLOR))
+        tooltip:AddLine(G.L("Persönliches S+-Tier"), unpack(PERSONAL_S_PLUS_COLOR))
         local personalMatch = personalMatches and personalMatches[1]
         local pr, pg, pb = unpack(PERSONAL_S_PLUS_COLOR)
         if personalMatch then
@@ -945,7 +945,7 @@ local function OnTooltipTrinket(tooltip, tooltipData)
         end
     end
     if #matches == 0 then tooltip:Show(); return end
-    tooltip:AddLine("Beste Ausrüstung", 1.00, 0.82, 0.20)
+    tooltip:AddLine(G.L("Beste Ausrüstung"), 1.00, 0.82, 0.20)
 
     for _, match in ipairs(matches) do
         local specName, specIcon = G.GetSpecInfo(match.classToken, match.specKey)
@@ -967,7 +967,7 @@ local function OnTooltipTrinket(tooltip, tooltipData)
                 tc[1], tc[2], tc[3]
             )
         else
-            tooltip:AddLine(leftText, 1, 1, 1)
+            tooltip:AddLine(G.L(leftText), 1, 1, 1)
         end
     end
 

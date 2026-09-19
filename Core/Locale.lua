@@ -1,0 +1,246 @@
+local ADDON_NAME, G = ...
+
+-- Grimoire uses German as its authoring language.  Keep the source text as
+-- the lookup key so deDE remains the zero-maintenance default, while enUS
+-- clients receive a complete UI translation without a user-facing switch.
+local EN = {
+    ["Einstellungen"] = "Settings",
+    ["Sprache"] = "Language",
+    ["Deutsch"] = "German",
+    ["Optionale Grimoire-Funktionen"] = "Optional Grimoire features",
+    ["Info & Quellen"] = "Info & Sources",
+    ["Grimoire – Quellen"] = "Grimoire – Sources",
+    ["Quelle anklicken → URL markieren → Strg+C im Browser einfügen"] = "Click a source → select its URL → paste it in your browser with Ctrl+C.",
+    ["Werteziele"] = "Stat Targets",
+    ["Wertepriorität"] = "Stat Priority",
+    ["Omnium Folio"] = "Omnium Folio",
+    ["Werteziele werden geladen, sobald Daten für diese Spec verfügbar sind."] = "Stat targets load as soon as data is available for this specialization.",
+    ["Wertepriorität wird geladen, sobald Daten für diese Spec verfügbar sind."] = "Stat priority loads as soon as data is available for this specialization.",
+    ["Omnium-Folio-Empfehlungen werden geladen, sobald Daten für diese Spec verfügbar sind."] = "Omnium Folio recommendations load as soon as data is available for this specialization.",
+    ["Mythic+"] = "Mythic+",
+    ["Raid"] = "Raid",
+    ["Begrenzte Raid-Daten"] = "Limited raid data",
+    ["Für diese Spec lagen noch nicht genug Mythic-Parse-Samples vor. Die Werteziele verwenden deshalb vorläufig Daten vom heroischen Endboss und können ungenauer sein."] = "There are not enough Mythic parse samples for this specialization yet. Stat targets therefore temporarily use heroic end-boss data and may be less accurate.",
+    ["Aktuell verwendete Samples: %d"] = "Samples currently used: %d",
+    ["Keine Werteziele für diese Spec verfügbar."] = "No stat targets are available for this specialization.",
+    ["Werteziele zeigen nur deine eigenen Live-Werte — nicht verfügbar für eine andere Klasse."] = "Stat targets only show your own live stats — unavailable for another class.",
+    ["Werteziele können im Kampf nicht aktualisiert werden."] = "Stat targets cannot be updated in combat.",
+    ["Trinket-Tierliste"] = "Trinket tier list",
+    ["Suche:"] = "Search:",
+    ["Tooltip:"] = "Tooltip:",
+    ["Tooltip: nur eigene Klasse"] = "Tooltip: own class only",
+    ["Tier:"] = "Tier:",
+    ["Keine Trinket-Tierdaten für diese Spec verfügbar."] = "No trinket tier data is available for this specialization.",
+    ["Keine Trinkets passen zu Filter oder Suche."] = "No trinkets match the current filters or search.",
+    ["Suche"] = "Search",
+    ["Tier-Filter"] = "Tier filters",
+    ["Filtert die Trinket-Liste nach dem eingegebenen Namen."] = "Filters the trinket list by the entered name.",
+    ["Mit S, A, B, C und D kannst du mehrere Tiers gleichzeitig ein- oder ausblenden."] = "Use S, A, B, C and D to show or hide multiple tiers at once.",
+    ["Die Listen- und Tooltip-Tiers lassen sich unabhängig voneinander einstellen."] = "List and tooltip tiers can be configured independently.",
+    ["Aktiviert: Im Item-Tooltip werden nur die Specs deiner aktuell gespielten Klasse angezeigt."] = "Enabled: item tooltips show only specializations of your current class.",
+    ["Deaktiviert: Der Tooltip kann passende Specs aller Klassen anzeigen."] = "Disabled: tooltips can show matching specializations of every class.",
+    ["Schaltet ausschließlich deine persönlichen S+-Markierungen in Item-Tooltips ein oder aus."] = "Toggles only your personal S+ markings in item tooltips.",
+    ["Die Einstellungen werden gespeichert und bleiben nach einem Neustart erhalten."] = "Settings are saved and persist after a restart.",
+    ["Persönliches S+-Tier"] = "Personal S+ tier",
+    ["Beste Ausrüstung"] = "Best equipment",
+    ["Diese Liste überwachen"] = "Watch this list",
+    ["Eigene Drops"] = "Your drops",
+    ["Drops anderer"] = "Other players' drops",
+    ["BiS-Drop-Warnung"] = "BiS drop alert",
+    ["Linksklick: Quelle anzeigen"] = "Left-click: show source",
+    ["Rechtsklick: Anprobe"] = "Right-click: try on",
+    ["KeystoneLoot-Alternative"] = "KeystoneLoot alternative",
+    ["Überwacht genau die aktuell ausgewählte BiS-Liste und Unterkategorie."] = "Watches exactly the currently selected BiS list and subcategory.",
+    ["Es kann immer nur eine BiS-Liste gleichzeitig überwacht werden."] = "Only one BiS list can be watched at a time.",
+    ["Aktivierst du den Haken bei einer anderen Liste, wird die vorherige automatisch deaktiviert."] = "Enabling the checkbox on another list automatically disables the previous one.",
+    ["Eigene Drops: Sound, wenn du selbst eines deiner BiS-Items erhältst."] = "Your drops: play a sound when you receive one of your BiS items.",
+    ["Drops anderer: Sound, wenn ein Gruppen- oder Raidmitglied eines deiner BiS-Items erhält."] = "Other players' drops: play a sound when a party or raid member receives one of your BiS items.",
+    ["Den Warnton kannst du im Dropdown auswählen und direkt vorhören."] = "Choose the alert sound in the dropdown and preview it directly.",
+    ["Epische Beute"] = "Epic loot",
+    ["Gruppensucher-Reminder"] = "Group Finder reminder",
+    ["Zum Dungeon teleportieren"] = "Teleport to dungeon",
+    ["Dungeon-Teleport"] = "Dungeon teleport",
+    ["Dungeon-Teleports auf der Mythisch+-Übersicht"] = "Dungeon teleports in the Mythic+ overview",
+    ["Wenn aktiviert, teleportiert ein Klick auf einen Dungeon in der Mythisch+-Übersicht direkt zum Eingang – sofern der entsprechende Keystone-Hero-Teleport auf diesem Charakter erlernt ist."] = "When enabled, clicking a dungeon in the Mythic+ overview teleports you directly to its entrance — if this character has learned the corresponding Keystone Hero teleport.",
+    ["Nicht erlernte Teleports werden nicht ausgelöst. Im Tooltip steht dann „Zauber nicht erlernt“."] = "Unlearned teleports cannot be used. Their tooltip states “Spell not learned.”",
+    ["Zeigt nach dem Beitritt über den organisierten Gruppensucher ein kleines Reminder-Fenster mit Dungeon/Raid und Schwierigkeitsgrad. Das Fenster bleibt offen, bis du es selbst schließt."] = "Shows a small reminder with dungeon/raid and difficulty after joining through Group Finder. The window remains open until you close it.",
+    ["Alles klar"] = "Got it",
+    ["Teleport nicht verfügbar"] = "Teleport unavailable",
+    ["Zauber nicht erlernt"] = "Spell not learned",
+    ["Klicken, um zum Dungeon-Eingang zu teleportieren."] = "Click to teleport to the dungeon entrance.",
+    ["Bereit"] = "Ready",
+    ["Aktivität"] = "Activity",
+    ["Unbekannt"] = "Unknown",
+    ["Auktionshaus-Favoriten"] = "Auction House favorites",
+    ["Im Auktionshaus suchen"] = "Search the Auction House",
+    ["Als Favoriten markieren"] = "Mark as favorites",
+    ["Zu Auctionator"] = "Send to Auctionator",
+    ["Itemname kopieren"] = "Copy item name",
+    ["Keine Daten verfügbar."] = "No data available.",
+    ["Kein Omnium Folio für diese Spec verfügbar."] = "No Omnium Folio is available for this specialization.",
+    ["Keine Wertepriorität für diese Spec verfügbar."] = "No stat priority is available for this specialization.",
+    ["Keine Wertepriorität für diese Auswahl verfügbar."] = "No stat priority is available for this selection.",
+    ["Keine BiS-Gear-Daten für diese Spec verfügbar."] = "No BiS gear data is available for this specialization.",
+    ["Keine BiS-Daten für diese Auswahl verfügbar."] = "No BiS data is available for this selection.",
+    ["Quelle nicht verfügbar."] = "Source unavailable.",
+    ["Kopf"] = "Head",
+    ["Hals"] = "Neck",
+    ["Schultern"] = "Shoulders",
+    ["Rücken"] = "Back",
+    ["Brust"] = "Chest",
+    ["Handgelenke"] = "Wrists",
+    ["Hände"] = "Hands",
+    ["Taille"] = "Waist",
+    ["Beine"] = "Legs",
+    ["Füße"] = "Feet",
+    ["Ring 1"] = "Ring 1",
+    ["Ring 2"] = "Ring 2",
+    ["Waffe"] = "Weapon",
+    ["Nebenhand"] = "Off-hand",
+    ["Schmuckstück 1"] = "Trinket 1",
+    ["Schmuckstück 2"] = "Trinket 2",
+    ["Primär"] = "Primary",
+    ["Sekundär"] = "Secondary",
+    ["Verbrauchsgüter"] = "Consumables",
+    ["Verzauberungen"] = "Enchants",
+    ["Edelsteine"] = "Gems",
+    ["Sockel"] = "Sockets",
+    ["Fläschchen"] = "Flasks",
+    ["Waffenverstärkung"] = "Weapon enhancement",
+    ["Verstärkungsrune"] = "Augment rune",
+    ["Overall"] = "Overall",
+    ["Mythic+"] = "Mythic+",
+    ["PvP-Warteschlange"] = "PvP queue",
+    ["Loot / Münzen"] = "Loot / Coins",
+    ["Flüstern"] = "Whisper",
+    ["Für dieses Item fehlt die Item-ID."] = "This item is missing its item ID.",
+    ["Kein Itemname verfügbar."] = "No item name is available.",
+    ["Auktionshaus ist nicht geöffnet."] = "The Auction House is not open.",
+    ["Name wurde eingesetzt – Suche bitte einmal manuell bestätigen."] = "The name was inserted — please confirm the search manually once.",
+    ["Favoriten konnten nicht vollständig gesetzt werden."] = "Favorites could not be set completely.",
+    ["|cffa335eeGrimoire|r Befehle:"] = "|cffa335eeGrimoire|r commands:",
+    ["  /grim — Panel öffnen/schließen"] = "  /grim — open/close panel",
+    ["  /grim help — diese Liste anzeigen"] = "  /grim help — show this list",
+    ["|cffa335eeGrimoire|r geladen — tippe /grim zum Öffnen"] = "|cffa335eeGrimoire|r loaded — type /grim to open",
+    ["S+-Tier (Markiert)"] = "S+ tier (marked)",
+    ["Persönlich markiert"] = "Personally marked",
+    ["%d bereits favorisiert"] = "%d already favorited",
+    ["Name kopiert"] = "Name copied",
+    ["Auctionator ist nicht geladen."] = "Auctionator is not loaded.",
+    ["Keine Items in diesem Abschnitt."] = "There are no items in this section.",
+    ["Items werden vorbereitet …"] = "Preparing items …",
+    ["Itemnamen konnten nicht geladen werden."] = "Item names could not be loaded.",
+    ["Auctionator-Liste konnte nicht erstellt werden."] = "The Auctionator list could not be created.",
+    ["Maximale Anzahl an Favoriten erreicht."] = "Maximum number of favorites reached.",
+    ["%d Items → Auctionator-Liste"] = "%d items → Auctionator list",
+    ["%d Favoriten gesetzt"] = "%d favorites set",
+    ["%d Items bereits favorisiert"] = "%d items already favorited",
+    ["%d Favoriten vorgemerkt"] = "%d favorites queued",
+    ["Grimoire – Auktionshaus"] = "Grimoire – Auction House",
+    ["Enhancements aller Klassen • Item anklicken = direkt suchen"] = "Enhancements for every class • click an item to search directly",
+    ["Klicken → Namen einsetzen und Suche starten."] = "Click to insert the name and start searching.",
+    ["Markiert alle Items dieses Abschnitts als Blizzard-AH-Favoriten."] = "Marks all items in this section as Blizzard Auction House favorites.",
+    ["Danach springt das Auktionshaus zurück zu den Favoriten."] = "The Auction House then returns to your favorites.",
+    ["Erstellt oder aktualisiert die Einkaufsliste für diesen Abschnitt."] = "Creates or updates the shopping list for this section.",
+    ["Alle Klassen/Specs fürs Auktionshaus anzeigen."] = "Show all classes and specializations for the Auction House.",
+    ["Item anklicken → direkt im AH suchen."] = "Click an item to search for it directly in the Auction House.",
+    ["VZ, Edelsteine, Flask und Food: Wowhead"] = "Enchants, gems, flasks and food: Wowhead",
+    ["VZ, Sockel, Fläschchen, Essen und Tränke: Wowhead"] = "Enchants, sockets, flasks, food and potions: Wowhead",
+    ["Klicken → Name öffnen, danach Strg+C drücken."] = "Click to open the name, then press Ctrl+C.",
+    ["Markiert alle Items dieses Abschnitts als Favoriten im normalen WoW-Auktionshaus."] = "Marks all items in this section as favorites in the regular WoW Auction House.",
+    ["Ist das Auktionshaus nicht geöffnet, werden die Items vorgemerkt."] = "If the Auction House is closed, the items are queued.",
+    ["Grimoire – Enhancements"] = "Grimoire – Enhancements",
+    ["Wowhead"] = "Wowhead",
+    ["Murlok"] = "Murlok",
+    ["KeystoneLoot"] = "KeystoneLoot",
+    ["Warcraft Logs"] = "Warcraft Logs",
+    ["Blizzard"] = "Blizzard",
+    ["Guides, kaufbare VZ-Items und Verbrauchsgüter"] = "Guides, purchasable enchant items and consumables",
+    ["PvE-Guides und BiS-Listen"] = "PvE guides and BiS lists",
+    ["Mythic+-BiS und M+-Werteziele"] = "Mythic+ BiS and Mythic+ stat targets",
+    ["BiS, Gems, aktuelle Wertepriorität und Heldentalent-Empfehlungen"] = "BiS, gems, current stat priority and hero talent recommendations",
+    ["Raid-Werteziele aus Ranking-Daten"] = "Raid stat targets from ranking data",
+    ["Item-Tooltips und Spielinformationen"] = "Item tooltips and game information",
+}
+
+local EN_PREFIXES = {
+    ["Alternativen: "] = "Alternatives: ",
+    ["Schwierigkeitsgrad: "] = "Difficulty: ",
+    ["Gruppe: "] = "Group: ",
+    ["Aktuell verwendete Samples: "] = "Samples currently used: ",
+    ["Item "] = "Item ",
+    ["Gems: "] = "Gems: ",
+    ["VZ, Edelsteine, Flask und Food: "] = "Enchants, gems, flasks and food: ",
+    ["Keine automatische Navigation: "] = "No automatic navigation: ",
+    ["Beute geöffnet: "] = "Loot opened: ",
+    ["Instanz/Beute geöffnet: "] = "Instance/loot opened: ",
+}
+
+-- Key-basierte API für neue Texte. Bestehende Texte bleiben vorerst über
+-- G.L() kompatibel, neue Features verwenden dagegen G.T("KEY") und werden
+-- damit ohne Codeänderungen in weitere Sprachen übertragbar.
+local KEYED = {
+    deDE = {
+        LANGUAGE = "Sprache",
+        LANGUAGE_GERMAN = "Deutsch",
+        LANGUAGE_ENGLISH = "English",
+    },
+    enUS = {
+        LANGUAGE = "Language",
+        LANGUAGE_GERMAN = "German",
+        LANGUAGE_ENGLISH = "English",
+    },
+}
+
+function G.T(key, ...)
+    local locale = KEYED[G.GetLanguage()] or KEYED.deDE
+    local text = locale[key] or KEYED.deDE[key] or key
+    if select("#", ...) > 0 then
+        return string.format(text, ...)
+    end
+    return text
+end
+
+-- Reusable UI terms which occur inside dynamically composed labels (for
+-- example stat priorities and source hints).  These are deliberately limited
+-- to UI terminology; item names continue to come from Blizzard unchanged.
+local EN_TERMS = {
+    { "Kritischer Trefferwert", "Critical Strike" },
+    { "Kritischer Treffer", "Critical Strike" },
+    { "Wertepriorität", "Stat Priority" },
+    { "Werteziele", "Stat Targets" },
+    { "Meisterschaft", "Mastery" },
+    { "Vielseitigkeit", "Versatility" },
+    { "Tempo", "Haste" },
+    { "Intelligenz", "Intellect" },
+    { "Stärke", "Strength" },
+    { "Beweglichkeit", "Agility" },
+    { "Empfohlen", "Recommended" },
+    { "Alternativen", "Alternatives" },
+    { "Schwierigkeitsgrad", "Difficulty" },
+    { "Gruppe", "Group" },
+    { "Quelle", "Source" },
+    { "Sockel", "Sockets" },
+    { "Edelsteine", "Gems" },
+    { "Fläschchen", "Flasks" },
+    { "Essen", "Food" },
+    { "Tränke", "Potions" },
+}
+
+function G.L(text)
+    if G.GetLanguage() ~= "enUS" or type(text) ~= "string" then
+        return text
+    end
+
+    local translated = EN[text]
+    if translated then return translated end
+    for german, english in pairs(EN_PREFIXES) do
+        if text:sub(1, #german) == german then
+            return english .. text:sub(#german + 1)
+        end
+    end
+    for _, term in ipairs(EN_TERMS) do
+        text = text:gsub(term[1], term[2])
+    end
+    return text
+end

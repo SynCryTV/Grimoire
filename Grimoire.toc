@@ -8,6 +8,7 @@
 ## IconTexture: Interface\AddOns\Grimoire\icon
 
 Core\Init.lua
+Core\Locale.lua
 Core\Animations.lua
 Core\SpecKeys.lua
 Core\Frame.lua

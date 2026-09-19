@@ -91,6 +91,9 @@ loader:SetScript("OnEvent", function(self, event, loadedAddon)
 
     GrimoireDB = GrimoireDB or {}
     ApplyDefaults(GrimoireDB, DB_DEFAULTS)
+    if GrimoireDB.language == nil then
+        GrimoireDB.language = GetLocale() == "enUS" and "enUS" or "deDE"
+    end
 
     G.db = GrimoireDB
 
@@ -103,3 +106,14 @@ loader:SetScript("OnEvent", function(self, event, loadedAddon)
 
     self:UnregisterEvent("ADDON_LOADED")
 end)
+
+function G.GetLanguage()
+    if G.db and G.db.language then return G.db.language end
+    return GetLocale() == "enUS" and "enUS" or "deDE"
+end
+
+function G.SetLanguage(language)
+    if (language == "deDE" or language == "enUS") and G.db then
+        G.db.language = language
+    end
+end

@@ -113,6 +113,9 @@ local HERO_TALENT_DE = {
 }
 
 local function HeroFallbackName(key)
+    if G.GetLanguage() == "enUS" then
+        return key
+    end
     return HERO_TALENT_DE[key] or key
 end
 
@@ -143,6 +146,9 @@ local CONTEXT_TRANSLATIONS = {
 
 local function LocalizeStat(raw)
     if not raw or raw == "" then return "" end
+    if G.GetLanguage() == "enUS" then
+        return raw
+    end
 
     -- Breakpoints wie "(bis 800)" / "(ab 800)" erhalten.
     local base, suffix = raw:match("^%s*(.-)%s*(%b())%s*$")
@@ -176,6 +182,9 @@ local function LocalizeStat(raw)
 end
 
 local function LocalizeContext(context)
+    if G.GetLanguage() == "enUS" then
+        return context
+    end
     return CONTEXT_TRANSLATIONS[context] or context
 end
 
@@ -434,14 +443,14 @@ local function DaysSince(isoDate)
     return math.floor((time() - changedTime) / 86400)
 end
 
-local function ShowFallback(text)
+local function ShowFallback(G.L(text))
     priorityText:Hide()
     diffText:Hide()
 
     fallbackText:ClearAllPoints()
     fallbackText:SetPoint("TOPLEFT", body, "TOPLEFT", 0, 0)
     fallbackText:SetPoint("RIGHT", body, "RIGHT", 0, 0)
-    fallbackText:SetText(text)
+    fallbackText:SetText(G.L(text))
     fallbackText:Show()
 
     body:SetHeight((fallbackText:GetStringHeight() or 14) + 6)
@@ -466,7 +475,7 @@ local function Refresh()
         or (specData and specData.priorities)
 
     if not priorities or #priorities == 0 then
-        ShowFallback("Keine Wertepriorität für diese Spec verfügbar.")
+        ShowFallback(G.L("Keine Wertepriorität für diese Spec verfügbar."))
         G.LayoutGuideTab()
         return
     end
@@ -514,10 +523,10 @@ local function Refresh()
         end
 
         local selectedData = FindHeroDataByKey(heroData, selectedHero)
-        heroDropdown:SetText(HeroDisplayText(
+        heroDropdown:SetText(G.L(HeroDisplayText(
             selectedData,
             IsHeroRecommended(priorities, selectedHero)
-        ))
+        )))
 
         heroDropdown:SetupMenu(function(_, rootDescription)
             for _, data in ipairs(heroData) do
@@ -543,7 +552,7 @@ local function Refresh()
 
     local contextOptions = GetContextOptions(priorities, selectedHero)
     if #contextOptions == 0 then
-        ShowFallback("Keine Wertepriorität für diese Spec verfügbar.")
+        ShowFallback(G.L("Keine Wertepriorität für diese Spec verfügbar."))
         G.LayoutGuideTab()
         return
     end
@@ -567,7 +576,7 @@ local function Refresh()
         -- Der Kontext darf nie über die rechte Kante der Guide-Ansicht ragen.
         contextDropdown:ClearAllPoints()
         contextDropdown:SetPoint("TOPRIGHT", body, "TOPRIGHT", -2, 0)
-        contextDropdown:SetText(LocalizeContext(selectedContext))
+        contextDropdown:SetText(G.L(LocalizeContext(selectedContext)))
         contextDropdown:SetupMenu(function(_, rootDescription)
             for _, c in ipairs(contextOptions) do
                 rootDescription:CreateRadio(
@@ -587,7 +596,7 @@ local function Refresh()
 
     local entry = FindEntry(priorities, selectedHero, selectedContext)
     if not entry then
-        ShowFallback("Keine Wertepriorität für diese Auswahl verfügbar.")
+        ShowFallback(G.L("Keine Wertepriorität für diese Auswahl verfügbar."))
         G.LayoutGuideTab()
         return
     end
@@ -595,7 +604,7 @@ local function Refresh()
     priorityText:ClearAllPoints()
     priorityText:SetPoint("TOPLEFT", body, "TOPLEFT", 0, -yOffset)
     priorityText:SetPoint("RIGHT", body, "RIGHT", 0, 0)
-    priorityText:SetText(FormatStatGroups(entry.stats, entry.operators, true))
+    priorityText:SetText(G.L(FormatStatGroups(entry.stats, entry.operators, true)))
     priorityText:Show()
 
     local priorityHeight = math.max(20, priorityText:GetStringHeight() or 20)
@@ -615,11 +624,11 @@ local function Refresh()
                 -(totalHeight + 7)
             )
             diffText:SetPoint("RIGHT", body, "RIGHT", 0, 0)
-            diffText:SetText(string.format(
+            diffText:SetText(G.L(string.format(
                 "Wertepriorität %s geändert\nVorher: %s",
                 dayText,
                 FormatStatGroups(entry.previousStats, entry.previousOperators, false)
-            ))
+            )))
             diffText:Show()
 
             totalHeight = totalHeight

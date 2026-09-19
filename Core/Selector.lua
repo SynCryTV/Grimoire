@@ -80,9 +80,9 @@ local CLASS_ORDER = {
 }
 
 local function RefreshSelectorDropdowns()
-    classDropdown:SetText(G.GetClassIconMarkup(selectedClassToken, 16) .. G.GetClassDisplayName(selectedClassToken))
+    classDropdown:SetText(G.L(G.GetClassIconMarkup(selectedClassToken, 16) .. G.GetClassDisplayName(selectedClassToken)))
     local specName, specIcon = G.GetSpecInfo(selectedClassToken, selectedSpecKey)
-    specDropdown:SetText(G.GetSpecIconMarkup(specIcon, 16) .. (specName or ""))
+    specDropdown:SetText(G.L(G.GetSpecIconMarkup(specIcon, 16) .. (specName or "")))
 
     classDropdown:SetupMenu(function(_, rootDescription)
         for _, classToken in ipairs(CLASS_ORDER) do

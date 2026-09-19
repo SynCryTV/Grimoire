@@ -92,12 +92,12 @@ local function CreateRow(i)
     return row
 end
 
-local function ShowFallback(text)
+local function ShowFallback(G.L(text))
     for _, row in ipairs(rows) do row:Hide() end
     fallbackText:ClearAllPoints()
     fallbackText:SetPoint("TOPLEFT", body, "TOPLEFT", 0, 0)
     fallbackText:SetPoint("RIGHT", body, "RIGHT", 0, 0)
-    fallbackText:SetText(text)
+    fallbackText:SetText(G.L(text))
     fallbackText:Show()
     body:SetHeight((fallbackText:GetStringHeight() or 14) + 6)
 end
@@ -110,7 +110,7 @@ local function Refresh()
     local entries = GrimoireOmniumFolio and GrimoireOmniumFolio[classToken] and GrimoireOmniumFolio[classToken][specKey]
 
     if not entries or #entries == 0 then
-        ShowFallback("Kein Omnium Folio für diese Spec verfügbar.")
+        ShowFallback(G.L("Kein Omnium Folio für diese Spec verfügbar."))
         G.LayoutGuideTab()
         return
     end
@@ -120,8 +120,8 @@ local function Refresh()
 
         row.iconButton.spellId = entry.spellId
         row.iconButton.texture:SetTexture(GetIconTexture(entry.spellId))
-        row.labelText:SetText(entry.label)
-        row.nameText:SetText(GetLocalizedSpellName(entry.spellId, entry.name))
+        row.labelText:SetText(G.L(entry.label))
+        row.nameText:SetText(G.L(GetLocalizedSpellName(entry.spellId, entry.name)))
 
         row:ClearAllPoints()
         row:SetPoint("TOPLEFT", body, "TOPLEFT", 0, -((i - 1) * ROW_HEIGHT))

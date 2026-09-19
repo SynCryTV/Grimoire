@@ -84,7 +84,7 @@ local function AppendRankToLine(fontString, statKey, rank)
 
     local before = text:sub(1, cutPos - 1)
     local after = text:sub(cutPos)
-    fontString:SetText(before .. " |cff" .. hexColor .. "#" .. rank .. "|r" .. after)
+    fontString:SetText(G.L(before .. " |cff" .. hexColor .. "#" .. rank .. "|r" .. after))
 end
 
 local function GetDisplayedItemLink(tooltip)

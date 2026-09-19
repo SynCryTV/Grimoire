@@ -154,9 +154,9 @@ local function AppendTeleportStatus(parent, button)
     button.spellKnown = IsTeleportKnown(button.spellID)
 
     if not button.spellID then
-        GameTooltip:AddLine(" ")
-        GameTooltip:AddLine(
-            "Teleport nicht verfügbar",
+        GameTooltip:AddLine(G.L(" "))
+        GameTooltip:AddLine(G.L(
+            "Teleport nicht verfügbar"),
             1.0, 0.25, 0.25
         )
         return
@@ -167,15 +167,15 @@ local function AppendTeleportStatus(parent, button)
         and C_Spell.GetSpellName(button.spellID)
         or "Dungeon-Teleport"
 
-    GameTooltip:AddLine(" ")
-    GameTooltip:AddLine(
-        spellName or "Dungeon-Teleport",
+    GameTooltip:AddLine(G.L(" "))
+    GameTooltip:AddLine(G.L(
+        spellName or "Dungeon-Teleport"),
         1.0, 0.82, 0.0
     )
 
     if not button.spellKnown then
-        GameTooltip:AddLine(
-            SPELL_FAILED_NOT_KNOWN or "Zauber nicht erlernt",
+        GameTooltip:AddLine(G.L(
+            SPELL_FAILED_NOT_KNOWN or "Zauber nicht erlernt"),
             1.0, 0.20, 0.20
         )
         return
@@ -184,13 +184,13 @@ local function AppendTeleportStatus(parent, button)
     local cooldown = GetCooldownText(button.spellID)
 
     if cooldown == "Bereit" or cooldown == nil then
-        GameTooltip:AddLine(
-            READY or "Bereit",
+        GameTooltip:AddLine(G.L(
+            READY or "Bereit"),
             0.20, 1.0, 0.20
         )
     else
-        GameTooltip:AddLine(
-            cooldown,
+        GameTooltip:AddLine(G.L(
+            cooldown),
             1.0, 0.82, 0.0
         )
     end
@@ -213,7 +213,7 @@ local function RefreshDungeonTooltip(parent, button, initialize)
         originalOnEnter(parent)
     else
         GameTooltip:SetOwner(parent, "ANCHOR_RIGHT")
-        GameTooltip:SetText(button.dungeonName or "Dungeon")
+        GameTooltip:SetText(G.L(button.dungeonName or "Dungeon"))
     end
 
     AppendTeleportStatus(parent, button)

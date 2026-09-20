@@ -1,5 +1,13 @@
 # Änderungsverlauf
 
+## 5.2.43
+
+- Verschieben und Positionsspeicherung der Grimoire-Buttons entfernt. Die Icons sind wieder fest an Charakter- bzw. Auktionshausfenster gebunden und werden mit hoher UI-Ebene zuverlässig im Vordergrund angezeigt.
+
+## 5.2.42
+
+- Hotfix für verschiebbare Buttons: Positionen werden jetzt direkt mit WoWs originalen Frame-Ankerdaten gespeichert. Das verhindert Skalierungs-Snaps beim Loslassen und nach Reload.
+
 ## 5.2.41
 
 - Grimoire- und Auktionshaus-Button sind nicht mehr an das Blizzard-Fenster gebunden. Dadurch lassen sie sich frei ziehen, ohne dass sie an die Fensterposition zurückspringen.

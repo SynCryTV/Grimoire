@@ -66,98 +66,25 @@ CharacterFrame:HookScript("OnHide", function()
     panel:SetAlpha(1)
 end)
 
-local DEFAULT_TOGGLE_OFFSET_X = -12
-local DEFAULT_TOGGLE_OFFSET_Y = -150
-
-local toggleButton = CreateFrame("Button", "GrimoireToggleButton", UIParent)
+local toggleButton = CreateFrame("Button", "GrimoireToggleButton", CharacterFrame)
 toggleButton:SetSize(24, 24)
 -- Außerhalb des Charakterfensters platzieren: Das Standard-UI verdeckt den
 -- oberen rechten Innenbereich mit Portrait- und Schließen-Elementen.
-toggleButton:SetFrameStrata("HIGH")
-toggleButton:SetFrameLevel(CharacterFrame:GetFrameLevel() + 20)
+toggleButton:SetPoint("TOPLEFT", CharacterFrame, "TOPRIGHT", -12, -150)
+toggleButton:SetFrameStrata(CharacterFrame:GetFrameStrata())
+toggleButton:SetFrameLevel(CharacterFrame:GetFrameLevel() + 100)
 toggleButton:SetNormalTexture("Interface\\AddOns\\Grimoire\\icon")
 toggleButton:SetPushedTexture("Interface\\AddOns\\Grimoire\\icon")
 toggleButton:SetHighlightTexture("Interface\\AddOns\\Grimoire\\icon", "ADD")
-
-local function SetToggleButtonPosition(x, y)
-    toggleButton:ClearAllPoints()
-    toggleButton:SetPoint("CENTER", UIParent, "CENTER", x, y)
-end
-
-local function SetToggleButtonDefaultPosition()
-    toggleButton:ClearAllPoints()
-    toggleButton:SetPoint("TOPLEFT", CharacterFrame, "TOPRIGHT", DEFAULT_TOGGLE_OFFSET_X, DEFAULT_TOGGLE_OFFSET_Y)
-end
-
-local function SaveToggleButtonPosition()
-    local centerX, centerY = toggleButton:GetCenter()
-    local parentX, parentY = UIParent:GetCenter()
-    if not centerX or not centerY or not parentX or not parentY or not G.charDB then return end
-    local scale = UIParent:GetEffectiveScale()
-    if not scale or scale == 0 then scale = 1 end
-
-    G.charDB.toggleButtonPosition = {
-        x = math.floor(((centerX - parentX) / scale) + 0.5),
-        y = math.floor(((centerY - parentY) / scale) + 0.5),
-        version = 3,
-    }
-
-    SetToggleButtonPosition(G.charDB.toggleButtonPosition.x, G.charDB.toggleButtonPosition.y)
-end
-
-local function IsToggleButtonLocked()
-    return not G.charDB or G.charDB.toggleButtonLocked ~= false
-end
-
-toggleButton:SetMovable(true)
-toggleButton:SetClampedToScreen(true)
-toggleButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-toggleButton:RegisterForDrag("LeftButton")
-toggleButton:SetScript("OnDragStart", function(self)
-    if IsToggleButtonLocked() then return end
-    GameTooltip:Hide()
-    self:StartMoving()
-end)
-toggleButton:SetScript("OnDragStop", function(self)
-    self:StopMovingOrSizing()
-    if not IsToggleButtonLocked() then
-        SaveToggleButtonPosition()
-    end
-end)
-toggleButton:SetScript("OnClick", function(_, button)
-    if button == "RightButton" then
-        if G.charDB then
-            G.charDB.toggleButtonLocked = not IsToggleButtonLocked()
-        end
-        return
-    end
-    G.TogglePanel()
-end)
+toggleButton:SetScript("OnClick", function() G.TogglePanel() end)
 toggleButton:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_LEFT")
     GameTooltip:SetText(G.L("Grimoire"))
     GameTooltip:AddLine(G.L("Klicken zum Öffnen/Schließen"), 0.8, 0.8, 0.8)
-    if IsToggleButtonLocked() then
-        GameTooltip:AddLine(G.L("Rechtsklick zum Lösen"), 0.8, 0.8, 0.8)
-    else
-        GameTooltip:AddLine(G.L("Gedrückt halten und ziehen zum Verschieben"), 0.8, 0.8, 0.8)
-        GameTooltip:AddLine(G.L("Rechtsklick zum Feststellen"), 0.8, 0.8, 0.8)
-    end
     GameTooltip:Show()
 end)
 toggleButton:SetScript("OnLeave", function() GameTooltip:Hide() end)
 G.toggleButton = toggleButton
-
-toggleButton:Hide()
-CharacterFrame:HookScript("OnShow", function()
-    toggleButton:Show()
-end)
-CharacterFrame:HookScript("OnHide", function()
-    toggleButton:Hide()
-end)
-if CharacterFrame:IsShown() then
-    toggleButton:Show()
-end
 
 function G.OpenPanel()
     if not CharacterFrame:IsShown() then
@@ -192,18 +119,4 @@ end
 -- Meldet sich bei Init.lua an, sobald die SavedVariables geladen sind.
 G.RegisterOnDatabaseReady(function()
     ApplyPanelWidth()
-
-    if G.charDB.toggleButtonLocked == nil then
-        G.charDB.toggleButtonLocked = true
-    end
-
-    local position = G.charDB and G.charDB.toggleButtonPosition
-    if position and position.version == 3 and type(position.x) == "number" and type(position.y) == "number" then
-        SetToggleButtonPosition(position.x, position.y)
-    else
-        -- Alte relative Positionen können durch Blizzard-Fensterlayout und
-        -- UI-Skalierung wandern. Einmal auf die sichere Standardposition
-        -- zurücksetzen; jede neu gezogene Position ist bildschirmfest.
-        SetToggleButtonDefaultPosition()
-    end
 end)

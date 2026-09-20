@@ -1296,50 +1296,6 @@ end
 -- ============================================================================
 
 local ahToggleButton
-local DEFAULT_AH_TOGGLE_OFFSET_X = -12
-local DEFAULT_AH_TOGGLE_OFFSET_Y = -150
-
-local function IsAuctionHouseToggleButtonLocked()
-    return not G.charDB or G.charDB.auctionHouseToggleButtonLocked ~= false
-end
-
-local function SetAuctionHouseToggleButtonPosition(x, y)
-    if not ahToggleButton or not AuctionHouseFrame then return end
-    ahToggleButton:ClearAllPoints()
-    ahToggleButton:SetPoint("CENTER", UIParent, "CENTER", x, y)
-end
-
-local function SetAuctionHouseToggleButtonDefaultPosition()
-    if not ahToggleButton or not AuctionHouseFrame then return end
-    ahToggleButton:ClearAllPoints()
-    ahToggleButton:SetPoint("TOPLEFT", AuctionHouseFrame, "TOPRIGHT", DEFAULT_AH_TOGGLE_OFFSET_X, DEFAULT_AH_TOGGLE_OFFSET_Y)
-end
-
-local function ApplyAuctionHouseToggleButtonPosition()
-    local position = G.charDB and G.charDB.auctionHouseToggleButtonPosition
-    if position and position.version == 3 and type(position.x) == "number" and type(position.y) == "number" then
-        SetAuctionHouseToggleButtonPosition(position.x, position.y)
-    else
-        SetAuctionHouseToggleButtonDefaultPosition()
-    end
-end
-
-local function SaveAuctionHouseToggleButtonPosition()
-    if not ahToggleButton or not AuctionHouseFrame or not G.charDB then return end
-
-    local centerX, centerY = ahToggleButton:GetCenter()
-    local parentX, parentY = UIParent:GetCenter()
-    if not centerX or not centerY or not parentX or not parentY then return end
-    local scale = UIParent:GetEffectiveScale()
-    if not scale or scale == 0 then scale = 1 end
-
-    G.charDB.auctionHouseToggleButtonPosition = {
-        x = math.floor(((centerX - parentX) / scale) + 0.5),
-        y = math.floor(((centerY - parentY) / scale) + 0.5),
-        version = 3,
-    }
-    ApplyAuctionHouseToggleButtonPosition()
-end
 
 local function CreateAuctionHouseButton()
     if ahToggleButton or not AuctionHouseFrame then return end
@@ -1347,60 +1303,28 @@ local function CreateAuctionHouseButton()
     ahToggleButton = CreateFrame(
         "Button",
         "GrimoireAuctionHouseToggleButton",
-        UIParent
+        AuctionHouseFrame
     )
     ahToggleButton:SetSize(24, 24)
-    ApplyAuctionHouseToggleButtonPosition()
-    ahToggleButton:SetFrameStrata("HIGH")
-    ahToggleButton:SetFrameLevel(AuctionHouseFrame:GetFrameLevel() + 20)
+    ahToggleButton:SetPoint("TOPLEFT", AuctionHouseFrame, "TOPRIGHT", -12, -150)
+    ahToggleButton:SetFrameStrata(AuctionHouseFrame:GetFrameStrata())
+    ahToggleButton:SetFrameLevel(AuctionHouseFrame:GetFrameLevel() + 100)
     ahToggleButton:SetNormalTexture("Interface\\AddOns\\Grimoire\\icon")
     ahToggleButton:SetPushedTexture("Interface\\AddOns\\Grimoire\\icon")
     ahToggleButton:SetHighlightTexture("Interface\\AddOns\\Grimoire\\icon", "ADD")
-    ahToggleButton:SetMovable(true)
-    ahToggleButton:SetClampedToScreen(true)
-    ahToggleButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
-    ahToggleButton:RegisterForDrag("LeftButton")
-    ahToggleButton:SetScript("OnDragStart", function(self)
-        if IsAuctionHouseToggleButtonLocked() then return end
-        GameTooltip:Hide()
-        self:StartMoving()
-    end)
-    ahToggleButton:SetScript("OnDragStop", function(self)
-        self:StopMovingOrSizing()
-        if not IsAuctionHouseToggleButtonLocked() then
-            SaveAuctionHouseToggleButtonPosition()
-        end
-    end)
-
-    ahToggleButton:SetScript("OnClick", function(_, button)
-        if button == "RightButton" then
-            if G.charDB then
-                G.charDB.auctionHouseToggleButtonLocked = not IsAuctionHouseToggleButtonLocked()
-            end
-            return
-        end
-        AH.Toggle()
-    end)
+    ahToggleButton:SetScript("OnClick", AH.Toggle)
     ahToggleButton:SetScript("OnEnter", function(self)
         GameTooltip:SetOwner(self, "ANCHOR_LEFT")
         GameTooltip:SetText(G.L("Grimoire – Enhancements"))
         GameTooltip:AddLine(G.L("Alle Klassen/Specs fürs Auktionshaus anzeigen."), 0.8, 0.8, 0.8, true)
         GameTooltip:AddLine(G.L("Item anklicken → direkt im AH suchen."), 1.0, 0.82, 0.0, true)
-        if IsAuctionHouseToggleButtonLocked() then
-            GameTooltip:AddLine(G.L("Rechtsklick zum Lösen"), 0.8, 0.8, 0.8)
-        else
-            GameTooltip:AddLine(G.L("Gedrückt halten und ziehen zum Verschieben"), 0.8, 0.8, 0.8)
-            GameTooltip:AddLine(G.L("Rechtsklick zum Feststellen"), 0.8, 0.8, 0.8)
-        end
         GameTooltip:Show()
     end)
     ahToggleButton:SetScript("OnLeave", GameTooltip_Hide)
 
     AuctionHouseFrame:HookScript("OnHide", function()
         panel:Hide()
-        ahToggleButton:Hide()
     end)
-    ahToggleButton:Hide()
 end
 
 local eventFrame = CreateFrame("Frame")
@@ -1417,9 +1341,6 @@ eventFrame:SetScript("OnEvent", function(_, event, arg1)
     if event == "AUCTION_HOUSE_SHOW" then
         C_Timer.After(0.05, function()
             CreateAuctionHouseButton()
-            if ahToggleButton then
-                ahToggleButton:Show()
-            end
             if panel:IsShown() then
                 PositionPanel()
                 RefreshContent()
@@ -1436,14 +1357,4 @@ end)
 
 if AuctionHouseFrame then
     CreateAuctionHouseButton()
-    if AuctionHouseFrame:IsShown() and ahToggleButton then
-        ahToggleButton:Show()
-    end
 end
-
-G.RegisterOnDatabaseReady(function()
-    if G.charDB.auctionHouseToggleButtonLocked == nil then
-        G.charDB.auctionHouseToggleButtonLocked = true
-    end
-    ApplyAuctionHouseToggleButtonPosition()
-end)

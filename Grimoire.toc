@@ -1,8 +1,8 @@
 ## Interface: 120007
 ## Title: Grimoire
-## Notes: Best-in-Slot, Werteprioritäten, Werteziele, Omnium Folio sowie Enchants, Gems und Verbrauchsgüter für jede Spec. Deutsch, PvE, automatisch aktuell. Version 5.2.50: Klickfläche nur im Charakterfenster erweitert.
+## Notes: Best-in-Slot, Werteprioritäten, Werteziele, Omnium Folio sowie Enchants, Gems und Verbrauchsgüter für jede Spec. Deutsch, PvE, automatisch aktuell. Version 5.2.51: Klickfläche im Charakterfenster nach oben erweitert.
 ## Author: Ravyniel
-## Version: 5.2.50
+## Version: 5.2.51
 ## SavedVariables: GrimoireDB
 ## SavedVariablesPerCharacter: GrimoireCharDB
 ## IconTexture: Interface\AddOns\Grimoire\icon

@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.51
+
+- Klickfläche des Grimoire-Buttons im Charakterfenster gezielt nach oben vergrößert, damit auch der zuvor schwer erreichbare obere Iconbereich reagiert.
+
 ## 5.2.50
 
 - Erweiterte Klickfläche auf den Grimoire-Button im Charakterfenster begrenzt; der bereits funktionierende Auktionshaus-Button behält seine normale Klickfläche.

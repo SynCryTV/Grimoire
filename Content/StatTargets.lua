@@ -170,7 +170,11 @@ local function RenderRows(snapshot, yOffset)
     local visibleCount = 0
     for _, statKey in ipairs(STAT_ORDER) do
         local target = snapshot.targets and snapshot.targets[statKey]
-        if target and target > 0 then
+        target = tonumber(target)
+        -- Ein Ziel von 0 ist absichtlich: Es bedeutet nicht, dass der Stat
+        -- fehlt. Die Zeile bleibt sichtbar, damit klar ist, dass fuer diesen
+        -- Wert aktuell kein Rating angestrebt wird.
+        if target ~= nil and target >= 0 then
             visibleCount = visibleCount + 1
             local row = rows[visibleCount]
             local current = GetLivePlayerStatRating(statKey)
@@ -188,9 +192,12 @@ local function RenderRows(snapshot, yOffset)
             row.valueText:SetText(G.L(string.format("%d / %d", current, target)))
             row.valueText:SetTextColor(color[1], color[2], color[3])
 
-            local barMax = target * BAR_HEADROOM
+            -- StatusBars benötigen einen positiven Maximalwert. Für ein
+            -- explizites 0-Ziel verwenden wir daher einen Minimalbereich und
+            -- zeigen eine leere Leiste mit Zielmarke ganz links.
+            local barMax = math.max(target * BAR_HEADROOM, 1)
             row.bar:SetMinMaxValues(0, barMax)
-            row.bar:SetValue(math.min(current, barMax))
+            row.bar:SetValue(target == 0 and 0 or math.min(current, barMax))
             row.bar:SetStatusBarColor(color[1], color[2], color[3])
 
             -- GetWidth() ist direkt nach SetPoint() unzuverlässig (WoW

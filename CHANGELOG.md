@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.48
+
+- Werteziele mit einem expliziten Zielwert von 0 (z. B. Vielseitigkeit) werden nun inklusive leerem Balken und 0-Zielmarke angezeigt, statt ausgeblendet zu werden.
+
 ## 5.2.47
 
 - Die Grimoire-Icon-Hervorhebung wurde zu einem zweistufigen arkaneffekt ausgebaut: langsamer cyanfarbener Außenpuls plus schnellerer goldener Schimmer.

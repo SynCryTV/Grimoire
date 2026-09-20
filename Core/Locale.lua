@@ -165,6 +165,7 @@ local EN = {
     ["Ist das Auktionshaus nicht geöffnet, werden die Items vorgemerkt."] = "If the Auction House is closed, the items are queued.",
     ["Grimoire – Enhancements"] = "Grimoire – Enhancements",
     ["Klicken zum Öffnen/Schließen"] = "Click to open/close",
+    ["Gedrückt halten und ziehen zum Verschieben"] = "Hold and drag to move",
     ["Wowhead"] = "Wowhead",
     ["Murlok"] = "Murlok",
     ["KeystoneLoot"] = "KeystoneLoot",

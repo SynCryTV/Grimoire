@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.36
+
+- Grimoire-Umschaltbutton kann jetzt mit gedrückter linker Maustaste frei verschoben werden; die Position wird pro Charakter gespeichert.
+
 ## 5.2.35
 
 - Grimoire-Umschaltbutton auf Höhe des Gegenstandsstufen-/GS-Bereichs weiter nach unten versetzt.

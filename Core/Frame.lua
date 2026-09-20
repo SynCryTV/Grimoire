@@ -66,21 +66,53 @@ CharacterFrame:HookScript("OnHide", function()
     panel:SetAlpha(1)
 end)
 
+local DEFAULT_TOGGLE_OFFSET_X = -12
+local DEFAULT_TOGGLE_OFFSET_Y = -150
+
 local toggleButton = CreateFrame("Button", "GrimoireToggleButton", CharacterFrame)
 toggleButton:SetSize(24, 24)
 -- Außerhalb des Charakterfensters platzieren: Das Standard-UI verdeckt den
 -- oberen rechten Innenbereich mit Portrait- und Schließen-Elementen.
-toggleButton:SetPoint("TOPLEFT", CharacterFrame, "TOPRIGHT", -12, -150)
 toggleButton:SetFrameStrata("HIGH")
 toggleButton:SetFrameLevel(CharacterFrame:GetFrameLevel() + 20)
 toggleButton:SetNormalTexture("Interface\\AddOns\\Grimoire\\icon")
 toggleButton:SetPushedTexture("Interface\\AddOns\\Grimoire\\icon")
 toggleButton:SetHighlightTexture("Interface\\AddOns\\Grimoire\\icon", "ADD")
+
+local function SetToggleButtonPosition(x, y)
+    toggleButton:ClearAllPoints()
+    toggleButton:SetPoint("TOPLEFT", CharacterFrame, "TOPRIGHT", x, y)
+end
+
+local function SaveToggleButtonPosition()
+    local left, top = toggleButton:GetLeft(), toggleButton:GetTop()
+    if not left or not top or not G.charDB then return end
+
+    G.charDB.toggleButtonPosition = {
+        x = math.floor((left - CharacterFrame:GetRight()) + 0.5),
+        y = math.floor((top - CharacterFrame:GetTop()) + 0.5),
+    }
+
+    SetToggleButtonPosition(G.charDB.toggleButtonPosition.x, G.charDB.toggleButtonPosition.y)
+end
+
+toggleButton:SetMovable(true)
+toggleButton:SetClampedToScreen(true)
+toggleButton:RegisterForDrag("LeftButton")
+toggleButton:SetScript("OnDragStart", function(self)
+    GameTooltip:Hide()
+    self:StartMoving()
+end)
+toggleButton:SetScript("OnDragStop", function(self)
+    self:StopMovingOrSizing()
+    SaveToggleButtonPosition()
+end)
 toggleButton:SetScript("OnClick", function() G.TogglePanel() end)
 toggleButton:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_LEFT")
     GameTooltip:SetText(G.L("Grimoire"))
     GameTooltip:AddLine(G.L("Klicken zum Öffnen/Schließen"), 0.8, 0.8, 0.8)
+    GameTooltip:AddLine(G.L("Gedrückt halten und ziehen zum Verschieben"), 0.8, 0.8, 0.8)
     GameTooltip:Show()
 end)
 toggleButton:SetScript("OnLeave", function() GameTooltip:Hide() end)
@@ -119,4 +151,11 @@ end
 -- Meldet sich bei Init.lua an, sobald die SavedVariables geladen sind.
 G.RegisterOnDatabaseReady(function()
     ApplyPanelWidth()
+
+    local position = G.charDB and G.charDB.toggleButtonPosition
+    if position and type(position.x) == "number" and type(position.y) == "number" then
+        SetToggleButtonPosition(position.x, position.y)
+    else
+        SetToggleButtonPosition(DEFAULT_TOGGLE_OFFSET_X, DEFAULT_TOGGLE_OFFSET_Y)
+    end
 end)

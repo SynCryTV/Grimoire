@@ -19,6 +19,7 @@ local DB_DEFAULTS = {
     panelWidth = G.PANEL_WIDTH_DEFAULT,
     showLoginMessage = true,
     showStatPriorityInTooltips = true,
+    highlightToggleButtons = true,
     trinketTiersAllClasses = false,
     personalTrinketSTier = {},
     showPersonalTrinketSTierInTooltips = true,

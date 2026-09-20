@@ -5,7 +5,7 @@ local TAB_KEY = "settings"
 local frame = CreateFrame("Frame", "GrimoireSettingsTab", G.panel)
 frame:SetPoint("TOPLEFT", G.selectorBar, "BOTTOMLEFT", 0, -20)
 frame:SetPoint("RIGHT", G.panel, "RIGHT", -16, 0)
-frame:SetHeight(270)
+frame:SetHeight(330)
 
 local title = frame:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
 title:SetPoint("TOPLEFT", 4, -2)
@@ -106,13 +106,39 @@ groupReminderHelp:SetText(G.L(
     .. "Das Fenster bleibt offen, bis du es selbst schließt."
 ))
 
+-- ============================================================
+-- Grimoire-Icon-Hervorhebung
+-- ============================================================
+
+local highlightButtonsCheck = CreateFrame(
+    "CheckButton",
+    "GrimoireHighlightButtonsSetting",
+    frame,
+    "UICheckButtonTemplate"
+)
+highlightButtonsCheck:SetPoint("TOPLEFT", groupReminderHelp, "BOTTOMLEFT", -4, -18)
+highlightButtonsCheck:SetSize(24, 24)
+
+local highlightButtonsLabel = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+highlightButtonsLabel:SetPoint("LEFT", highlightButtonsCheck, "RIGHT", 4, 0)
+highlightButtonsLabel:SetText(G.L("Grimoire-Icons hervorheben"))
+
+local highlightButtonsHelp = frame:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
+highlightButtonsHelp:SetPoint("TOPLEFT", highlightButtonsLabel, "BOTTOMLEFT", 0, -6)
+highlightButtonsHelp:SetPoint("RIGHT", frame, "RIGHT", -12, 0)
+highlightButtonsHelp:SetJustifyH("LEFT")
+highlightButtonsHelp:SetWordWrap(true)
+highlightButtonsHelp:SetText(G.L(
+    "Zeigt eine pulsierende Leuchtumrandung um die Grimoire-Buttons im Charakterfenster und Handelsfenster."
+))
+
 -- ============================================================================
 -- Quellenübersicht
 -- ============================================================================
 
 local sourceInfoButton = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
 sourceInfoButton:SetSize(180, 24)
-sourceInfoButton:SetPoint("TOPLEFT", groupReminderHelp, "BOTTOMLEFT", 0, -14)
+sourceInfoButton:SetPoint("TOPLEFT", highlightButtonsHelp, "BOTTOMLEFT", 0, -14)
 sourceInfoButton:SetText(G.L("Info & Quellen"))
 
 local sourcePopup = CreateFrame("Frame", "GrimoireSourceInfoPopup", UIParent, "BackdropTemplate")
@@ -209,13 +235,22 @@ local function IsGroupReminderEnabled()
     return G.db.groupFinderReminderEnabled == true
 end
 
+local function IsButtonHighlightEnabled()
+    if not G.db then return true end
+    if G.db.highlightToggleButtons == nil then
+        G.db.highlightToggleButtons = true
+    end
+    return G.db.highlightToggleButtons == true
+end
+
 local function Refresh()
     dungeonTeleportCheck:SetChecked(IsEnabled())
     groupReminderCheck:SetChecked(IsGroupReminderEnabled())
+    highlightButtonsCheck:SetChecked(IsButtonHighlightEnabled())
     if G.GetActiveTab and G.GetActiveTab() == TAB_KEY
         and G.SetPanelContentHeight
     then
-        G.SetPanelContentHeight(270)
+        G.SetPanelContentHeight(330)
     end
 end
 
@@ -241,6 +276,14 @@ groupReminderCheck:SetScript("OnClick", function(self)
     end
 end)
 
+highlightButtonsCheck:SetScript("OnClick", function(self)
+    if not G.db then return end
+    G.db.highlightToggleButtons = self:GetChecked() == true
+    if G.RefreshToggleButtonHighlights then
+        G.RefreshToggleButtonHighlights()
+    end
+end)
+
 G.RegisterTabContent(TAB_KEY, frame)
 
 if G.RegisterOnActiveTabChanged then
@@ -258,6 +301,9 @@ G.RegisterOnDatabaseReady(function()
 
     if G.db.groupFinderReminderEnabled == nil then
         G.db.groupFinderReminderEnabled = true
+    end
+    if G.db.highlightToggleButtons == nil then
+        G.db.highlightToggleButtons = true
     end
 
     Refresh()

@@ -1296,6 +1296,17 @@ end
 -- ============================================================================
 
 local ahToggleButton
+local ahToggleGlow
+
+local function IsAuctionHouseToggleHighlightEnabled()
+    return not G.db or G.db.highlightToggleButtons ~= false
+end
+
+function G.RefreshAuctionHouseToggleHighlight()
+    if ahToggleGlow then
+        ahToggleGlow:SetShown(IsAuctionHouseToggleHighlightEnabled())
+    end
+end
 
 local function CreateAuctionHouseButton()
     if ahToggleButton or not AuctionHouseFrame then return end
@@ -1313,6 +1324,29 @@ local function CreateAuctionHouseButton()
     ahToggleButton:SetNormalTexture("Interface\\AddOns\\Grimoire\\icon")
     ahToggleButton:SetPushedTexture("Interface\\AddOns\\Grimoire\\icon")
     ahToggleButton:SetHighlightTexture("Interface\\AddOns\\Grimoire\\icon", "ADD")
+
+    ahToggleGlow = ahToggleButton:CreateTexture(nil, "OVERLAY", nil, 7)
+    ahToggleGlow:SetSize(40, 40)
+    ahToggleGlow:SetPoint("CENTER")
+    ahToggleGlow:SetAtlas("bags-glow-flash")
+    ahToggleGlow:SetVertexColor(0.15, 0.82, 1.0, 1.0)
+    ahToggleGlow:SetBlendMode("ADD")
+
+    local ahGlowPulse = ahToggleGlow:CreateAnimationGroup()
+    ahGlowPulse:SetLooping("REPEAT")
+    local ahGlowFadeIn = ahGlowPulse:CreateAnimation("Alpha")
+    ahGlowFadeIn:SetFromAlpha(0.28)
+    ahGlowFadeIn:SetToAlpha(0.95)
+    ahGlowFadeIn:SetDuration(0.7)
+    ahGlowFadeIn:SetSmoothing("IN_OUT")
+    local ahGlowFadeOut = ahGlowPulse:CreateAnimation("Alpha")
+    ahGlowFadeOut:SetFromAlpha(0.95)
+    ahGlowFadeOut:SetToAlpha(0.28)
+    ahGlowFadeOut:SetDuration(0.9)
+    ahGlowFadeOut:SetSmoothing("IN_OUT")
+    ahGlowPulse:Play()
+    G.RefreshAuctionHouseToggleHighlight()
+
     ahToggleButton:SetScript("OnClick", AH.Toggle)
     ahToggleButton:SetScript("OnEnter", function(self)
         GameTooltip:SetOwner(self, "ANCHOR_LEFT")

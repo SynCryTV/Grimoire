@@ -1,5 +1,10 @@
 # Änderungsverlauf
 
+## 5.2.46
+
+- Neue, standardmäßig aktive Hervorhebung für Grimoire-Icons: pulsierende Leuchtumrandung im Charakter- und Auktionshausfenster.
+- Die Hervorhebung kann im Einstellungen-Tab jederzeit ein- oder ausgeschaltet werden.
+
 ## 5.2.45
 
 - Grimoire-Buttons auf die hohe UI-Ebene gesetzt, damit sie über den Blizzard-Fenster-Headern liegen.

@@ -77,6 +77,41 @@ toggleButton:SetToplevel(true)
 toggleButton:SetNormalTexture("Interface\\AddOns\\Grimoire\\icon")
 toggleButton:SetPushedTexture("Interface\\AddOns\\Grimoire\\icon")
 toggleButton:SetHighlightTexture("Interface\\AddOns\\Grimoire\\icon", "ADD")
+
+local toggleGlow = toggleButton:CreateTexture(nil, "OVERLAY", nil, 7)
+toggleGlow:SetSize(40, 40)
+toggleGlow:SetPoint("CENTER")
+toggleGlow:SetAtlas("bags-glow-flash")
+toggleGlow:SetVertexColor(0.15, 0.82, 1.0, 1.0)
+toggleGlow:SetBlendMode("ADD")
+
+local toggleGlowPulse = toggleGlow:CreateAnimationGroup()
+toggleGlowPulse:SetLooping("REPEAT")
+local toggleGlowFadeIn = toggleGlowPulse:CreateAnimation("Alpha")
+toggleGlowFadeIn:SetFromAlpha(0.28)
+toggleGlowFadeIn:SetToAlpha(0.95)
+toggleGlowFadeIn:SetDuration(0.7)
+toggleGlowFadeIn:SetSmoothing("IN_OUT")
+local toggleGlowFadeOut = toggleGlowPulse:CreateAnimation("Alpha")
+toggleGlowFadeOut:SetFromAlpha(0.95)
+toggleGlowFadeOut:SetToAlpha(0.28)
+toggleGlowFadeOut:SetDuration(0.9)
+toggleGlowFadeOut:SetSmoothing("IN_OUT")
+toggleGlowPulse:Play()
+
+local function IsToggleHighlightEnabled()
+    return not G.db or G.db.highlightToggleButtons ~= false
+end
+
+function G.RefreshToggleButtonHighlights()
+    if toggleGlow then
+        toggleGlow:SetShown(IsToggleHighlightEnabled())
+    end
+    if G.RefreshAuctionHouseToggleHighlight then
+        G.RefreshAuctionHouseToggleHighlight()
+    end
+end
+
 toggleButton:SetScript("OnClick", function() G.TogglePanel() end)
 toggleButton:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_LEFT")
@@ -120,4 +155,5 @@ end
 -- Meldet sich bei Init.lua an, sobald die SavedVariables geladen sind.
 G.RegisterOnDatabaseReady(function()
     ApplyPanelWidth()
+    G.RefreshToggleButtonHighlights()
 end)

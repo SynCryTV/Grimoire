@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.55
+
+- Werteziele mit Zielwert 0 werden bei einem eigenen Wert über 0 nun einheitlich blau als überschritten markiert.
+
 ## 5.2.53
 
 - Klickbereich des Grimoire-Icons im Charakterfenster durch eine separate, 44×44 große Klickfläche über dem Blizzard-Header ersetzt. Das gesamte Icon inklusive Schimmer reagiert nun zuverlässig.

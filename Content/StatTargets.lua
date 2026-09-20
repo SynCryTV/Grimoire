@@ -144,7 +144,8 @@ local function GetLivePlayerStatRating(statKey)
 end
 
 local function ClassifyDelta(current, target)
-    if target <= 0 then return "at" end
+    -- A zero target is still a target: any positive current value is above it.
+    if target <= 0 then return current > 0 and "above" or "at" end
     local ratio = current / target
     if ratio > 1.05 then return "above"
     elseif ratio >= 0.95 then return "at"

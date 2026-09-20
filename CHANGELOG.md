@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.52
+
+- Bei Werteziele mit Zielwert 0 zeigt der Balken jetzt weiterhin den eigenen aktuellen Wert; die 0-Zielmarke bleibt links sichtbar.
+
 ## 5.2.51
 
 - Klickfläche des Grimoire-Buttons im Charakterfenster gezielt nach oben vergrößert, damit auch der zuvor schwer erreichbare obere Iconbereich reagiert.

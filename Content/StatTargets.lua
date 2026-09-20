@@ -192,12 +192,14 @@ local function RenderRows(snapshot, yOffset)
             row.valueText:SetText(G.L(string.format("%d / %d", current, target)))
             row.valueText:SetTextColor(color[1], color[2], color[3])
 
-            -- StatusBars benötigen einen positiven Maximalwert. Für ein
-            -- explizites 0-Ziel verwenden wir daher einen Minimalbereich und
-            -- zeigen eine leere Leiste mit Zielmarke ganz links.
-            local barMax = math.max(target * BAR_HEADROOM, 1)
+            -- StatusBars benötigen einen positiven Maximalwert. Bei einem
+            -- expliziten 0-Ziel bleibt die Zielmarke links, der Balken zeigt
+            -- aber weiterhin den eigenen aktuellen Wert als Füllung.
+            local barMax = target == 0
+                and math.max(current * BAR_HEADROOM, 1)
+                or math.max(target * BAR_HEADROOM, 1)
             row.bar:SetMinMaxValues(0, barMax)
-            row.bar:SetValue(target == 0 and 0 or math.min(current, barMax))
+            row.bar:SetValue(math.min(current, barMax))
             row.bar:SetStatusBarColor(color[1], color[2], color[3])
 
             -- GetWidth() ist direkt nach SetPoint() unzuverlässig (WoW

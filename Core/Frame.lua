@@ -79,25 +79,46 @@ toggleButton:SetPushedTexture("Interface\\AddOns\\Grimoire\\icon")
 toggleButton:SetHighlightTexture("Interface\\AddOns\\Grimoire\\icon", "ADD")
 
 local toggleGlow = toggleButton:CreateTexture(nil, "OVERLAY", nil, 7)
-toggleGlow:SetSize(40, 40)
+toggleGlow:SetSize(44, 44)
 toggleGlow:SetPoint("CENTER")
 toggleGlow:SetAtlas("bags-glow-flash")
 toggleGlow:SetVertexColor(0.15, 0.82, 1.0, 1.0)
 toggleGlow:SetBlendMode("ADD")
 
+local toggleSparkle = toggleButton:CreateTexture(nil, "OVERLAY", nil, 6)
+toggleSparkle:SetSize(34, 34)
+toggleSparkle:SetPoint("CENTER")
+toggleSparkle:SetTexture("Interface\\Buttons\\UI-ActionButton-Border")
+toggleSparkle:SetVertexColor(1.0, 0.68, 0.12, 0.9)
+toggleSparkle:SetBlendMode("ADD")
+
 local toggleGlowPulse = toggleGlow:CreateAnimationGroup()
 toggleGlowPulse:SetLooping("REPEAT")
 local toggleGlowFadeIn = toggleGlowPulse:CreateAnimation("Alpha")
 toggleGlowFadeIn:SetFromAlpha(0.28)
-toggleGlowFadeIn:SetToAlpha(0.95)
-toggleGlowFadeIn:SetDuration(0.7)
+toggleGlowFadeIn:SetToAlpha(0.85)
+toggleGlowFadeIn:SetDuration(1.1)
 toggleGlowFadeIn:SetSmoothing("IN_OUT")
 local toggleGlowFadeOut = toggleGlowPulse:CreateAnimation("Alpha")
-toggleGlowFadeOut:SetFromAlpha(0.95)
-toggleGlowFadeOut:SetToAlpha(0.28)
-toggleGlowFadeOut:SetDuration(0.9)
+toggleGlowFadeOut:SetFromAlpha(0.85)
+toggleGlowFadeOut:SetToAlpha(0.18)
+toggleGlowFadeOut:SetDuration(1.3)
 toggleGlowFadeOut:SetSmoothing("IN_OUT")
 toggleGlowPulse:Play()
+
+local toggleSparklePulse = toggleSparkle:CreateAnimationGroup()
+toggleSparklePulse:SetLooping("REPEAT")
+local toggleSparkleFadeIn = toggleSparklePulse:CreateAnimation("Alpha")
+toggleSparkleFadeIn:SetFromAlpha(0.12)
+toggleSparkleFadeIn:SetToAlpha(0.9)
+toggleSparkleFadeIn:SetDuration(0.42)
+toggleSparkleFadeIn:SetSmoothing("OUT")
+local toggleSparkleFadeOut = toggleSparklePulse:CreateAnimation("Alpha")
+toggleSparkleFadeOut:SetFromAlpha(0.9)
+toggleSparkleFadeOut:SetToAlpha(0.12)
+toggleSparkleFadeOut:SetDuration(1.65)
+toggleSparkleFadeOut:SetSmoothing("IN")
+toggleSparklePulse:Play()
 
 local function IsToggleHighlightEnabled()
     return not G.db or G.db.highlightToggleButtons ~= false
@@ -106,6 +127,9 @@ end
 function G.RefreshToggleButtonHighlights()
     if toggleGlow then
         toggleGlow:SetShown(IsToggleHighlightEnabled())
+    end
+    if toggleSparkle then
+        toggleSparkle:SetShown(IsToggleHighlightEnabled())
     end
     if G.RefreshAuctionHouseToggleHighlight then
         G.RefreshAuctionHouseToggleHighlight()

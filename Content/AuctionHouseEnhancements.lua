@@ -1297,6 +1297,7 @@ end
 
 local ahToggleButton
 local ahToggleGlow
+local ahToggleSparkle
 
 local function IsAuctionHouseToggleHighlightEnabled()
     return not G.db or G.db.highlightToggleButtons ~= false
@@ -1305,6 +1306,9 @@ end
 function G.RefreshAuctionHouseToggleHighlight()
     if ahToggleGlow then
         ahToggleGlow:SetShown(IsAuctionHouseToggleHighlightEnabled())
+    end
+    if ahToggleSparkle then
+        ahToggleSparkle:SetShown(IsAuctionHouseToggleHighlightEnabled())
     end
 end
 
@@ -1326,25 +1330,47 @@ local function CreateAuctionHouseButton()
     ahToggleButton:SetHighlightTexture("Interface\\AddOns\\Grimoire\\icon", "ADD")
 
     ahToggleGlow = ahToggleButton:CreateTexture(nil, "OVERLAY", nil, 7)
-    ahToggleGlow:SetSize(40, 40)
+    ahToggleGlow:SetSize(44, 44)
     ahToggleGlow:SetPoint("CENTER")
     ahToggleGlow:SetAtlas("bags-glow-flash")
     ahToggleGlow:SetVertexColor(0.15, 0.82, 1.0, 1.0)
     ahToggleGlow:SetBlendMode("ADD")
 
+    ahToggleSparkle = ahToggleButton:CreateTexture(nil, "OVERLAY", nil, 6)
+    ahToggleSparkle:SetSize(34, 34)
+    ahToggleSparkle:SetPoint("CENTER")
+    ahToggleSparkle:SetTexture("Interface\\Buttons\\UI-ActionButton-Border")
+    ahToggleSparkle:SetVertexColor(1.0, 0.68, 0.12, 0.9)
+    ahToggleSparkle:SetBlendMode("ADD")
+
     local ahGlowPulse = ahToggleGlow:CreateAnimationGroup()
     ahGlowPulse:SetLooping("REPEAT")
     local ahGlowFadeIn = ahGlowPulse:CreateAnimation("Alpha")
     ahGlowFadeIn:SetFromAlpha(0.28)
-    ahGlowFadeIn:SetToAlpha(0.95)
-    ahGlowFadeIn:SetDuration(0.7)
+    ahGlowFadeIn:SetToAlpha(0.85)
+    ahGlowFadeIn:SetDuration(1.1)
     ahGlowFadeIn:SetSmoothing("IN_OUT")
     local ahGlowFadeOut = ahGlowPulse:CreateAnimation("Alpha")
-    ahGlowFadeOut:SetFromAlpha(0.95)
-    ahGlowFadeOut:SetToAlpha(0.28)
-    ahGlowFadeOut:SetDuration(0.9)
+    ahGlowFadeOut:SetFromAlpha(0.85)
+    ahGlowFadeOut:SetToAlpha(0.18)
+    ahGlowFadeOut:SetDuration(1.3)
     ahGlowFadeOut:SetSmoothing("IN_OUT")
     ahGlowPulse:Play()
+
+    local ahSparklePulse = ahToggleSparkle:CreateAnimationGroup()
+    ahSparklePulse:SetLooping("REPEAT")
+    local ahSparkleFadeIn = ahSparklePulse:CreateAnimation("Alpha")
+    ahSparkleFadeIn:SetFromAlpha(0.12)
+    ahSparkleFadeIn:SetToAlpha(0.9)
+    ahSparkleFadeIn:SetDuration(0.42)
+    ahSparkleFadeIn:SetSmoothing("OUT")
+    local ahSparkleFadeOut = ahSparklePulse:CreateAnimation("Alpha")
+    ahSparkleFadeOut:SetFromAlpha(0.9)
+    ahSparkleFadeOut:SetToAlpha(0.12)
+    ahSparkleFadeOut:SetDuration(1.65)
+    ahSparkleFadeOut:SetSmoothing("IN")
+    ahSparklePulse:Play()
+
     G.RefreshAuctionHouseToggleHighlight()
 
     ahToggleButton:SetScript("OnClick", AH.Toggle)

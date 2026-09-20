@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.47
+
+- Die Grimoire-Icon-Hervorhebung wurde zu einem zweistufigen arkaneffekt ausgebaut: langsamer cyanfarbener Außenpuls plus schnellerer goldener Schimmer.
+
 ## 5.2.46
 
 - Neue, standardmäßig aktive Hervorhebung für Grimoire-Icons: pulsierende Leuchtumrandung im Charakter- und Auktionshausfenster.

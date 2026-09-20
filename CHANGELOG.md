@@ -1,5 +1,13 @@
 # Änderungsverlauf
 
+## 5.2.39
+
+- Gespeicherte Positionen der verschiebbaren Grimoire-Buttons sind jetzt UI-skalierungsfest. Bereits gespeicherte Button-Positionen werden einmalig automatisch migriert.
+
+## 5.2.38
+
+- Auktionshaus-/Handelsfenster-Umschaltbutton verwendet jetzt ebenfalls das Grimoire-Symbol, sitzt weiter unten an der rechten Fensterkante und unterstützt gespeicherte Positionen sowie Rechtsklick-Sperre.
+
 ## 5.2.37
 
 - Der Grimoire-Umschaltbutton ist standardmäßig festgestellt. Rechtsklick sperrt bzw. löst die Position; nur im gelösten Zustand lässt er sich verschieben.

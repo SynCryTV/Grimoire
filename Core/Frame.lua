@@ -87,10 +87,13 @@ end
 local function SaveToggleButtonPosition()
     local left, top = toggleButton:GetLeft(), toggleButton:GetTop()
     if not left or not top or not G.charDB then return end
+    local scale = toggleButton:GetEffectiveScale()
+    if not scale or scale == 0 then scale = 1 end
 
     G.charDB.toggleButtonPosition = {
-        x = math.floor((left - CharacterFrame:GetRight()) + 0.5),
-        y = math.floor((top - CharacterFrame:GetTop()) + 0.5),
+        x = math.floor(((left - CharacterFrame:GetRight()) / scale) + 0.5),
+        y = math.floor(((top - CharacterFrame:GetTop()) / scale) + 0.5),
+        version = 2,
     }
 
     SetToggleButtonPosition(G.charDB.toggleButtonPosition.x, G.charDB.toggleButtonPosition.y)
@@ -179,6 +182,16 @@ G.RegisterOnDatabaseReady(function()
 
     local position = G.charDB and G.charDB.toggleButtonPosition
     if position and type(position.x) == "number" and type(position.y) == "number" then
+        -- Version 1 speicherte Bildschirm-Pixel. UI-Anker verwenden jedoch
+        -- skalierungsunabhängige Koordinaten, daher bestehende Positionen
+        -- beim ersten Laden einmalig umrechnen.
+        if position.version ~= 2 then
+            local scale = toggleButton:GetEffectiveScale()
+            if not scale or scale == 0 then scale = 1 end
+            position.x = math.floor((position.x / scale) + 0.5)
+            position.y = math.floor((position.y / scale) + 0.5)
+            position.version = 2
+        end
         SetToggleButtonPosition(position.x, position.y)
     else
         SetToggleButtonPosition(DEFAULT_TOGGLE_OFFSET_X, DEFAULT_TOGGLE_OFFSET_Y)

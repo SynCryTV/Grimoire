@@ -69,7 +69,7 @@ end)
 local DEFAULT_TOGGLE_OFFSET_X = -12
 local DEFAULT_TOGGLE_OFFSET_Y = -150
 
-local toggleButton = CreateFrame("Button", "GrimoireToggleButton", CharacterFrame)
+local toggleButton = CreateFrame("Button", "GrimoireToggleButton", UIParent)
 toggleButton:SetSize(24, 24)
 -- Außerhalb des Charakterfensters platzieren: Das Standard-UI verdeckt den
 -- oberen rechten Innenbereich mit Portrait- und Schließen-Elementen.
@@ -81,19 +81,25 @@ toggleButton:SetHighlightTexture("Interface\\AddOns\\Grimoire\\icon", "ADD")
 
 local function SetToggleButtonPosition(x, y)
     toggleButton:ClearAllPoints()
-    toggleButton:SetPoint("TOPLEFT", CharacterFrame, "TOPRIGHT", x, y)
+    toggleButton:SetPoint("CENTER", UIParent, "CENTER", x, y)
+end
+
+local function SetToggleButtonDefaultPosition()
+    toggleButton:ClearAllPoints()
+    toggleButton:SetPoint("TOPLEFT", CharacterFrame, "TOPRIGHT", DEFAULT_TOGGLE_OFFSET_X, DEFAULT_TOGGLE_OFFSET_Y)
 end
 
 local function SaveToggleButtonPosition()
-    local left, top = toggleButton:GetLeft(), toggleButton:GetTop()
-    if not left or not top or not G.charDB then return end
-    local scale = toggleButton:GetEffectiveScale()
+    local centerX, centerY = toggleButton:GetCenter()
+    local parentX, parentY = UIParent:GetCenter()
+    if not centerX or not centerY or not parentX or not parentY or not G.charDB then return end
+    local scale = UIParent:GetEffectiveScale()
     if not scale or scale == 0 then scale = 1 end
 
     G.charDB.toggleButtonPosition = {
-        x = math.floor(((left - CharacterFrame:GetRight()) / scale) + 0.5),
-        y = math.floor(((top - CharacterFrame:GetTop()) / scale) + 0.5),
-        version = 2,
+        x = math.floor(((centerX - parentX) / scale) + 0.5),
+        y = math.floor(((centerY - parentY) / scale) + 0.5),
+        version = 3,
     }
 
     SetToggleButtonPosition(G.charDB.toggleButtonPosition.x, G.charDB.toggleButtonPosition.y)
@@ -142,6 +148,17 @@ end)
 toggleButton:SetScript("OnLeave", function() GameTooltip:Hide() end)
 G.toggleButton = toggleButton
 
+toggleButton:Hide()
+CharacterFrame:HookScript("OnShow", function()
+    toggleButton:Show()
+end)
+CharacterFrame:HookScript("OnHide", function()
+    toggleButton:Hide()
+end)
+if CharacterFrame:IsShown() then
+    toggleButton:Show()
+end
+
 function G.OpenPanel()
     if not CharacterFrame:IsShown() then
         ToggleCharacter("PaperDollFrame")
@@ -181,19 +198,12 @@ G.RegisterOnDatabaseReady(function()
     end
 
     local position = G.charDB and G.charDB.toggleButtonPosition
-    if position and type(position.x) == "number" and type(position.y) == "number" then
-        -- Version 1 speicherte Bildschirm-Pixel. UI-Anker verwenden jedoch
-        -- skalierungsunabhängige Koordinaten, daher bestehende Positionen
-        -- beim ersten Laden einmalig umrechnen.
-        if position.version ~= 2 then
-            local scale = toggleButton:GetEffectiveScale()
-            if not scale or scale == 0 then scale = 1 end
-            position.x = math.floor((position.x / scale) + 0.5)
-            position.y = math.floor((position.y / scale) + 0.5)
-            position.version = 2
-        end
+    if position and position.version == 3 and type(position.x) == "number" and type(position.y) == "number" then
         SetToggleButtonPosition(position.x, position.y)
     else
-        SetToggleButtonPosition(DEFAULT_TOGGLE_OFFSET_X, DEFAULT_TOGGLE_OFFSET_Y)
+        -- Alte relative Positionen können durch Blizzard-Fensterlayout und
+        -- UI-Skalierung wandern. Einmal auf die sichere Standardposition
+        -- zurücksetzen; jede neu gezogene Position ist bildschirmfest.
+        SetToggleButtonDefaultPosition()
     end
 end)

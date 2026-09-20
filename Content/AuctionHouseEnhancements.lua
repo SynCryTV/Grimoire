@@ -1306,30 +1306,37 @@ end
 local function SetAuctionHouseToggleButtonPosition(x, y)
     if not ahToggleButton or not AuctionHouseFrame then return end
     ahToggleButton:ClearAllPoints()
-    ahToggleButton:SetPoint("TOPLEFT", AuctionHouseFrame, "TOPRIGHT", x, y)
+    ahToggleButton:SetPoint("CENTER", UIParent, "CENTER", x, y)
+end
+
+local function SetAuctionHouseToggleButtonDefaultPosition()
+    if not ahToggleButton or not AuctionHouseFrame then return end
+    ahToggleButton:ClearAllPoints()
+    ahToggleButton:SetPoint("TOPLEFT", AuctionHouseFrame, "TOPRIGHT", DEFAULT_AH_TOGGLE_OFFSET_X, DEFAULT_AH_TOGGLE_OFFSET_Y)
 end
 
 local function ApplyAuctionHouseToggleButtonPosition()
     local position = G.charDB and G.charDB.auctionHouseToggleButtonPosition
-    if position and type(position.x) == "number" and type(position.y) == "number" then
+    if position and position.version == 3 and type(position.x) == "number" and type(position.y) == "number" then
         SetAuctionHouseToggleButtonPosition(position.x, position.y)
     else
-        SetAuctionHouseToggleButtonPosition(DEFAULT_AH_TOGGLE_OFFSET_X, DEFAULT_AH_TOGGLE_OFFSET_Y)
+        SetAuctionHouseToggleButtonDefaultPosition()
     end
 end
 
 local function SaveAuctionHouseToggleButtonPosition()
     if not ahToggleButton or not AuctionHouseFrame or not G.charDB then return end
 
-    local left, top = ahToggleButton:GetLeft(), ahToggleButton:GetTop()
-    if not left or not top then return end
-    local scale = ahToggleButton:GetEffectiveScale()
+    local centerX, centerY = ahToggleButton:GetCenter()
+    local parentX, parentY = UIParent:GetCenter()
+    if not centerX or not centerY or not parentX or not parentY then return end
+    local scale = UIParent:GetEffectiveScale()
     if not scale or scale == 0 then scale = 1 end
 
     G.charDB.auctionHouseToggleButtonPosition = {
-        x = math.floor(((left - AuctionHouseFrame:GetRight()) / scale) + 0.5),
-        y = math.floor(((top - AuctionHouseFrame:GetTop()) / scale) + 0.5),
-        version = 2,
+        x = math.floor(((centerX - parentX) / scale) + 0.5),
+        y = math.floor(((centerY - parentY) / scale) + 0.5),
+        version = 3,
     }
     ApplyAuctionHouseToggleButtonPosition()
 end
@@ -1340,7 +1347,7 @@ local function CreateAuctionHouseButton()
     ahToggleButton = CreateFrame(
         "Button",
         "GrimoireAuctionHouseToggleButton",
-        AuctionHouseFrame
+        UIParent
     )
     ahToggleButton:SetSize(24, 24)
     ApplyAuctionHouseToggleButtonPosition()
@@ -1391,7 +1398,9 @@ local function CreateAuctionHouseButton()
 
     AuctionHouseFrame:HookScript("OnHide", function()
         panel:Hide()
+        ahToggleButton:Hide()
     end)
+    ahToggleButton:Hide()
 end
 
 local eventFrame = CreateFrame("Frame")
@@ -1408,6 +1417,9 @@ eventFrame:SetScript("OnEvent", function(_, event, arg1)
     if event == "AUCTION_HOUSE_SHOW" then
         C_Timer.After(0.05, function()
             CreateAuctionHouseButton()
+            if ahToggleButton then
+                ahToggleButton:Show()
+            end
             if panel:IsShown() then
                 PositionPanel()
                 RefreshContent()
@@ -1424,6 +1436,9 @@ end)
 
 if AuctionHouseFrame then
     CreateAuctionHouseButton()
+    if AuctionHouseFrame:IsShown() and ahToggleButton then
+        ahToggleButton:Show()
+    end
 end
 
 G.RegisterOnDatabaseReady(function()

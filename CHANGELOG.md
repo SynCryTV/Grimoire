@@ -1,5 +1,14 @@
 # Änderungsverlauf
 
+## 5.2.41
+
+- Grimoire- und Auktionshaus-Button sind nicht mehr an das Blizzard-Fenster gebunden. Dadurch lassen sie sich frei ziehen, ohne dass sie an die Fensterposition zurückspringen.
+
+## 5.2.40
+
+- Verschiebbare Buttons werden nun relativ zum Bildschirmzentrum gespeichert, statt relativ zu Blizzard-Fenstern. Dadurch bleiben sie nach Reloads und UI-Neulayouts exakt an ihrer gewählten Position.
+- Alte, fehlerhafte relative Button-Positionen werden einmalig auf die Standardposition zurückgesetzt.
+
 ## 5.2.39
 
 - Gespeicherte Positionen der verschiebbaren Grimoire-Buttons sind jetzt UI-skalierungsfest. Bereits gespeicherte Button-Positionen werden einmalig automatisch migriert.

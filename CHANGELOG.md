@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.37
+
+- Der Grimoire-Umschaltbutton ist standardmäßig festgestellt. Rechtsklick sperrt bzw. löst die Position; nur im gelösten Zustand lässt er sich verschieben.
+
 ## 5.2.36
 
 - Grimoire-Umschaltbutton kann jetzt mit gedrückter linker Maustaste frei verschoben werden; die Position wird pro Charakter gespeichert.

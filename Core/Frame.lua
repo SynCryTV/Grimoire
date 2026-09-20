@@ -96,23 +96,44 @@ local function SaveToggleButtonPosition()
     SetToggleButtonPosition(G.charDB.toggleButtonPosition.x, G.charDB.toggleButtonPosition.y)
 end
 
+local function IsToggleButtonLocked()
+    return not G.charDB or G.charDB.toggleButtonLocked ~= false
+end
+
 toggleButton:SetMovable(true)
 toggleButton:SetClampedToScreen(true)
+toggleButton:RegisterForClicks("LeftButtonUp", "RightButtonUp")
 toggleButton:RegisterForDrag("LeftButton")
 toggleButton:SetScript("OnDragStart", function(self)
+    if IsToggleButtonLocked() then return end
     GameTooltip:Hide()
     self:StartMoving()
 end)
 toggleButton:SetScript("OnDragStop", function(self)
     self:StopMovingOrSizing()
-    SaveToggleButtonPosition()
+    if not IsToggleButtonLocked() then
+        SaveToggleButtonPosition()
+    end
 end)
-toggleButton:SetScript("OnClick", function() G.TogglePanel() end)
+toggleButton:SetScript("OnClick", function(_, button)
+    if button == "RightButton" then
+        if G.charDB then
+            G.charDB.toggleButtonLocked = not IsToggleButtonLocked()
+        end
+        return
+    end
+    G.TogglePanel()
+end)
 toggleButton:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_LEFT")
     GameTooltip:SetText(G.L("Grimoire"))
     GameTooltip:AddLine(G.L("Klicken zum Öffnen/Schließen"), 0.8, 0.8, 0.8)
-    GameTooltip:AddLine(G.L("Gedrückt halten und ziehen zum Verschieben"), 0.8, 0.8, 0.8)
+    if IsToggleButtonLocked() then
+        GameTooltip:AddLine(G.L("Rechtsklick zum Lösen"), 0.8, 0.8, 0.8)
+    else
+        GameTooltip:AddLine(G.L("Gedrückt halten und ziehen zum Verschieben"), 0.8, 0.8, 0.8)
+        GameTooltip:AddLine(G.L("Rechtsklick zum Feststellen"), 0.8, 0.8, 0.8)
+    end
     GameTooltip:Show()
 end)
 toggleButton:SetScript("OnLeave", function() GameTooltip:Hide() end)
@@ -151,6 +172,10 @@ end
 -- Meldet sich bei Init.lua an, sobald die SavedVariables geladen sind.
 G.RegisterOnDatabaseReady(function()
     ApplyPanelWidth()
+
+    if G.charDB.toggleButtonLocked == nil then
+        G.charDB.toggleButtonLocked = true
+    end
 
     local position = G.charDB and G.charDB.toggleButtonPosition
     if position and type(position.x) == "number" and type(position.y) == "number" then

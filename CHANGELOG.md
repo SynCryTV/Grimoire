@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.33
+
+- Umschaltbutton verwendet jetzt das Grimoire-Symbol statt eines Text-„G“ und sitzt ohne Abstand direkt an der rechten Charakterfensterkante.
+
 ## 5.2.32
 
 - Grimoire-Umschaltbutton nach außen rechts neben das Charakterfenster und weiter nach unten verschoben, damit er im WoW-Standard-UI nicht mehr verdeckt wird.

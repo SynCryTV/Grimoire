@@ -1306,7 +1306,7 @@ local function CreateAuctionHouseButton()
         AuctionHouseFrame
     )
     ahToggleButton:SetSize(24, 24)
-    ahToggleButton:SetPoint("TOPLEFT", AuctionHouseFrame, "TOPRIGHT", -12, -150)
+    ahToggleButton:SetPoint("TOPRIGHT", AuctionHouseFrame, "TOPRIGHT", -34, -6)
     ahToggleButton:SetFrameStrata(AuctionHouseFrame:GetFrameStrata())
     ahToggleButton:SetFrameLevel(AuctionHouseFrame:GetFrameLevel() + 100)
     ahToggleButton:SetNormalTexture("Interface\\AddOns\\Grimoire\\icon")

@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.44
+
+- Grimoire-Buttons zurück auf die ursprüngliche Standardposition oben rechts innerhalb ihrer jeweiligen Blizzard-Fenster gesetzt.
+
 ## 5.2.43
 
 - Verschieben und Positionsspeicherung der Grimoire-Buttons entfernt. Die Icons sind wieder fest an Charakter- bzw. Auktionshausfenster gebunden und werden mit hoher UI-Ebene zuverlässig im Vordergrund angezeigt.

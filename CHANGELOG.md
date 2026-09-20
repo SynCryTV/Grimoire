@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.49
+
+- Klickfläche der Grimoire-Icons auf die gesamte sichtbare Schimmer-Umrandung erweitert. Die Buttons lassen sich dadurch im Charakter- und Handelsfenster zuverlässiger treffen.
+
 ## 5.2.48
 
 - Werteziele mit einem expliziten Zielwert von 0 (z. B. Vielseitigkeit) werden nun inklusive leerem Balken und 0-Zielmarke angezeigt, statt ausgeblendet zu werden.

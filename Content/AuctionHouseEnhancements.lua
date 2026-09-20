@@ -1321,6 +1321,7 @@ local function CreateAuctionHouseButton()
         AuctionHouseFrame
     )
     ahToggleButton:SetSize(24, 24)
+    ahToggleButton:SetHitRectInsets(-10, -10, -10, -10)
     ahToggleButton:SetPoint("TOPRIGHT", AuctionHouseFrame, "TOPRIGHT", -34, -6)
     ahToggleButton:SetFrameStrata("HIGH")
     ahToggleButton:SetFrameLevel(AuctionHouseFrame:GetFrameLevel() + 100)

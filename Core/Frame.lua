@@ -68,6 +68,9 @@ end)
 
 local toggleButton = CreateFrame("Button", "GrimoireToggleButton", CharacterFrame)
 toggleButton:SetSize(24, 24)
+-- Der sichtbare Schimmer ist größer als das Icon. Die Klickfläche wird
+-- entsprechend erweitert, ohne das eigentliche Icon zu skalieren.
+toggleButton:SetHitRectInsets(-10, -10, -10, -10)
 -- Außerhalb des Charakterfensters platzieren: Das Standard-UI verdeckt den
 -- oberen rechten Innenbereich mit Portrait- und Schließen-Elementen.
 toggleButton:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -32, -6)

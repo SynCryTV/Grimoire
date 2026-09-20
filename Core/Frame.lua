@@ -68,7 +68,11 @@ end)
 
 local toggleButton = CreateFrame("Button", "GrimoireToggleButton", CharacterFrame, "UIPanelButtonTemplate")
 toggleButton:SetSize(24, 24)
-toggleButton:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -32, -6)
+-- Außerhalb des Charakterfensters platzieren: Das Standard-UI verdeckt den
+-- oberen rechten Innenbereich mit Portrait- und Schließen-Elementen.
+toggleButton:SetPoint("TOPLEFT", CharacterFrame, "TOPRIGHT", 8, -42)
+toggleButton:SetFrameStrata("HIGH")
+toggleButton:SetFrameLevel(CharacterFrame:GetFrameLevel() + 20)
 toggleButton:SetText(G.L("G"))
 toggleButton:SetScript("OnClick", function() G.TogglePanel() end)
 toggleButton:SetScript("OnEnter", function(self)

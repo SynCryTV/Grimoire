@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.32
+
+- Grimoire-Umschaltbutton nach außen rechts neben das Charakterfenster und weiter nach unten verschoben, damit er im WoW-Standard-UI nicht mehr verdeckt wird.
+
 ## 5.2.30
 
 - „Empfohlen“-Hinweis im Heldentalent-Dropdown auf Englisch lokalisiert.

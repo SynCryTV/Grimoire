@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.53
+
+- Klickbereich des Grimoire-Icons im Charakterfenster durch eine separate, 44×44 große Klickfläche über dem Blizzard-Header ersetzt. Das gesamte Icon inklusive Schimmer reagiert nun zuverlässig.
+
 ## 5.2.52
 
 - Bei Werteziele mit Zielwert 0 zeigt der Balken jetzt weiterhin den eigenen aktuellen Wert; die 0-Zielmarke bleibt links sichtbar.

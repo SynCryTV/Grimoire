@@ -68,10 +68,6 @@ end)
 
 local toggleButton = CreateFrame("Button", "GrimoireToggleButton", CharacterFrame)
 toggleButton:SetSize(24, 24)
--- Der nicht klickbare Teil liegt oberhalb des Icons im Header. Die
--- Klickfläche wird deshalb gezielt nach oben erweitert, ohne das Icon zu
--- skalieren oder den unteren Bereich unnötig groß zu machen.
-toggleButton:SetHitRectInsets(-8, -8, -24, 4)
 -- Außerhalb des Charakterfensters platzieren: Das Standard-UI verdeckt den
 -- oberen rechten Innenbereich mit Portrait- und Schließen-Elementen.
 toggleButton:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -32, -6)
@@ -81,6 +77,7 @@ toggleButton:SetToplevel(true)
 toggleButton:SetNormalTexture("Interface\\AddOns\\Grimoire\\icon")
 toggleButton:SetPushedTexture("Interface\\AddOns\\Grimoire\\icon")
 toggleButton:SetHighlightTexture("Interface\\AddOns\\Grimoire\\icon", "ADD")
+toggleButton:EnableMouse(false)
 
 local toggleGlow = toggleButton:CreateTexture(nil, "OVERLAY", nil, 7)
 toggleGlow:SetSize(44, 44)
@@ -140,14 +137,37 @@ function G.RefreshToggleButtonHighlights()
     end
 end
 
-toggleButton:SetScript("OnClick", function() G.TogglePanel() end)
-toggleButton:SetScript("OnEnter", function(self)
+local function ShowToggleTooltip(self)
     GameTooltip:SetOwner(self, "ANCHOR_LEFT")
     GameTooltip:SetText(G.L("Grimoire"))
     GameTooltip:AddLine(G.L("Klicken zum Öffnen/Schließen"), 0.8, 0.8, 0.8)
     GameTooltip:Show()
+end
+
+-- Der Blizzard-Header kann die Mausinteraktion eines kleinen Kind-Buttons
+-- teilweise abfangen. Eine transparente Klickfläche über dem Icon liefert
+-- eine durchgehend zuverlässige 44x44-Fläche, ohne das Symbol zu strecken.
+local toggleHitArea = CreateFrame("Button", "GrimoireToggleHitArea", UIParent)
+toggleHitArea:SetSize(44, 44)
+toggleHitArea:SetPoint("CENTER", toggleButton, "CENTER")
+toggleHitArea:SetFrameStrata("TOOLTIP")
+toggleHitArea:SetFrameLevel(100)
+toggleHitArea:SetToplevel(true)
+toggleHitArea:RegisterForClicks("LeftButtonUp")
+toggleHitArea:SetScript("OnClick", function() G.TogglePanel() end)
+toggleHitArea:SetScript("OnEnter", ShowToggleTooltip)
+toggleHitArea:SetScript("OnLeave", GameTooltip_Hide)
+toggleHitArea:Hide()
+
+CharacterFrame:HookScript("OnShow", function()
+    toggleHitArea:Show()
 end)
-toggleButton:SetScript("OnLeave", function() GameTooltip:Hide() end)
+CharacterFrame:HookScript("OnHide", function()
+    toggleHitArea:Hide()
+end)
+if CharacterFrame:IsShown() then
+    toggleHitArea:Show()
+end
 G.toggleButton = toggleButton
 
 function G.OpenPanel()

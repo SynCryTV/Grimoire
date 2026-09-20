@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.50
+
+- Erweiterte Klickfläche auf den Grimoire-Button im Charakterfenster begrenzt; der bereits funktionierende Auktionshaus-Button behält seine normale Klickfläche.
+
 ## 5.2.49
 
 - Klickfläche der Grimoire-Icons auf die gesamte sichtbare Schimmer-Umrandung erweitert. Die Buttons lassen sich dadurch im Charakter- und Handelsfenster zuverlässiger treffen.

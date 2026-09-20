@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.35
+
+- Grimoire-Umschaltbutton auf Höhe des Gegenstandsstufen-/GS-Bereichs weiter nach unten versetzt.
+
 ## 5.2.34
 
 - Grimoire-Umschaltbutton weiter nach links auf die Charakterfensterkante sowie weiter nach unten verschoben.

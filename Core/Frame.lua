@@ -70,7 +70,7 @@ local toggleButton = CreateFrame("Button", "GrimoireToggleButton", CharacterFram
 toggleButton:SetSize(24, 24)
 -- Außerhalb des Charakterfensters platzieren: Das Standard-UI verdeckt den
 -- oberen rechten Innenbereich mit Portrait- und Schließen-Elementen.
-toggleButton:SetPoint("TOPLEFT", CharacterFrame, "TOPRIGHT", -12, -68)
+toggleButton:SetPoint("TOPLEFT", CharacterFrame, "TOPRIGHT", -12, -150)
 toggleButton:SetFrameStrata("HIGH")
 toggleButton:SetFrameLevel(CharacterFrame:GetFrameLevel() + 20)
 toggleButton:SetNormalTexture("Interface\\AddOns\\Grimoire\\icon")

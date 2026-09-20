@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.34
+
+- Grimoire-Umschaltbutton weiter nach links auf die Charakterfensterkante sowie weiter nach unten verschoben.
+
 ## 5.2.33
 
 - Umschaltbutton verwendet jetzt das Grimoire-Symbol statt eines Text-„G“ und sitzt ohne Abstand direkt an der rechten Charakterfensterkante.

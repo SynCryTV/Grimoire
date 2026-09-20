@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.2.45
+
+- Grimoire-Buttons auf die hohe UI-Ebene gesetzt, damit sie über den Blizzard-Fenster-Headern liegen.
+
 ## 5.2.44
 
 - Grimoire-Buttons zurück auf die ursprüngliche Standardposition oben rechts innerhalb ihrer jeweiligen Blizzard-Fenster gesetzt.

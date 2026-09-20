@@ -71,8 +71,9 @@ toggleButton:SetSize(24, 24)
 -- Außerhalb des Charakterfensters platzieren: Das Standard-UI verdeckt den
 -- oberen rechten Innenbereich mit Portrait- und Schließen-Elementen.
 toggleButton:SetPoint("TOPRIGHT", CharacterFrame, "TOPRIGHT", -32, -6)
-toggleButton:SetFrameStrata(CharacterFrame:GetFrameStrata())
+toggleButton:SetFrameStrata("HIGH")
 toggleButton:SetFrameLevel(CharacterFrame:GetFrameLevel() + 100)
+toggleButton:SetToplevel(true)
 toggleButton:SetNormalTexture("Interface\\AddOns\\Grimoire\\icon")
 toggleButton:SetPushedTexture("Interface\\AddOns\\Grimoire\\icon")
 toggleButton:SetHighlightTexture("Interface\\AddOns\\Grimoire\\icon", "ADD")

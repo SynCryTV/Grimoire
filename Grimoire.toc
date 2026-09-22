@@ -2,7 +2,7 @@
 ## Title: Grimoire
 ## Notes: Best-in-Slot, Werteprioritäten, Werteziele, Omnium Folio sowie Enchants, Gems und Verbrauchsgüter für jede Spec. Deutsch, PvE, automatisch aktuell. Version 5.2.55: 0-Ziele werden bei überschrittenem Wert blau markiert.
 ## Author: Ravyniel
-## Version: 5.2.56
+## Version: 5.3.0
 ## SavedVariables: GrimoireDB
 ## SavedVariablesPerCharacter: GrimoireCharDB
 ## IconTexture: Interface\AddOns\Grimoire\icon

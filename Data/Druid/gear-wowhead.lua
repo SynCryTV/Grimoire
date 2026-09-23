@@ -233,7 +233,7 @@ GrimoireGearData["DRUID"] = {
     },
     trinkets = {
       { itemId = 270164, tier = "A", contexts = { "raid" } },
-      { itemId = 270167, tier = "A", contexts = { "dungeon", "raid" }, source = "Nymrissa Wavebinder (Raid)" },
+      { itemId = 270167, tier = "A", contexts = { "crafting", "dungeon", "raid" }, source = "Nymrissa Wavebinder (Raid)" },
       { itemId = 249343, tier = "B", contexts = { "raid" } },
       { itemId = 250214, tier = "B", contexts = { "dungeon" } },
       { itemId = 193757, tier = "C", contexts = { "dungeon" } },
@@ -267,7 +267,7 @@ GrimoireGearData["DRUID"] = {
         { slot = "Waist", item = { itemId = 268256, name = "Sash of the Forlorn Vessel", bonusIDs = {  } }, source = "The Coiled Alter (Raid)", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
         { slot = "Legs", item = { itemId = 271527, name = "Enigmatic Dreamwatcher's Leggings", bonusIDs = {  } }, source = "The Coiled Alter (Raid) & Catalyst", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-coiled-altar-boss-strategy-abilities" } },
         { slot = "Feet", item = { itemId = 244569, name = "Silvermoon Agent's Sneakers", bonusIDs = {  } }, source = "Leatherworking", sourceMeta = { kind = "crafting", url = "https://www.wowhead.com/skill=165/leatherworking" } },
-        { slot = "Ring", item = { itemId = 268266, name = "Alluring Bubbleband", bonusIDs = {  } }, source = "Nymrissa Wavebinder (Raid)", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/nymrissa-wavecaller-tidebound-grotto-lair-boss-strategy-rewards" } },
+        { slot = "Ring", item = { itemId = 240949, name = "Masterwork Sin'dorei Band", bonusIDs = {  } }, source = "Jewelcrafting (Crafted)", sourceMeta = { kind = "crafting" } },
         { slot = "Ring", item = { itemId = 252258, name = "Sickening Signet of Atroxus", bonusIDs = {  } }, source = "Voidscar Arena", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/voidscar-arena-dungeon-overview-location-rewards" } },
         { slot = "Trinket", item = { itemId = 270167, name = "Wavecaller's Seastone", bonusIDs = {  } }, source = "Nymrissa Wavebinder (Raid)", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/nymrissa-wavecaller-tidebound-grotto-lair-boss-strategy-rewards" } },
         { slot = "Trinket", item = { itemId = 270162, name = "Soulcoiler Ritual Vessel", bonusIDs = {  } }, source = "Nek'zali the Soulcoiler (Raid)", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-nekzali-the-soulcoiler-boss-strategy-abilities" } },

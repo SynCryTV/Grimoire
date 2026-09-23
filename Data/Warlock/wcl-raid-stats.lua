@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["WARLOCK"] = GrimoireStatTargets["WARLOCK"] or {}
 
 GrimoireStatTargets["WARLOCK"]["affliction"] = GrimoireStatTargets["WARLOCK"]["affliction"] or {}
-GrimoireStatTargets["WARLOCK"]["affliction"]["Raid"] = { targets = { crit = 844, haste = 944, mastery = 440, versatility = 34 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["WARLOCK"]["affliction"]["Raid"] = { targets = { crit = 847, haste = 942, mastery = 442, versatility = 31 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["WARLOCK"]["demonology"] = GrimoireStatTargets["WARLOCK"]["demonology"] or {}
-GrimoireStatTargets["WARLOCK"]["demonology"]["Raid"] = { targets = { crit = 1019, haste = 747, mastery = 558, versatility = 26 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["WARLOCK"]["demonology"]["Raid"] = { targets = { crit = 1017, haste = 749, mastery = 560, versatility = 26 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["WARLOCK"]["destruction"] = GrimoireStatTargets["WARLOCK"]["destruction"] or {}
 GrimoireStatTargets["WARLOCK"]["destruction"]["Raid"] = { targets = { crit = 780, haste = 732, mastery = 740, versatility = 38 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }

@@ -3,7 +3,7 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["DEATHKNIGHT"] = GrimoireStatTargets["DEATHKNIGHT"] or {}
 
 GrimoireStatTargets["DEATHKNIGHT"]["blood"] = GrimoireStatTargets["DEATHKNIGHT"]["blood"] or {}
-GrimoireStatTargets["DEATHKNIGHT"]["blood"]["Raid"] = { targets = { crit = 782, haste = 932, mastery = 389, versatility = 194 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["DEATHKNIGHT"]["blood"]["Raid"] = { targets = { crit = 782, haste = 932, mastery = 391, versatility = 194 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["DEATHKNIGHT"]["frost"] = GrimoireStatTargets["DEATHKNIGHT"]["frost"] or {}
 GrimoireStatTargets["DEATHKNIGHT"]["frost"]["Raid"] = { targets = { crit = 1202, haste = 356, mastery = 954, versatility = 0 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }

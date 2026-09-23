@@ -20,6 +20,8 @@ local DB_DEFAULTS = {
     showLoginMessage = true,
     showStatPriorityInTooltips = true,
     highlightToggleButtons = true,
+    showMinimapButton = true,
+    minimapButton = { angle = 225 },
     trinketTiersAllClasses = false,
     personalTrinketSTier = {},
     showPersonalTrinketSTierInTooltips = true,

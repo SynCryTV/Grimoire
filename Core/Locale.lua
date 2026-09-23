@@ -5,6 +5,10 @@ local ADDON_NAME, G = ...
 -- clients receive a complete UI translation without a user-facing switch.
 local EN = {
     ["Einstellungen"] = "Settings",
+    ["Minimap-Button anzeigen"] = "Show minimap button",
+    ["Zeigt einen klassischen Grimoire-Button an der Minimap. Ziehe ihn mit der linken Maustaste, um seine Position zu ändern."] = "Shows a classic Grimoire button on the minimap. Drag it with the left mouse button to change its position.",
+    ["Klicken zum Öffnen/Schließen"] = "Click to open/close",
+    ["Linke Maustaste gedrückt halten zum Verschieben"] = "Hold the left mouse button to move",
     ["Sprache"] = "Language",
     ["Deutsch"] = "German",
     ["Optionale Grimoire-Funktionen"] = "Optional Grimoire features",

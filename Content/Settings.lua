@@ -5,7 +5,7 @@ local TAB_KEY = "settings"
 local frame = CreateFrame("Frame", "GrimoireSettingsTab", G.panel)
 frame:SetPoint("TOPLEFT", G.selectorBar, "BOTTOMLEFT", 0, -20)
 frame:SetPoint("RIGHT", G.panel, "RIGHT", -16, 0)
-frame:SetHeight(330)
+frame:SetHeight(385)
 
 local title = frame:CreateFontString(nil, "OVERLAY", "GameFontNormalLarge")
 title:SetPoint("TOPLEFT", 4, -2)
@@ -132,13 +132,39 @@ highlightButtonsHelp:SetText(G.L(
     "Zeigt eine pulsierende Leuchtumrandung um die Grimoire-Buttons im Charakterfenster und Handelsfenster."
 ))
 
+-- ============================================================
+-- Minimap-Button
+-- ============================================================
+
+local minimapButtonCheck = CreateFrame(
+    "CheckButton",
+    "GrimoireMinimapButtonSetting",
+    frame,
+    "UICheckButtonTemplate"
+)
+minimapButtonCheck:SetPoint("TOPLEFT", highlightButtonsHelp, "BOTTOMLEFT", -4, -18)
+minimapButtonCheck:SetSize(24, 24)
+
+local minimapButtonLabel = frame:CreateFontString(nil, "OVERLAY", "GameFontHighlight")
+minimapButtonLabel:SetPoint("LEFT", minimapButtonCheck, "RIGHT", 4, 0)
+minimapButtonLabel:SetText(G.L("Minimap-Button anzeigen"))
+
+local minimapButtonHelp = frame:CreateFontString(nil, "OVERLAY", "GameFontDisableSmall")
+minimapButtonHelp:SetPoint("TOPLEFT", minimapButtonLabel, "BOTTOMLEFT", 0, -6)
+minimapButtonHelp:SetPoint("RIGHT", frame, "RIGHT", -12, 0)
+minimapButtonHelp:SetJustifyH("LEFT")
+minimapButtonHelp:SetWordWrap(true)
+minimapButtonHelp:SetText(G.L(
+    "Zeigt einen klassischen Grimoire-Button an der Minimap. Ziehe ihn mit der linken Maustaste, um seine Position zu ändern."
+))
+
 -- ============================================================================
 -- Quellenübersicht
 -- ============================================================================
 
 local sourceInfoButton = CreateFrame("Button", nil, frame, "UIPanelButtonTemplate")
 sourceInfoButton:SetSize(180, 24)
-sourceInfoButton:SetPoint("TOPLEFT", highlightButtonsHelp, "BOTTOMLEFT", 0, -14)
+sourceInfoButton:SetPoint("TOPLEFT", minimapButtonHelp, "BOTTOMLEFT", 0, -14)
 sourceInfoButton:SetText(G.L("Info & Quellen"))
 
 local sourcePopup = CreateFrame("Frame", "GrimoireSourceInfoPopup", UIParent, "BackdropTemplate")
@@ -243,14 +269,23 @@ local function IsButtonHighlightEnabled()
     return G.db.highlightToggleButtons == true
 end
 
+local function IsMinimapButtonEnabled()
+    if not G.db then return true end
+    if G.db.showMinimapButton == nil then
+        G.db.showMinimapButton = true
+    end
+    return G.db.showMinimapButton == true
+end
+
 local function Refresh()
     dungeonTeleportCheck:SetChecked(IsEnabled())
     groupReminderCheck:SetChecked(IsGroupReminderEnabled())
     highlightButtonsCheck:SetChecked(IsButtonHighlightEnabled())
+    minimapButtonCheck:SetChecked(IsMinimapButtonEnabled())
     if G.GetActiveTab and G.GetActiveTab() == TAB_KEY
         and G.SetPanelContentHeight
     then
-        G.SetPanelContentHeight(330)
+        G.SetPanelContentHeight(385)
     end
 end
 
@@ -273,6 +308,14 @@ groupReminderCheck:SetScript("OnClick", function(self)
         and G.HideGroupFinderReminder
     then
         G.HideGroupFinderReminder()
+    end
+end)
+
+minimapButtonCheck:SetScript("OnClick", function(self)
+    if not G.db then return end
+    G.db.showMinimapButton = self:GetChecked() == true
+    if G.RefreshMinimapButton then
+        G.RefreshMinimapButton()
     end
 end)
 
@@ -304,6 +347,9 @@ G.RegisterOnDatabaseReady(function()
     end
     if G.db.highlightToggleButtons == nil then
         G.db.highlightToggleButtons = true
+    end
+    if G.db.showMinimapButton == nil then
+        G.db.showMinimapButton = true
     end
 
     Refresh()

@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.3.1
+
+- Klassischen, frei verschiebbaren Minimap-Button zum Öffnen und Schließen von Grimoire ergänzt. Er ist standardmäßig aktiv und kann in den Einstellungen deaktiviert werden.
+
 ## 5.2.55
 
 - Werteziele mit Zielwert 0 werden bei einem eigenen Wert über 0 nun einheitlich blau als überschritten markiert.

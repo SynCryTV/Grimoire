@@ -3,6 +3,7 @@
 ## 5.3.1
 
 - Klassischen, frei verschiebbaren Minimap-Button zum Öffnen und Schließen von Grimoire ergänzt. Er ist standardmäßig aktiv und kann in den Einstellungen deaktiviert werden.
+- Werteprioritäten und Raid-Werteziele mit dem aktuellen Scraper-Lauf für alle unterstützten Klassen und Spezialisierungen aktualisiert.
 
 ## 5.2.55
 

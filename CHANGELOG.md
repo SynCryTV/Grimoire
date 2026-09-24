@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.3.4
+
+- Beim Öffnen übernimmt Grimoire jetzt stets die Klasse und aktive Spezialisierung des aktuell eingeloggten Charakters. Dadurch bleiben parallele WoW-Clients voneinander unabhängig und die aktive Hero-Spezialisierung wird korrekt gewählt.
+
 ## 5.3.1
 
 - Klassischen, frei verschiebbaren Minimap-Button zum Öffnen und Schließen von Grimoire ergänzt. Er ist standardmäßig aktiv und kann in den Einstellungen deaktiviert werden.

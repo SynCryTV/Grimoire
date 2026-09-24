@@ -175,6 +175,15 @@ function G.OpenPanel()
         ToggleCharacter("PaperDollFrame")
     end
 
+    -- Mehrere gleichzeitig laufende WoW-Clients teilen sich beim Beenden
+    -- dieselben accountweiten SavedVariables. Die Auswahl darf deshalb beim
+    -- Öffnen nie von einer zuvor betrachteten Klasse stammen: immer die
+    -- tatsächliche Klasse/Spec dieses Clients verwenden. Der ausgelöste
+    -- Selection-Refresh setzt auch die aktive Hero-Spezialisierung neu.
+    if G.ResetSelectionToOwnSpec then
+        G.ResetSelectionToOwnSpec()
+    end
+
     PositionPanel()
 
     if G.SoftShow then

@@ -89,7 +89,7 @@ GrimoireGearData["EVOKER"] = {
       { slot = "Chest", best = { itemId = 243977, name = "Enchant Chest - Mark of the Worldsoul" } },
       { slot = "Legs", best = { itemId = 240133, name = "Sunfire Silk Spellthread" } },
       { slot = "Feet", best = { itemId = 243953, name = "Enchant Boots - Lynx's Dexterity" } },
-      { slot = "Ring", best = { itemId = 243987, name = "Enchant Ring - Nature's Fury" } },
+      { slot = "Ring", best = { itemId = 243957, name = "Enchant Ring - Eyes of the Eagle" } },
     },
     gems = {
       primary = { itemId = 240983, name = "Indecipherable Eversong Diamond" },

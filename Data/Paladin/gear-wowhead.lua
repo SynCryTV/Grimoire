@@ -39,14 +39,14 @@ GrimoireGearData["PALADIN"] = {
       { itemId = 245829, tier = "B", contexts = { "crafting" } },
       { itemId = 248583, tier = "B", contexts = { "delves" } },
       { itemId = 250248, tier = "B", contexts = { "dungeon" } },
+      { itemId = 250255, tier = "B", contexts = { "dungeon" } },
       { itemId = 251792, tier = "B", contexts = { "delves" } },
+      { itemId = 270171, tier = "B", contexts = { "raid" } },
       { itemId = 273649, tier = "B", contexts = { "dungeon" } },
       { itemId = 273796, tier = "B", contexts = { "dungeon" } },
       { itemId = 193757, tier = "C", contexts = { "dungeon" } },
       { itemId = 250254, tier = "C", contexts = { "dungeon" } },
-      { itemId = 250255, tier = "C", contexts = { "dungeon" } },
       { itemId = 193748, tier = "D", contexts = { "dungeon" } },
-      { itemId = 270171, tier = "D", contexts = { "raid" } },
     },
     bisGear = {
       { label = "Overall", slots = {

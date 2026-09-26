@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.3.6
+
+- Die Handelsfenster-Ansicht übernimmt beim Öffnen jetzt ebenfalls die Klasse und aktive Spezialisierung des eingeloggten Charakters. So bleiben mehrere parallel laufende WoW-Clients auch dort unabhängig und der Hero-Talent-Abgleich wird aktualisiert.
+
 ## 5.3.4
 
 - Beim Öffnen übernimmt Grimoire jetzt stets die Klasse und aktive Spezialisierung des aktuell eingeloggten Charakters. Dadurch bleiben parallele WoW-Clients voneinander unabhängig und die aktive Hero-Spezialisierung wird korrekt gewählt.

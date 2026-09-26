@@ -1163,6 +1163,19 @@ local function EnsureSelection()
     end
 end
 
+-- Die gespeicherte AH-Auswahl kann von einem parallel laufenden WoW-Client
+-- stammen. Beim Öffnen daher immer die tatsächlich aktive Klasse/Spec dieses
+-- Clients übernehmen. ResetSelectionToOwnSpec aktualisiert zugleich den
+-- Hero-Talent-Abgleich der normalen Grimoire-Ansicht.
+local function ResetAuctionHouseSelectionToOwnSpec()
+    if G.ResetSelectionToOwnSpec then
+        G.ResetSelectionToOwnSpec()
+    end
+
+    selectedClass = G.GetSelectedClass and G.GetSelectedClass() or nil
+    selectedSpec = G.GetSelectedSpec and G.GetSelectedSpec() or nil
+end
+
 local function RefreshDropdowns()
     EnsureSelection()
 
@@ -1269,6 +1282,7 @@ local function PositionPanel()
 end
 
 function AH.Open()
+    ResetAuctionHouseSelectionToOwnSpec()
     EnsureSelection()
     RefreshDropdowns()
     RefreshContent()

@@ -2,7 +2,7 @@
 ## Title: Grimoire
 ## Notes: Best-in-Slot, Werteprioritäten, Werteziele, Omnium Folio sowie Enchants, Gems und Verbrauchsgüter für jede Spec. Deutsch, PvE, automatisch aktuell. Version 5.3.7: Aktualisierungsstand im Handelsfenster klar anzeigen.
 ## Author: Ravyniel
-## Version: 5.3.7
+## Version: 5.3.8
 ## SavedVariables: GrimoireDB
 ## SavedVariablesPerCharacter: GrimoireCharDB
 ## IconTexture: Interface\AddOns\Grimoire\icon

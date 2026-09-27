@@ -1222,8 +1222,17 @@ local function RefreshDropdowns()
     end)
     if selectedSource == "keystoneloot" then
         local data = GrimoireKeystoneLootData and GrimoireKeystoneLootData[selectedClass] and GrimoireKeystoneLootData[selectedClass][selectedSpec]
-        local updated = data and data.updated or "unbekannt"
-        sourceHint:SetText(G.L("Gems: " .. selectedKeystoneContext .. " • API: " .. updated))
+        local providerUpdated = data and data.updated or "unbekannt"
+        -- Der KeystoneLoot-Zeitstempel stammt von deren API und bedeutet
+        -- nicht, wann Grimoire die Daten zuletzt importiert hat. Beide Werte
+        -- anzeigen, damit ein täglich erfolgreicher Scraper-Lauf nicht wie
+        -- veraltete AH-Daten aussieht.
+        local importedAt = Grimoire_LastScrape or "unbekannt"
+        sourceHint:SetText(G.L(
+            "Gems: " .. selectedKeystoneContext
+            .. " • Import: " .. importedAt
+            .. " • KeystoneLoot-API: " .. providerUpdated
+        ))
     else
         sourceHint:SetText(G.L("VZ, Edelsteine, Flask und Food: Wowhead"))
     end

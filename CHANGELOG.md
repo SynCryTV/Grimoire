@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.3.7
+
+- Im Handelsfenster zeigt KeystoneLoot nun sowohl das Datum des letzten Grimoire-Imports als auch den Zeitstempel der KeystoneLoot-API an. Damit ist klar erkennbar, dass tägliche Scraper-Läufe die AH-Daten aktualisieren, auch wenn die Quelle selbst keine neueren Empfehlungen veröffentlicht hat.
+
 ## 5.3.6
 
 - Die Handelsfenster-Ansicht übernimmt beim Öffnen jetzt ebenfalls die Klasse und aktive Spezialisierung des eingeloggten Charakters. So bleiben mehrere parallel laufende WoW-Clients auch dort unabhängig und der Hero-Talent-Abgleich wird aktualisiert.

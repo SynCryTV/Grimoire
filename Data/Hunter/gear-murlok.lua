@@ -11,7 +11,7 @@ GrimoireMurlokGearData["HUNTER"] = {
     { slot = "Hands", item = { itemId = 271493, name = "Skulking Viper's Hidepiercers" }, source = "Murlok" },
     { slot = "Waist", item = { itemId = 244581, name = "Farstrider's Trophy Belt" }, source = "Murlok" },
     { slot = "Legs", item = { itemId = 271491, name = "Skulking Viper's Coiled Legwraps" }, source = "Murlok" },
-    { slot = "Feet", item = { itemId = 159388, name = "Sabatons of Coruscating Energy" }, source = "Murlok" },
+    { slot = "Feet", item = { itemId = 268258, name = "Boots of the Reckless Wayfarer" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 158366, name = "Charged Sandstone Band" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 251136, name = "Signet of Snarling Servitude" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek" }, source = "Murlok" },
@@ -31,8 +31,8 @@ GrimoireMurlokGearData["HUNTER"] = {
     { slot = "Feet", item = { itemId = 268258, name = "Boots of the Reckless Wayfarer" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 251136, name = "Signet of Snarling Servitude" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 158366, name = "Charged Sandstone Band" }, source = "Murlok" },
-    { slot = "Trinket", item = { itemId = 270168, name = "Font of Venomous Rage" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek" }, source = "Murlok" },
+    { slot = "Trinket", item = { itemId = 270168, name = "Font of Venomous Rage" }, source = "Murlok" },
     { slot = "Main Hand", item = { itemId = 268207, name = "Caustic Repose Greatbow" }, source = "Murlok" },
   } },
   ["survival"] = { bisGear = {
@@ -50,7 +50,7 @@ GrimoireMurlokGearData["HUNTER"] = {
     { slot = "Ring", item = { itemId = 251136, name = "Signet of Snarling Servitude" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270173, name = "Zul'jin's Guillotine Technique" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270165, name = "Keeper's Seething Core" }, source = "Murlok" },
-    { slot = "Main Hand", item = { itemId = 237847, name = "Blood Knight's Impetus" }, source = "Murlok" },
-    { slot = "Off Hand", item = { itemId = 275070, name = "Sharpened Lightwood Slasher" }, source = "Murlok" },
+    { slot = "Main Hand", item = { itemId = 268213, name = "Maze-roa, Warlord's Fury" }, source = "Murlok" },
+    { slot = "Off Hand", item = { itemId = 237837, name = "Farstrider's Mercy" }, source = "Murlok" },
   } },
 }

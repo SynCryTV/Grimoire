@@ -136,11 +136,30 @@ local function GetLivePlayerStatRating(statKey)
     end
 
     local value = GetCombatRating(ratingIndex)
+    -- Midnight kann Kampfwerte in M+/Kampf-Kontexten als geschützte
+    -- "secret number" liefern. Addons dürfen diese Werte nicht runden,
+    -- vergleichen oder anderweitig arithmetisch verarbeiten.
+    if type(issecretvalue) == "function" and issecretvalue(value) then
+        return nil
+    end
     if value == nil then
         return nil
     end
 
     return math.floor(value + 0.5)
+end
+
+local function HasRestrictedLivePlayerStats()
+    if type(issecretvalue) ~= "function" then
+        return false
+    end
+
+    for _, ratingIndex in pairs(STAT_COMBAT_RATING) do
+        if issecretvalue(GetCombatRating(ratingIndex)) then
+            return true
+        end
+    end
+    return false
 end
 
 local function ClassifyDelta(current, target)
@@ -298,6 +317,15 @@ local function Refresh()
 
     if InCombatLockdown() then
         ShowFallback(G.L(L("Werteziele können im Kampf nicht aktualisiert werden.")), yOffset)
+        G.LayoutGuideTab()
+        return
+    end
+
+    -- Nicht jeder geschützte Wert fällt unter InCombatLockdown(), etwa in
+    -- eingeschränkten M+-Situationen. Vor dem Rendern vollständig abfangen,
+    -- damit weder Rundung noch Balkenberechnung mit secret numbers arbeiten.
+    if HasRestrictedLivePlayerStats() then
+        ShowFallback(G.L(L("Werteziele können in diesem Kampfkontext nicht sicher gelesen werden.")), yOffset)
         G.LayoutGuideTab()
         return
     end

@@ -19,6 +19,7 @@ local EN = {
     ["Wertepriorität"] = "Stat Priority",
     ["Omnium Folio"] = "Omnium Folio",
     ["Werteziele werden geladen, sobald Daten für diese Spec verfügbar sind."] = "Stat targets load as soon as data is available for this specialization.",
+    ["Werteziele können in diesem Kampfkontext nicht sicher gelesen werden."] = "Stat targets cannot be read safely in this combat context.",
     ["Wertepriorität wird geladen, sobald Daten für diese Spec verfügbar sind."] = "Stat priority loads as soon as data is available for this specialization.",
     ["Omnium-Folio-Empfehlungen werden geladen, sobald Daten für diese Spec verfügbar sind."] = "Omnium Folio recommendations load as soon as data is available for this specialization.",
     ["Mythic+"] = "Mythic+",

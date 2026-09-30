@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.4.1
+
+- Fehler beim Öffnen von Werteziele in Mythic+- und anderen geschützten Kampfkontexten behoben. Geschützte WoW-Kampfwerte werden jetzt sicher erkannt; statt eines Lua-Fehlers erscheint ein Hinweis, bis die Live-Werte wieder lesbar sind.
+
 ## 5.3.7
 
 - Im Handelsfenster zeigt KeystoneLoot nun sowohl das Datum des letzten Grimoire-Imports als auch den Zeitstempel der KeystoneLoot-API an. Damit ist klar erkennbar, dass tägliche Scraper-Läufe die AH-Daten aktualisieren, auch wenn die Quelle selbst keine neueren Empfehlungen veröffentlicht hat.

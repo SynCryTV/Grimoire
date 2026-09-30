@@ -50,8 +50,8 @@ GrimoireMurlokGearData["PALADIN"] = {
     { slot = "Feet", item = { itemId = 268260, name = "Scaled Fiend's Warboots" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 251513, name = "Loa Worshiper's Band" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 252258, name = "Sickening Signet of Atroxus" }, source = "Murlok" },
-    { slot = "Trinket", item = { itemId = 270173, name = "Zul'jin's Guillotine Technique" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek" }, source = "Murlok" },
+    { slot = "Trinket", item = { itemId = 270173, name = "Zul'jin's Guillotine Technique" }, source = "Murlok" },
     { slot = "Main Hand", item = { itemId = 268213, name = "Maze-roa, Warlord's Fury" }, source = "Murlok" },
   } },
 }

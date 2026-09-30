@@ -49,7 +49,7 @@ GrimoireMurlokGearData["EVOKER"] = {
     { slot = "Legs", item = { itemId = 271500, name = "Earthen Pillars of Calamity" }, source = "Murlok" },
     { slot = "Feet", item = { itemId = 268258, name = "Boots of the Reckless Wayfarer" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 273792, name = "Band of the Amani Warlord" }, source = "Murlok" },
-    { slot = "Ring", item = { itemId = 159459, name = "Ritual Binder's Ring" }, source = "Murlok" },
+    { slot = "Ring", item = { itemId = 251136, name = "Signet of Snarling Servitude" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270162, name = "Soulcoiler Ritual Vessel" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270164, name = "Gebbo's Bottomless Bag" }, source = "Murlok" },
     { slot = "Main Hand", item = { itemId = 271092, name = "Jan'thrazet, the Soul Fang" }, source = "Murlok" },

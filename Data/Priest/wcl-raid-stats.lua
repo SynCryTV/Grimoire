@@ -9,4 +9,4 @@ GrimoireStatTargets["PRIEST"]["holy"] = GrimoireStatTargets["PRIEST"]["holy"] or
 GrimoireStatTargets["PRIEST"]["holy"]["Raid"] = { targets = { crit = 828, haste = 616, mastery = 546, versatility = 140 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["PRIEST"]["shadow"] = GrimoireStatTargets["PRIEST"]["shadow"] or {}
-GrimoireStatTargets["PRIEST"]["shadow"]["Raid"] = { targets = { crit = 581, haste = 802, mastery = 1019, versatility = 5 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["PRIEST"]["shadow"]["Raid"] = { targets = { crit = 584, haste = 804, mastery = 1017, versatility = 5 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }

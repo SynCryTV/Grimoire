@@ -33,7 +33,7 @@ GrimoireMurlokGearData["DEATHKNIGHT"] = {
     { slot = "Ring", item = { itemId = 158366, name = "Charged Sandstone Band" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270173, name = "Zul'jin's Guillotine Technique" }, source = "Murlok" },
-    { slot = "Main Hand", item = { itemId = 268209, name = "Aman'muso, Warlord's Vengeance" }, source = "Murlok" },
+    { slot = "Main Hand", item = { itemId = 268202, name = "Jaw of the Shackled Goddess" }, source = "Murlok" },
     { slot = "Off Hand", item = { itemId = 268202, name = "Jaw of the Shackled Goddess" }, source = "Murlok" },
   } },
   ["unholy"] = { bisGear = {
@@ -48,7 +48,7 @@ GrimoireMurlokGearData["DEATHKNIGHT"] = {
     { slot = "Legs", item = { itemId = 271473, name = "Baleful Grave-Knight's Greaves" }, source = "Murlok" },
     { slot = "Feet", item = { itemId = 237828, name = "Spellbreaker's March" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 252258, name = "Sickening Signet of Atroxus" }, source = "Murlok" },
-    { slot = "Ring", item = { itemId = 251513, name = "Loa Worshiper's Band" }, source = "Murlok" },
+    { slot = "Ring", item = { itemId = 158366, name = "Charged Sandstone Band" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270173, name = "Zul'jin's Guillotine Technique" }, source = "Murlok" },
     { slot = "Main Hand", item = { itemId = 268213, name = "Maze-roa, Warlord's Fury" }, source = "Murlok" },

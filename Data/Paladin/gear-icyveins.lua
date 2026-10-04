@@ -62,14 +62,14 @@ GrimoireIcyVeinsData["PALADIN"] = {
   ["holy"] = {
     bisGear = {
       { label = "Overall", slots = {
-        { slot = "Helm", item = { itemId = 271465, name = "Warhelm of the Consecrated Flame", bonusIDs = { 12854 } }, source = "King's Rest" },
+        { slot = "Helm", item = { itemId = 271465, name = "Warhelm of the Consecrated Flame", bonusIDs = { 12854 } }, source = "Murder Row" },
         { slot = "Hands", item = { itemId = 271466, name = "Gauntlets of the Consecrated Flame", bonusIDs = { 12854 } }, source = "Catalyst + King's Rest" },
         { slot = "Neck", item = { itemId = 268265, name = "Aqirbane Reliquary", bonusIDs = { 13848 } }, source = "Ula'tek" },
         { slot = "Waist", item = { itemId = 268259, name = "Girdle of Toxic Regret", bonusIDs = { 13848 } }, source = "Coiled Altar" },
         { slot = "Shoulders", item = { itemId = 271463, name = "Pauldrons of the Consecrated Flame", bonusIDs = { 12854 } }, source = "Temple of Sethraliss" },
         { slot = "Legs", item = { itemId = 271464, name = "Greaves of the Consecrated Flame", bonusIDs = { 13848 } }, source = "Catalyst + Ula'tek" },
         { slot = "Cloak", item = { itemId = 268253, name = "Silken Voodoo Drape", bonusIDs = { 13848 } }, source = "Coiled Altar" },
-        { slot = "Feet", item = { itemId = 273777, name = "Poison-Proof Stompers", bonusIDs = { 12854 } }, source = "Altar of Fangs" },
+        { slot = "Feet", item = { itemId = 159412, name = "Auric Puddle Stompers", bonusIDs = { 12854 } }, source = "King's Rest" },
         { slot = "Chest", item = { itemId = 271468, name = "Bulwark of the Consecrated Flame", bonusIDs = { 13848 } }, source = "Catalyst + Coiled Altar" },
         { slot = "Ring", item = { itemId = 252258, name = "Sickening Signet of Atroxus", bonusIDs = { 12854 } }, source = "Voidscar Arena" },
         { slot = "Ring", item = { itemId = 268249, name = "Vile Alchemist's Band", bonusIDs = { 12854 } }, source = "Vashnik the Malignant" },
@@ -80,14 +80,14 @@ GrimoireIcyVeinsData["PALADIN"] = {
         { slot = "Off Hand", item = { itemId = 268262, name = "Bubblefin Splash Guard", bonusIDs = { 12854 } }, source = "Nymrissa Wavecaller" },
       } },
       { label = "Mythic+", slots = {
-        { slot = "Helm", item = { itemId = 271465, name = "Warhelm of the Consecrated Flame", bonusIDs = { 12854 } }, source = "King's Rest" },
+        { slot = "Helm", item = { itemId = 271465, name = "Warhelm of the Consecrated Flame", bonusIDs = { 12854 } }, source = "Murder Row" },
         { slot = "Hands", item = { itemId = 271466, name = "Gauntlets of the Consecrated Flame", bonusIDs = { 12854 } }, source = "Catalyst + King's Rest" },
         { slot = "Neck", item = { itemId = 251142, name = "Pendant of Malefic Fury", bonusIDs = { 12854 } }, source = "Murder Row" },
         { slot = "Waist", item = { itemId = 159418, name = "Girdle of Pestilent Purification", bonusIDs = { 12854 } }, source = "King's Rest" },
         { slot = "Shoulders", item = { itemId = 271463, name = "Pauldrons of the Consecrated Flame", bonusIDs = { 12854 } }, source = "Temple of Sethraliss" },
         { slot = "Legs", item = { itemId = 271464, name = "Greaves of the Consecrated Flame", bonusIDs = { 12854 } }, source = "Catalyst + Temple of Sethraliss" },
         { slot = "Cloak", item = { itemId = 251190, name = "Bloodthorn Burnous", bonusIDs = { 12854 } }, source = "The Blinding Vale" },
-        { slot = "Feet", item = { itemId = 273777, name = "Poison-Proof Stompers", bonusIDs = { 12854 } }, source = "Altar of Fangs" },
+        { slot = "Feet", item = { itemId = 159412, name = "Auric Puddle Stompers", bonusIDs = { 12854 } }, source = "King's Rest" },
         { slot = "Chest", item = { itemId = 271468, name = "Bulwark of the Consecrated Flame", bonusIDs = { 12854 } }, source = "Catalyst + Ruby Life Pools" },
         { slot = "Ring", item = { itemId = 158366, name = "Charged Sandstone Band", bonusIDs = { 12854 } }, source = "Temple of Sethraliss" },
         { slot = "Ring", item = { itemId = 252258, name = "Sickening Signet of Atroxus", bonusIDs = { 12854 } }, source = "Voidscar Arena" },

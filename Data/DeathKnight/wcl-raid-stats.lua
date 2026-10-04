@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["DEATHKNIGHT"] = GrimoireStatTargets["DEATHKNIGHT"] or {}
 
 GrimoireStatTargets["DEATHKNIGHT"]["blood"] = GrimoireStatTargets["DEATHKNIGHT"]["blood"] or {}
-GrimoireStatTargets["DEATHKNIGHT"]["blood"]["Raid"] = { targets = { crit = 814, haste = 934, mastery = 391, versatility = 189 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["DEATHKNIGHT"]["blood"]["Raid"] = { targets = { crit = 841, haste = 937, mastery = 394, versatility = 184 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["DEATHKNIGHT"]["frost"] = GrimoireStatTargets["DEATHKNIGHT"]["frost"] or {}
-GrimoireStatTargets["DEATHKNIGHT"]["frost"]["Raid"] = { targets = { crit = 1203, haste = 372, mastery = 967, versatility = 2 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["DEATHKNIGHT"]["frost"]["Raid"] = { targets = { crit = 1206, haste = 370, mastery = 972, versatility = 0 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["DEATHKNIGHT"]["unholy"] = GrimoireStatTargets["DEATHKNIGHT"]["unholy"] or {}
-GrimoireStatTargets["DEATHKNIGHT"]["unholy"]["Raid"] = { targets = { crit = 981, haste = 376, mastery = 1047, versatility = 105 }, samples = 54, source = "parses.gg Mythic (alle Bosse)" }
+GrimoireStatTargets["DEATHKNIGHT"]["unholy"]["Raid"] = { targets = { crit = 1032, haste = 375, mastery = 1068, versatility = 102 }, samples = 61, source = "parses.gg Mythic (alle Bosse)" }

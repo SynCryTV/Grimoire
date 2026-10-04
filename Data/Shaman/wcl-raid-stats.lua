@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["SHAMAN"] = GrimoireStatTargets["SHAMAN"] or {}
 
 GrimoireStatTargets["SHAMAN"]["elemental"] = GrimoireStatTargets["SHAMAN"]["elemental"] or {}
-GrimoireStatTargets["SHAMAN"]["elemental"]["Raid"] = { targets = { crit = 818, haste = 631, mastery = 885, versatility = 28 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["SHAMAN"]["elemental"]["Raid"] = { targets = { crit = 827, haste = 643, mastery = 878, versatility = 33 }, samples = 98, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["SHAMAN"]["enhancement"] = GrimoireStatTargets["SHAMAN"]["enhancement"] or {}
-GrimoireStatTargets["SHAMAN"]["enhancement"]["Raid"] = { targets = { crit = 537, haste = 790, mastery = 980, versatility = 39 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["SHAMAN"]["enhancement"]["Raid"] = { targets = { crit = 538, haste = 791, mastery = 982, versatility = 35 }, samples = 98, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["SHAMAN"]["restoration"] = GrimoireStatTargets["SHAMAN"]["restoration"] or {}
-GrimoireStatTargets["SHAMAN"]["restoration"]["Raid"] = { targets = { crit = 1058, haste = 633, mastery = 180, versatility = 325 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["SHAMAN"]["restoration"]["Raid"] = { targets = { crit = 1069, haste = 641, mastery = 182, versatility = 317 }, samples = 98, source = "Warcraft Logs Heroisch-Endboss", limited = true }

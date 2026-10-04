@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["EVOKER"] = GrimoireStatTargets["EVOKER"] or {}
 
 GrimoireStatTargets["EVOKER"]["augmentation"] = GrimoireStatTargets["EVOKER"]["augmentation"] or {}
-GrimoireStatTargets["EVOKER"]["augmentation"]["Raid"] = { targets = { crit = 811, haste = 451, mastery = 971, versatility = 32 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["EVOKER"]["augmentation"]["Raid"] = { targets = { crit = 815, haste = 451, mastery = 971, versatility = 32 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["EVOKER"]["devastation"] = GrimoireStatTargets["EVOKER"]["devastation"] or {}
-GrimoireStatTargets["EVOKER"]["devastation"]["Raid"] = { targets = { crit = 1068, haste = 572, mastery = 606, versatility = 70 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["EVOKER"]["devastation"]["Raid"] = { targets = { crit = 1076, haste = 570, mastery = 612, versatility = 68 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["EVOKER"]["preservation"] = GrimoireStatTargets["EVOKER"]["preservation"] or {}
-GrimoireStatTargets["EVOKER"]["preservation"]["Raid"] = { targets = { crit = 782, haste = 643, mastery = 627, versatility = 82 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["EVOKER"]["preservation"]["Raid"] = { targets = { crit = 785, haste = 641, mastery = 627, versatility = 83 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }

@@ -9,4 +9,4 @@ GrimoireStatTargets["MAGE"]["fire"] = GrimoireStatTargets["MAGE"]["fire"] or {}
 GrimoireStatTargets["MAGE"]["fire"]["Raid"] = { targets = { crit = 88, haste = 1182, mastery = 745, versatility = 218 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["MAGE"]["frost"] = GrimoireStatTargets["MAGE"]["frost"] or {}
-GrimoireStatTargets["MAGE"]["frost"]["Raid"] = { targets = { crit = 933, haste = 540, mastery = 907, versatility = 51 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["MAGE"]["frost"]["Raid"] = { targets = { crit = 938, haste = 540, mastery = 911, versatility = 48 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }

@@ -40,7 +40,7 @@ GrimoireIcyVeinsData["SHAMAN"] = {
         { slot = "Off Hand", item = { itemId = 245769, name = "Aln'hara Lantern", bonusIDs = { 13751 } }, source = "Crafted by Inscription" },
       } },
       { label = "Raid", slots = {
-        { slot = "Helm", item = { itemId = 271483, name = "Serpent Crown of the Ophidian Oracle", bonusIDs = { 12854 } }, source = "Catalyst on the item from Twin Fangs" },
+        { slot = "Helm", item = { itemId = 271483, name = "Serpent Crown of the Ophidian Oracle", bonusIDs = { 12854 } }, source = "Catalyst on the item from Nek'zali" },
         { slot = "Hands", item = { itemId = 271484, name = "Hexing Grips of the Ophidian Oracle", bonusIDs = { 12854 } }, source = "Catalyst or Entombed Sentinels" },
         { slot = "Neck", item = { itemId = 268265, name = "Aqirbane Reliquary", bonusIDs = { 13708 } }, source = "Ula'tek" },
         { slot = "Waist", item = { itemId = 268254, name = "Serpentine Mixing Belt", bonusIDs = { 12854 } }, source = "Vashnik" },

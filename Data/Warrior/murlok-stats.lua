@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["WARRIOR"] = GrimoireStatTargets["WARRIOR"] or {}
 
 GrimoireStatTargets["WARRIOR"]["arms"] = GrimoireStatTargets["WARRIOR"]["arms"] or {}
-GrimoireStatTargets["WARRIOR"]["arms"]["Mythic+"] = { targets = { crit = 1256, haste = 939, mastery = 749, versatility = 129 } }
+GrimoireStatTargets["WARRIOR"]["arms"]["Mythic+"] = { targets = { crit = 1174, haste = 935, mastery = 817, versatility = 132 } }
 
 GrimoireStatTargets["WARRIOR"]["fury"] = GrimoireStatTargets["WARRIOR"]["fury"] or {}
-GrimoireStatTargets["WARRIOR"]["fury"]["Mythic+"] = { targets = { crit = 852, haste = 1049, mastery = 1126, versatility = 110 } }
+GrimoireStatTargets["WARRIOR"]["fury"]["Mythic+"] = { targets = { crit = 797, haste = 1053, mastery = 1147, versatility = 123 } }
 
 GrimoireStatTargets["WARRIOR"]["protection"] = GrimoireStatTargets["WARRIOR"]["protection"] or {}
-GrimoireStatTargets["WARRIOR"]["protection"]["Mythic+"] = { targets = { crit = 922, haste = 1176, mastery = 601, versatility = 344 } }
+GrimoireStatTargets["WARRIOR"]["protection"]["Mythic+"] = { targets = { crit = 877, haste = 1155, mastery = 706, versatility = 329 } }

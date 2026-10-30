@@ -1,6 +1,16 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 GrimoireIcyVeinsData = GrimoireIcyVeinsData or {}
 GrimoireIcyVeinsData["PRIEST"] = {
+  ["holy"] = {
+    bisGear = {
+      { label = "Overall", slots = {
+      } },
+      { label = "Mythic+", slots = {
+      } },
+      { label = "Raid", slots = {
+      } },
+    },
+  },
   ["discipline"] = {
     bisGear = {
       { label = "Overall", slots = {
@@ -12,16 +22,6 @@ GrimoireIcyVeinsData["PRIEST"] = {
     },
   },
   ["shadow"] = {
-    bisGear = {
-      { label = "Overall", slots = {
-      } },
-      { label = "Mythic+", slots = {
-      } },
-      { label = "Raid", slots = {
-      } },
-    },
-  },
-  ["holy"] = {
     bisGear = {
       { label = "Overall", slots = {
       } },

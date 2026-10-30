@@ -171,7 +171,7 @@ GrimoireGearData["WARLOCK"] = {
     trinkets = {
       { itemId = 250215, tier = "S", contexts = { "dungeon" } },
       { itemId = 270164, tier = "S", contexts = { "raid" }, source = "The Lost Explorers" },
-      { itemId = 281215, tier = "S", contexts = { "raid" } },
+      { itemId = 281215, tier = "S", contexts = { "raid" }, source = "Kith'Ix" },
       { itemId = 270167, tier = "A", contexts = { "raid" } },
       { itemId = 270169, tier = "A", contexts = { "raid" } },
       { itemId = 273796, tier = "A", contexts = { "dungeon" } },
@@ -206,7 +206,7 @@ GrimoireGearData["WARLOCK"] = {
         { slot = "Ring", item = { itemId = 268252, name = "Apex Brute's Claw Ring", bonusIDs = {  } }, source = "Sszorak", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-sszorak-boss-strategy-abilities" } },
         { slot = "Ring", item = { itemId = 281029, name = "Band of the Swarmcaller", bonusIDs = {  } }, source = "Kith'Ix", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/the-unbinding-of-kithix-boss-strategy-abilities-rewards" } },
         { slot = "Trinket", item = { itemId = 270164, name = "Gebbo's Bottomless Bag", bonusIDs = {  } }, source = "The Lost Explorers", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/venomous-abyss-lost-explorers-boss-strategy-abilities" } },
-        { slot = "Trinket", item = { itemId = 280835, name = "Sigil of the Impending Eclipse", bonusIDs = {  } }, source = "Kith'Ix", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/the-unbinding-of-kithix-boss-strategy-abilities-rewards" } },
+        { slot = "Trinket", item = { itemId = 281215, name = "Twisted Horror's Tendril", bonusIDs = {  } }, source = "Kith'Ix", sourceMeta = { url = "https://www.wowhead.com/guide/midnight/raids/the-unbinding-of-kithix-boss-strategy-abilities-rewards" } },
       } },
     },
   },

@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["SHAMAN"] = GrimoireStatTargets["SHAMAN"] or {}
 
 GrimoireStatTargets["SHAMAN"]["elemental"] = GrimoireStatTargets["SHAMAN"]["elemental"] or {}
-GrimoireStatTargets["SHAMAN"]["elemental"]["Mythic+"] = { targets = { crit = 975, haste = 748, mastery = 1081, versatility = 155 } }
+GrimoireStatTargets["SHAMAN"]["elemental"]["Mythic+"] = { targets = { crit = 956, haste = 762, mastery = 1093, versatility = 168 } }
 
 GrimoireStatTargets["SHAMAN"]["enhancement"] = GrimoireStatTargets["SHAMAN"]["enhancement"] or {}
-GrimoireStatTargets["SHAMAN"]["enhancement"]["Mythic+"] = { targets = { crit = 889, haste = 845, mastery = 1181, versatility = 130 } }
+GrimoireStatTargets["SHAMAN"]["enhancement"]["Mythic+"] = { targets = { crit = 863, haste = 878, mastery = 1212, versatility = 121 } }
 
 GrimoireStatTargets["SHAMAN"]["restoration"] = GrimoireStatTargets["SHAMAN"]["restoration"] or {}
-GrimoireStatTargets["SHAMAN"]["restoration"]["Mythic+"] = { targets = { crit = 1240, haste = 686, mastery = 311, versatility = 696 } }
+GrimoireStatTargets["SHAMAN"]["restoration"]["Mythic+"] = { targets = { crit = 1279, haste = 705, mastery = 272, versatility = 710 } }

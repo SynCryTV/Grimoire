@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["HUNTER"] = GrimoireStatTargets["HUNTER"] or {}
 
 GrimoireStatTargets["HUNTER"]["beast-mastery"] = GrimoireStatTargets["HUNTER"]["beast-mastery"] or {}
-GrimoireStatTargets["HUNTER"]["beast-mastery"]["Raid"] = { targets = { crit = 1068, haste = 599, mastery = 1130, versatility = 120 }, samples = 51, source = "parses.gg Mythic (alle Bosse)" }
+GrimoireStatTargets["HUNTER"]["beast-mastery"]["Raid"] = { targets = { crit = 1074, haste = 590, mastery = 1151, versatility = 128 }, samples = 56, source = "parses.gg Mythic (alle Bosse)" }
 
 GrimoireStatTargets["HUNTER"]["marksmanship"] = GrimoireStatTargets["HUNTER"]["marksmanship"] or {}
-GrimoireStatTargets["HUNTER"]["marksmanship"]["Raid"] = { targets = { crit = 1446, haste = 155, mastery = 1023, versatility = 67 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["HUNTER"]["marksmanship"]["Raid"] = { targets = { crit = 1440, haste = 157, mastery = 1028, versatility = 67 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["HUNTER"]["survival"] = GrimoireStatTargets["HUNTER"]["survival"] or {}
-GrimoireStatTargets["HUNTER"]["survival"]["Raid"] = { targets = { crit = 747, haste = 616, mastery = 1256, versatility = 7 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["HUNTER"]["survival"]["Raid"] = { targets = { crit = 759, haste = 628, mastery = 1255, versatility = 3 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }

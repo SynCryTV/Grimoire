@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["MONK"] = GrimoireStatTargets["MONK"] or {}
 
 GrimoireStatTargets["MONK"]["brewmaster"] = GrimoireStatTargets["MONK"]["brewmaster"] or {}
-GrimoireStatTargets["MONK"]["brewmaster"]["Raid"] = { targets = { crit = 1075, haste = 135, mastery = 597, versatility = 648 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["MONK"]["brewmaster"]["Raid"] = { targets = { crit = 1086, haste = 131, mastery = 583, versatility = 650 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["MONK"]["mistweaver"] = GrimoireStatTargets["MONK"]["mistweaver"] or {}
-GrimoireStatTargets["MONK"]["mistweaver"]["Raid"] = { targets = { crit = 502, haste = 1193, mastery = 503, versatility = 143 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["MONK"]["mistweaver"]["Raid"] = { targets = { crit = 498, haste = 1196, mastery = 511, versatility = 143 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["MONK"]["windwalker"] = GrimoireStatTargets["MONK"]["windwalker"] or {}
-GrimoireStatTargets["MONK"]["windwalker"]["Raid"] = { targets = { crit = 682, haste = 800, mastery = 1024, versatility = 24 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["MONK"]["windwalker"]["Raid"] = { targets = { crit = 687, haste = 790, mastery = 1037, versatility = 17 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }

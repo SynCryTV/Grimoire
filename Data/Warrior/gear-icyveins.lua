@@ -1,7 +1,7 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 GrimoireIcyVeinsData = GrimoireIcyVeinsData or {}
 GrimoireIcyVeinsData["WARRIOR"] = {
-  ["protection"] = {
+  ["arms"] = {
     bisGear = {
       { label = "Overall", slots = {
       } },
@@ -21,7 +21,7 @@ GrimoireIcyVeinsData["WARRIOR"] = {
       } },
     },
   },
-  ["arms"] = {
+  ["protection"] = {
     bisGear = {
       { label = "Overall", slots = {
       } },

@@ -1,16 +1,6 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 GrimoireIcyVeinsData = GrimoireIcyVeinsData or {}
 GrimoireIcyVeinsData["WARLOCK"] = {
-  ["destruction"] = {
-    bisGear = {
-      { label = "Overall", slots = {
-      } },
-      { label = "Mythic+", slots = {
-      } },
-      { label = "Raid", slots = {
-      } },
-    },
-  },
   ["demonology"] = {
     bisGear = {
       { label = "Overall", slots = {
@@ -22,6 +12,16 @@ GrimoireIcyVeinsData["WARLOCK"] = {
     },
   },
   ["affliction"] = {
+    bisGear = {
+      { label = "Overall", slots = {
+      } },
+      { label = "Mythic+", slots = {
+      } },
+      { label = "Raid", slots = {
+      } },
+    },
+  },
+  ["destruction"] = {
     bisGear = {
       { label = "Overall", slots = {
       } },

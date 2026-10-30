@@ -21,7 +21,7 @@ GrimoireIcyVeinsData["DRUID"] = {
       } },
     },
   },
-  ["restoration"] = {
+  ["guardian"] = {
     bisGear = {
       { label = "Overall", slots = {
       } },
@@ -31,7 +31,7 @@ GrimoireIcyVeinsData["DRUID"] = {
       } },
     },
   },
-  ["guardian"] = {
+  ["restoration"] = {
     bisGear = {
       { label = "Overall", slots = {
       } },

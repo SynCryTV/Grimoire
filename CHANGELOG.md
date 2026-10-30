@@ -1,5 +1,9 @@
 # Änderungsverlauf
 
+## 5.4.6
+
+- Lua-Fehler in der KeystoneLoot-BiS-Ansicht behoben: Die Slot-Erkennung verwendet jetzt C_Item.GetItemInfoInstant statt der entfernten globalen Funktion.
+
 ## 5.4.1
 
 - Fehler beim Öffnen von Werteziele in Mythic+- und anderen geschützten Kampfkontexten behoben. Geschützte WoW-Kampfwerte werden jetzt sicher erkannt; statt eines Lua-Fehlers erscheint ein Hinweis, bis die Live-Werte wieder lesbar sind.

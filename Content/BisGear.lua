@@ -180,7 +180,7 @@ local SOURCES = {
             local counters, out = {}, {}
             for index, entry in ipairs(rawEntries or {}) do
                 local itemID = entry.itemId
-                local equipLoc = itemID and select(4, GetItemInfoInstant(itemID))
+                local equipLoc = itemID and select(4, C_Item.GetItemInfoInstant(itemID))
                 -- KeystoneLoot liefert keine Slot-Bezeichnung und seine
                 -- Import-Reihenfolge ist je nach Spec nicht stabil. Deshalb
                 -- wird jeder Eintrag über den tatsächlichen WoW-Itemtyp

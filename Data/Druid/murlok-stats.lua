@@ -3,13 +3,13 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["DRUID"] = GrimoireStatTargets["DRUID"] or {}
 
 GrimoireStatTargets["DRUID"]["balance"] = GrimoireStatTargets["DRUID"]["balance"] or {}
-GrimoireStatTargets["DRUID"]["balance"]["Mythic+"] = { targets = { crit = 684, haste = 962, mastery = 1223, versatility = 145 } }
+GrimoireStatTargets["DRUID"]["balance"]["Mythic+"] = { targets = { crit = 659, haste = 1007, mastery = 1213, versatility = 146 } }
 
 GrimoireStatTargets["DRUID"]["feral"] = GrimoireStatTargets["DRUID"]["feral"] or {}
-GrimoireStatTargets["DRUID"]["feral"]["Mythic+"] = { targets = { crit = 804, haste = 895, mastery = 1260, versatility = 160 } }
+GrimoireStatTargets["DRUID"]["feral"]["Mythic+"] = { targets = { crit = 800, haste = 908, mastery = 1242, versatility = 176 } }
 
 GrimoireStatTargets["DRUID"]["guardian"] = GrimoireStatTargets["DRUID"]["guardian"] or {}
-GrimoireStatTargets["DRUID"]["guardian"]["Mythic+"] = { targets = { crit = 825, haste = 1210, mastery = 701, versatility = 332 } }
+GrimoireStatTargets["DRUID"]["guardian"]["Mythic+"] = { targets = { crit = 803, haste = 1231, mastery = 732, versatility = 313 } }
 
 GrimoireStatTargets["DRUID"]["restoration"] = GrimoireStatTargets["DRUID"]["restoration"] or {}
-GrimoireStatTargets["DRUID"]["restoration"]["Mythic+"] = { targets = { crit = 218, haste = 1420, mastery = 1126, versatility = 343 } }
+GrimoireStatTargets["DRUID"]["restoration"]["Mythic+"] = { targets = { crit = 211, haste = 1446, mastery = 1143, versatility = 317 } }

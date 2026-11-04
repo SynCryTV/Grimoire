@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["WARLOCK"] = GrimoireStatTargets["WARLOCK"] or {}
 
 GrimoireStatTargets["WARLOCK"]["affliction"] = GrimoireStatTargets["WARLOCK"]["affliction"] or {}
-GrimoireStatTargets["WARLOCK"]["affliction"]["Mythic+"] = { targets = { crit = 943, haste = 1190, mastery = 695, versatility = 208 } }
+GrimoireStatTargets["WARLOCK"]["affliction"]["Mythic+"] = { targets = { crit = 959, haste = 1124, mastery = 743, versatility = 188 } }
 
 GrimoireStatTargets["WARLOCK"]["demonology"] = GrimoireStatTargets["WARLOCK"]["demonology"] or {}
-GrimoireStatTargets["WARLOCK"]["demonology"]["Mythic+"] = { targets = { crit = 995, haste = 992, mastery = 869, versatility = 210 } }
+GrimoireStatTargets["WARLOCK"]["demonology"]["Mythic+"] = { targets = { crit = 1001, haste = 982, mastery = 874, versatility = 224 } }
 
 GrimoireStatTargets["WARLOCK"]["destruction"] = GrimoireStatTargets["WARLOCK"]["destruction"] or {}
-GrimoireStatTargets["WARLOCK"]["destruction"]["Mythic+"] = { targets = { crit = 919, haste = 953, mastery = 924, versatility = 173 } }
+GrimoireStatTargets["WARLOCK"]["destruction"]["Mythic+"] = { targets = { crit = 887, haste = 944, mastery = 956, versatility = 194 } }

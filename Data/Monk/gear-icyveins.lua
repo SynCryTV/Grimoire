@@ -1,7 +1,7 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 GrimoireIcyVeinsData = GrimoireIcyVeinsData or {}
 GrimoireIcyVeinsData["MONK"] = {
-  ["mistweaver"] = {
+  ["brewmaster"] = {
     bisGear = {
       { label = "Overall", slots = {
       } },
@@ -11,7 +11,7 @@ GrimoireIcyVeinsData["MONK"] = {
       } },
     },
   },
-  ["brewmaster"] = {
+  ["mistweaver"] = {
     bisGear = {
       { label = "Overall", slots = {
       } },

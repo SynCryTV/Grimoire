@@ -13,9 +13,9 @@ GrimoireMurlokGearData["DEATHKNIGHT"] = {
     { slot = "Legs", item = { itemId = 271473, name = "Baleful Grave-Knight's Greaves" }, source = "Murlok" },
     { slot = "Feet", item = { itemId = 237828, name = "Spellbreaker's March" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 268266, name = "Alluring Bubbleband" }, source = "Murlok" },
-    { slot = "Ring", item = { itemId = 240949, name = "Masterwork Sin'dorei Band" }, source = "Murlok" },
+    { slot = "Ring", item = { itemId = 281029, name = "Band of the Swarmcaller" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek" }, source = "Murlok" },
-    { slot = "Trinket", item = { itemId = 270173, name = "Zul'jin's Guillotine Technique" }, source = "Murlok" },
+    { slot = "Trinket", item = { itemId = 281215, name = "Twisted Horror's Tendril" }, source = "Murlok" },
     { slot = "Main Hand", item = { itemId = 268213, name = "Maze-roa, Warlord's Fury" }, source = "Murlok" },
   } },
   ["frost"] = { bisGear = {

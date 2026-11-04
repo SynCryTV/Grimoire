@@ -1,7 +1,7 @@
 -- Manuell aktualisiert via Grimoire-scraper (nicht offiziell)
 GrimoireIcyVeinsData = GrimoireIcyVeinsData or {}
 GrimoireIcyVeinsData["DEATHKNIGHT"] = {
-  ["blood"] = {
+  ["unholy"] = {
     bisGear = {
       { label = "Overall", slots = {
       } },
@@ -21,7 +21,7 @@ GrimoireIcyVeinsData["DEATHKNIGHT"] = {
       } },
     },
   },
-  ["unholy"] = {
+  ["blood"] = {
     bisGear = {
       { label = "Overall", slots = {
       } },

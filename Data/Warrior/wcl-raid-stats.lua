@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["WARRIOR"] = GrimoireStatTargets["WARRIOR"] or {}
 
 GrimoireStatTargets["WARRIOR"]["arms"] = GrimoireStatTargets["WARRIOR"]["arms"] or {}
-GrimoireStatTargets["WARRIOR"]["arms"]["Raid"] = { targets = { crit = 1174, haste = 884, mastery = 514, versatility = 0 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["WARRIOR"]["arms"]["Raid"] = { targets = { crit = 1170, haste = 897, mastery = 518, versatility = 0 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["WARRIOR"]["fury"] = GrimoireStatTargets["WARRIOR"]["fury"] or {}
-GrimoireStatTargets["WARRIOR"]["fury"]["Raid"] = { targets = { crit = 658, haste = 940, mastery = 1086, versatility = 30 }, samples = 99, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["WARRIOR"]["fury"]["Raid"] = { targets = { crit = 663, haste = 935, mastery = 1091, versatility = 32 }, samples = 99, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["WARRIOR"]["protection"] = GrimoireStatTargets["WARRIOR"]["protection"] or {}
-GrimoireStatTargets["WARRIOR"]["protection"]["Raid"] = { targets = { crit = 905, haste = 1099, mastery = 336, versatility = 133 }, samples = 98, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["WARRIOR"]["protection"]["Raid"] = { targets = { crit = 896, haste = 1107, mastery = 361, versatility = 138 }, samples = 98, source = "Warcraft Logs Heroisch-Endboss", limited = true }

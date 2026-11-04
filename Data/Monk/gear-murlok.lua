@@ -5,7 +5,7 @@ GrimoireMurlokGearData["MONK"] = {
     { slot = "Head", item = { itemId = 271519, name = "Monkey King's Unyielding Visage" }, source = "Murlok" },
     { slot = "Neck", item = { itemId = 268265, name = "Aqirbane Reliquary" }, source = "Murlok" },
     { slot = "Shoulders", item = { itemId = 271517, name = "Tassels of the Monkey King" }, source = "Murlok" },
-    { slot = "Back", item = { itemId = 268248, name = "Amani Summoning Shawl" }, source = "Murlok" },
+    { slot = "Back", item = { itemId = 239656, name = "Adherent's Silken Shroud" }, source = "Murlok" },
     { slot = "Chest", item = { itemId = 271522, name = "Battle Gi of the Monkey King" }, source = "Murlok" },
     { slot = "Wrist", item = { itemId = 244576, name = "Silvermoon Agent's Deflectors" }, source = "Murlok" },
     { slot = "Hands", item = { itemId = 271520, name = "Monkey King's Fighting Fists" }, source = "Murlok" },
@@ -17,7 +17,7 @@ GrimoireMurlokGearData["MONK"] = {
     { slot = "Trinket", item = { itemId = 281215, name = "Twisted Horror's Tendril" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek" }, source = "Murlok" },
     { slot = "Main Hand", item = { itemId = 268215, name = "Abyssal Broodfiend's Bardiche" }, source = "Murlok" },
-    { slot = "Off Hand", item = { itemId = 268206, name = "Slithering Savage's Gavel" }, source = "Murlok" },
+    { slot = "Off Hand", item = { itemId = 237839, name = "Spellbreaker's Blade" }, source = "Murlok" },
   } },
   ["mistweaver"] = { bisGear = {
     { slot = "Head", item = { itemId = 271519, name = "Monkey King's Unyielding Visage" }, source = "Murlok" },
@@ -34,7 +34,7 @@ GrimoireMurlokGearData["MONK"] = {
     { slot = "Ring", item = { itemId = 268266, name = "Alluring Bubbleband" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270162, name = "Soulcoiler Ritual Vessel" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270167, name = "Wavecaller's Seastone" }, source = "Murlok" },
-    { slot = "Main Hand", item = { itemId = 281056, name = "Sanctified Knight's Phoenixblade" }, source = "Murlok" },
+    { slot = "Main Hand", item = { itemId = 245770, name = "Aln'hara Cane" }, source = "Murlok" },
     { slot = "Off Hand", item = { itemId = 268263, name = "Frostscale's Mystic Frond" }, source = "Murlok" },
   } },
   ["windwalker"] = { bisGear = {

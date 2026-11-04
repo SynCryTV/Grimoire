@@ -35,6 +35,7 @@ GrimoireMurlokGearData["DRUID"] = {
     { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 281215, name = "Twisted Horror's Tendril" }, source = "Murlok" },
     { slot = "Main Hand", item = { itemId = 268215, name = "Abyssal Broodfiend's Bardiche" }, source = "Murlok" },
+    { slot = "Off Hand", item = { itemId = 245769, name = "Aln'hara Lantern" }, source = "Murlok" },
   } },
   ["guardian"] = { bisGear = {
     { slot = "Head", item = { itemId = 271528, name = "Enigmatic Dreamwatcher's Somnolent Stare" }, source = "Murlok" },
@@ -57,7 +58,7 @@ GrimoireMurlokGearData["DRUID"] = {
     { slot = "Head", item = { itemId = 271528, name = "Enigmatic Dreamwatcher's Somnolent Stare" }, source = "Murlok" },
     { slot = "Neck", item = { itemId = 268265, name = "Aqirbane Reliquary" }, source = "Murlok" },
     { slot = "Shoulders", item = { itemId = 244572, name = "Silvermoon Agent's Mantle" }, source = "Murlok" },
-    { slot = "Back", item = { itemId = 239656, name = "Adherent's Silken Shroud" }, source = "Murlok" },
+    { slot = "Back", item = { itemId = 268253, name = "Silken Voodoo Drape" }, source = "Murlok" },
     { slot = "Chest", item = { itemId = 271531, name = "Enigmatic Dreamwatcher's Lunar Raiment" }, source = "Murlok" },
     { slot = "Wrist", item = { itemId = 244576, name = "Silvermoon Agent's Deflectors" }, source = "Murlok" },
     { slot = "Hands", item = { itemId = 271529, name = "Enigmatic Dreamwatcher's Gauntlets" }, source = "Murlok" },

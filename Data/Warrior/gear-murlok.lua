@@ -30,7 +30,7 @@ GrimoireMurlokGearData["WARRIOR"] = {
     { slot = "Legs", item = { itemId = 271455, name = "Greaves of the Jade Warlord" }, source = "Murlok" },
     { slot = "Feet", item = { itemId = 237828, name = "Spellbreaker's March" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 281029, name = "Band of the Swarmcaller" }, source = "Murlok" },
-    { slot = "Ring", item = { itemId = 252258, name = "Sickening Signet of Atroxus" }, source = "Murlok" },
+    { slot = "Ring", item = { itemId = 240949, name = "Masterwork Sin'dorei Band" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270173, name = "Zul'jin's Guillotine Technique" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek" }, source = "Murlok" },
     { slot = "Main Hand", item = { itemId = 268213, name = "Maze-roa, Warlord's Fury" }, source = "Murlok" },
@@ -51,7 +51,7 @@ GrimoireMurlokGearData["WARRIOR"] = {
     { slot = "Ring", item = { itemId = 240949, name = "Masterwork Sin'dorei Band" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270173, name = "Zul'jin's Guillotine Technique" }, source = "Murlok" },
-    { slot = "Main Hand", item = { itemId = 268209, name = "Aman'muso, Warlord's Vengeance" }, source = "Murlok" },
+    { slot = "Main Hand", item = { itemId = 268202, name = "Jaw of the Shackled Goddess" }, source = "Murlok" },
     { slot = "Off Hand", item = { itemId = 237831, name = "Spellbreaker's Rebuke" }, source = "Murlok" },
   } },
 }

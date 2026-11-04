@@ -27,7 +27,7 @@ GrimoireMurlokGearData["EVOKER"] = {
     { slot = "Chest", item = { itemId = 271504, name = "Searing Caldera of Calamity" }, source = "Murlok" },
     { slot = "Wrist", item = { itemId = 244584, name = "Farstrider's Plated Bracers" }, source = "Murlok" },
     { slot = "Hands", item = { itemId = 271502, name = "Calamitous Echo's Ebon Greathorns" }, source = "Murlok" },
-    { slot = "Waist", item = { itemId = 268254, name = "Serpentine Mixing Belt" }, source = "Murlok" },
+    { slot = "Waist", item = { itemId = 244581, name = "Farstrider's Trophy Belt" }, source = "Murlok" },
     { slot = "Legs", item = { itemId = 271500, name = "Earthen Pillars of Calamity" }, source = "Murlok" },
     { slot = "Feet", item = { itemId = 268258, name = "Boots of the Reckless Wayfarer" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 281029, name = "Band of the Swarmcaller" }, source = "Murlok" },

@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["PRIEST"] = GrimoireStatTargets["PRIEST"] or {}
 
 GrimoireStatTargets["PRIEST"]["discipline"] = GrimoireStatTargets["PRIEST"]["discipline"] or {}
-GrimoireStatTargets["PRIEST"]["discipline"]["Mythic+"] = { targets = { crit = 745, haste = 1239, mastery = 885, versatility = 209 } }
+GrimoireStatTargets["PRIEST"]["discipline"]["Mythic+"] = { targets = { crit = 780, haste = 1236, mastery = 885, versatility = 212 } }
 
 GrimoireStatTargets["PRIEST"]["holy"] = GrimoireStatTargets["PRIEST"]["holy"] or {}
-GrimoireStatTargets["PRIEST"]["holy"]["Mythic+"] = { targets = { crit = 924, haste = 991, mastery = 613, versatility = 520 } }
+GrimoireStatTargets["PRIEST"]["holy"]["Mythic+"] = { targets = { crit = 906, haste = 1024, mastery = 603, versatility = 538 } }
 
 GrimoireStatTargets["PRIEST"]["shadow"] = GrimoireStatTargets["PRIEST"]["shadow"] or {}
-GrimoireStatTargets["PRIEST"]["shadow"]["Mythic+"] = { targets = { crit = 714, haste = 925, mastery = 1303, versatility = 128 } }
+GrimoireStatTargets["PRIEST"]["shadow"]["Mythic+"] = { targets = { crit = 738, haste = 923, mastery = 1292, versatility = 124 } }

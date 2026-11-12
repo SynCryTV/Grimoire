@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["DEMONHUNTER"] = GrimoireStatTargets["DEMONHUNTER"] or {}
 
 GrimoireStatTargets["DEMONHUNTER"]["devourer"] = GrimoireStatTargets["DEMONHUNTER"]["devourer"] or {}
-GrimoireStatTargets["DEMONHUNTER"]["devourer"]["Mythic+"] = { targets = { crit = 737, haste = 966, mastery = 1228, versatility = 126 } }
+GrimoireStatTargets["DEMONHUNTER"]["devourer"]["Mythic+"] = { targets = { crit = 725, haste = 983, mastery = 1243, versatility = 127 } }
 
 GrimoireStatTargets["DEMONHUNTER"]["havoc"] = GrimoireStatTargets["DEMONHUNTER"]["havoc"] or {}
-GrimoireStatTargets["DEMONHUNTER"]["havoc"]["Mythic+"] = { targets = { crit = 1126, haste = 645, mastery = 1158, versatility = 132 } }
+GrimoireStatTargets["DEMONHUNTER"]["havoc"]["Mythic+"] = { targets = { crit = 1125, haste = 690, mastery = 1151, versatility = 134 } }
 
 GrimoireStatTargets["DEMONHUNTER"]["vengeance"] = GrimoireStatTargets["DEMONHUNTER"]["vengeance"] or {}
-GrimoireStatTargets["DEMONHUNTER"]["vengeance"]["Mythic+"] = { targets = { crit = 752, haste = 1251, mastery = 663, versatility = 358 } }
+GrimoireStatTargets["DEMONHUNTER"]["vengeance"]["Mythic+"] = { targets = { crit = 778, haste = 1231, mastery = 652, versatility = 369 } }

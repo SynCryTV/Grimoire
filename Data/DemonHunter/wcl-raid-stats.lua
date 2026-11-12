@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["DEMONHUNTER"] = GrimoireStatTargets["DEMONHUNTER"] or {}
 
 GrimoireStatTargets["DEMONHUNTER"]["devourer"] = GrimoireStatTargets["DEMONHUNTER"]["devourer"] or {}
-GrimoireStatTargets["DEMONHUNTER"]["devourer"]["Raid"] = { targets = { crit = 668, haste = 834, mastery = 1052, versatility = 5 }, samples = 99, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["DEMONHUNTER"]["devourer"]["Raid"] = { targets = { crit = 660, haste = 836, mastery = 1059, versatility = 5 }, samples = 99, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["DEMONHUNTER"]["havoc"] = GrimoireStatTargets["DEMONHUNTER"]["havoc"] or {}
-GrimoireStatTargets["DEMONHUNTER"]["havoc"]["Raid"] = { targets = { crit = 1340, haste = 374, mastery = 1044, versatility = 126 }, samples = 50, source = "parses.gg Mythic (alle Bosse)" }
+GrimoireStatTargets["DEMONHUNTER"]["havoc"]["Raid"] = { targets = { crit = 1375, haste = 380, mastery = 1055, versatility = 118 }, samples = 52, source = "parses.gg Mythic (alle Bosse)" }
 
 GrimoireStatTargets["DEMONHUNTER"]["vengeance"] = GrimoireStatTargets["DEMONHUNTER"]["vengeance"] or {}
-GrimoireStatTargets["DEMONHUNTER"]["vengeance"]["Raid"] = { targets = { crit = 772, haste = 1052, mastery = 347, versatility = 224 }, samples = 99, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["DEMONHUNTER"]["vengeance"]["Raid"] = { targets = { crit = 768, haste = 1061, mastery = 370, versatility = 210 }, samples = 99, source = "Warcraft Logs Heroisch-Endboss", limited = true }

@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["PALADIN"] = GrimoireStatTargets["PALADIN"] or {}
 
 GrimoireStatTargets["PALADIN"]["holy"] = GrimoireStatTargets["PALADIN"]["holy"] or {}
-GrimoireStatTargets["PALADIN"]["holy"]["Mythic+"] = { targets = { crit = 769, haste = 1138, mastery = 529, versatility = 650 } }
+GrimoireStatTargets["PALADIN"]["holy"]["Mythic+"] = { targets = { crit = 793, haste = 1137, mastery = 573, versatility = 612 } }
 
 GrimoireStatTargets["PALADIN"]["protection"] = GrimoireStatTargets["PALADIN"]["protection"] or {}
-GrimoireStatTargets["PALADIN"]["protection"]["Mythic+"] = { targets = { crit = 1023, haste = 1005, mastery = 819, versatility = 227 } }
+GrimoireStatTargets["PALADIN"]["protection"]["Mythic+"] = { targets = { crit = 1012, haste = 1007, mastery = 824, versatility = 231 } }
 
 GrimoireStatTargets["PALADIN"]["retribution"] = GrimoireStatTargets["PALADIN"]["retribution"] or {}
-GrimoireStatTargets["PALADIN"]["retribution"]["Mythic+"] = { targets = { crit = 1066, haste = 757, mastery = 1183, versatility = 123 } }
+GrimoireStatTargets["PALADIN"]["retribution"]["Mythic+"] = { targets = { crit = 1056, haste = 785, mastery = 1205, versatility = 114 } }

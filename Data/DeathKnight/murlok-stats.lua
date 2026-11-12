@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["DEATHKNIGHT"] = GrimoireStatTargets["DEATHKNIGHT"] or {}
 
 GrimoireStatTargets["DEATHKNIGHT"]["blood"] = GrimoireStatTargets["DEATHKNIGHT"]["blood"] or {}
-GrimoireStatTargets["DEATHKNIGHT"]["blood"]["Mythic+"] = { targets = { crit = 1005, haste = 1071, mastery = 691, versatility = 379 } }
+GrimoireStatTargets["DEATHKNIGHT"]["blood"]["Mythic+"] = { targets = { crit = 987, haste = 1063, mastery = 778, versatility = 337 } }
 
 GrimoireStatTargets["DEATHKNIGHT"]["frost"] = GrimoireStatTargets["DEATHKNIGHT"]["frost"] or {}
-GrimoireStatTargets["DEATHKNIGHT"]["frost"]["Mythic+"] = { targets = { crit = 1174, haste = 664, mastery = 1200, versatility = 117 } }
+GrimoireStatTargets["DEATHKNIGHT"]["frost"]["Mythic+"] = { targets = { crit = 1151, haste = 714, mastery = 1196, versatility = 115 } }
 
 GrimoireStatTargets["DEATHKNIGHT"]["unholy"] = GrimoireStatTargets["DEATHKNIGHT"]["unholy"] or {}
-GrimoireStatTargets["DEATHKNIGHT"]["unholy"]["Mythic+"] = { targets = { crit = 1183, haste = 636, mastery = 1184, versatility = 111 } }
+GrimoireStatTargets["DEATHKNIGHT"]["unholy"]["Mythic+"] = { targets = { crit = 1181, haste = 619, mastery = 1226, versatility = 107 } }

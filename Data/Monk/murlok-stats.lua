@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["MONK"] = GrimoireStatTargets["MONK"] or {}
 
 GrimoireStatTargets["MONK"]["brewmaster"] = GrimoireStatTargets["MONK"]["brewmaster"] or {}
-GrimoireStatTargets["MONK"]["brewmaster"]["Mythic+"] = { targets = { crit = 1232, haste = 275, mastery = 713, versatility = 822 } }
+GrimoireStatTargets["MONK"]["brewmaster"]["Mythic+"] = { targets = { crit = 1221, haste = 278, mastery = 741, versatility = 809 } }
 
 GrimoireStatTargets["MONK"]["mistweaver"] = GrimoireStatTargets["MONK"]["mistweaver"] or {}
-GrimoireStatTargets["MONK"]["mistweaver"]["Mythic+"] = { targets = { crit = 579, haste = 1380, mastery = 823, versatility = 325 } }
+GrimoireStatTargets["MONK"]["mistweaver"]["Mythic+"] = { targets = { crit = 624, haste = 1395, mastery = 761, versatility = 326 } }
 
 GrimoireStatTargets["MONK"]["windwalker"] = GrimoireStatTargets["MONK"]["windwalker"] or {}
-GrimoireStatTargets["MONK"]["windwalker"]["Mythic+"] = { targets = { crit = 807, haste = 929, mastery = 1275, versatility = 138 } }
+GrimoireStatTargets["MONK"]["windwalker"]["Mythic+"] = { targets = { crit = 798, haste = 924, mastery = 1311, versatility = 126 } }

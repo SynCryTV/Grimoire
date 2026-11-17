@@ -11,7 +11,7 @@ GrimoireMurlokGearData["WARLOCK"] = {
     { slot = "Hands", item = { itemId = 271547, name = "Damned Necrolyte's Charred Grasps" }, source = "Murlok" },
     { slot = "Waist", item = { itemId = 239649, name = "Martyr's Waistwrap" }, source = "Murlok" },
     { slot = "Legs", item = { itemId = 271545, name = "Damned Necrolyte's Leg Bindings" }, source = "Murlok" },
-    { slot = "Feet", item = { itemId = 239654, name = "Martyr's Slippers" }, source = "Murlok" },
+    { slot = "Feet", item = { itemId = 268255, name = "Cackling Soultreads" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 281029, name = "Band of the Swarmcaller" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 268252, name = "Apex Brute's Claw Ring" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 281215, name = "Twisted Horror's Tendril" }, source = "Murlok" },

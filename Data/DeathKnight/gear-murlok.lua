@@ -8,7 +8,7 @@ GrimoireMurlokGearData["DEATHKNIGHT"] = {
     { slot = "Back", item = { itemId = 268253, name = "Silken Voodoo Drape" }, source = "Murlok" },
     { slot = "Chest", item = { itemId = 271477, name = "Baleful Grave-Knight's Breastplate" }, source = "Murlok" },
     { slot = "Wrist", item = { itemId = 237834, name = "Spellbreaker's Bracers" }, source = "Murlok" },
-    { slot = "Hands", item = { itemId = 237836, name = "Spellbreaker's Resolve" }, source = "Murlok" },
+    { slot = "Hands", item = { itemId = 271475, name = "Baleful Grave-Knight's Deathgrips" }, source = "Murlok" },
     { slot = "Waist", item = { itemId = 268259, name = "Girdle of Toxic Regret" }, source = "Murlok" },
     { slot = "Legs", item = { itemId = 271473, name = "Baleful Grave-Knight's Greaves" }, source = "Murlok" },
     { slot = "Feet", item = { itemId = 237828, name = "Spellbreaker's March" }, source = "Murlok" },

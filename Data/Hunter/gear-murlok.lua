@@ -45,7 +45,7 @@ GrimoireMurlokGearData["HUNTER"] = {
     { slot = "Hands", item = { itemId = 271493, name = "Skulking Viper's Hidepiercers" }, source = "Murlok" },
     { slot = "Waist", item = { itemId = 244581, name = "Farstrider's Trophy Belt" }, source = "Murlok" },
     { slot = "Legs", item = { itemId = 271491, name = "Skulking Viper's Coiled Legwraps" }, source = "Murlok" },
-    { slot = "Feet", item = { itemId = 244577, name = "Farstrider's Razor Talons" }, source = "Murlok" },
+    { slot = "Feet", item = { itemId = 268258, name = "Boots of the Reckless Wayfarer" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 281029, name = "Band of the Swarmcaller" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 240949, name = "Masterwork Sin'dorei Band" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 281215, name = "Twisted Horror's Tendril" }, source = "Murlok" },

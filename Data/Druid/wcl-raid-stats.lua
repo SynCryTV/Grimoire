@@ -3,13 +3,13 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["DRUID"] = GrimoireStatTargets["DRUID"] or {}
 
 GrimoireStatTargets["DRUID"]["balance"] = GrimoireStatTargets["DRUID"]["balance"] or {}
-GrimoireStatTargets["DRUID"]["balance"]["Raid"] = { targets = { crit = 620, haste = 789, mastery = 1046, versatility = 14 }, samples = 98, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["DRUID"]["balance"]["Raid"] = { targets = { crit = 612, haste = 790, mastery = 1054, versatility = 14 }, samples = 98, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["DRUID"]["feral"] = GrimoireStatTargets["DRUID"]["feral"] or {}
-GrimoireStatTargets["DRUID"]["feral"]["Raid"] = { targets = { crit = 631, haste = 722, mastery = 1078, versatility = 53 }, samples = 99, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["DRUID"]["feral"]["Raid"] = { targets = { crit = 625, haste = 732, mastery = 1072, versatility = 57 }, samples = 99, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["DRUID"]["guardian"] = GrimoireStatTargets["DRUID"]["guardian"] or {}
-GrimoireStatTargets["DRUID"]["guardian"]["Raid"] = { targets = { crit = 667, haste = 1114, mastery = 396, versatility = 286 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["DRUID"]["guardian"]["Raid"] = { targets = { crit = 672, haste = 1119, mastery = 397, versatility = 283 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["DRUID"]["restoration"] = GrimoireStatTargets["DRUID"]["restoration"] or {}
-GrimoireStatTargets["DRUID"]["restoration"]["Raid"] = { targets = { crit = 269, haste = 1100, mastery = 772, versatility = 176 }, samples = 98, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["DRUID"]["restoration"]["Raid"] = { targets = { crit = 275, haste = 1093, mastery = 780, versatility = 170 }, samples = 98, source = "Warcraft Logs Heroisch-Endboss", limited = true }

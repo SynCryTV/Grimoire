@@ -51,7 +51,7 @@ GrimoireMurlokGearData["EVOKER"] = {
     { slot = "Ring", item = { itemId = 240949, name = "Masterwork Sin'dorei Band" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 281029, name = "Band of the Swarmcaller" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270162, name = "Soulcoiler Ritual Vessel" }, source = "Murlok" },
-    { slot = "Trinket", item = { itemId = 270164, name = "Gebbo's Bottomless Bag" }, source = "Murlok" },
+    { slot = "Trinket", item = { itemId = 270171, name = "Preternatural Antivenom" }, source = "Murlok" },
     { slot = "Main Hand", item = { itemId = 271092, name = "Jan'thrazet, the Soul Fang" }, source = "Murlok" },
     { slot = "Off Hand", item = { itemId = 245769, name = "Aln'hara Lantern" }, source = "Murlok" },
   } },

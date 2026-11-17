@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["ROGUE"] = GrimoireStatTargets["ROGUE"] or {}
 
 GrimoireStatTargets["ROGUE"]["assassination"] = GrimoireStatTargets["ROGUE"]["assassination"] or {}
-GrimoireStatTargets["ROGUE"]["assassination"]["Mythic+"] = { targets = { crit = 1089, haste = 939, mastery = 989, versatility = 147 } }
+GrimoireStatTargets["ROGUE"]["assassination"]["Mythic+"] = { targets = { crit = 1039, haste = 934, mastery = 1051, versatility = 154 } }
 
 GrimoireStatTargets["ROGUE"]["outlaw"] = GrimoireStatTargets["ROGUE"]["outlaw"] or {}
-GrimoireStatTargets["ROGUE"]["outlaw"]["Mythic+"] = { targets = { crit = 1203, haste = 944, mastery = 333, versatility = 541 } }
+GrimoireStatTargets["ROGUE"]["outlaw"]["Mythic+"] = { targets = { crit = 1189, haste = 943, mastery = 312, versatility = 590 } }
 
 GrimoireStatTargets["ROGUE"]["subtlety"] = GrimoireStatTargets["ROGUE"]["subtlety"] or {}
-GrimoireStatTargets["ROGUE"]["subtlety"]["Mythic+"] = { targets = { crit = 935, haste = 816, mastery = 1263, versatility = 170 } }
+GrimoireStatTargets["ROGUE"]["subtlety"]["Mythic+"] = { targets = { crit = 926, haste = 821, mastery = 1272, versatility = 164 } }

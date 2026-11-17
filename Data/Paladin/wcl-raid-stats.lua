@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["PALADIN"] = GrimoireStatTargets["PALADIN"] or {}
 
 GrimoireStatTargets["PALADIN"]["holy"] = GrimoireStatTargets["PALADIN"]["holy"] or {}
-GrimoireStatTargets["PALADIN"]["holy"]["Raid"] = { targets = { crit = 616, haste = 829, mastery = 638, versatility = 187 }, samples = 99, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["PALADIN"]["holy"]["Raid"] = { targets = { crit = 625, haste = 836, mastery = 635, versatility = 184 }, samples = 99, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["PALADIN"]["protection"] = GrimoireStatTargets["PALADIN"]["protection"] or {}
-GrimoireStatTargets["PALADIN"]["protection"]["Raid"] = { targets = { crit = 945, haste = 940, mastery = 510, versatility = 84 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["PALADIN"]["protection"]["Raid"] = { targets = { crit = 951, haste = 934, mastery = 518, versatility = 79 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
 
 GrimoireStatTargets["PALADIN"]["retribution"] = GrimoireStatTargets["PALADIN"]["retribution"] or {}
-GrimoireStatTargets["PALADIN"]["retribution"]["Raid"] = { targets = { crit = 971, haste = 643, mastery = 1059, versatility = 2 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }
+GrimoireStatTargets["PALADIN"]["retribution"]["Raid"] = { targets = { crit = 979, haste = 641, mastery = 1067, versatility = 2 }, samples = 100, source = "Warcraft Logs Heroisch-Endboss", limited = true }

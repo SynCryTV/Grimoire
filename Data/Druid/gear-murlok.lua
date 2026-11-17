@@ -48,7 +48,7 @@ GrimoireMurlokGearData["DRUID"] = {
     { slot = "Legs", item = { itemId = 271527, name = "Enigmatic Dreamwatcher's Leggings" }, source = "Murlok" },
     { slot = "Feet", item = { itemId = 244569, name = "Silvermoon Agent's Sneakers" }, source = "Murlok" },
     { slot = "Ring", item = { itemId = 281029, name = "Band of the Swarmcaller" }, source = "Murlok" },
-    { slot = "Ring", item = { itemId = 240949, name = "Masterwork Sin'dorei Band" }, source = "Murlok" },
+    { slot = "Ring", item = { itemId = 268266, name = "Alluring Bubbleband" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 281215, name = "Twisted Horror's Tendril" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270175, name = "Voracious Heart of Ula'tek" }, source = "Murlok" },
     { slot = "Main Hand", item = { itemId = 268215, name = "Abyssal Broodfiend's Bardiche" }, source = "Murlok" },
@@ -69,6 +69,6 @@ GrimoireMurlokGearData["DRUID"] = {
     { slot = "Trinket", item = { itemId = 270162, name = "Soulcoiler Ritual Vessel" }, source = "Murlok" },
     { slot = "Trinket", item = { itemId = 270167, name = "Wavecaller's Seastone" }, source = "Murlok" },
     { slot = "Main Hand", item = { itemId = 271092, name = "Jan'thrazet, the Soul Fang" }, source = "Murlok" },
-    { slot = "Off Hand", item = { itemId = 245769, name = "Aln'hara Lantern" }, source = "Murlok" },
+    { slot = "Off Hand", item = { itemId = 268197, name = "Spine of the Hissing Abyss" }, source = "Murlok" },
   } },
 }

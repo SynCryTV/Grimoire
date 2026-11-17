@@ -3,10 +3,10 @@ GrimoireStatTargets = GrimoireStatTargets or {}
 GrimoireStatTargets["EVOKER"] = GrimoireStatTargets["EVOKER"] or {}
 
 GrimoireStatTargets["EVOKER"]["augmentation"] = GrimoireStatTargets["EVOKER"]["augmentation"] or {}
-GrimoireStatTargets["EVOKER"]["augmentation"]["Mythic+"] = { targets = { crit = 819, haste = 528, mastery = 1676, versatility = 109 } }
+GrimoireStatTargets["EVOKER"]["augmentation"]["Mythic+"] = { targets = { crit = 839, haste = 531, mastery = 1633, versatility = 113 } }
 
 GrimoireStatTargets["EVOKER"]["devastation"] = GrimoireStatTargets["EVOKER"]["devastation"] or {}
-GrimoireStatTargets["EVOKER"]["devastation"]["Mythic+"] = { targets = { crit = 1088, haste = 704, mastery = 1023, versatility = 196 } }
+GrimoireStatTargets["EVOKER"]["devastation"]["Mythic+"] = { targets = { crit = 1060, haste = 717, mastery = 1044, versatility = 208 } }
 
 GrimoireStatTargets["EVOKER"]["preservation"] = GrimoireStatTargets["EVOKER"]["preservation"] or {}
-GrimoireStatTargets["EVOKER"]["preservation"]["Mythic+"] = { targets = { crit = 907, haste = 935, mastery = 724, versatility = 530 } }
+GrimoireStatTargets["EVOKER"]["preservation"]["Mythic+"] = { targets = { crit = 907, haste = 951, mastery = 690, versatility = 556 } }
